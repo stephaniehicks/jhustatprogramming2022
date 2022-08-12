@@ -1,0 +1,61 @@
+---
+title: "Schedule"
+description: |
+ Schedule and course materials for Statistical Programming Paradigms and Workflows (JHSPH Biostatistics 140.840 Fall 2022).
+tbl-colwidths: [15,10, 55, 20]
+---
+
+## Schedule and course materials
+
+For Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatprogramming2022) and navigate the directories, or best of all to clone the repo and navigate within RStudio.
+
+::: column-page
+| Week         | Dates   | Topics | Projects  |
+|---|---|---|---|---|
+| **Module 1** | | **TBA**  | |
+| | | |
+| Week 1       | Oct 27  |  | `r emojifont::emoji('palm_tree')` Project 0 |
+| | | | |
+| Week 2 | Nov 1  |  | `r emojifont::emoji('palm_tree')` Project 1 |
+| | | | | 
+| | | |
+| | Nov 3  |  | `r emojifont::emoji('fallen_leaf')` Project 0 due  |
+| | |  | | 
+| | | |
+| Week 3       | Nov 8 |   | | 
+| | | |
+| **Module 2** |         | **TBA** | |                              | | | |
+| | Nov 10 |  | `r emojifont::emoji('palm_tree')` Project 2  |
+| | Nov 11 |  | `r emojifont::emoji('fallen_leaf')` Project 1 due  | 
+| | | |
+| Week 4 | Nov 15 |   | | 
+| | | |
+| | Nov 17 |  | | 
+| | | |
+| Week 5   | Nov 22 |   | | 
+| | | |
+| |  Nov 24 |  No lecture! | | 
+| | Nov 25 | | `r emojifont::emoji('fallen_leaf')` Project 2 due |
+| | | |
+| Week 6 | Nov 29 |   | `r emojifont::emoji('palm_tree')` Project 3  |
+| | | |
+| | Dec 1  |  | |
+| | | |
+| Week 7 | Dec 6  |  | | 
+| | | |
+| | Dec 8  |  | | 
+| | | |
+| **Module 3** |  | **TBA**  | | 
+| | | |
+| Week 8       | Dec 13  |  | | 
+|      |  |  | | 
+| | | |
+| | Dec 15  |   | | 
+| | | |
+| Week 9       | Dec 20  |  | | 
+|      |  |  | | 
+| | | |
+| | Dec 22  |   | | 
+| | | |
+| | Dec 23  | | `r emojifont::emoji('fallen_leaf')` Project 3 due  |
+:::

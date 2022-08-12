@@ -1,0 +1,32 @@
+---
+title: "Welcome to Statistical Programming Paradigms and Workflows!"
+image: images/cool_icon.png
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/stephaniehicks
+    - icon: github
+      text: Github
+      href: https://github.com/stephaniehicks
+---
+
+Welcome to Statistical Programming Paradigms and Workflows at Johns Hopkins Bloomberg School of Public Health! 
+
+## What is this course? 
+
+This course covers advanced statistical computing programming paradigms and workflows required for the research and application of statistical methods. Includes the basics of programming in unix and/or using command-line tools, introduction to version control, advanced R and tidyverse skills, introduction to creating R packages with documentation, working with relational databases, introduction to functional programming, getting and using data from APIs, introduction to Shiny and dashboards. Topics in statistical data analysis provide working examples.
+
+
+## Getting started
+
+I suggest that you start by looking over the [Syllabus](syllabus.qmd) and [Schedule](schedule.qmd) under **General Information**. After that, start with the Lectures content in the given order.
+
+## Acknowledgements
+
+This course was developed and is maintained by [Stephanie Hicks](https://www.stephaniehicks.com).
+
+The following individuals have contributed to improving the course or materials have been adapted from their courses: [Roger D. Peng](https://github.com/rdpeng), [Andreas Handel](https://www.andreashandel.com), [Naim Rashid](https://naimurashid.github.io), [Michael Love](https://github.com/mikelove).
+
+The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.

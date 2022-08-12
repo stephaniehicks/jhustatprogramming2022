@@ -1,0 +1,14 @@
+{
+  "hash": "93fef5cc1b8b0c2539b20618c23fff89",
+  "result": {
+    "markdown": "---\ntitle: \"Schedule\"\ndescription: |\n Schedule and course materials for Statistical Programming Paradigms and Workflows (JHSPH Biostatistics 140.840 Fall 2022).\ntbl-colwidths: [15,10, 55, 20]\n---\n\n\n## Schedule and course materials\n\nFor Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatprogramming2022) and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n::: column-page\n| Week         | Dates   | Topics | Projects  |\n|---|---|---|---|---|\n| **Module 1** | | **TBA**  | |\n| | | |\n| Week 1       | Oct 27  |  | 🌴 Project 0 |\n| | | | |\n| Week 2 | Nov 1  |  | 🌴 Project 1 |\n| | | | | \n| | | |\n| | Nov 3  |  | 🍂 Project 0 due  |\n| | |  | | \n| | | |\n| Week 3       | Nov 8 |   | | \n| | | |\n| **Module 2** |         | **TBA** | |                              | | | |\n| | Nov 10 |  | 🌴 Project 2  |\n| | Nov 11 |  | 🍂 Project 1 due  | \n| | | |\n| Week 4 | Nov 15 |   | | \n| | | |\n| | Nov 17 |  | | \n| | | |\n| Week 5   | Nov 22 |   | | \n| | | |\n| |  Nov 24 |  No lecture! | | \n| | Nov 25 | | 🍂 Project 2 due |\n| | | |\n| Week 6 | Nov 29 |   | 🌴 Project 3  |\n| | | |\n| | Dec 1  |  | |\n| | | |\n| Week 7 | Dec 6  |  | | \n| | | |\n| | Dec 8  |  | | \n| | | |\n| **Module 3** |  | **TBA**  | | \n| | | |\n| Week 8       | Dec 13  |  | | \n|      |  |  | | \n| | | |\n| | Dec 15  |   | | \n| | | |\n| Week 9       | Dec 20  |  | | \n|      |  |  | | \n| | | |\n| | Dec 22  |   | | \n| | | |\n| | Dec 23  | | 🍂 Project 3 due  |\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
