@@ -1,129 +1,10 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
     "text": "No matching items"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Big Book of R: https://www.bigbookofr.com\nList of resources to learn R (but also Python, SQL, Javascript): https://github.com/delabj/datacamp_alternatives/blob/master/index.md\nlearnr4free. Resources (books, videos, interactive websites, papers) to learn R. Some of the resources are beginner-friendly and start with the installation process: https://www.learnr4free.com/en\nData Science with R by Danielle Navarro: https://robust-tools.djnavarro.net"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Location: In person and Online for Fall 2022\nCourse time: Tuesdays and Thursdays from 1:30-2:50pm (Eastern Daylight Time zone)\nAssignments: Three projects\n\n\n\n\nStephanie C. Hicks (https://www.stephaniehicks.com)\n\nOffice Location: E3545, Wolfe Street building\nEmail: shicks19@jhu.edu\n\n\nInstructor office hours are announced on CoursePlus. If there are conflicts and/or need to cancel office hours, announcements will be made on CoursePlus.\n\n\n\nIn order of preference, here is a preferred list of ways to get help:\n\nWe strongly encourage you to use CoursePlus to ask questions first, before joining office hours. The reason for this is so that other students in the class (who likely have similar questions) can also benefit from the questions and answers asked by your colleagues.\nYou are welcome to join office hours to get more group interactive feedback.\nIf you are not able to make the office hours, appointments can be made by email with either the instructor or the TAs."
-  },
-  {
-    "objectID": "syllabus.html#important-links",
-    "href": "syllabus.html#important-links",
-    "title": "Syllabus",
-    "section": "Important Links",
-    "text": "Important Links\n\nCourse website: https://stephaniehicks.com/jhustatprogramming2022\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatprogramming2022"
-  },
-  {
-    "objectID": "syllabus.html#learning-objectives",
-    "href": "syllabus.html#learning-objectives",
-    "title": "Syllabus",
-    "section": "Learning Objectives:",
-    "text": "Learning Objectives:\nUpon successfully completing this course, students will be able to:\n\nWrite unix code with command-line tools\nInstall and configure software necessary for a statistical programming environment and with version control\nWrite code for advanced programming topics in R and tidyverse\nBuild and organize a software package with documentation for publishing on the internet\nWrite code using functional or other programming paradigms and discuss strategies for getting data from APIs or working with large data\nBuild an interactive web application using Shiny or other dashboard toolsInstall and configure software necessary for a statistical programming environment"
-  },
-  {
-    "objectID": "syllabus.html#lectures",
-    "href": "syllabus.html#lectures",
-    "title": "Syllabus",
-    "section": "Lectures",
-    "text": "Lectures\nIn Fall 2022, we will have in person lectures that will be recorded enabling an entirely online section for the course too. Mandatory attendance is not required."
-  },
-  {
-    "objectID": "syllabus.html#textbook-and-other-course-material",
-    "href": "syllabus.html#textbook-and-other-course-material",
-    "title": "Syllabus",
-    "section": "Textbook and Other Course Material",
-    "text": "Textbook and Other Course Material\nThere is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download."
-  },
-  {
-    "objectID": "syllabus.html#software",
-    "href": "syllabus.html#software",
-    "title": "Syllabus",
-    "section": "Software",
-    "text": "Software\nWe will make heavy use of R in this course, so you should have R installed. You can obtain R from the Comprehensive R Archive Network. There are versions available for Mac, Windows, and Unix/Linux. This software is required for this course.\nIt is important that you have the latest version of R installed. For this course we will be using R version 4.2.1. You can determine what version of R you have by starting up R and typing into the console R.version.string and hitting the return/enter key. If you do not have the proper version of R installed, go to CRAN and download and install the latest version.\nWe will also make use of the RStudio interactive development environment (IDE). RStudio requires that R be installed, and so is an “add-on” to R. You can obtain the RStudio Desktop for free from the RStudio web site. In particular, we will make heavy use of it when developing R packages. It is also essential that you have the latest release of RStudio. You can determine the version of RStudio by looking at menu item Help > About RStudio. You should be using RStudio version 1.4.1106 or higher."
-  },
-  {
-    "objectID": "syllabus.html#projects",
-    "href": "syllabus.html#projects",
-    "title": "Syllabus",
-    "section": "Projects",
-    "text": "Projects\nThere will be 4 assignments, due every 2–3 weeks. Projects will be submitted electronically via the Drop Box on the CoursePlus web site (unless otherwise specified).\nThe project assignments will be due on\n\nProject 0: September 8, 1:29pm (entirely optional and not graded but hopefully useful and fun)\nProject 1: September 16, 11:59pm\nProject 2: September 30, 11:59pm\nProject 3: October 21, 11:59pm\n\n\nProject collaboration\nPlease feel free to study together and talk to one another about project assignments. The mutual instruction that students give each other is among the most valuable that can be achieved.\nHowever, it is expected that project assignments will be implemented and written up independently unless otherwise specified. Specifically, please do not share analytic code or output. Please do not collaborate on write-up and interpretation. Please do not access or use solutions from any source before your project assignment is submitted for grading."
-  },
-  {
-    "objectID": "syllabus.html#discussion-forum",
-    "href": "syllabus.html#discussion-forum",
-    "title": "Syllabus",
-    "section": "Discussion Forum",
-    "text": "Discussion Forum\nThe course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate.\n\nIcebreakers\nBefore the start of each lecture, I will post an icebreaker question in CoursePlus. You are welcome to answer it and learn about your fellow students in the course."
-  },
-  {
-    "objectID": "syllabus.html#exams",
-    "href": "syllabus.html#exams",
-    "title": "Syllabus",
-    "section": "Exams",
-    "text": "Exams\nThere are no exams in this course."
-  },
-  {
-    "objectID": "syllabus.html#grading",
-    "href": "syllabus.html#grading",
-    "title": "Syllabus",
-    "section": "Grading",
-    "text": "Grading\nGrades in the course will be based on Projects 0–3 with a percentage of the final grade being apportioned to each assignment. Each of Projects 1–3 counts approximately equally in the final grade. Grades for the projects and the final grade will be issued via the CoursePlus grade book."
-  },
-  {
-    "objectID": "syllabus.html#academic-ethics-and-student-conduct-code",
-    "href": "syllabus.html#academic-ethics-and-student-conduct-code",
-    "title": "Syllabus",
-    "section": "Academic Ethics and Student Conduct Code",
-    "text": "Academic Ethics and Student Conduct Code\nStudents enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.\nStudents should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s portal.\nThe faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions."
-  },
-  {
-    "objectID": "syllabus.html#disability-support-service",
-    "href": "syllabus.html#disability-support-service",
-    "title": "Syllabus",
-    "section": "Disability Support Service",
-    "text": "Disability Support Service\nIf you are a student with a documented disability who requires an academic accommodation, please contact the Office of Disability Support Services at 410-502-6602 or via email at JHSPH.dss@jhu.edu. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health."
-  },
-  {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "Syllabus",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nThis is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are useful. Previous experience with writing computer programs in general and R in particular is also helpful, but not necessary. If you have no programming experience, expect to spend extra time getting yourself familiar with R. As long as you are willing to invest the time to learn the programming and you do not mind thinking quantitatively, you should be able to take the course, independent of your background.\n\nFormal requirement for the course is Biostatistics 140.776. Knowledge of material from 140.776 is assumed. If you didn’t take this course, please contact me to get permission to enroll.*"
-  },
-  {
-    "objectID": "syllabus.html#general-disclaimers",
-    "href": "syllabus.html#general-disclaimers",
-    "title": "Syllabus",
-    "section": "General Disclaimers",
-    "text": "General Disclaimers\n\nThis syllabus is a general plan, deviations announced to the class by the instructor may be necessary."
   },
   {
     "objectID": "index.html",
@@ -158,13 +39,118 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "news\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nAug 9, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nAug 6, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "No matching items"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Location: In person (with recorded lectures posted online) for Fall 2022\nCourse time: Tuesdays and Thursdays from 1:30-2:50pm (Eastern Daylight Time zone)\nCourse location: TBA\nAssignments: Four projects\n\n\n\n\nTo add the course to your 2nd term registration: Sign up for 3 credits of 140.840, with Dr. Hicks as the instructor.\nPlease note that 800-level courses are pass/fail only\nPlease note BSPH does not allow auditors in 800-level courses\nPlease note there is no formal .41 online course for 800-level courses. However, this course will have the lectures recorded and posted on CoursePlus. You can watch all lecture material and complete the assignments asynchronously, if you wish.\n\n\n\n\n\nStephanie C. Hicks (https://www.stephaniehicks.com)\n\nOffice Location: E3545, Wolfe Street building\nEmail: shicks19@jhu.edu\n\n\nInstructor office hours are announced on CoursePlus. If there are conflicts and/or need to cancel office hours, announcements will be made on CoursePlus.\n\n\n\nIn order of preference, here is a preferred list of ways to get help:\n\nWe strongly encourage you to use CoursePlus to ask questions first, before joining office hours. The reason for this is so that other students in the class (who likely have similar questions) can also benefit from the questions and answers asked by your colleagues.\nYou are welcome to join office hours to get more group interactive feedback.\nIf you are not able to make the office hours, appointments can be made by email with the instructor."
+  },
+  {
+    "objectID": "syllabus.html#important-links",
+    "href": "syllabus.html#important-links",
+    "title": "Syllabus",
+    "section": "Important Links",
+    "text": "Important Links\n\nCourse website: https://stephaniehicks.com/jhustatprogramming2022\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatprogramming2022"
+  },
+  {
+    "objectID": "syllabus.html#learning-objectives",
+    "href": "syllabus.html#learning-objectives",
+    "title": "Syllabus",
+    "section": "Learning Objectives:",
+    "text": "Learning Objectives:\nUpon successfully completing this course, students will be able to:\n\nWrite unix code with command-line tools\nInstall and configure software necessary for a statistical programming environment and with version control\nWrite code for advanced programming topics in R and tidyverse\nBuild and organize a software package with documentation for publishing on the internet\nWrite code using functional or other programming paradigms and discuss strategies for getting data from APIs or working with large data\nBuild an interactive web application using Shiny or other dashboard tools"
+  },
+  {
+    "objectID": "syllabus.html#lectures",
+    "href": "syllabus.html#lectures",
+    "title": "Syllabus",
+    "section": "Lectures",
+    "text": "Lectures\nIn Fall 2022, we will have in person lectures that will be recorded and posted online for students to watch. Mandatory attendance is not required."
+  },
+  {
+    "objectID": "syllabus.html#textbook-and-other-course-material",
+    "href": "syllabus.html#textbook-and-other-course-material",
+    "title": "Syllabus",
+    "section": "Textbook and Other Course Material",
+    "text": "Textbook and Other Course Material\nThere is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download."
+  },
+  {
+    "objectID": "syllabus.html#software",
+    "href": "syllabus.html#software",
+    "title": "Syllabus",
+    "section": "Software",
+    "text": "Software\nWe will make heavy use of R in this course, so you should have R installed. You can obtain R from the Comprehensive R Archive Network. There are versions available for Mac, Windows, and Unix/Linux. This software is required for this course.\nIt is important that you have the latest version of R installed. For this course we will be using R version 4.2.1. You can determine what version of R you have by starting up R and typing into the console R.version.string and hitting the return/enter key. If you do not have the proper version of R installed, go to CRAN and download and install the latest version.\nWe will also make use of the RStudio interactive development environment (IDE). RStudio requires that R be installed, and so is an “add-on” to R. You can obtain the RStudio Desktop for free from the RStudio web site. In particular, we will make heavy use of it when developing R packages. It is also essential that you have the latest release of RStudio. You can determine the version of RStudio by looking at menu item Help > About RStudio. You should be using RStudio version 1.4.1106 or higher."
+  },
+  {
+    "objectID": "syllabus.html#projects",
+    "href": "syllabus.html#projects",
+    "title": "Syllabus",
+    "section": "Projects",
+    "text": "Projects\nThere will be 4 assignments, due every 2–3 weeks. Projects will be submitted electronically via the Drop Box on the CoursePlus web site (unless otherwise specified).\nThe project assignments will be due on\n\nProject 1: Friday November 11, 11:59pm\nProject 2: Friday November 25, 11:59pm\nProject 3: Friday December 9, 11:59pm\nProject 4: Friday December 23, 11:59pm\n\n\nProject collaboration\nPlease feel free to study together and talk to one another about project assignments. The mutual instruction that students give each other is among the most valuable that can be achieved.\nHowever, it is expected that project assignments will be implemented and written up independently unless otherwise specified. Specifically, please do not share analytic code or output. Please do not collaborate on write-up and interpretation. Please do not access or use solutions from any source before your project assignment is submitted for grading."
+  },
+  {
+    "objectID": "syllabus.html#discussion-forum",
+    "href": "syllabus.html#discussion-forum",
+    "title": "Syllabus",
+    "section": "Discussion Forum",
+    "text": "Discussion Forum\nThe course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate."
+  },
+  {
+    "objectID": "syllabus.html#exams",
+    "href": "syllabus.html#exams",
+    "title": "Syllabus",
+    "section": "Exams",
+    "text": "Exams\nThere are no exams in this course."
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\nGrades in the course will be based on Projects 1–4 with a percentage of the final grade being apportioned to each assignment. Each of Projects 1–4 counts approximately equally in the final grade. Grades for the projects and the final grade will be issued via the CoursePlus grade book."
+  },
+  {
+    "objectID": "syllabus.html#academic-ethics-and-student-conduct-code",
+    "href": "syllabus.html#academic-ethics-and-student-conduct-code",
+    "title": "Syllabus",
+    "section": "Academic Ethics and Student Conduct Code",
+    "text": "Academic Ethics and Student Conduct Code\nStudents enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.\nStudents should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s portal.\nThe faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions."
+  },
+  {
+    "objectID": "syllabus.html#disability-support-service",
+    "href": "syllabus.html#disability-support-service",
+    "title": "Syllabus",
+    "section": "Disability Support Service",
+    "text": "Disability Support Service\nStudents requiring accommodations for disabilities should register with Student Disability Service (SDS). It is the responsibility of the student to register for accommodations with SDS. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health. Once you are f a student in your class has approved accommodations you will receive formal notification and the student will be encouraged to reach out. If you have questions about requesting accommodations, please contact BSPH.dss@jhu.edu."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nPrerequisite for the course is Biostatistics 140.776 or knowledge of material from 140.776 is assumed.\nIf you did not take the above course, please contact course instructor to get permission to enroll."
+  },
+  {
+    "objectID": "syllabus.html#general-disclaimers",
+    "href": "syllabus.html#general-disclaimers",
+    "title": "Syllabus",
+    "section": "General Disclaimers",
+    "text": "General Disclaimers\n\nThis syllabus is a general plan, deviations announced to the class by the instructor may be necessary."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Big Book of R: https://www.bigbookofr.com\nList of resources to learn R (but also Python, SQL, Javascript): https://github.com/delabj/datacamp_alternatives/blob/master/index.md\nlearnr4free. Resources (books, videos, interactive websites, papers) to learn R. Some of the resources are beginner-friendly and start with the installation process: https://www.learnr4free.com/en\nData Science with R by Danielle Navarro: https://robust-tools.djnavarro.net"
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nTBA\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\n\n🌴 Project 0\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\n\n🌴 Project 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\n\n🍂 Project 0 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\n\n\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nTBA\n\n\n\n\n\nNov 10\n\n🌴 Project 2\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\n\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\n\n\n\n\n\n\n\n\n\n\n\n\n\nNov 24\nNo lecture!\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\n\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nDec 1\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 8\n\n\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nTBA\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 3 due"
+    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction\n🌴 Project 1\n\n\n\n\n\nBuilding a brand and websites with postcards, distill and blogdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with workflowr\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nIntro to D3 visualizations with r2d3\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
   }
 ]
