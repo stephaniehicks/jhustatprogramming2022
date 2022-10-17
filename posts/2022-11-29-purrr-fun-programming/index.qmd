@@ -1,0 +1,63 @@
+---
+title: "Functional Programming with `purrr`"
+author: 
+  - name: Boyi Guo
+    url: https://boyiguo1.github.io
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://publichealth.jhu.edu
+description: "Introduction to tools to work with functions and vectors in R"
+date: 2022-11-29
+draft: true
+categories: [module 3, week 6, functions, functional, programming, purrr]
+---
+
+<!-- Add interesting quote -->
+
+# Pre-lecture materials
+
+### Read ahead
+
+::: callout-note
+## Read ahead
+
+**Before class, you can prepare by reading the following materials:**
+
+1.  Add here.
+2.  Add here.
+:::
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-   Add here.
+
+# Learning objectives
+
+::: callout-note
+# Learning objectives
+
+**At the end of this lesson you will:**
+
+-   Add here.
+:::
+
+# Add lecture here
+
+# Post-lecture materials
+
+### Final Questions
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+::: callout-note
+### Questions
+
+1.  Add here.
+:::
+
+### Additional Resources
+
+::: callout-tip
+-   Add here.
+:::

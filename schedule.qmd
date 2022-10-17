@@ -9,53 +9,65 @@ tbl-colwidths: [15,10, 55, 20]
 
 For Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatprogramming2022) and navigate the directories, or best of all to clone the repo and navigate within RStudio.
 
+
 ::: column-page
 | Week         | Dates   | Topics | Projects  |
 |---|---|---|---|---|
-| **Module 1** | | **TBA**  | |
+| **Module 1** | | **Statistical programming at the command-line**  | |
 | | | |
-| Week 1       | Oct 27  |  | `r emojifont::emoji('palm_tree')` Project 0 |
+| Week 1 | Oct 27  | Course introduction \[[html](posts/2022-10-27-course-intro/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-course-intro/index.qmd)\]  | `r emojifont::emoji('palm_tree')` Project 1  |
+| | | Building a brand and websites with `quarto` \[[html](posts/2022-10-27-build-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-build-website/index.qmd)\]  | |
 | | | | |
-| Week 2 | Nov 1  |  | `r emojifont::emoji('palm_tree')` Project 1 |
+| Week 2 | Nov 1  | Data science at the command-line |   |
 | | | | | 
-| | | |
-| | Nov 3  |  | `r emojifont::emoji('fallen_leaf')` Project 0 due  |
+| | Nov 3  | Data science at the command-line | |
 | | |  | | 
+| Week 3  | Nov 8 |  Version control  | `r emojifont::emoji('palm_tree')` Project 2 | 
+| | | |                            | | | |
+| | Nov 10 | Version control |   |
+| | | | | 
+| | Nov 11 | | `r emojifont::emoji('fallen_leaf')` Project 1 due | 
+| | | | | 
+| **Module 2** |         | **R software development** | |  
 | | | |
-| Week 3       | Nov 8 |   | | 
+| Week 4 | Nov 15 | Object Oriented Programming  |  | 
+| | | | |
+| | Nov 17 | R package software development |  | 
+| | | | | 
+| Week 5   | Nov 22 | R package software development | `r emojifont::emoji('palm_tree')` Project 3 | 
+| | | | | 
+| |  Nov 24 | `r emojifont::emoji('turkey')` No lecture, enjoy the break! | | 
+| | | | |
+| | Nov 25 | |  `r emojifont::emoji('fallen_leaf')` Project 2 due |
+| | | | | 
+| **Module 3** |         | **Advanced programming paradigms** | |  
+| | | | | 
+| Week 6 | Nov 29 | Functional programming with `purrr` |   |
+| | | | | 
+| | Dec 1  | Project management with `targets` | |
+| | | Package website with `pkgdown` | |
+| | | | | 
+| Week 7 | Dec 6  | Advanced `ggplot2`  |  `r emojifont::emoji('palm_tree')` Project 4  | 
 | | | |
-| **Module 2** |         | **TBA** | |                              | | | |
-| | Nov 10 |  | `r emojifont::emoji('palm_tree')` Project 2  |
-| | Nov 11 |  | `r emojifont::emoji('fallen_leaf')` Project 1 due  | 
+| | Dec 8  | Intro to D3 visualizations with `r2d3` | | 
+| | | | | 
+| | Dec 9  | |  `r emojifont::emoji('fallen_leaf')` Project 3 due | 
 | | | |
-| Week 4 | Nov 15 |   | | 
+| **Module 4** |  | **Interactive web apps and dashboards**  | | 
 | | | |
-| | Nov 17 |  | | 
+|  Week 8 | Dec 13  |  Building  dashboards with `flexdashboard` | | 
 | | | |
-| Week 5   | Nov 22 |   | | 
+| | Dec 15  | Building dashboards with `shinydashboard`  | | 
 | | | |
-| |  Nov 24 |  No lecture! | | 
-| | Nov 25 | | `r emojifont::emoji('fallen_leaf')` Project 2 due |
+| **Module 5** |  | **Dealing with "big" data**  | | 
 | | | |
-| Week 6 | Nov 29 |   | `r emojifont::emoji('palm_tree')` Project 3  |
-| | | |
-| | Dec 1  |  | |
-| | | |
-| Week 7 | Dec 6  |  | | 
-| | | |
-| | Dec 8  |  | | 
-| | | |
-| **Module 3** |  | **TBA**  | | 
-| | | |
-| Week 8       | Dec 13  |  | | 
+| Week 9       | Dec 20  | Profiling R code  |  | 
+| |  | Strategies for dealing with large data | | 
+| | | Parallel computing | | 
 |      |  |  | | 
 | | | |
-| | Dec 15  |   | | 
+| | Dec 22  | Relational databases and SQL basics  | | 
+| |  | Interacting with APIs to databases | | 
 | | | |
-| Week 9       | Dec 20  |  | | 
-|      |  |  | | 
-| | | |
-| | Dec 22  |   | | 
-| | | |
-| | Dec 23  | | `r emojifont::emoji('fallen_leaf')` Project 3 due  |
+| | Dec 23  | | `r emojifont::emoji('fallen_leaf')` Project 4 due  |
 :::

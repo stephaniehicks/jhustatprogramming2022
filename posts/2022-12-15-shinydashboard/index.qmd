@@ -1,0 +1,64 @@
+---
+title: "Building dashboards with `shinydashboard`"
+author: 
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://publichealth.jhu.edu
+description: "Introduction to building dashboards in R with `shinydashboard`"
+date: 2022-12-15
+draft: true
+categories: [module 4, week 8, data viz, shinydashboard]
+---
+
+<!-- Add interesting quote -->
+
+# Pre-lecture materials
+
+### Read ahead
+
+::: callout-note
+## Read ahead
+
+**Before class, you can prepare by reading the following materials:**
+
+1.  Add here.
+2.  Add here.
+:::
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-   Add here.
+
+# Learning objectives
+
+::: callout-note
+# Learning objectives
+
+**At the end of this lesson you will:**
+
+-   Add here.
+:::
+
+# Add lecture here
+
+# Post-lecture materials
+
+### Final Questions
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+::: callout-note
+### Questions
+
+1.  Add here.
+:::
+
+### Additional Resources
+
+::: callout-tip
+-   Add here.
+:::
+
