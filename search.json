@@ -1,45 +1,10 @@
 [
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
-    "section": "",
-    "text": "Welcome to Statistical Programming Paradigms and Workflows at Johns Hopkins Bloomberg School of Public Health!"
-  },
-  {
-    "objectID": "index.html#what-is-this-course",
-    "href": "index.html#what-is-this-course",
-    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
-    "section": "What is this course?",
-    "text": "What is this course?\nThis course covers advanced statistical computing programming paradigms and workflows required for the research and application of statistical methods. Includes the basics of programming in unix and/or using command-line tools, introduction to version control, advanced R and tidyverse skills, introduction to creating R packages with documentation, working with relational databases, introduction to functional programming, getting and using data from APIs, introduction to Shiny and dashboards. Topics in statistical data analysis provide working examples."
-  },
-  {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
-    "section": "Getting started",
-    "text": "Getting started\nI suggest that you start by looking over the Syllabus and Schedule under General Information. After that, start with the Lectures content in the given order."
-  },
-  {
-    "objectID": "index.html#acknowledgements",
-    "href": "index.html#acknowledgements",
-    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
-    "section": "Acknowledgements",
-    "text": "Acknowledgements\nThis course was developed and is maintained by Stephanie Hicks.\nThe following individuals have contributed to improving the course or materials have been adapted from their courses: Roger D. Peng, Andreas Handel, Naim Rashid, Michael Love.\nThe course materials are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it."
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Lectures",
-    "section": "",
-    "text": "No matching items"
+    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction [html] [Qmd]\n🌴 Project 1\n\n\n\n\n\nBuilding a brand and websites with quarto [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with targets\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nIntro to D3 visualizations with r2d3\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
   },
   {
     "objectID": "syllabus.html",
@@ -140,17 +105,66 @@
     "text": "General Disclaimers\n\nThis syllabus is a general plan, deviations announced to the class by the instructor may be necessary."
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
+    "section": "",
+    "text": "Welcome to Statistical Programming Paradigms and Workflows at Johns Hopkins Bloomberg School of Public Health!"
+  },
+  {
+    "objectID": "index.html#what-is-this-course",
+    "href": "index.html#what-is-this-course",
+    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
+    "section": "What is this course?",
+    "text": "What is this course?\nThis course covers advanced statistical computing programming paradigms and workflows required for the research and application of statistical methods. Includes the basics of programming in unix and/or using command-line tools, introduction to version control, advanced R and tidyverse skills, introduction to creating R packages with documentation, working with relational databases, introduction to functional programming, getting and using data from APIs, introduction to Shiny and dashboards. Topics in statistical data analysis provide working examples."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
+    "section": "Getting started",
+    "text": "Getting started\nI suggest that you start by looking over the Syllabus and Schedule under General Information. After that, start with the Lectures content in the given order."
+  },
+  {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "Welcome to Statistical Programming Paradigms and Workflows!",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThis course was developed and is maintained by Stephanie Hicks.\nThe following individuals have contributed to improving the course or materials have been adapted from their courses: Roger D. Peng, Andreas Handel, Naim Rashid, Michael Love.\nThe course materials are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it."
+  },
+  {
+    "objectID": "posts/2022-10-27-build-website/index.html",
+    "href": "posts/2022-10-27-build-website/index.html",
+    "title": "Building a brand and websites with quarto",
+    "section": "",
+    "text": "Learning objectives\n\n\n\n\n\n\nLearning objectives\n\n\n\nAt the end of this lesson you will:\n\nAdd here.\n\n\n\n\n\nAdd lecture here\n\n\nPost-lecture materials\n\nFinal Questions\nHere are some post-lecture questions to help you think about the material discussed.\n\n\n\n\n\n\nQuestions\n\n\n\n\nAdd here.\n\n\n\n\n\nAdditional Resources\n\n\n\n\n\n\nTip\n\n\n\n\nAdd here."
+  },
+  {
+    "objectID": "posts/2022-10-27-course-intro/index.html",
+    "href": "posts/2022-10-27-course-intro/index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Learning objectives\n\n\n\n\n\n\nLearning objectives\n\n\n\nAt the end of this lesson you will:\n\nAdd here.\n\n\n\n\n\nAdd lecture here\n\n\nPost-lecture materials\n\nFinal Questions\nHere are some post-lecture questions to help you think about the material discussed.\n\n\n\n\n\n\nQuestions\n\n\n\n\nAdd here.\n\n\n\n\n\nAdditional Resources\n\n\n\n\n\n\nTip\n\n\n\n\nAdd here."
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "module 1\n\n\nweek 1\n\n\nwebsites\n\n\nquarto\n\n\n\n\nBuilding a brand and websites with quarto\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodule 1\n\n\nweek 1\n\n\ncourse-admin\n\n\n\n\nOverview course information for BSPH Biostatistics 140.840 in Fall 2022\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
     "section": "",
     "text": "Big Book of R: https://www.bigbookofr.com\nList of resources to learn R (but also Python, SQL, Javascript): https://github.com/delabj/datacamp_alternatives/blob/master/index.md\nlearnr4free. Resources (books, videos, interactive websites, papers) to learn R. Some of the resources are beginner-friendly and start with the installation process: https://www.learnr4free.com/en\nData Science with R by Danielle Navarro: https://robust-tools.djnavarro.net"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction\n🌴 Project 1\n\n\n\n\n\nBuilding a brand and websites with postcards, distill and blogdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with workflowr\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nIntro to D3 visualizations with r2d3\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
   }
 ]

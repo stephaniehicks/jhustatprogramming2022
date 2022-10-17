@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/projects.html</loc>
-    <lastmod>2022-08-18T18:13:52.733Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/schedule.html</loc>
+    <lastmod>2022-10-17T17:28:32.141Z</lastmod>
   </url>
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/index.html</loc>
-    <lastmod>2022-08-18T18:13:53.183Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/syllabus.html</loc>
+    <lastmod>2022-10-17T17:28:32.993Z</lastmod>
   </url>
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/lectures.html</loc>
-    <lastmod>2022-08-18T18:13:53.517Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/index.html</loc>
+    <lastmod>2022-10-17T17:28:33.401Z</lastmod>
   </url>
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/syllabus.html</loc>
-    <lastmod>2022-08-18T18:13:53.894Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-10-27-build-website/index.html</loc>
+    <lastmod>2022-10-17T17:28:35.397Z</lastmod>
   </url>
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/resources.html</loc>
-    <lastmod>2022-08-18T18:13:54.158Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-10-27-course-intro/index.html</loc>
+    <lastmod>2022-10-17T17:28:40.573Z</lastmod>
   </url>
   <url>
-    <loc>https://stephaniehicks.github.io/jhustatprogramming2022/schedule.html</loc>
-    <lastmod>2022-08-18T18:13:54.492Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/lectures.html</loc>
+    <lastmod>2022-10-17T17:28:41.705Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/projects.html</loc>
+    <lastmod>2022-10-17T17:28:42.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/resources.html</loc>
+    <lastmod>2022-10-17T17:28:42.337Z</lastmod>
   </url>
 </urlset>
