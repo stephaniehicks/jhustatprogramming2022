@@ -125,6 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -258,18 +259,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#qmd-files" id="toc-qmd-files" class="nav-link" data-scroll-target="#qmd-files">.qmd files</a>
   <ul class="collapse">
+  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
+  <li><a href="#authoring" id="toc-authoring" class="nav-link" data-scroll-target="#authoring">Authoring</a></li>
   <li><a href="#how-does-multi-language-support-work" id="toc-how-does-multi-language-support-work" class="nav-link" data-scroll-target="#how-does-multi-language-support-work">How does multi-language support work?</a></li>
   </ul></li>
   <li><a href="#r-markdown-vs-quarto" id="toc-r-markdown-vs-quarto" class="nav-link" data-scroll-target="#r-markdown-vs-quarto">R Markdown vs Quarto</a>
   <ul class="collapse">
-  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">code chunks</a></li>
+  <li><a href="#code-block-options" id="toc-code-block-options" class="nav-link" data-scroll-target="#code-block-options">Code block options</a></li>
+  <li><a href="#output-options" id="toc-output-options" class="nav-link" data-scroll-target="#output-options">Output Options</a></li>
+  <li><a href="#margin-content" id="toc-margin-content" class="nav-link" data-scroll-target="#margin-content">Margin content</a></li>
+  <li><a href="#margin-figures" id="toc-margin-figures" class="nav-link" data-scroll-target="#margin-figures">Margin Figures</a></li>
+  <li><a href="#margin-tables" id="toc-margin-tables" class="nav-link" data-scroll-target="#margin-tables">Margin Tables</a></li>
+  <li><a href="#code-line-numbers" id="toc-code-line-numbers" class="nav-link" data-scroll-target="#code-line-numbers">Code line numbers</a></li>
   <li><a href="#should-you-switch-to-quarto" id="toc-should-you-switch-to-quarto" class="nav-link" data-scroll-target="#should-you-switch-to-quarto">Should you switch to quarto?</a></li>
   </ul></li>
-  <li><a href="#freeze-results-and-avoid-recomputing" id="toc-freeze-results-and-avoid-recomputing" class="nav-link" data-scroll-target="#freeze-results-and-avoid-recomputing">Freeze Results and avoid recomputing</a></li>
   </ul></li>
-  <li><a href="#deploying-a-website" id="toc-deploying-a-website" class="nav-link" data-scroll-target="#deploying-a-website">Deploying a website</a></li>
   <li><a href="#quarto-demo" id="toc-quarto-demo" class="nav-link" data-scroll-target="#quarto-demo">Quarto demo</a>
   <ul class="collapse">
+  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
+  <li><a href="#website" id="toc-website" class="nav-link" data-scroll-target="#website">Website</a></li>
+  <li><a href="#freeze-results-and-avoid-recomputing" id="toc-freeze-results-and-avoid-recomputing" class="nav-link" data-scroll-target="#freeze-results-and-avoid-recomputing">Freeze Results and avoid recomputing</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
@@ -337,7 +346,7 @@ Learning objectives
 <ul>
 <li>Be able to describe reasons why having a personal website can be useful.</li>
 <li>Recognize what is Quarto and how it’s different from RMarkdown.</li>
-<li>Convert a RMarkdown file (<code>.Rmd</code>) to a Quarto file (<code>.qmd</code>).</li>
+<li>Be able to create a Quarto project and Quarto website.</li>
 </ul>
 </div>
 </div>
@@ -370,7 +379,6 @@ Reasons why creating a personal website can be helpful
 <section id="what-is-quarto" class="level1 page-columns page-full">
 <h1>What is Quarto?</h1>
 <p><a href="https://quarto.org/">Quarto</a> is a publishing system built on Pandoc that allows users to create dynamic content using R, Python, Julia, and ObservableJS (with plans to add more languages too!).</p>
-<p>R users have long loved <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> for combining prose, code, and outputs into single “knitted” documents. Quarto extends all of RMarkdown’s best features (plus many more!) to additional languages.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -383,21 +391,92 @@ Reasons why creating a personal website can be helpful
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Art by <a href="https://twitter.com/allison_horst">Allison Horst</a>. Be sure to check out the rest of Allison’s seriously cute Quarto penguin art in the #rstudioconf2022 keynote talk, <a href="https://mine.quarto.pub/hello-quarto/#/hello-quarto-title">Hello Quarto</a>, by <a href="https://twitter.com/juliesquid">Julie Lowndes</a> &amp; <a href="https://twitter.com/minebocek">Mine Çetinkaya-Rundel</a>!</p>
-</div></div><p>You can explore <a href="https://quarto.org/docs/guide/">Quarto’s documentation</a> to learn more about creating documents, websites, blogs, books, slides, etc.</p>
-<p>You use one file format and one syntax to be able to create many different types of outputs:</p>
+</div></div><div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What is Quarto for someone who uses RStudio?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Coming from the perspective of someone who uses RStudio, this is another way of thinking about Quarto:</p>
 <ul>
-<li>Website</li>
-<li>Publications</li>
-<li>Books</li>
-<li>Dashboards</li>
+<li><p>Quarto is a multi-language, next-generation version of R Markdown from RStudio, and includes dozens of new features and capabilities while at the same being able to render most existing Rmd files without modification.</p></li>
+<li><p>R users have long loved <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> for combining prose, code, and outputs into single “knitted” documents. Quarto extends all of RMarkdown’s best features (plus many more!) to additional languages.</p></li>
+<li><p>You can edit code and markdown in RStudio just as you would with any computational document (e.g.&nbsp;R Markdown), and preview the rendered document in the Viewer tab as you work.</p></li>
 </ul>
+</div>
+</div>
+<p>The following is a Quarto document with the extension <code>.qmd</code> (on the left) along with its rendered version as HTML (on the right). You could also choose to render it into other formats like PDF, MS Word, etc.</p>
+<div class="quarto-figure quarto-figure-center column-page-right page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="../../images/rstudio-hello.png" class="border column-page-right img-fluid figure-img" alt="RStudio with a Quarto document titled &quot;Penguins, meet Quarto!&quot; open on the left side and the rendered version of the document on the right side."></p>
+</figure>
+</div>
+<p>This is the basic model for Quarto publishing—take a source document and render it to a variety of output formats.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the purposes of the course, I am assuming you are already familiar with the Markdown language and working with RMarkdown files as this was covered in 140.776.</p>
+<p>Please see <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> for questions on this topic.</p>
+</div>
+</div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Quarto highlights
+Great intro Quarto tutorials
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are a series of tutorials designed to introduce you to Quarto with RStudio</p>
+<ol type="1">
+<li>Hello, Quarto: <a href="https://quarto.org/docs/get-started/hello/rstudio.html" class="uri">https://quarto.org/docs/get-started/hello/rstudio.html</a></li>
+<li>Computations: <a href="https://quarto.org/docs/get-started/computations/rstudio.html" class="uri">https://quarto.org/docs/get-started/computations/rstudio.html</a></li>
+<li>Authoring: <a href="https://quarto.org/docs/get-started/authoring/rstudio.html" class="uri">https://quarto.org/docs/get-started/authoring/rstudio.html</a></li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Quarto file format
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quarto uses one file format (read more here in <a href="https://quarto.org/docs/guide/">Quarto’s documentation</a>) and one syntax to create many different types of high-quality outputs:</p>
+<ul>
+<li>Documents</li>
+<li>Websites</li>
+<li>Publications</li>
+<li>Blogs</li>
+<li>Slides / presentations</li>
+<li>Books</li>
+<li>Dashboards</li>
+</ul>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Quarto summary
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -409,7 +488,7 @@ Quarto highlights
 </ul>
 </div>
 </div>
-<section id="qmd-files" class="level2">
+<section id="qmd-files" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="qmd-files">.qmd files</h2>
 <p>Quarto files end in a <code>.qmd</code>. This is short for <strong>q</strong>uarto <strong>m</strong>ark<strong>d</strong>own.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -430,9 +509,74 @@ Note
 </ul>
 </div>
 </div>
-<p>You can render <code>.qmd</code> files within RStudio, just like a <code>.Rmd</code> file.</p>
-<p>Another useful thing quarto is that you can render <code>.qmd</code> files on the command line:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my_document.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="rendering" class="level3">
+<h3 class="anchored" data-anchor-id="rendering">Rendering</h3>
+<p>Use the <kbd><img src="../../images/rstudio-render-button.png" width="25" height="20"></kbd> <strong>Render</strong> button in the RStudio IDE to render the file and preview the output with a single click or keyboard shortcut (⇧⌘K).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/rstudio-render.png" class="border img-fluid figure-img" alt="Top of the text editor in RStudio with the Render button highlighted with a purple box."></p>
+</figure>
+</div>
+<p>If you prefer to automatically render whenever you save, you can check the Render on Save option on the editor toolbar. The preview will update whenever you re-render the document. Side-by-side preview works for both HTML and PDF outputs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/rstudio-render-on-save.png" class="border img-fluid figure-img" alt="Top of the text editor in RStudio with the Render on Save checbox checked and highlighted with a purple box."></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Documents can also be rendered from the R console via the <strong>quarto</strong> package:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code run in the R Console</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"hello.qmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And documents can also be rendered from the command line:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code run in the command line</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># render single document (always executes code)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># render project subdirectory (always executes code)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render articles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<section id="how-rendering-works" class="level4">
+<h4 class="anchored" data-anchor-id="how-rendering-works">How rendering works</h4>
+<p>When you render a Quarto document, first <a href="http://yihui.name/knitr/">knitr</a> executes all of the code chunks and creates a new markdown (.md) document which includes the code and its output. The markdown file generated is then processed by <a href="http://pandoc.org/">pandoc</a>, which creates the finished format. The Render button encapsulates these actions and executes them in the right order for you.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/rstudio-qmd-how-it-works.png" class="border img-fluid figure-img" alt="Workflow diagram starting with a qmd file, then knitr, then md, then pandoc, then PDF, MS Word, or HTML."></p>
+</figure>
+</div>
+<p>When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an <a href="https://quarto.org/docs/output-formats/all-formats.html">HTML</a>, <a href="https://quarto.org/docs/output-formats/pdf-basics.html">PDF</a>, <a href="https://quarto.org/docs/output-formats/ms-word.html">MS Word</a> document, <a href="https://quarto.org/docs/presentations/">presentation</a>, <a href="https://quarto.org/docs/websites/">website</a>, <a href="https://quarto.org/docs/books/">book</a>, <a href="https://quarto.org/docs/interactive/">interactive document</a>, or <a href="https://quarto.org/docs/output-formats/all-formats.html">other format</a>.</p>
+</section>
+</section>
+<section id="authoring" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="authoring">Authoring</h3>
+<p>In the image below we can see the same document in the two modes of the RStudio editor: visual (on the left) and source (on the right). RStudio’s <a href="../../docs/visual-editor/">visual editor</a> offers an <a href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM</a> authoring experience for markdown. For formatting (e.g.&nbsp;bolding text) you can use the toolbar, a keyboard shortcut (⌘B), or the markdown construct (<code>**bold**</code>).</p>
+<p>The plain text source code underlying the document is written for you and you can view/edit it at any point by switching to source mode for editing. You can toggle back and forth these two modes by clicking on <strong>Source</strong> and <strong>Visual</strong> in the editor toolbar (or using the keyboard shortcut ⌘⇧ F4).</p>
+<div class="quarto-figure quarto-figure-center column-page-right page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="../../images/rstudio-source-visual.png" class="column-page-right img-fluid figure-img" alt="On the left: Document in the visual editor. On the right: Same document in the source editor. The visual/source editor toggle is highlighted in both documents marking their current state. The document shown is the &quot;Hello Quarto&quot; document from a previous image on the page."></p>
+</figure>
+</div>
+</section>
+<section id="how-does-multi-language-support-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-multi-language-support-work">How does multi-language support work?</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -453,40 +597,246 @@ Quarto supports multiple languages
 <p>Quarto can also <a href="https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a">interchange between languages using Apache Arrow</a>.</p>
 </div>
 </div>
-<section id="how-does-multi-language-support-work" class="level3">
-<h3 class="anchored" data-anchor-id="how-does-multi-language-support-work">How does multi-language support work?</h3>
 <p>The idea behind how quarto supports multi-language code is that the code output is “frozen” by default after it is rendered.</p>
-<p>In this way, code output is not recomputed, unless you want it to (<code>quarto render --execute</code>).</p>
-<p>There is a file called <code>_quarto.yml</code> and in the file, you can set a global argument in the following way:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">  # re-render only when source changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this way, code output is not recomputed, unless you want it to.</p>
 </section>
 </section>
-<section id="r-markdown-vs-quarto" class="level2">
+<section id="r-markdown-vs-quarto" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="r-markdown-vs-quarto">R Markdown vs Quarto</h2>
-<p>Some differences include</p>
+<p>Some high-level differences include</p>
 <ul>
 <li>Standardized YAML across formats</li>
 <li>Decoupled from RStudio</li>
 <li>More consistent presentation across formats</li>
-<li>Tab Panels</li>
-<li>Code Highlighting</li>
+<li><a href="https://quarto.org/docs/interactive/layout.html#tabset-panel">Tab Panels</a></li>
+<li><a href="https://quarto.org/docs/output-formats/html-code.html#highlighting">Code Highlighting</a></li>
 </ul>
-<section id="code-chunks" class="level3">
-<h3 class="anchored" data-anchor-id="code-chunks">code chunks</h3>
-<p>Another noticeable difference are arguments for code chunks. Rather than being in the header of the code chunk, arguments are <strong>moved to within the code chunk</strong> using the <code>#|</code> (hash-pipe) for each line.</p>
-<p>This is a code chunk for R Markdown:</p>
+<section id="code-block-options" class="level3">
+<h3 class="anchored" data-anchor-id="code-block-options">Code block options</h3>
+<p>Another noticeable difference are options for code blocks. Rather than being in the header of the code block, options are <strong>moved to within the code block</strong> using the <code>#|</code> (hash-pipe) for each line.</p>
+<p>This is a code block for R Markdown:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is a code chunk for Quarto:</p>
+<p>This is a code block for Quarto:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "setup"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="output-options" class="level3">
+<h3 class="anchored" data-anchor-id="output-options">Output Options</h3>
+<p>There are a wide variety of options available for customizing output from executed code. All of these options can be specified either globally (in the document front-matter) or per code-block. For example, here’s a modification of the Python example to specify that we don’t want to “echo” the code into the output document:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that we can override this option on a per code-block basis. For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Code block options available for customizing output include:</p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval</code></td>
+<td>Evaluate the code chunk (if <code>false</code>, just echos the code into the output).</td>
+</tr>
+<tr class="even">
+<td><code>echo</code></td>
+<td>Include the source code in output</td>
+</tr>
+<tr class="odd">
+<td><code>output</code></td>
+<td>Include the results of executing the code in the output (<code>true</code>, <code>false</code>, or <code>asis</code> to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown).</td>
+</tr>
+<tr class="even">
+<td><code>warning</code></td>
+<td>Include warnings in the output.</td>
+</tr>
+<tr class="odd">
+<td><code>error</code></td>
+<td>Include errors in the output (note that this implies that errors executing code will not halt processing of the document).</td>
+</tr>
+<tr class="even">
+<td><code>include</code></td>
+<td>Catch all for preventing any output (code or results) from being included (e.g.&nbsp;<code>include: false</code> suppresses all output from the code block).</td>
+</tr>
+</tbody>
+</table>
+<p>Here’s a Knitr example with some of these additional options included:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Knitr Document"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(airquality)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When using the Knitr engine, you can also use any of the available native options (e.g.&nbsp;<code>collapse</code>, <code>tidy</code>, <code>comment</code>, etc.). See the <a href="https://yihui.org/knitr/options/">Knitr options documentation</a> for additional details. You can include these native options in option comment blocks as shown above, or on the same line as the <code>{r}</code> as shown in the Knitr documentation.</p>
+</div>
+</div>
+</section>
+<section id="margin-content" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="margin-content">Margin content</h3>
+<p>You can place content within the right margin of Quarto document. For example, here we use the <code>.column-margin</code> class to place an image in the margin:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>We know from *the first fundamental theorem of calculus* that for $x$ in $<span class="co">[</span><span class="ot">a, b</span><span class="co">]</span>$:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>We know from <em>the first fundamental theorem of calculus</em> that for <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>:</p>
+<p><span class="math display">\[\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).\]</span></p>
+</div></div></section>
+<section id="margin-figures" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="margin-figures">Margin Figures</h3>
+<p>Figures that you create using code cells can be placed in the margin by using the <code>column: margin</code> code cell option.</p>
+<p>If the code produces more than one figure, each of the figures will be placed in the margin.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-mtcars</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "MPG vs horsepower, colored by transmission."</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: margin</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  mtcars<span class="sc">$</span>am, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'automatic'</span>, <span class="st">'manual'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars2, <span class="fu">aes</span>(hp, mpg, <span class="at">color =</span> am)) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>) <span class="sc">+</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<div id="fig-mtcars" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-mtcars-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: MPG vs horsepower, colored by transmission.</figcaption><p></p>
+</figure>
+</div>
+</div></div></div>
+</section>
+<section id="margin-tables" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="margin-tables">Margin Tables</h3>
+<p>You an also place tables in the margin of your document by specifying <code>column: margin</code>.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: margin</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</section>
+<section id="code-line-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="code-line-numbers">Code line numbers</h3>
+<p>If you want to display line numbers alongside the code block, add the <code>code-line-numbers</code> option. For example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-line-numbers</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here’s how a code block with line numbers would display throughout the document:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb12-3"><a href="#cb12-3"></a>mtcars2<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb12-4"><a href="#cb12-4"></a>  mtcars<span class="sc">$</span>am, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'automatic'</span>, <span class="st">'manual'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="fu">ggplot</span>(mtcars2, <span class="fu">aes</span>(hp, mpg, <span class="at">color =</span> am)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also enable line numbers for an individual code block using the <code>code-line-numbers</code> attribute.</p>
 </section>
 <section id="should-you-switch-to-quarto" class="level3">
 <h3 class="anchored" data-anchor-id="should-you-switch-to-quarto">Should you switch to quarto?</h3>
@@ -498,14 +848,62 @@ Quarto supports multiple languages
 </div>
 </section>
 </section>
+</section>
+<section id="quarto-demo" class="level1">
+<h1>Quarto demo</h1>
+<p>Here we will demo create two Quarto products:</p>
+<ol type="1">
+<li>A Quarto project</li>
+<li>A Quarto website</li>
+</ol>
+<section id="project" class="level2">
+<h2 class="anchored" data-anchor-id="project">Project</h2>
+<p>Here are the general steps for creating a Quarto project:</p>
+<ol type="1">
+<li>Create a new Quarto project</li>
+<li>Edit <code>_quarto.yml</code> file</li>
+<li>Add / delete relevant content</li>
+<li>Render the project</li>
+</ol>
+</section>
+<section id="website" class="level2">
+<h2 class="anchored" data-anchor-id="website">Website</h2>
+<p>Here are the general steps for creating a Quarto website:</p>
+<ol type="1">
+<li>Create a new Quarto project</li>
+<li>Edit <code>_quarto.yml</code> file</li>
+<li>Add / delete relevant content</li>
+<li>Render the website</li>
+<li>Deploy the website</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Deploying a website
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>quarto publish</code> can push and update a number of different kinds of webhosts. You will need credentials to publish to each of these.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages    <span class="co"># GitHub Pages</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish quarto-pub  <span class="co"># Quarto.pub </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish netlify     <span class="co"># Netlify</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish connect     <span class="co"># RStudio Connect</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
 <section id="freeze-results-and-avoid-recomputing" class="level2">
 <h2 class="anchored" data-anchor-id="freeze-results-and-avoid-recomputing">Freeze Results and avoid recomputing</h2>
 <p>Freezing code output is generally used when you have either</p>
 <ul>
 <li>A large number of collaborators or</li>
 <li>Many computational documents created over a longer period of time</li>
+<li>A project with different types of file formats from different languages (e.g.&nbsp;<code>.qmd</code>, <code>.ipynb</code>, <code>.Rmd</code>)</li>
 </ul>
-<p>In both cases it can be challenging to fully re-execute every document when you render the site. This could be because some documents have esoteric or environment-specific requirements (e.g.&nbsp;require access/authentication to a data source) or due to general fragility of dependencies over time.</p>
+<p>In the above cases, it can be challenging to fully re-execute every document when you render the site.</p>
+<p>This could be because some documents have esoteric or environment-specific requirements (e.g.&nbsp;require access/authentication to a data source) or due to general fragility of dependencies over time.</p>
 <p>Using freeze ensures that you can always reproducibly render your site.</p>
 <p>The computational results of documents executed with <code>freeze</code> are stored in the <code>_freeze/</code> directory, and re-used when needed to fulfill document renders.</p>
 <p>You should check the contents of <code>_freeze/</code> into version control so that others rendering the project don’t need to reproduce your computational environment to render it in their environment.</p>
@@ -525,20 +923,20 @@ Note
 </div>
 <p>For example, consider the <code>_quarto.yml</code> file.</p>
 <p>One argument in the file is the <code>freeze</code> option to denote that computational documents should never be re-rendered during a global project render, or alternatively only be re-rendered when their source file changes:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"qmd_rmd"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # never re-render during project render</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"qmd_rmd"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">  # re-render only when source changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"qmd_rmd"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # never re-render during project render</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"qmd_rmd"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">  # re-render only when source changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -549,40 +947,21 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>freeze</code> controls whether <strong>execution occurs</strong> during global project renders.</p>
+<p>The <code>freeze</code> option in the <code>_quarto.yml</code> file controls whether <strong>execution occurs</strong> during global project renders.</p>
 <p>If you do an incremental render of either a single document or a project sub-directory then code is always executed. For example:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># render single document (always executes code)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># render project subdirectory (always executes code)</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render articles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># render single document (always executes code)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># render project subdirectory (always executes code)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render articles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="deploying-a-website" class="level1">
-<h1>Deploying a website</h1>
-<p><code>quarto publish</code> can push and update a number of different kinds of webhosts. You will need credentials to publish to each of these.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages    <span class="co"># GitHub Pages</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish quarto-pub  <span class="co"># Quarto.pub </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish netlify     <span class="co"># Netlify</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish connect     <span class="co"># RStudio Connect</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="quarto-demo" class="level1">
-<h1>Quarto demo</h1>
-<p>Demo in class, but here are the general steps:</p>
-<ol type="1">
-<li>Create a new Quarto project</li>
-<li>Edit <code>_quarto.yml</code> file</li>
-<li>Add / delete relevant content</li>
-<li>Render the website</li>
-<li>Deploy the website</li>
-</ol>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
 <p>Here are some tutorials I really like for getting started with Quarto generally and for getting started building and deploying websites with Quarto:</p>
