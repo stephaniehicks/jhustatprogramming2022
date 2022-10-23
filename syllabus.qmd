@@ -21,7 +21,7 @@ title: "Syllabus"
 -   Stephanie C. Hicks (<https://www.stephaniehicks.com>)
     -   Office Location: E3545, Wolfe Street building
     -   Email: shicks19\@jhu.edu
-    
+
 I am an Associate Professor in the [Department of Biostatistics](https://publichealth.jhu.edu/departments/biostatistics) at the [Johns Hopkins Bloomberg School of Public Health](https://publichealth.jhu.edu), a faculty member of the [Johns Hopkins Data Science Lab](http://jhudatascience.org), and have affiliations with the [Malone Center for Engineering in Healthcare](https://malonecenter.jhu.edu), [Center for Computational Biology](https://ccb.jhu.edu/people.php), the [Department of Genetic Medicine](https://www.hopkinsmedicine.org/institute-genetic-medicine/education-training/predoctoral-human-genetics), and the [Department of Biochemistry and Molecular Biology](http://www.jhu-bmb-phd.org/faculty/stephanie-hicks).
 
 My research focuses on developing fast, scalable, statistical methodology and open-source software for genomics and biomedical data analysis for human health and disease. My research is **problem-forward**: I develop statistical methods and software that are motivated by concrete problems, often with real-world, noisy, messy data. I'm also interested in developing theory for how to incorporate *design thinking* (alongside *statistical thinking*) in practice of data analysis.
@@ -50,7 +50,6 @@ Upon successfully completing this course, students will be able to:
 5.  Write code using functional or other programming paradigms and discuss strategies for getting data from APIs or working with large data
 6.  Build an interactive web application using Shiny or other dashboard tools
 
-
 # Course logistics
 
 All communication for the course is going to take place on one of three platforms
@@ -59,17 +58,13 @@ All communication for the course is going to take place on one of three platform
 
 The primary communication for the class will go through Courseplus. That is where we will post course announcements, share resources, host most of our asynchronous course discussion, and as the primary means of communication between course participants and course instructors
 
-:::{.callout-tip}
-
-### Important 
+::: callout-tip
+### Important
 
 If you are registered for the course, you should have access to Courseplus now. Once you have access you will also be able to find all material and dates/times of drop-in hours. Any zoom links will be posted on Courseplus.
-
 :::
 
 The course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate.
-
-
 
 ## GitHub
 
@@ -78,15 +73,11 @@ You can access all course materials (e.g. lectures, project assignments) here
 -   Course website: <https://stephaniehicks.com/jhustatprogramming2022>
 -   GitHub repository with all course material: <https://github.com/stephaniehicks/jhustatprogramming2022>
 
-
 ## Lectures
 
 We will have in person lectures that will be recorded and posted online for students to watch. **Mandatory attendance is not required.**
 
 If for some reason I am sick or not capable of coming onsite, I will send out a zoom link for everyone to attend remotely for that day.
-
-
-
 
 ## Getting help
 
@@ -133,18 +124,6 @@ There are **no exams** in this course.
 
 Grades in the course will be based on Projects 1--4. Grades for the projects and the final grade will be issued via the CoursePlus grade book.
 
-### Philosophy
-
-We believe the purpose of graduate education is to train you to be able to think for yourself and initiate and complete your own projects. We are super excited to talk to you about ideas, work out solutions with you, and help you to figure out how to produce professional data analyses. We do not think that graduate school grades are important for this purpose. This means that we do not care very much about graduate student grades.
-
-That being said, we have to give you a grade so they will be:
-
--   A - Excellent - 90%+
--   B - Passing - 80%+
--   C - Needs improvement - 70%+
-
-We rarely give out grades below a C and if you consistently submit work, and do your best you are very likely to get an A or a B in the course.
-
 ### Relative weights
 
 The grades are based on four projects. The breakdown of grading will be
@@ -153,6 +132,40 @@ The grades are based on four projects. The breakdown of grading will be
 -   25% for Project 2
 -   25% for Project 3
 -   25% for Project 4
+
+## Policy for submitted projects late
+
+:::{.callout-important}
+
+The instructor and TA(s) will not accept email late day policy requests.
+
+:::
+
+This is the policy for late submissions that applies to Projects 1-4.
+
+-   Each student will be given **three "free late days"** for the rest of the course.
+-   A late day extends the individual project deadline by 24 hours without penalty.
+-   The late days can be applied to just one project (e.g. two late days for Project 2), or they can be split across the two projects (one late day for Project 2 and one late day for Project 3). This is entirely left up to the discretion of the student.
+-   A max of two "free late days" can be applied to any project.
+-   Free late days are intended to give you flexibility: you can use them for any reason no questions asked.
+-   You do not get any bonus points for not using your late days.
+
+Although the each student is only given a total of three "free late days", we will be accepting homework from students that pass this limit.
+
+-   We will deduct 5% off the 100% starting point for each day the assignment is late. 
+-   If you use two "free late days" for project, but need a 3rd day, there will be no penalty for the first two late days and there will be a 5% penalty for the 3rd late day. 
+-   If you do not have any more late days for the term, we will deduct 5% for the assignment that is \<24 hours late, 10% points for the assignment that is 24-48 hours late, and 15% points for the assignment that is 48-72 hours late.
+
+:::{.callout-important}
+
+We will not grade assignments that are more than 3 days (or more than 72 hours) past the original due date.
+
+:::
+
+### Regrading Policy
+
+It is very important to us that all assignments are properly graded. If you believe there is an error in your assignment grading, please send an email to one of the instructors within 7 days of receiving the grade. No re-grade requests will be accepted orally, and no regrade requests will be accepted more than 7 days after you receive the grade for the assignment.
+
 
 ## Academic Ethics and Student Conduct Code
 
@@ -208,8 +221,6 @@ If you did not take the above course, please contact course instructor to get pe
 
 This syllabus is a general plan, deviations announced to the class by the instructor may be necessary.
 
-
 ## Typos and corrections
 
 Feel free to submit typos/errors/etc via the github repository associated with the class: <https://github.com/stephaniehicks/jhustatprogramming2022>. You will have the thanks of your grateful instructor!
-
