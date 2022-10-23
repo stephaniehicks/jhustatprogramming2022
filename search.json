@@ -1,108 +1,31 @@
 [
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
+    "objectID": "posts/2022-10-27-build-website/index.html",
+    "href": "posts/2022-10-27-build-website/index.html",
+    "title": "Building a brand and websites with quarto",
     "section": "",
-    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction [html] [Qmd]\n🌴 Project 1\n\n\n\n\n\nBuilding a brand and websites with quarto [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with targets\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nIntro to D3 visualizations with r2d3\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
+    "text": "Read ahead\n\n\n\nBefore class, you can prepare by reading the following materials:\n\nAdd here.\nAdd here.\n\n\n\n\n\n\nMaterial for this lecture was borrowed and adopted from"
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Location: In person (with recorded lectures posted online) for Fall 2022\nCourse time: Tuesdays and Thursdays from 1:30-2:50pm (Eastern Daylight Time zone)\nCourse location: TBA\nAssignments: Four projects\n\n\n\n\nTo add the course to your 2nd term registration: Sign up for 3 credits of 140.840, with Dr. Hicks as the instructor.\nPlease note that 800-level courses are pass/fail only\nPlease note BSPH does not allow auditors in 800-level courses\nPlease note there is no formal .41 online course for 800-level courses. However, this course will have the lectures recorded and posted on CoursePlus. You can watch all lecture material and complete the assignments asynchronously, if you wish.\n\n\n\n\n\nStephanie C. Hicks (https://www.stephaniehicks.com)\n\nOffice Location: E3545, Wolfe Street building\nEmail: shicks19@jhu.edu\n\n\nInstructor office hours are announced on CoursePlus. If there are conflicts and/or need to cancel office hours, announcements will be made on CoursePlus.\n\n\n\nIn order of preference, here is a preferred list of ways to get help:\n\nWe strongly encourage you to use CoursePlus to ask questions first, before joining office hours. The reason for this is so that other students in the class (who likely have similar questions) can also benefit from the questions and answers asked by your colleagues.\nYou are welcome to join office hours to get more group interactive feedback.\nIf you are not able to make the office hours, appointments can be made by email with the instructor."
+    "objectID": "posts/2022-10-27-build-website/index.html#your-brand-is-happening-with-or-without-your-input",
+    "href": "posts/2022-10-27-build-website/index.html#your-brand-is-happening-with-or-without-your-input",
+    "title": "Building a brand and websites with quarto",
+    "section": "Your “brand” is happening with or without your input",
+    "text": "Your “brand” is happening with or without your input\nThe first thing that should be mentioned is your “brand” is built with or without your input (whether you recognize it or not). You may have thought about this topic in the past (formally or informally) or you may not have. Either way, as you develop your career as a scientist you make choices (e.g. what areas to work in, what conferences to attend, how open is your science, whether to have a blog or not, etc) that other people perceive and interpret as your “brand”. It is worth taking a bit of time to think about what your brand is (or what you want your brand to be). It can not only help you in terms of becoming more well-known in your field, but it can also help influence your actual science (e.g. what you choose or not choose to work on)."
   },
   {
-    "objectID": "syllabus.html#important-links",
-    "href": "syllabus.html#important-links",
-    "title": "Syllabus",
-    "section": "Important Links",
-    "text": "Important Links\n\nCourse website: https://stephaniehicks.com/jhustatprogramming2022\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatprogramming2022"
+    "objectID": "posts/2022-10-27-build-website/index.html#defining-your-brand",
+    "href": "posts/2022-10-27-build-website/index.html#defining-your-brand",
+    "title": "Building a brand and websites with quarto",
+    "section": "Defining your brand",
+    "text": "Defining your brand\nIn terms of defining your brand, there are several questions that you might think about:\n\nWho are you? What makes you special?\nWhat do you stand for? For example, maybe you are passionate about open science and you prioritize publishing in open-access journals or publishing open source software.\nWho is your audience? This is important in terms of helping you understand your professional community as a scientist. What does the community value or not value? Does this align with your interests?\nWhat is your goal? This is a very personal question and there are no wrong answers. However, it is helpful to understand what your short-term and long-terms goals are. Some questions you might think about as you try to answer these two questions are:\n\nWhat motivates you?\nWhat projects have others complimented you on?\nWhich projects can I spend hours on and not feel overwhelmed or drained?\nFill in the following: “I want to be a leader in … <>”\n“In 5-10 years, I want to … << insert thing you want to have accomplished >>”\n\n\nAnswering these (and other questions) can help you put your best foot forward for whatever type of job you take in the future (industry, academia, nonprofit, etc). These are also very helpful in defining what you want your brand to be."
   },
   {
-    "objectID": "syllabus.html#learning-objectives",
-    "href": "syllabus.html#learning-objectives",
-    "title": "Syllabus",
-    "section": "Learning Objectives:",
-    "text": "Learning Objectives:\nUpon successfully completing this course, students will be able to:\n\nWrite unix code with command-line tools\nInstall and configure software necessary for a statistical programming environment and with version control\nWrite code for advanced programming topics in R and tidyverse\nBuild and organize a software package with documentation for publishing on the internet\nWrite code using functional or other programming paradigms and discuss strategies for getting data from APIs or working with large data\nBuild an interactive web application using Shiny or other dashboard tools"
-  },
-  {
-    "objectID": "syllabus.html#lectures",
-    "href": "syllabus.html#lectures",
-    "title": "Syllabus",
-    "section": "Lectures",
-    "text": "Lectures\nIn Fall 2022, we will have in person lectures that will be recorded and posted online for students to watch. Mandatory attendance is not required."
-  },
-  {
-    "objectID": "syllabus.html#textbook-and-other-course-material",
-    "href": "syllabus.html#textbook-and-other-course-material",
-    "title": "Syllabus",
-    "section": "Textbook and Other Course Material",
-    "text": "Textbook and Other Course Material\nThere is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download."
-  },
-  {
-    "objectID": "syllabus.html#software",
-    "href": "syllabus.html#software",
-    "title": "Syllabus",
-    "section": "Software",
-    "text": "Software\nWe will make heavy use of R in this course, so you should have R installed. You can obtain R from the Comprehensive R Archive Network. There are versions available for Mac, Windows, and Unix/Linux. This software is required for this course.\nIt is important that you have the latest version of R installed. For this course we will be using R version 4.2.1. You can determine what version of R you have by starting up R and typing into the console R.version.string and hitting the return/enter key. If you do not have the proper version of R installed, go to CRAN and download and install the latest version.\nWe will also make use of the RStudio interactive development environment (IDE). RStudio requires that R be installed, and so is an “add-on” to R. You can obtain the RStudio Desktop for free from the RStudio web site. In particular, we will make heavy use of it when developing R packages. It is also essential that you have the latest release of RStudio. You can determine the version of RStudio by looking at menu item Help > About RStudio. You should be using RStudio version 1.4.1106 or higher."
-  },
-  {
-    "objectID": "syllabus.html#projects",
-    "href": "syllabus.html#projects",
-    "title": "Syllabus",
-    "section": "Projects",
-    "text": "Projects\nThere will be 4 assignments, due every 2–3 weeks. Projects will be submitted electronically via the Drop Box on the CoursePlus web site (unless otherwise specified).\nThe project assignments will be due on\n\nProject 1: Friday November 11, 11:59pm\nProject 2: Friday November 25, 11:59pm\nProject 3: Friday December 9, 11:59pm\nProject 4: Friday December 23, 11:59pm\n\n\nProject collaboration\nPlease feel free to study together and talk to one another about project assignments. The mutual instruction that students give each other is among the most valuable that can be achieved.\nHowever, it is expected that project assignments will be implemented and written up independently unless otherwise specified. Specifically, please do not share analytic code or output. Please do not collaborate on write-up and interpretation. Please do not access or use solutions from any source before your project assignment is submitted for grading."
-  },
-  {
-    "objectID": "syllabus.html#discussion-forum",
-    "href": "syllabus.html#discussion-forum",
-    "title": "Syllabus",
-    "section": "Discussion Forum",
-    "text": "Discussion Forum\nThe course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate."
-  },
-  {
-    "objectID": "syllabus.html#exams",
-    "href": "syllabus.html#exams",
-    "title": "Syllabus",
-    "section": "Exams",
-    "text": "Exams\nThere are no exams in this course."
-  },
-  {
-    "objectID": "syllabus.html#grading",
-    "href": "syllabus.html#grading",
-    "title": "Syllabus",
-    "section": "Grading",
-    "text": "Grading\nGrades in the course will be based on Projects 1–4 with a percentage of the final grade being apportioned to each assignment. Each of Projects 1–4 counts approximately equally in the final grade. Grades for the projects and the final grade will be issued via the CoursePlus grade book."
-  },
-  {
-    "objectID": "syllabus.html#academic-ethics-and-student-conduct-code",
-    "href": "syllabus.html#academic-ethics-and-student-conduct-code",
-    "title": "Syllabus",
-    "section": "Academic Ethics and Student Conduct Code",
-    "text": "Academic Ethics and Student Conduct Code\nStudents enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.\nStudents should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s portal.\nThe faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions."
-  },
-  {
-    "objectID": "syllabus.html#disability-support-service",
-    "href": "syllabus.html#disability-support-service",
-    "title": "Syllabus",
-    "section": "Disability Support Service",
-    "text": "Disability Support Service\nStudents requiring accommodations for disabilities should register with Student Disability Service (SDS). It is the responsibility of the student to register for accommodations with SDS. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health. Once you are f a student in your class has approved accommodations you will receive formal notification and the student will be encouraged to reach out. If you have questions about requesting accommodations, please contact BSPH.dss@jhu.edu."
-  },
-  {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "Syllabus",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nPrerequisite for the course is Biostatistics 140.776 or knowledge of material from 140.776 is assumed.\nIf you did not take the above course, please contact course instructor to get permission to enroll."
-  },
-  {
-    "objectID": "syllabus.html#general-disclaimers",
-    "href": "syllabus.html#general-disclaimers",
-    "title": "Syllabus",
-    "section": "General Disclaimers",
-    "text": "General Disclaimers\n\nThis syllabus is a general plan, deviations announced to the class by the instructor may be necessary."
+    "objectID": "posts/2022-10-27-build-website/index.html#actions-to-take-towards-building-a-brand-as-a-scientist",
+    "href": "posts/2022-10-27-build-website/index.html#actions-to-take-towards-building-a-brand-as-a-scientist",
+    "title": "Building a brand and websites with quarto",
+    "section": "Actions to take towards building a brand as a scientist",
+    "text": "Actions to take towards building a brand as a scientist\n\nThink of yourself as a self-startup\nThis is definitely true as a faculty member, but many aspects of this are true as a graduate student or postdoctoral scientist. However, when you are early in your career, it is true that you may have less say in what you work on, but as you grow into your career, you will likely have more and more say. Therefore, this section becomes more and more relevant.\nFor example, as you advance in your career there will likely be increasing opportunities for you to decide what to work on, how much time and effort to spend on the projects, how to convince others these are exciting projects, how to fund the projects, how to market the products you produce, how to lead teams of individuals to make progress on these projects. It is important to realize (earlier the better) that a lot of this is like starting up your own company. It takes many, many different skills (both scientific skills and professional development / soft skills) to be successful at it. You want to invest time and energy in developing these skills (sooner rather than later) as they are likely to have huge benefits down the road.\nFor example, let’s say you are grabbing a cup of coffee at a conference. You bump into someone in the coffee line from the last session that you were in. You have some small talk about the previous session and the person asks you about what do you or what do you work on? This might be very informal, but it is a great opportunity for you to have developed (and hopefully practiced) an elevator pitch. These are crucial in the world of startups. They require good communication skills and for you to have a solid understand of who you are, what you are passionate about, and why someone else should care about it. This one, informal conversation may not lead to anything, but in my experience, I have been surprised at how many times it does lead to something down the line (e.g. an email with a link to a paper relevant to your work that you were not aware of, a connection with someone at another institute who might think of you next time they are looking for speakers, a new collaboration, etc). These connections are similar in the world of startups and can sometimes be transformative to your career as a scientist.\n\n\nWant to develop a consistent brand\nAs you start to develop your brand, you want to think about consistency. Similar to the point above, this applies less to graduate students as they are likely to want to try different things out. However, this becomes more relevant as you grow into your career as a scientist. If your brand is inconsistent, it can be hard for others to understand what you are about, what your interests are, etc. If you did a pretty good job at defining your brand, this action item is a bit easier.\nFor example, if your audience is academic, theoretical computer scientists, you want to think about publishing in journals and attending conferences to present your work where other academic computer scientists are. It may not make much sense to attend psychology or biology conferences. However, maybe your audience is a diverse set of scientists bridging two fields (e.g. psychology and computer science) – therefore, you might be attending a broader set of conferences from both types of fields. Either way, you want to develop the skills (both scientific and professional development skills) needed to enable you to be successful in your field(s) of interest. Spending time on completely orthogonal skills that are not essential to building your brand, might be fun, but it is not necessarily going to help you move towards your goal. You want to develop a brand in the places where you will have a big impact and become well-known for your work.\nNow all this can potentially take years. It is unlikely you will do this over night. However, it is important to be thinking about consistency as you build your brand.\n\n\nLearn how to effectively self-promote your work\nI think we can all agree that contributing to science itself is essential for being a scientist. However, I often find people might not be good at the follow up step – namely, effectively communicating about their work to a broad audience in a succinct way, and promoting their own work (or work of collaborators). Putting a paper on bioRxiv or getting it through peer-review is, of course, a major accomplishment. However, the world we live in moves far too fast for me to be able to keep up with everyone’s work that I want to keep up with. It is incredibly helpful when a scientist takes that extra step to invest time and energy in promoting their work beyond just publishing a manuscript. If they were effective at this, I might not understand all the details, but I have a good sense of what their contribution is and why I might care about.\nThere are many great ways to go about doing this. Not all of them may be relevant for you. Social media is one way that is commonly discussed as a mechanism to promote your work. However, you may be in a situation where having a social media presence could potentially put you in harms way, so you prefer to not engage on social media platforms, but rather promote your work in other ways. I want to emphasize there is no one “correct” way of doing this! Find the tools that work for you.\nAll this being said, if you feel comfortable with having an online presence, it can be a helpful way to effectively self-promote your work. For example, creating a simple website (that is easy to maintain and update) can be helpful in keeping track of your accomplishments and sharing them with others. Investing time and energy in making a good CV (or resume depending on your field of interest) is another good way. Being able to quickly quantify your accomplishments if and when someone asks is another. Creating a blog and actively contribute to the blog is another.\n\n\nLeveraging social media to your benefit (“promote” your brand)\nIf you do decide to go down the social media route, you want to be selective with your platforms. Do not try to be on every platform. It can be a huge time sink to invest in the energy of being on just one or two platforms.\nLet’s say you choose to be active on Twitter. There are different strategies for engaging on the platform. For example, some folks engage a lot in a bidirectional fashion (i.e. they post a lot of tweets, but they also engage in many conversations with other people’s tweets). In contrast, others may choose to engage in a more unidirectional fashion (i.e. they use the platform to tweet about their own work and do not really engage in other people’s tweets). Other folks join the platform to just follow along with other people’s tweets and do not really engage in conversations at all. All of these have very different degrees of time required to engage with the platform. With that in mind, these are trade-offs that you make as a scientist. Time that you spent on e.g. Twitter is time that you could have spent working on science itself. However, not communicating about your science is also not great. You want to find a balance that works for you.\nIf you have a recent pre-print or paper out, one strategy to promote your work is to write a tweetorial. I have found this as an effective tool to distill scientific ideas (e.g. from a pre-print) down to something that is bite-sized and understandable in a few minutes. If someone reading the tweetorial thinks it is interesting, they might choose to click on the link to the pre-print and read a bit more. In contrast, if I had not taken the extra effort to distill these ideas down, this individual might have missed the pre-print all together. Having someone read about my work can influence their perception of my “brand”. For example, this individual might think of me next time they come across a similar topic or they might invite me to give a seminar on the topic.\nI will state that Jeff Leek wrote a great book titled How to be a Modern Scientist available on leanpub with a lot of these ideas. Highly recommended to check it out!\n\n\nEmbrace networking\nLet’s face it, networking can be transformative when it comes to being a scientist. It can open so many doors at a variety of levels. It can lead to future talk invitations, potential recommendation letters, future collaborations, potential internships. The list goes on and on.\nIt is also important to note the benefits you get out of networking and how you network can change as you grow into your career. For example, when you are just starting out as a graduate student, you may not know many folks at conferences. Here, it is all about putting yourself out there, introducing yourself to someone else, starting up a conversation over a coffee break, attending poster sessions, asking questions to speakers at the end of sessions, etc. As you grow in your career as a scientist, you start to develop professional friendships with colleagues and you may choose to connect with them at an annual conference in your professional field.\nFor example, one strategy I have found effective for me in my current stage is ahead of the conference, I schedule breakfasts / coffee breaks / lunches / dinners with people that I want to see there. It ensures that I am able to connect and network with the folks that I am most interested in connecting with. I may or may not have met these individuals before. It all depends on what the purpose is of the meeting. For example, if I am a graduate student wanting to learn more about opportunities for doing a posdoc in a different a department, I might reach out to someone from that department who is attending the conference and ask to meet for 15 mins to ask questions. Alternatively, I may catching up with an old friend. Either way, I cannot emphasize enough how much networking has helped my career and helped shape my “brand”.\n\n\nRe-invent your brand as you grow / change over time\nThe last thing I want to mention is that your brand may change over time. As you as a scientist evolves, your brand may need to evolve. Recognizing when that is happening and embracing it is not only healthy, but completely normal."
   },
   {
     "objectID": "index.html",
@@ -133,25 +56,11 @@
     "text": "Acknowledgements\nThis course was developed and is maintained by Stephanie Hicks.\nThe following individuals have contributed to improving the course or materials have been adapted from their courses: Roger D. Peng, Andreas Handel, Naim Rashid, Michael Love.\nThe course materials are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it."
   },
   {
-    "objectID": "posts/2022-10-27-build-website/index.html",
-    "href": "posts/2022-10-27-build-website/index.html",
-    "title": "Building a brand and websites with quarto",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "Learning objectives\n\n\n\n\n\n\nLearning objectives\n\n\n\nAt the end of this lesson you will:\n\nAdd here.\n\n\n\n\n\nAdd lecture here\n\n\nPost-lecture materials\n\nFinal Questions\nHere are some post-lecture questions to help you think about the material discussed.\n\n\n\n\n\n\nQuestions\n\n\n\n\nAdd here.\n\n\n\n\n\nAdditional Resources\n\n\n\n\n\n\nTip\n\n\n\n\nAdd here."
-  },
-  {
-    "objectID": "posts/2022-10-27-course-intro/index.html",
-    "href": "posts/2022-10-27-course-intro/index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Learning objectives\n\n\n\n\n\n\nLearning objectives\n\n\n\nAt the end of this lesson you will:\n\nAdd here.\n\n\n\n\n\nAdd lecture here\n\n\nPost-lecture materials\n\nFinal Questions\nHere are some post-lecture questions to help you think about the material discussed.\n\n\n\n\n\n\nQuestions\n\n\n\n\nAdd here.\n\n\n\n\n\nAdditional Resources\n\n\n\n\n\n\nTip\n\n\n\n\nAdd here."
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Lectures",
-    "section": "",
-    "text": "module 1\n\n\nweek 1\n\n\nwebsites\n\n\nquarto\n\n\n\n\nBuilding a brand and websites with quarto\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodule 1\n\n\nweek 1\n\n\ncourse-admin\n\n\n\n\nOverview course information for BSPH Biostatistics 140.840 in Fall 2022\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
+    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction; building a brand and websites with quarto [html] [Qmd]\n🌴 Project 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nData science at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with targets\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nPython and R with reticulate\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
   },
   {
     "objectID": "projects.html",
@@ -159,6 +68,125 @@
     "title": "Projects",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Location: In person (with recorded lectures posted online) for Fall 2022\nCourse time: Tuesdays and Thursdays from 1:30-2:50pm (Eastern Daylight Time zone)\nCourse location: W3031\nAssignments: Four projects\n\n\n\n\nTo add the course to your 2nd term registration: Sign up for 3 credits of 140.840, with Dr. Hicks as the instructor.\nPlease note that 800-level courses are pass/fail only\nPlease note BSPH does not allow auditors in 800-level courses\nPlease note there is no formal .41 online course for 800-level courses. However, this course will have the lectures recorded and posted on CoursePlus. You can watch all lecture material and complete the assignments asynchronously, if you wish.\n\n\n\n\n\nStephanie C. Hicks (https://www.stephaniehicks.com)\n\nOffice Location: E3545, Wolfe Street building\nEmail: shicks19@jhu.edu\n\n\nI am an Associate Professor in the Department of Biostatistics at the Johns Hopkins Bloomberg School of Public Health, a faculty member of the Johns Hopkins Data Science Lab, and have affiliations with the Malone Center for Engineering in Healthcare, Center for Computational Biology, the Department of Genetic Medicine, and the Department of Biochemistry and Molecular Biology.\nMy research focuses on developing fast, scalable, statistical methodology and open-source software for genomics and biomedical data analysis for human health and disease. My research is problem-forward: I develop statistical methods and software that are motivated by concrete problems, often with real-world, noisy, messy data. I’m also interested in developing theory for how to incorporate design thinking (alongside statistical thinking) in practice of data analysis.\nIf you want, you can find me on Twitter. I’m also a co-host of the The Corresponding Author podcast, member of the Editorial Board for Genome Biology, an Associate Editor for Reproducibility at the Journal of the American Statistical Association, and co-founder of R-Ladies Baltimore.\n\n\n\nJoe Sartini (jsartin1@jhu.edu) is a second year Ph.D. student in Biostatistics, with interest in models for precision medicine applications. Currently, the focus of his work is extracting meaningful insights from time-series produced by Continuous Glucose Monitoring and other devices worn by Type 2 diabetics. Outside of research, he enjoys participating in endurance sports and weightlifting.\nInstructor and TA office hours are announced on CoursePlus. If there are conflicts and/or need to cancel office hours, announcements will be made on CoursePlus.\n\n\n\n\nCourse website: https://stephaniehicks.com/jhustatprogramming2022\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatprogramming2022\n\n\n\n\nUpon successfully completing this course, students will be able to:\n\nWrite unix code with command-line tools\nInstall and configure software necessary for a statistical programming environment and with version control\nWrite code for advanced programming topics in R, Python, SQL, and tidyverse\nBuild and organize a software package with documentation for publishing on the internet\nWrite code using functional or other programming paradigms and discuss strategies for getting data from APIs or working with large data\nBuild an interactive web application using Shiny or other dashboard tools"
+  },
+  {
+    "objectID": "syllabus.html#courseplus",
+    "href": "syllabus.html#courseplus",
+    "title": "Syllabus",
+    "section": "Courseplus",
+    "text": "Courseplus\nThe primary communication for the class will go through Courseplus. That is where we will post course announcements, share resources, host most of our asynchronous course discussion, and as the primary means of communication between course participants and course instructors\n\n\n\n\n\n\nImportant\n\n\n\nIf you are registered for the course, you should have access to Courseplus now. Once you have access you will also be able to find all material and dates/times of drop-in hours. Any zoom links will be posted on Courseplus.\n\n\nThe course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate."
+  },
+  {
+    "objectID": "syllabus.html#github",
+    "href": "syllabus.html#github",
+    "title": "Syllabus",
+    "section": "GitHub",
+    "text": "GitHub\nYou can access all course materials (e.g. lectures, project assignments) here\n\nCourse website: https://stephaniehicks.com/jhustatprogramming2022\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatprogramming2022"
+  },
+  {
+    "objectID": "syllabus.html#lectures",
+    "href": "syllabus.html#lectures",
+    "title": "Syllabus",
+    "section": "Lectures",
+    "text": "Lectures\nWe will have in person lectures that will be recorded and posted online for students to watch. Mandatory attendance is not required.\nIf for some reason I am sick or not capable of coming onsite, I will send out a zoom link for everyone to attend remotely for that day."
+  },
+  {
+    "objectID": "syllabus.html#getting-help",
+    "href": "syllabus.html#getting-help",
+    "title": "Syllabus",
+    "section": "Getting help",
+    "text": "Getting help\nIn order of preference, here is a preferred list of ways to get help:\n\nWe strongly encourage you to use Courseplus to ask questions first, before joining office hours. The reason for this is so that other students in the class (who likely have similar questions) can also benefit from the questions and answers asked by your colleagues.\nYou are welcome to join office hours to get more group interactive feedback.\nIf you are not able to make the office hours, appointments can be made by email with the instructor."
+  },
+  {
+    "objectID": "syllabus.html#textbook-and-other-course-material",
+    "href": "syllabus.html#textbook-and-other-course-material",
+    "title": "Syllabus",
+    "section": "Textbook and Other Course Material",
+    "text": "Textbook and Other Course Material\nThere is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R and Python software for data analysis, which is freely available for download."
+  },
+  {
+    "objectID": "syllabus.html#software",
+    "href": "syllabus.html#software",
+    "title": "Syllabus",
+    "section": "Software",
+    "text": "Software\nWe will make heavy use of R in this course, so you should have R installed. You can obtain R from the Comprehensive R Archive Network. There are versions available for Mac, Windows, and Unix/Linux. This software is required for this course.\nIt is important that you have the latest version of R installed. For this course we will be using R version 4.2.1. You can determine what version of R you have by starting up R and typing into the console R.version.string and hitting the return/enter key. If you do not have the proper version of R installed, go to CRAN and download and install the latest version.\nWe will also make use of the RStudio interactive development environment (IDE). RStudio requires that R be installed, and so is an “add-on” to R. You can obtain the RStudio Desktop for free from the RStudio web site. In particular, we will make heavy use of it when developing R packages. It is also essential that you have the latest release of RStudio. You can determine the version of RStudio by looking at menu item Help > About RStudio. You should be using RStudio version 1.4.1106 or higher."
+  },
+  {
+    "objectID": "syllabus.html#projects",
+    "href": "syllabus.html#projects",
+    "title": "Syllabus",
+    "section": "Projects",
+    "text": "Projects\nThere will be 4 assignments, due every 2–3 weeks. Projects will be submitted electronically via the Drop Box on the CoursePlus web site (unless otherwise specified).\nThe project assignments will be due on\n\nProject 1: Friday November 11, 11:59pm\nProject 2: Friday November 25, 11:59pm\nProject 3: Friday December 9, 11:59pm\nProject 4: Friday December 23, 11:59pm\n\n\nProject collaboration\nPlease feel free to study together and talk to one another about project assignments. The mutual instruction that students give each other is among the most valuable that can be achieved.\nHowever, it is expected that project assignments will be implemented and written up independently unless otherwise specified. Specifically, please do not share analytic code or output. Please do not collaborate on write-up and interpretation. Please do not access or use solutions from any source before your project assignment is submitted for grading."
+  },
+  {
+    "objectID": "syllabus.html#exams",
+    "href": "syllabus.html#exams",
+    "title": "Syllabus",
+    "section": "Exams",
+    "text": "Exams\nThere are no exams in this course."
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\nGrades in the course will be based on Projects 1–4. Grades for the projects and the final grade will be issued via the CoursePlus grade book.\n\nPhilosophy\nWe believe the purpose of graduate education is to train you to be able to think for yourself and initiate and complete your own projects. We are super excited to talk to you about ideas, work out solutions with you, and help you to figure out how to produce professional data analyses. We do not think that graduate school grades are important for this purpose. This means that we do not care very much about graduate student grades.\nThat being said, we have to give you a grade so they will be:\n\nA - Excellent - 90%+\nB - Passing - 80%+\nC - Needs improvement - 70%+\n\nWe rarely give out grades below a C and if you consistently submit work, and do your best you are very likely to get an A or a B in the course.\n\n\nRelative weights\nThe grades are based on four projects. The breakdown of grading will be\n\n25% for Project 1\n25% for Project 2\n25% for Project 3\n25% for Project 4"
+  },
+  {
+    "objectID": "syllabus.html#academic-ethics-and-student-conduct-code",
+    "href": "syllabus.html#academic-ethics-and-student-conduct-code",
+    "title": "Syllabus",
+    "section": "Academic Ethics and Student Conduct Code",
+    "text": "Academic Ethics and Student Conduct Code\nStudents enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.\nStudents should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s portal.\nThe faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions.\n\nCourse code of Conduct\nWe are committed to providing a welcoming, inclusive, and harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), political beliefs/leanings, or technology choices. We do not tolerate harassment of course participants in any form. Sexual language and imagery is not appropriate for any work event, including group meetings, conferences, talks, parties, Twitter and other online media. This code of conduct applies to all course participants, including instructors and TAs, and applies to all modes of interaction, both in-person and online, including GitHub project repos, Slack channels, and Twitter.\nCourse participants violating these rules will be referred to leadership of the Department of Biostatistics and the Title IX coordinator at JHU and may face expulsion from the class.\nAll class participants agree to:\n\nBe considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of other members.\nBe respectful. Disagreements happen, but do not require poor behavior or poor manners. Frustration is inevitable, but it should never turn into a personal attack. A community where people feel uncomfortable or threatened is not a productive one. Course participants should be respectful both of the other course participants and those outside the course.\nRefrain from demeaning, discriminatory, or harassing behavior and speech. Harassment includes, but is not limited to: deliberate intimidation; stalking; unwanted photography or recording; sustained or willful disruption of talks or other events; inappropriate physical contact; use of sexual or discriminatory imagery, comments, or jokes; and unwelcome sexual attention. If you feel that someone has harassed you or otherwise treated you inappropriately, please alert Stephanie Hicks.\nTake care of each other. Refrain from advocating for, or encouraging, any of the above behavior. And, if someone asks you to stop, then stop. Alert Stephanie Hicks if you notice a dangerous situation, someone in distress, or violations of this code of conduct, even if they seem inconsequential.\n\n\n\nNeed Help?\nPlease speak with Stephanie Hicks or one of the TAs. You can also reach out to Karen Bandeen-Roche, chair of the department of Biostatistics or Margaret Taub, Ombudsman for the Department of Biostatistics.\nYou may also reach out to any Hopkins resource for sexual harassment, discrimination, or misconduct:\n\nJHU Sexual Assault Helpline, 410-516-7333 (confidential)\n\nUniversity Sexual Assault Response and Prevention website\nJohns Hopkins Compliance Hotline, 844-SPEAK2US (844-733-2528)\nHopkins Policies Online\nJHU Office of Institutional Equity 410-516-8075 (nonconfidential)\nJohns Hopkins Student Assistance Program (JHSAP), 443-287-7000\nUniversity Health Services, 410-955-1892\nThe Faculty and Staff Assistance Program (FASAP), 443-997-7000"
+  },
+  {
+    "objectID": "syllabus.html#license-and-attribution",
+    "href": "syllabus.html#license-and-attribution",
+    "title": "Syllabus",
+    "section": "License and attribution",
+    "text": "License and attribution\nThis Code of Conduct is distributed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. Portions of above text comprised of language from the Codes of Conduct adopted by rOpenSci and Django, which are licensed by CC BY-SA 4.0 and CC BY 3.0. This work was further inspired by Ada Initiative’s ‘’how to design a code of conduct for your community’’ and Geek Feminism’s Code of conduct evaluations and expanded by Ashley Johnson and Shannon Ellis in the Jeff Leek group."
+  },
+  {
+    "objectID": "syllabus.html#disability-support-service",
+    "href": "syllabus.html#disability-support-service",
+    "title": "Syllabus",
+    "section": "Disability Support Service",
+    "text": "Disability Support Service\nStudents requiring accommodations for disabilities should register with Student Disability Service (SDS). It is the responsibility of the student to register for accommodations with SDS. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health. Once you are f a student in your class has approved accommodations you will receive formal notification and the student will be encouraged to reach out. If you have questions about requesting accommodations, please contact BSPH.dss@jhu.edu."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nPrerequisite for the course is Biostatistics 140.776 or knowledge of material from 140.776 is assumed.\nIf you did not take the above course, please contact course instructor to get permission to enroll."
+  },
+  {
+    "objectID": "syllabus.html#general-disclaimers",
+    "href": "syllabus.html#general-disclaimers",
+    "title": "Syllabus",
+    "section": "General Disclaimers",
+    "text": "General Disclaimers\nThis syllabus is a general plan, deviations announced to the class by the instructor may be necessary."
+  },
+  {
+    "objectID": "syllabus.html#typos-and-corrections",
+    "href": "syllabus.html#typos-and-corrections",
+    "title": "Syllabus",
+    "section": "Typos and corrections",
+    "text": "Typos and corrections\nFeel free to submit typos/errors/etc via the github repository associated with the class: https://github.com/stephaniehicks/jhustatprogramming2022. You will have the thanks of your grateful instructor!"
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "module 1\n\n\nweek 1\n\n\nwebsites\n\n\nquarto\n\n\n\n\nBuilding a brand and websites with quarto\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources.html",

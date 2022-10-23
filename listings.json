@@ -1,13 +1,12 @@
 [
   {
-    "listing": "/lectures.html",
-    "items": [
-      "/posts/2022-10-27-build-website/index.html",
-      "/posts/2022-10-27-course-intro/index.html"
-    ]
-  },
-  {
     "listing": "/projects.html",
     "items": []
+  },
+  {
+    "listing": "/lectures.html",
+    "items": [
+      "/posts/2022-10-27-build-website/index.html"
+    ]
   }
 ]

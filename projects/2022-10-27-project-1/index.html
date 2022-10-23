@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Stephanie Hicks">
+<meta name="dcterms.date" content="2022-10-27">
+<meta name="description" content="TBA">
+
+<title>Statistical Programming Paradigms and Workflows (BSPH 140.840) - Project 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Statistical Programming Paradigms and Workflows (BSPH 140.840)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-general-information" role="button" data-bs-toggle="dropdown" aria-expanded="false">General Information</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-general-information">    
+        <li>
+    <a class="dropdown-item" href="../../syllabus.html">
+ <span class="dropdown-text">Syllabus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../schedule.html">
+ <span class="dropdown-text">Schedule</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-course-materials" role="button" data-bs-toggle="dropdown" aria-expanded="false">Course Materials</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-course-materials">    
+        <li>
+    <a class="dropdown-item" href="../../lectures.html">
+ <span class="dropdown-text">Lectures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects.html">
+ <span class="dropdown-text">Projects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../resources.html">
+ <span class="dropdown-text">Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#to-submit-your-project" id="toc-to-submit-your-project" class="nav-link" data-scroll-target="#to-submit-your-project">To submit your project</a></li>
+  </ul></li>
+  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
+  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a>
+  <ul class="collapse">
+  <li><a href="#create-a-github-repo-for-your-website" id="toc-create-a-github-repo-for-your-website" class="nav-link" data-scroll-target="#create-a-github-repo-for-your-website">1. Create a GitHub repo for your website</a>
+  <ul class="collapse">
+  <li><a href="#build-a-website-using-quarto" id="toc-build-a-website-using-quarto" class="nav-link" data-scroll-target="#build-a-website-using-quarto">2. Build a website using <code>quarto</code></a></li>
+  <li><a href="#include-a-readme.md-file" id="toc-include-a-readme.md-file" class="nav-link" data-scroll-target="#include-a-readme.md-file">3. Include a <code>README.md</code> file</a></li>
+  <li><a href="#deploy-your-website" id="toc-deploy-your-website" class="nav-link" data-scroll-target="#deploy-your-website">4. Deploy your website</a></li>
+  <li><a href="#share-your-website" id="toc-share-your-website" class="nav-link" data-scroll-target="#share-your-website">5. Share your website</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-3" id="toc-part-3" class="nav-link" data-scroll-target="#part-3">Part 3</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project 1</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">project 1</div>
+    <div class="quarto-category">projects</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    TBA
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <a href="https://stephaniehicks.com">Stephanie Hicks</a> 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Department of Biostatistics, Johns Hopkins
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 27, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level1">
+<h1>Background</h1>
+<p><strong>Due date: November 11 at 11:59pm</strong></p>
+<p>The goal of this assignment is to…</p>
+<section id="to-submit-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="to-submit-your-project">To submit your project</h3>
+</section>
+</section>
+<section id="part-1" class="level1">
+<h1>Part 1</h1>
+<p>Complete the Git &amp; GitHub Fundamentals Starter course. The link to create a private GitHub repository for yourself to complete the course will be posted in CoursePlus. When you are done, add the link to the GitHub repo here:</p>
+<ul>
+<li><strong>Action</strong>: Delete this text and replace the text with the link to the private GitHub repo you created above</li>
+</ul>
+</section>
+<section id="part-2" class="level1">
+<h1>Part 2</h1>
+<p>This part of the project is to help you introduce yourself (and your interests!) to others in this course. You will create a new GitHub repository and build a small website about yourself.</p>
+<section id="create-a-github-repo-for-your-website" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-github-repo-for-your-website">1. Create a GitHub repo for your website</h2>
+<p>Create a new GitHub repository titled <code>biostat840-intro-&lt;firstname&gt;-&lt;lastname&gt;</code> (where you replace <code>&lt;firstname&gt;</code> with your first name and <code>&lt;lastname&gt;</code> with your last name) in your own personal GitHub account (e.g.&nbsp;<code>https://github.com/&lt;yourgithubusername&gt;/biostat840-intro-&lt;firstname&gt;-&lt;lastname&gt;</code>).</p>
+<section id="build-a-website-using-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="build-a-website-using-quarto">2. Build a website using <code>quarto</code></h3>
+<p>Create a new project locally within RStudio and build a website for yourself. Your website should include the following:</p>
+<ul>
+<li>A landing page. This is home page that someone will land on your website. At minium it should include a picture of yourself, your name, and a short summary about yourself (max 2-3 sentences).</li>
+<li>An <code>About</code> page. This page should describe who you are in greater detail. It could include your professional interests and your educational and/or professional background and/or experience. It could also include any personal information you feel conformtable sharing on the website.</li>
+<li>A data analysis page called <code>Example data analysis</code>. You can pick any dataset you wish you analyze. In this webpage, you will analyze a dataset and summarize it. The requirements for this webpage are the following:
+<ul>
+<li>You must describe what is the question you aim to answer with the data and data analysis.</li>
+<li>You must describe who is the intended audience for the data analysis.</li>
+<li>You must describe and link to where the original data come from tha you chose. You must also include a link to a data dictionary or create one inside the webpage.</li>
+<li>Your analysis must include some minimal form of data wrangling with you using at least five differnt functions from <code>dplyr</code> or <code>tidyr</code>.</li>
+<li>Your analysis should include at least three plots with you using at least three different <code>geom_*()</code> functions from <code>ggplot2</code> (or another package with <code>geom_*()</code> functions). Plots should have titles, subtitles, and axis labels.</li>
+<li>At least plot should using a type of faceting (<code>facet_grid()</code> or <code>facet_wrap()</code>).</li>
+<li>Your analysis must include one figure or table (not one you created yourself, but one you have saved locally or one from the web).</li>
+<li>Your analysis must include at least two different <a href="https://quarto.org/docs/authoring/callouts.html">callout blocks</a>.</li>
+<li>Your analysis must include a <code>.bib</code> file, which you use to reference at least three unique citations. For example, it could be to a website or paper from where the original data came from or it could be to a paper describing a method you are using to analyze the data.</li>
+<li>Your analysis must include the use of at least 1 footnote.</li>
+<li>You must summarize your analysis and/or results with a paragraph (4-6 sentences).</li>
+<li>At the end of the data analysis, list out each of the functions you used from each of the package to help the TA with respect to making sure you met all the requirements described above.</li>
+</ul></li>
+</ul>
+</section>
+<section id="include-a-readme.md-file" class="level3">
+<h3 class="anchored" data-anchor-id="include-a-readme.md-file">3. Include a <code>README.md</code> file</h3>
+<p>Your GitHub repository should include a <code>README.md</code> file describing who is the author of the website and a link to the website that has been deployed. You can also describe the technical details for how the website was created and/or deployed.</p>
+</section>
+<section id="deploy-your-website" class="level3">
+<h3 class="anchored" data-anchor-id="deploy-your-website">4. Deploy your website</h3>
+<p>Deploy your website using <a href="https://quarto.org/docs/publishing/quarto-pub.html">Quarto Pub</a>, <a href="https://quarto.org/docs/publishing/github-pages.html">GitHub pages</a>, or <a href="https://quarto.org/docs/publishing/netlify.html">Netlify</a>. (<strong>Note</strong>: Deploying your website to RPubs will not be accepted).</p>
+</section>
+<section id="share-your-website" class="level3">
+<h3 class="anchored" data-anchor-id="share-your-website">5. Share your website</h3>
+<p>Go to the Discussion Board in CoursePlus and write a short post with a link (URL) to your website (and URL to the corresponding GitHub repository) that you created. Also, list the URLs below for the purposes of grading.</p>
+<p>As you read the introductions from other folks in the class, feel free to comment/reply using Discussion board.</p>
+<ul>
+<li><strong>Action</strong>: Delete this text and replace the text with the link to the GitHub repo you created above</li>
+<li><strong>Action</strong>: Delete this and replace the text with the link to the the deployed website you created above</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="part-3" class="level1">
+<h1>Part 3</h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
