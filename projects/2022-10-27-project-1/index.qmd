@@ -26,8 +26,12 @@ Complete the Git & GitHub Fundamentals Starter course. The link to create a priv
 
 - **Action**: Delete this text and replace the text with the link to the private GitHub repo you created above
 
-
 # Part 2
+
+Read this blogpost titled [Building a brand as a scientist](https://www.stephaniehicks.com/blog/building-a-brand-as-a-scientist). 
+
+
+# Part 3
 
 This part of the project is to help you introduce yourself (and your interests!) to others in this course. You will create a new GitHub repository and build a small website about yourself.
 
@@ -73,7 +77,7 @@ As you read the introductions from other folks in the class, feel free to commen
 - **Action**: Delete this and replace the text with the link to the the deployed website you created above
 
 
-# Part 3
+# Part 4
 
 
 

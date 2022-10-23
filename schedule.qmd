@@ -14,8 +14,9 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 |---|---|---|---|---|
 | **Module 1** | | **Statistical programming at the command-line**  | |
 | | | |
-| Week 1 | Oct 27  | Course introduction; building a brand and websites with `quarto` \[[html](posts/2022-10-27-build-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-build-website/index.qmd)\]  | `r emojifont::emoji('palm_tree')` Project 1  |
-| | |  | |
+| Week 1 | Oct 27  | Course introduction \[[syllabus](syllabus.qmd)\] | `r emojifont::emoji('palm_tree')` Project 1  |
+| | | Building websites with `quarto` \[[html](posts/2022-10-27-build-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-build-website/index.qmd)\] | | 
+| | | | |
 | | | | |
 | Week 2 | Nov 1  | Data science at the command-line |   |
 | | | | | 
