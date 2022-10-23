@@ -1,0 +1,25 @@
+---
+title: "Project 3"
+author: 
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://publichealth.jhu.edu
+description: "TBA"
+date: 2022-11-22
+draft: true
+categories: [project 3, projects]
+---
+
+# Background
+
+
+**Due date: December 9 at 11:59pm**
+
+The goal of this assignment is to... 
+
+### To submit your project
+
+# Part 1
+
+
