@@ -9,14 +9,13 @@ tbl-colwidths: [15,10, 55, 20]
 
 For Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatprogramming2022) and navigate the directories, or best of all to clone the repo and navigate within RStudio.
 
-
 ::: column-page
 | Week         | Dates   | Topics | Projects  |
 |---|---|---|---|---|
 | **Module 1** | | **Statistical programming at the command-line**  | |
 | | | |
-| Week 1 | Oct 27  | Course introduction \[[html](posts/2022-10-27-course-intro/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-course-intro/index.qmd)\]  | `r emojifont::emoji('palm_tree')` Project 1  |
-| | | Building a brand and websites with `quarto` \[[html](posts/2022-10-27-build-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-build-website/index.qmd)\]  | |
+| Week 1 | Oct 27  | Course introduction; building a brand and websites with `quarto` \[[html](posts/2022-10-27-build-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatcomputing2022/blob/main/posts/2022-10-27-build-website/index.qmd)\]  | `r emojifont::emoji('palm_tree')` Project 1  |
+| | |  | |
 | | | | |
 | Week 2 | Nov 1  | Data science at the command-line |   |
 | | | | | 
@@ -49,7 +48,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | 
 | Week 7 | Dec 6  | Advanced `ggplot2`  |  `r emojifont::emoji('palm_tree')` Project 4  | 
 | | | |
-| | Dec 8  | Intro to D3 visualizations with `r2d3` | | 
+| | Dec 8  | Python and R with `reticulate` | | 
 | | | | | 
 | | Dec 9  | |  `r emojifont::emoji('fallen_leaf')` Project 3 due | 
 | | | |
