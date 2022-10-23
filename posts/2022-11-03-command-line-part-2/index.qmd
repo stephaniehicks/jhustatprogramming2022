@@ -44,6 +44,12 @@ Material for this lecture was borrowed and adopted from
 
 # Add lecture here
 
+# Basics of bash scripting
+
+Pull material from here 
+
+- https://laderast.github.io/bash_for_bioinformatics/02-scripting-basics.html
+
 # Post-lecture materials
 
 ### Final Questions

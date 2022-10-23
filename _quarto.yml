@@ -31,8 +31,9 @@ format:
     theme: simplex
     toc: true
     css: styles.css
+    code-overflow: wrap
 
-editor: visual
+editor: source
 
 execute:
   freeze: auto

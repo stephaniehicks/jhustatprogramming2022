@@ -44,6 +44,20 @@ Material for this lecture was borrowed and adopted from
 
 # Add lecture here
 
+
+```{.bash filename="Hi"}
+# render single document (always executes code)
+quarto render document.qmd
+
+# render project subdirectory (always executes code)
+quarto render articles
+```
+
+```{{r}}
+mean(1:5)
+```
+
+
 # Post-lecture materials
 
 ### Final Questions
