@@ -9,6 +9,8 @@ description: "Introduction to the command-line for data analysis (part 1)"
 date: 2022-11-01
 draft: true
 categories: [module 1, week 2, command-line]
+editor_options: 
+  chunk_output_type: inline
 ---
 
 <!-- Add interesting quote -->
@@ -30,7 +32,7 @@ categories: [module 1, week 2, command-line]
 
 Material for this lecture was borrowed and adopted from
 
--   Add here.
+-   [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
 
 # Learning objectives
 
@@ -39,13 +41,108 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
--   Add here.
+-   Understand what is a command shell and why would use one.
+-   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
+-   Explain when and why command-line interfaces should be used instead of graphical interfaces.
 :::
 
-# Add lecture here
+# Introduction
 
+We we use interact with computers, we often do so with a keyboard and mouse, touch screen interfaces, or using speech recognition systems.
 
-```{.bash filename="Hi"}
+The most widely used way to interact with personal computers is called a **graphical user interface** (GUI). With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.
+
+The problem with only working with GUIs is that while the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.
+
+::: callout-note
+### Example
+
+Imagine the following task: for a literature search, you have to
+
+1.  Copy the third line of one thousand text files in one thousand different directories
+2.  Paste the lines into a single file.
+
+Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task.
+:::
+
+This is where we take advantage of the **Unix shell**.
+
+The Unix shell is both
+
+1.  A **command-line interface** (CLI)
+2.  A **scripting language**
+
+This allows such repetitive tasks to be done automatically and fast. Using the shell, the task in the literature example can be accomplished in seconds.
+
+## The Shell
+
+The **shell is a program** (or environment) where users can **type commands** and the commands can be executed. Another way of thinking about it is, a shell provides an **interface between the user and the UNIX system**.
+
+::: callout-note
+### Types of shells
+
+-   **Bash** (Bourne Again SHell). The most popular Unix shell is Bash (the Bourne Again SHell --- so-called because it's derived from a shell written by Stephen Bourne). Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.
+-   **Zsh** (Z SHell). Zsh is built on top of bash with some additional features including providing the user with more flexibility by providing various features such as plug-in support, better customization, theme support, spelling correction, etc. Zsh is the default shell for macOS and Kali Linux.
+:::
+
+The **grammar of a shell** allows you to combine existing tools into powerful pipelines and handle large volumes of data automatically. Sequences of commands can be written into a script, improving the reproducibility of workflows.
+
+In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
+
+-   Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems.
+-   As clusters and cloud computing systems become more popular for scientific data crunching, being able to interact with the shell is becoming a necessary skill.
+
+Let's get started.
+
+## Opening the shell
+
+When the shell is first opened, you are presented with a prompt, indicating that the shell is waiting for input.
+
+``` {.bash filename="Bash"}
+$
+```
+
+The shell typically uses `$` as the prompt, but may use a different symbol (for the purposes of the rest of the lecture, I will omit the `$`).
+
+::: callout-important
+1.  When typing commands in the shell, **do not type the `$`**, only the commands that follow it.
+2.  After you type a command, you have to **press the Enter key** to execute it.
+:::
+
+The prompt is followed by a text cursor, a character that indicates the position where your typing will appear.
+
+So let's try our first command, `ls` which is short for listing files. With R, we know how to do this with `list.files()` function in base R: 
+
+```{r}
+#| echo: fenced
+list.files()
+```
+
+This command will list the contents of the current directory where the lecture is located. In RStudio, we can write a bash code block like this: 
+
+```{{bash}}
+ls
+```
+
+and the executed code block is this: 
+
+```{bash}
+ls
+```
+
+:::{.callout-note}
+
+If the shell can't find a program whose name is the command you typed, it will print an error message such as:
+
+```{bash, error=TRUE}
+ks
+```
+
+This might happen if the command was mis-typed or if the program corresponding to that command is not installed.
+
+:::
+
+``` {.bash filename="Hi"}
 # render single document (always executes code)
 quarto render document.qmd
 
@@ -53,10 +150,9 @@ quarto render document.qmd
 quarto render articles
 ```
 
-```{{r}}
+``` {{r}}
 mean(1:5)
 ```
-
 
 # Post-lecture materials
 

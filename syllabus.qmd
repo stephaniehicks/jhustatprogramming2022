@@ -6,7 +6,7 @@ title: "Syllabus"
 
 -   Location: In person (with recorded lectures posted online) for Fall 2022
 -   Course time: Tuesdays and Thursdays from 1:30-2:50pm (**Eastern Daylight Time** zone)
--   Course location: W3031
+-   Course location: W4030
 -   Assignments: Four projects
 
 ## How to register and participate
@@ -135,10 +135,8 @@ The grades are based on four projects. The breakdown of grading will be
 
 ## Policy for submitted projects late
 
-:::{.callout-important}
-
+::: callout-important
 The instructor and TA(s) will not accept email late day policy requests.
-
 :::
 
 This is the policy for late submissions that applies to Projects 1-4.
@@ -152,20 +150,17 @@ This is the policy for late submissions that applies to Projects 1-4.
 
 Although the each student is only given a total of three "free late days", we will be accepting homework from students that pass this limit.
 
--   We will deduct 5% off the 100% starting point for each day the assignment is late. 
--   If you use two "free late days" for project, but need a 3rd day, there will be no penalty for the first two late days and there will be a 5% penalty for the 3rd late day. 
+-   We will deduct 5% off the 100% starting point for each day the assignment is late.
+-   If you use two "free late days" for project, but need a 3rd day, there will be no penalty for the first two late days and there will be a 5% penalty for the 3rd late day.
 -   If you do not have any more late days for the term, we will deduct 5% for the assignment that is \<24 hours late, 10% points for the assignment that is 24-48 hours late, and 15% points for the assignment that is 48-72 hours late.
 
-:::{.callout-important}
-
+::: callout-important
 We will not grade assignments that are more than 3 days (or more than 72 hours) past the original due date.
-
 :::
 
 ### Regrading Policy
 
 It is very important to us that all assignments are properly graded. If you believe there is an error in your assignment grading, please send an email to one of the instructors within 7 days of receiving the grade. No re-grade requests will be accepted orally, and no regrade requests will be accepted more than 7 days after you receive the grade for the assignment.
-
 
 ## Academic Ethics and Student Conduct Code
 
