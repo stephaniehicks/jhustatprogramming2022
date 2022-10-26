@@ -32,12 +32,13 @@ editor_options:
 
 Material for this lecture was borrowed and adopted from
 
--   [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
+- [R Squared Academy](https://blog.rsquaredacademy.com/command-line-basics-for-r-users)
+- [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
 
 # Learning objectives
 
 ::: callout-note
-# Learning objectives
+### Learning objectives
 
 **At the end of this lesson you will:**
 
@@ -111,6 +112,8 @@ The shell typically uses `$` as the prompt, but may use a different symbol (for 
 
 The prompt is followed by a text cursor, a character that indicates the position where your typing will appear.
 
+## Shell basics 
+
 So let's try our first command, `ls` which is short for listing files. With R, we know how to do this with `list.files()` function in base R: 
 
 ```{r}
@@ -139,8 +142,634 @@ ks
 ```
 
 This might happen if the command was mis-typed or if the program corresponding to that command is not installed.
+:::
+
+
+Next, lets learn to display
+
+- basic information about the user
+- the current date & time
+- the calendar
+- and clear the screen
+
+| Command	| Description | R command | 
+| ------- | ------------| --------- |   
+| `whoami`        |     Who is the user? | `Sys.info()` / `whoami::whoami()` | 
+| `date`	        |     Get date, time and timezone | `Sys.time()` |
+| `cal`           |     Display calendar | 
+| `clear`         |     Clear the screen | Ctrl + L
+
+`whoami` prints the effective user id i.e. the name of the user who runs the command. Use it to verify the user as which you are logged into the system.
+
+```{bash}
+whoami
+```
+
+`date` will display or change the value of the system’s time and date information.
+
+```{bash}
+date
+```
+
+`cal` will display a formatted calendar and clear will clear all text on the screen and display a new prompt. You can clear the screen by pressing Ctrl + L as well.
+
+```{bash}
+cal
+```
+To clear the R console, we use Ctrl + L.
+
+## Getting help
+
+Before we proceed further, let us learn to view the documentation/manual pages of the commands.
+
+| Command	| Description |  
+| ------- | ------------| 
+| `man`   | Display manual pages for a command | 
+| `whatis` | Single line description of a command | 
+
+`man` is used to view the system’s reference manual.
+
+``` {.bash}
+man date 
+```
+
+``` {.md} 
+DATE(1)                          General Commands Manual                          DATE(1)
+
+NAME
+     date – display or set date and time
+
+SYNOPSIS
+     date [-jnRu] [-r seconds | filename] [-v [+|-]val[ymwdHMS]] ... [+output_fmt]
+     date [-ju] [[[mm]dd]HH]MM[[cc]yy][.ss]
+     date [-jRu] -f input_fmt new_date [+output_fmt]
+     date [-jnu] [-I[FMT]] [-f input_fmt] [-r ...] [-v ...] [new_date]
+
+DESCRIPTION
+     When invoked without arguments, the date utility displays the current date and time.
+```
+
+
+
+# Move around files
+
+## Navigate the file system
+
+Next, we will introduce commands that help us:
+
+- navigate between different folders/directories
+- return current working directory
+- list all the files & folders in a directory
+- create and delete directories
+
+
+| Command	| Description | R commands | 
+| ------- | ------------| --------- |   
+| `pwd`   | Print working directory | `here::here()` | 
+| `ls`    | List directory contents | `dir()` / `list.files()` / `list.dirs()` |
+| `cd`    |	Change current working directory | `setwd()` | 
+| `mkdir`	| Create directory | `dir.create()` | 
+| `rmdir`	| Remove/delete directory | 
+
+
+`pwd` displays the name of the present working directory.
+
+```{bash}
+pwd
+```
+
+`ls` displays information about files and directories in the current directory along with their associated metadata such as
+
+- size
+- ownership
+- modification date
+
+
+With no options, it will list the files and directories in the current directory, sorted alphabetically.
+
+```{bash}
+ls
+```
+
+`cd` (change directory) changes the current working directory. It is among the most used commands as it allows the user to move around the file system.
+
+```{bash}
+cd .. 
+ls
+```
+
+:::{.callout-note}
+
+The `cd ..`	means to change to the directory that is one level up. 
 
 :::
+
+`mkdir` will create new directory. It will allow you to set file mode (permissions associated with the directory) i.e. who can open/modify/delete the directory.
+
+```{bash}
+mkdir secret_directory
+ls
+```
+
+`rmdir` will remove empty directories from the file system. It can be used to remove multiple empty directories as well. If the directory is not empty, rmdir will not remove it and instead display a warning that the directory is not empty.
+
+```{bash}
+rmdir secret_directory
+ls
+```
+
+## Change working directory
+
+Let us focus a bit more on changing working directory. The below table shows commands for changing working directory to
+
+- up one level
+- previous working directory
+- home directory
+- and root directory
+
+| Command	| Description |  
+| ------- | ------------| 
+| `cd .`    |	Navigate into directory |
+| `cd ..`    |	Go up one level | 
+| `cd -`    |	Go to previous working directory | 
+| `cd ~`    |	Change directory to home directory | 
+| `cd /`    |	Change directory to root directory | 
+
+```{bash}
+cd ..
+ls 
+```
+
+```{bash}
+cd ../..
+ls
+```
+
+```{bash}
+cd ~ 
+ls 
+```
+
+
+
+## List directory contents
+
+`ls` will list the contents of a directory. Using different arguments, we can
+
+- list hidden files
+- view file permissions, ownership, size & modification date
+- sort by size & modification date
+
+| Command	| Description |  
+| ------- | ------------| 
+| `ls` | List directory contents | 
+| `ls -l` | List files one per line | 
+| `ls -a` | List all files including hidden files | 
+| `ls -la` | Display file permissions, ownership, size & modification date | 
+| `ls -lh` | Long format list with size displayed in human readable format | 
+| `ls -lS` | Long format list sorted by size | 
+| `ls -ltr` | Long format list sorted by modification date | 
+
+List files one per line
+```{bash}
+cd ../..
+ls -l
+```
+
+List all files including hidden files
+
+```{bash}
+cd ../..
+ls -a
+```
+
+
+Display file permissions, ownership, size & modification date
+```{bash}
+cd ../..
+ls -la
+```
+
+Display size in human readable format
+```{bash}
+cd ../..
+ls -lh
+```
+
+
+
+```{bash}
+cd ../..
+ls 
+```
+
+
+
+# Create, copy, rename, delete files
+
+In this section, we will explore commands for file management including:
+
+- create new file/change timestamps
+- copying files
+- renaming/moving files
+- deleting files
+- comparing files
+
+| Command	| Description |  R commands |
+| ------- | ------------ | ---------- | 
+| `touch` | Create empty file(s)/change timestamp | `file.create()` | 
+| `cp`    |	Copy files & folders | `file.copy()` |
+| `mv`    |	Rename/move file | `file.rename()` | 
+| `rm`    |	Remove/delete file | `file.remove()` | 
+| `diff`  |	Compare files | | 
+
+## Create new file
+
+`touch` modifies file timestamps which is information associated with file modification. It can be any of the following:
+
+- access time (the last time the file was read)
+- modification time (the last time the contents of the file was changed)
+- change time (the last time the file’s metadata was changed)
+
+If the file does not exist, it will create an empty file of the same name. Let us use touch to create a new file myanalysis.R.
+
+```{bash}
+touch secret_analysis.R
+ls
+```
+
+## Copy files and folders
+
+`cp` makes copies of files and directories. 
+
+:::{.callout-note}
+
+By default, it will overwrite files without prompting for confirmation so be cautious while copying files or folders.
+
+:::
+
+Let us create a copy of `team_standings.csv` file and name it as `team_standings_2.csv` in the same folder.
+
+```{bash}
+cp team_standings.csv team_standings_2.csv
+ls
+```
+
+
+To copy folders, you use the `-r` option which refers to `--recursive` i.e. copy directories recursively.
+
+```{bash}
+cp -r secret_directory secret_directory_2
+ls
+```
+
+## move and rename files
+
+`mv` moves and renames files and directories. Using different options, we can ensure
+
+- files are not overwritten
+- user is prompted for confirmation before overwriting files
+- details of files being moved is displayed
+
+
+| Command	| Description | 
+| ------- | ------------ | 
+| `mv`    | Move or rename files/directories
+| `mv -f` | Do not prompt for confirmation before overwriting files
+| `mv -i` | Prompt for confirmation before overwriting files
+| `mv -n` | Do not overwrite existing files
+| `mv -v` | Move files in verbose mode
+
+Let us move/rename the `team_standings_2.csv` file to `team_standings_3.csv` in verbose mode. 
+
+```{bash}
+mv -v team_standings_2.csv team_standings_3.csv
+ls
+```
+
+We see that there is no more file called `team_standings_2.csv` as it's now been renamed! 
+
+:::{.callout-tip}
+
+We will look into the `cat` command in more detail later, but for the time being it is sufficient to know that it prints contents of a file. 
+
+The file contains release names of different R versions.
+
+```{bash}
+cat team_standings.csv
+```
+:::
+
+
+## remove/delete files
+
+The `rm` command is used to delete/remove files & folders. Using additional options, we can
+
+- remove directories & sub-directories
+- forcibly remove directories
+- interactively remove multiple files
+- display information about files removed/deleted
+
+| Command	| Description | 
+| ------- | ------------ | 
+| `rm`    | Remove files/directories | 
+| `rm -r  | Recursively remove a directory & all its subdirectories | 
+| `rm -rf  | 	Forcibly remove directory without prompting for confirmation or showing error messages | 
+| `rm -i  | Interactively remove multiple files, with a prompt before every removal | 
+| `rm -v  | Remove files in verbose mode, printing a message for each removed file | 
+
+Let's remove the `secret_analysis.R` file that we created earlier with the `touch` command. 
+
+```{bash}
+rm secret_analysis.R
+ls
+```
+
+To remove a folder (and all of it's contents), we need to use recursive deletion with `-r`
+
+```{bash}
+rm -r secret_directory_2
+ls
+```
+
+
+
+
+# Input and output
+
+In this section, we will explore commands that will
+
+- display messages
+- print file contents
+- sort file contents
+- count length of file
+
+| Command	| Description | 
+| ------- | ------------ |
+| `echo`    | Display messages |
+| `cat`     | Print contents of a file |
+| `head`    | Prints first ten lines of a file by default |
+| `tail`    | Prints last ten lines of a file by default |
+| `more`    | Open a file for interactive reading, scrolling and searching |
+| `less`    | Open a file for interactive reading, scrolling and searching |
+| `sort`    | Sort a file in ascending order |
+| `wc`      | Count length (words or lines) in a file | 
+
+## Display messages
+
+The `echo` command **prints text** to the terminal. 
+
+It can be used for writing or appending messages to a file as well.
+
+| Command	| Description |
+| ------- | ------------ |
+| `echo`        | Display messages | 
+| `echo -n`     | Print message without trailing new line | 
+| `echo > file` | Write message to a file | 
+| `echo -e`     | Enable interpretation of special characters | 
+
+Let us start with a simple example. We will print the text "Funny-Looking Kid" to the terminal. It is the release name for R version 4.2.1.
+
+```{bash}
+echo Funny-looking Kid
+```
+
+If we wanted to redirect that output from printing to the terminal and write to a file, we use the `>` syntax
+
+```{bash}
+echo Funny-looking Kid > r_release.txt
+cat r_release.txt
+```
+
+## Print file contents
+
+The `cat` (stands for _cat_enate) command reads data from files, and outputs their contents to the screen. 
+
+If we wanted to number all the output, use the `-n` option: 
+
+```{bash}
+cat -n release_names.txt 
+```
+
+To concatenate several files into one final target file, we can also use `>`: 
+
+```{bash}
+cat r_release.txt release_names.txt > combined_names.txt
+cat combined_names.txt
+```
+
+The `head` command will display the first 10 lines of a file(s) by default.
+The `tail` command displays the last 10 lines of a file(s) by default.
+
+It can be used to display the first (or last) few lines or bytes of a file as well.
+
+| Command	| Description |
+| ------- | ------------ |
+| `head` | Output the first parts of a file | 
+| `head -n num` | Output the first `num` lines of a file | 
+| `head -c num` | Output the first `num` bytes of a file | 
+| `tail` | Display the last part of a file | 
+| `tail -n num` | Show the last `num` lines of a file | 
+| `tail -n +num` | Show all contents of the file starting from `num` line | 
+| `tail -c num` | Show last `num` bytes of a file | 
+
+To show the head of the first 8 lines of the `combined_names.txt` file: 
+
+```{bash}
+head -c 8 combined_names.txt 
+```
+
+To show all the lines starting from line 8 and beyond: 
+
+```{bash}
+tail -n +8 combined_names.txt 
+```
+
+The `more` command displays text, one screen at a time. It opens a file for
+
+- interactive reading
+- scrolling
+- searching
+
+:::{.callout-tip}
+
+Press space to scroll down the page, the forward slash (`/`) for searching strings, `n` to go to the next match and `q` to quit.
+
+:::
+
+| Command	| Description |
+| ------- | ------------ |
+| `more`    | Open a file for interactive reading, scrolling and searching |
+| `space`   | Page down |
+| `/`       | Search for a string; press n to go the next match |
+| `q`       | Quit |
+
+The `less` command is similar to more but offers more features. 
+
+It allows the user to scroll up and down, go to the beginning and end of the file, forward and backward search and the ability to go the next and previous match while searching the file.
+
+| Command	| Description |
+| ------- | ------------ |
+| `less	`   | Open a file for interactive reading, scrolling and searching | 
+| `space`   | Page down | 
+| `b`   | Page up | 
+| `G`   | Go to the end of file | 
+| `g`   | Go to the start of file | 
+| `/`   | Forward search | 
+| `?`   | Backward search | 
+| `n`   | Go to next match | 
+| `N`   | Go to previous match | 
+| `q   | Quit | 
+
+
+## Sort files
+
+The `sort` command will sort the contents of text file, line by line. Using additional options, we can
+
+- sort a file in ascending/descending order
+- ignore case while sorting
+- use numeric order for sorting
+- preserve only unique lines while sorting
+
+:::{.callout-tip}
+
+Using the `sort` command, the contents can be sorted numerically and alphabetically. By default, the rules for sorting are:
+
+- lines starting with a number will appear before lines starting with a letter.
+- lines starting with a letter that appears earlier in the alphabet will appear before lines starting with a letter that appears later in the alphabet.
+- lines starting with a lowercase letter will appear before lines starting with the same letter in uppercase.
+
+:::
+
+Using additional options, the rules for sorting can be changed. We list the options in the below table.
+
+| Command	| Description |
+| ------- | ------------ |
+| `sort` | Sort lines of text files
+| `sort -r` | Sort a file in descending order
+| `sort --ignore-case` | Ignore case while sorting
+| `sort -n` | Use numeric order for sorting
+| `sort -u` | Preserve only unique lines while sorting
+
+Here we are sorting in a descending alphabetical order of the `combined_names.txt`
+
+```{bash}
+sort -r combined_names.txt
+```
+
+
+## Count length of file
+
+`wc` (word count) will print newline, word, and byte counts for file(s). If more than one file is specified, it will also print total line.
+
+```{bash}
+wc combined_names.txt
+```
+
+
+```{bash}
+wc -l combined_names.txt
+```
+
+
+```{bash}
+wc -w combined_names.txt
+```
+
+
+```{bash}
+wc -c combined_names.txt
+```
+
+
+
+
+# Search and regular expression 
+
+In this section, we will explore commands that will
+
+- search for a given string in a file
+- find files using names
+- search for binary executable files
+
+
+| Command	| Description | 
+| ------- | ------------ |
+| `grep` | Search for a given string in a file | 
+| `find` | Find files using filenames | 
+| `which` | Search for binary executable files | 
+
+
+## Search for a string in a file
+
+The `grep` command is used for pattern matching. Along with additional options, it can be used to
+
+- match pattern in input text
+- ignore case
+- search recursively for an exact string
+- print filename and line number for each match
+- invert match for excluding specific strings
+
+`grep` (stands for global regular expression) **processes text line by line**, and prints any lines which match a specified pattern. 
+
+It is a powerful tool for matching a regular expression against text in a file, multiple files, or a stream of input.
+
+| Command	| Description | 
+| ------- | ------------ |
+| `grep` | Matches pattern in input text
+| `grep -i` | Ignore case
+| `grep -RI` | Search recursively for an exact string
+| `grep -E` | Use extended regular expression
+| `grep -Hn` | Print file name & corresponding line number for each match
+| `grep -v` | Invert match for excluding specific strings
+
+First, we will search for packages that include the letter "R" in a list of R package names (`package_names.txt`). 
+
+```{bash}
+grep R package_names.txt
+```
+
+```{bash}
+grep --color R package_names.txt
+```
+If there is more than one file to search, use the `-H` option to print the filename for each match.
+
+```{bash}
+grep -H F r_release.txt package_names.txt
+```
+
+And here is the file name and line number
+
+```{bash}
+grep -Hn F r_release.txt package_names.txt
+```
+
+```{bash}
+grep -vi R r_release.txt package_names.txt
+```
+
+
+
+
+
+# Data transfer
+
+# File compression
+
+# System info 
+
+
+# Pipes and filters
+
+How can I combine existing commands to do new things?
+
+# Loops	
+How can I perform the same actions on many different files?
+
+# Finding things
+
+
+
 
 ``` {.bash filename="Hi"}
 # render single document (always executes code)
