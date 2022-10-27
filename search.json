@@ -63,13 +63,6 @@
     "text": "Next steps\nHere are some tutorials I really like for getting started with Quarto generally and for getting started building and deploying websites with Quarto:\n\nCreating Quarto websites\nCustomize Quarto websites"
   },
   {
-    "objectID": "posts/2022-10-27-build-website/diamond-sizes.html",
-    "href": "posts/2022-10-27-build-website/diamond-sizes.html",
-    "title": "Diamond sizes",
-    "section": "",
-    "text": "We have data about 53940 diamonds. Only 126 are larger than 2.5 carats. The distribution of the remainder is shown below:"
-  },
-  {
     "objectID": "posts/2022-11-01-command-line-part-1/index.html",
     "href": "posts/2022-11-01-command-line-part-1/index.html",
     "title": "Introduction to the command-line",
@@ -249,7 +242,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "No matching items"
+    "text": "project 1\n\n\nprojects\n\n\n\n\nBuilding a website and practicing with command-line tools\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -371,11 +364,25 @@
     "text": "Typos and corrections\nFeel free to submit typos/errors/etc via the github repository associated with the class: https://github.com/stephaniehicks/jhustatprogramming2022. You will have the thanks of your grateful instructor!"
   },
   {
+    "objectID": "projects/2022-10-27-project-1/index.html",
+    "href": "projects/2022-10-27-project-1/index.html",
+    "title": "Project 1",
+    "section": "",
+    "text": "Due date: November 11 at 11:59pm\nThe goal of this assignment is to practice some of the skills we have been learning about in class around Quarto, command-line, and version control by building and deploying a website. You also are asked to practice with some command-line skills more formally.\n\n\nPlease use this Quarto file (.qmd) and fill in the requested components by adding the URLs pointing to the private and public repositories and deployed websites. Render this file to a HTML file and submit your HTML file to the dropbox on CoursePlus. Please show all your code, if relevant to a section."
+  },
+  {
+    "objectID": "projects/2022-10-27-project-1/index.html#create-a-github-repo-for-your-website",
+    "href": "projects/2022-10-27-project-1/index.html#create-a-github-repo-for-your-website",
+    "title": "Project 1",
+    "section": "1. Create a GitHub repo for your website",
+    "text": "1. Create a GitHub repo for your website\nCreate a new public GitHub repository titled biostat840-intro-<firstname>-<lastname> (where you replace <firstname> with your first name and <lastname> with your last name) in your own personal GitHub account (e.g. https://github.com/<yourgithubusername>/biostat840-intro-<firstname>-<lastname>).\n\n2. Build a website using Quarto\nCreate a new project locally within RStudio and build a website for yourself. Your website should include the following:\n\nA home/landing page. This is home page that someone will land on your website. At minimum it should include your name, a short summary about yourself (max 2-3 sentences), and a picture of something you enjoy to do for fun (or a picture of yourself if you are comfortable sharing one).\nA page titled ‘About’. This page should describe who you are in greater detail. It could include your professional interests and your educational and/or professional background and/or experience. It could also include any personal information you feel conformable sharing on the website.\nA data analysis page called ‘Example analysis’. You can pick any dataset you wish you analyze. In this webpage, you will analyze a dataset and summarize the results. The requirements for this webpage are the following:\n\nYou must describe what is the question you aim to answer with the data and data analysis.\nYou must describe who is the intended audience for the data analysis.\nYou must describe and link to where the original data come from that you chose.\nYou must include a link to a data dictionary for the data or create one inside the webpage.\nYour analysis must include some minimal form of data wrangling with you using at least five different functions from dplyr or tidyr.\nYour analysis should include at least three plots with you using at least three different geom_*() functions from ggplot2 (or another package with geom_*() functions).\nPlots should have titles, subtitles, captions, and human-understandable axis labels.\nAt least one plot should using a type of faceting (facet_grid() or facet_wrap()).\nYour analysis must include one image or table (not one you created yourself, but one you have saved locally or one from the web).\nYour analysis must include at least two different callout blocks.\nYour analysis must include a .bib file, which you use to reference at least three unique citations. For example, it could be to a website or paper from where the original data came from or it could be to a paper describing a method you are using to analyze the data.\nYour analysis must include the use of at least 1 margin content.\nYou must summarize your analysis and/or results with a paragraph (4-6 sentences).\nAt the end of the data analysis, list out each of the functions you used from each of the packages (dplyr, tidyr, and ggplot2) to help the TA with respect to making sure you met all the requirements described above.\n\n\n\n\n3. Include a README.md file\nYour local repository should include a README.md file describing who is the author of the website and a link to the website after it has been deployed. Other things you might include are the technical details for how the website was created and/or deployed.\n\n\n4. Deploy your website\nDeploy your website using Quarto Pub, GitHub pages, or Netlify. (Note: Deploying your website to RPubs will not be accepted).\n\n\n5. Share your website\nGo to the Discussion Board in CoursePlus and write a short post with a link (URL) to your website (and URL to the corresponding GitHub repository) that you created. Also, list the URLs below for the purposes of grading.\nAs you read the introductions from other folks in the class, feel free to comment/reply using Discussion board.\n\nLink to your GitHub repository: [Delete this text and replace the text with the link to the public GitHub repo you created above for your website]\nLink to your deployed website: [Delete this and replace the text with the link to the public deployed website you created above]"
+  },
+  {
     "objectID": "lectures.html",
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "module 1\n\n\nweek 2\n\n\ncommand-line\n\n\n\n\nIntroduction to the command-line for data analysis\n\n\n\n\n\n\nNov 1, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmodule 1\n\n\nweek 1\n\n\nwebsites\n\n\nquarto\n\n\n\n\nHello Quarto! Or next-generation literate programming\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSep 12, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "module 1\n\n\nweek 2\n\n\ncommand-line\n\n\n\n\nIntroduction to the command-line for data analysis\n\n\n\n\n\n\nNov 1, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmodule 1\n\n\nweek 1\n\n\nwebsites\n\n\nquarto\n\n\n\n\nHello Quarto! Or next-generation literate programming\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources.html",
