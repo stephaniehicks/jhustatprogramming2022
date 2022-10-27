@@ -21,21 +21,19 @@ categories: [module 1, week 1, websites, quarto]
 
 **Before class, you can prepare by reading the following materials:**
 
-1. [Mine and Julia's talk about Collaborating with Quarto](https://www.rstudio.com/conference/2022/keynotes/collaborate-with-quarto/)
-2. [Joe Cheng's Shiny Talk](https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/)
-3. Quarto Publishing System: <https://quarto.org>
-4. r4ds book: <https://r4ds.hadley.nz/quarto>
-
-
+1.  [Mine and Julia's talk about Collaborating with Quarto](https://www.rstudio.com/conference/2022/keynotes/collaborate-with-quarto/)
+2.  [Joe Cheng's Shiny Talk](https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/)
+3.  Quarto Publishing System: <https://quarto.org>
+4.  r4ds book: <https://r4ds.hadley.nz/quarto>
 :::
 
 ### Acknowledgements
 
 Material for this lecture was borrowed and adopted from
 
-- r4ds book: <https://r4ds.hadley.nz/quarto>
-- [Ted Laderas's talk on Quarto/RMarkdown - What's Different?](https://laderast.github.io/qmd_rmd)
-- Quarto Publishing System: <https://quarto.org>
+-   r4ds book: <https://r4ds.hadley.nz/quarto>
+-   [Ted Laderas's talk on Quarto/RMarkdown - What's Different?](https://laderast.github.io/qmd_rmd)
+-   Quarto Publishing System: <https://quarto.org>
 
 # Learning objectives
 
@@ -44,34 +42,31 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- Be able to describe reasons why having a personal website can be useful. 
-- Recognize what is Quarto and how it's different from RMarkdown.
-- Be able to create a Quarto project and Quarto website.
-
+-   Be able to describe reasons why having a personal website can be useful.
+-   Recognize what is Quarto and how it's different from RMarkdown.
+-   Be able to create a Quarto project and Quarto website.
 :::
 
-# Introduction 
+# Introduction
 
-A professional web presence through a personal website can be powerful given the world we live in with much of our lives on the web (e.g. zoom meetings). 
+A professional web presence through a personal website can be powerful given the world we live in with much of our lives on the web (e.g. zoom meetings).
 
 There are many great tools to be able to help you get started on building a personal website.
 
-:::{.callout-tip}
-
+::: callout-tip
 ### Reasons why creating a personal website can be helpful
 
-1. A website gives you a home to build a brand for yourself and summarize the work you do. 
-2. You can connect with broader audiences.
-3. A website can give you broader professional visibility. 
-4. Creating a website demonstrates literacy with working with websites.
-5. In addition to the scholarship you are creating, a website gives an opportunity for others to connect with you (rather than just learn about your scholarship).
-6. It helps future employers learn about who you are. 
-
+1.  A website gives you a home to build a brand for yourself and summarize the work you do.
+2.  You can connect with broader audiences.
+3.  A website can give you broader professional visibility.
+4.  Creating a website demonstrates literacy with working with websites.
+5.  In addition to the scholarship you are creating, a website gives an opportunity for others to connect with you (rather than just learn about your scholarship).
+6.  It helps future employers learn about who you are.
 :::
 
-In Statistical Computing (140.776), we learned how to create websites with things like blogdown, distill, or just R Markdown. 
+In Statistical Computing (140.776), we learned how to create websites with things like blogdown, distill, or just R Markdown.
 
-Here, we will learn about Quarto and how it can be used to create many types of products, including websites! 
+Here, we will learn about Quarto and how it can be used to create many types of products, including websites!
 
 # Hello, Quarto!
 
@@ -83,18 +78,16 @@ Quarto **documents** are fully reproducible and support dozens of output formats
 
 Quarto files are designed to be used in three ways:
 
-1. For **communicating to decision makers**, who want to focus on the conclusions, not the code behind the analysis.
+1.  For **communicating to decision makers**, who want to focus on the conclusions, not the code behind the analysis.
 2.  For **collaborating with other data scientists** (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
 3.  As an **environment** in which to *do* data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
 
-:::{.callout-important}
-
+::: callout-important
 Quarto is a **command line interface tool**, not an R package.
 
 This means that help is, by-and-large, not available through `?`.
 
 And not to add to the confusion, there is an [`quarto` R package](https://cran.r-project.org/web/packages/quarto/index.html) that has helper functions for you to use in R to e.g. check the Quarto version installed, etc.
-
 :::
 
 Formally, [Quarto](https://quarto.org/) is a publishing system built on Pandoc that allows users to create dynamic content using R, Python, Julia, and ObservableJS (with plans to add more languages too!).
@@ -110,14 +103,12 @@ knitr::include_graphics("../../images/quarto_schematic.png")
 Art by [Allison Horst](https://twitter.com/allison_horst). Be sure to check out the rest of Allison's seriously cute Quarto penguin art in the #rstudioconf2022 keynote talk, [Hello Quarto](https://mine.quarto.pub/hello-quarto/#/hello-quarto-title), by [Julie Lowndes](https://twitter.com/juliesquid) & [Mine Çetinkaya-Rundel](https://twitter.com/minebocek)!
 :::
 
-
 ## Prerequisites
 
 You need the Quarto command line interface (Quarto CLI), but you don't need to explicitly install it or load it, as RStudio automatically does both when needed.
 
-- <https://quarto.org/docs/get-started>
-- <https://formulae.brew.sh/cask/quarto> (**this is my preferred way using home brew**)
-
+-   <https://quarto.org/docs/get-started>
+-   <https://formulae.brew.sh/cask/quarto> (**this is my preferred way using home brew**)
 
 # Quarto basics
 
@@ -127,8 +118,7 @@ This is a Quarto file -- a plain text file that has the extension `.qmd`:
 cat(htmltools::includeText("diamond-sizes.qmd"))
 ```
 
-:::{.callout-tip}
-
+::: callout-tip
 ### Three basic sections of a `.qmd` file
 
 It contains three important types of content:
@@ -136,7 +126,6 @@ It contains three important types of content:
 1.  An (optional) **YAML header** surrounded by `---`s.
 2.  **Chunks** of R code surrounded by ```` ``` ````.
 3.  Text mixed with simple text formatting like `# heading` and `_italics_`.
-
 :::
 
 When you open a `.qmd`, you get a **notebook interface** where code and output are interleaved (aka [literate programming](https://en.wikipedia.org/wiki/Literate_programming)).
@@ -157,33 +146,28 @@ The advantage of this two step workflow is that you can create a very wide range
 knitr::include_graphics("../../images/rstudio-qmd-how-it-works.png")
 ```
 
-
-### What is Quarto for someone who uses RStudio? 
+### What is Quarto for someone who uses RStudio?
 
 If you're an R Markdown user, you might be thinking "Quarto sounds a lot like R Markdown". You're not wrong!
 
 Quarto **unifies the functionality of many packages from the R Markdown ecosystem** (`rmarkdown`, `bookdown`, `distill`, etc.) into a single consistent system as well as extends it with native support for multiple programming languages like Python and Julia in addition to R.
 
-:::{.callout-important}
-
-For the purposes of the course, I am assuming you are already familiar with the Markdown language and working with RMarkdown files as this was covered in 140.776. 
+::: callout-important
+For the purposes of the course, I am assuming you are already familiar with the Markdown language and working with RMarkdown files as this was covered in 140.776.
 
 Please see [RMarkdown](https://rmarkdown.rstudio.com/) for questions on this topic.
-
 :::
 
 In a way, Quarto reflects everything that was learned from expanding and supporting the R Markdown ecosystem over a decade.
 
-:::{.callout-tip}
+::: callout-tip
+Coming from the perspective of someone who uses RStudio, this is another way of thinking about Quarto:
 
-Coming from the perspective of someone who uses RStudio, this is another way of thinking about Quarto: 
+-   Quarto is a multi-language, next-generation version of R Markdown from RStudio, and includes dozens of new features and capabilities while at the same being able to render most existing Rmd files without modification.
 
-- Quarto is a multi-language, next-generation version of R Markdown from RStudio, and includes dozens of new features and capabilities while at the same being able to render most existing Rmd files without modification.
+-   R users have long loved [RMarkdown](https://rmarkdown.rstudio.com/) for combining prose, code, and outputs into single "knitted" documents. Quarto extends all of RMarkdown's best features (plus many more!) to additional languages.
 
-- R users have long loved [RMarkdown](https://rmarkdown.rstudio.com/) for combining prose, code, and outputs into single "knitted" documents. Quarto extends all of RMarkdown's best features (plus many more!) to additional languages.
-
-- You can edit code and markdown in RStudio just as you would with any computational document (e.g. R Markdown), and preview the rendered document in the Viewer tab as you work.
-
+-   You can edit code and markdown in RStudio just as you would with any computational document (e.g. R Markdown), and preview the rendered document in the Viewer tab as you work.
 :::
 
 The following is a Quarto document with the extension `.qmd` (on the left) along with its rendered version as HTML (on the right). You could also choose to render it into other formats like PDF, MS Word, etc.
@@ -192,66 +176,52 @@ The following is a Quarto document with the extension `.qmd` (on the left) along
 
 This is the basic model for Quarto publishing---take a source document and render it to a variety of output formats.
 
-
-
-
-:::{.callout-tip}
-
+::: callout-tip
 ### Great intro Quarto tutorials
 
 Here are a series of tutorials designed to introduce you to Quarto with RStudio
 
-1. Hello, Quarto: <https://quarto.org/docs/get-started/hello/rstudio.html>
-2. Computations: <https://quarto.org/docs/get-started/computations/rstudio.html>
-3. Authoring: <https://quarto.org/docs/get-started/authoring/rstudio.html>
-
+1.  Hello, Quarto: <https://quarto.org/docs/get-started/hello/rstudio.html>
+2.  Computations: <https://quarto.org/docs/get-started/computations/rstudio.html>
+3.  Authoring: <https://quarto.org/docs/get-started/authoring/rstudio.html>
 :::
 
-
-:::{.callout-tip}
-
+::: callout-tip
 ### Quarto file format
 
 Quarto uses one file format (read more here in [Quarto's documentation](https://quarto.org/docs/guide/)) and one syntax to create many different types of high-quality outputs:
 
-  - Documents
-  - Websites
-  - Publications
-  - Blogs
-  - Slides / presentations
-  - Books
-  - Dashboards
-  
+-   Documents
+-   Websites
+-   Publications
+-   Blogs
+-   Slides / presentations
+-   Books
+-   Dashboards
 :::
 
-:::{.callout-tip}
-
+::: callout-tip
 ### Quarto summary
 
-- Create dynamic content with Python, R, Julia, and Observable.
-- Author documents as plain text markdown or Jupyter notebooks.
-- Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
-- Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
-
+-   Create dynamic content with Python, R, Julia, and Observable.
+-   Author documents as plain text markdown or Jupyter notebooks.
+-   Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+-   Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
 :::
-
 
 ## .qmd files
 
-Quarto files end in a `.qmd`. This is short for **q**uarto **m**ark**d**own. 
+Quarto files end in a `.qmd`. This is short for **q**uarto **m**ark**d**own.
 
-:::{.callout-note}
-
+::: callout-note
 ### Note
 
-These files are decoupled from RStudio IDE and there are plugins to work with `.qmd` files for 
+These files are decoupled from RStudio IDE and there are plugins to work with `.qmd` files for
 
-- VSCode
-- JupyterLab
-- RStudio
-
+-   VSCode
+-   JupyterLab
+-   RStudio
 :::
-
 
 ### Rendering
 
@@ -259,118 +229,111 @@ Use the <kbd>![](../../images/rstudio-render-button.png){width="25" height="20"}
 
 ![](../../images/rstudio-render.png){.border fig-alt="Top of the text editor in RStudio with the Render button highlighted with a purple box." fig-align="center"}
 
-If you prefer to automatically render whenever you save, you can check the Render on Save option on the editor toolbar.
-The preview will update whenever you re-render the document.
-Side-by-side preview works for both HTML and PDF outputs.
+If you prefer to automatically render whenever you save, you can check the Render on Save option on the editor toolbar. The preview will update whenever you re-render the document. Side-by-side preview works for both HTML and PDF outputs.
 
 ![](../../images/rstudio-render-on-save.png){.border fig-alt="Top of the text editor in RStudio with the Render on Save checbox checked and highlighted with a purple box." fig-align="center"}
 
-
-:::{.callout-note}
-
+::: callout-note
 Documents can also be rendered from the R console via the **quarto** package:
 
-```{.R filename="Code run in the R Console"}
+``` {.R filename="Code run in the R Console"}
 install.packages("quarto")
 quarto::quarto_render("hello.qmd")
 ```
 
-And documents can also be rendered from the command line: 
+And documents can also be rendered from the command line:
 
-```{.bash filename="Code run in the command line"}
+``` {.bash filename="Code run in the command line"}
 # render single document (always executes code)
 quarto render document.qmd
 
 # render project subdirectory (always executes code)
 quarto render articles
 ```
-
 :::
 
 #### How rendering works
 
-When you render a Quarto document, first [knitr](http://yihui.name/knitr/) executes all of the code chunks and creates a new markdown (.md) document which includes the code and its output.
-The markdown file generated is then processed by [pandoc](http://pandoc.org/), which creates the finished format.
-The Render button encapsulates these actions and executes them in the right order for you.
+When you render a Quarto document, first [knitr](http://yihui.name/knitr/) executes all of the code chunks and creates a new markdown (.md) document which includes the code and its output. The markdown file generated is then processed by [pandoc](http://pandoc.org/), which creates the finished format. The Render button encapsulates these actions and executes them in the right order for you.
 
 ![](../../images/rstudio-qmd-how-it-works.png){.border fig-alt="Workflow diagram starting with a qmd file, then knitr, then md, then pandoc, then PDF, MS Word, or HTML." fig-align="center"}
 
-When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file.
-The new file can be an [HTML](https://quarto.org/docs/output-formats/all-formats.html), [PDF](https://quarto.org/docs/output-formats/pdf-basics.html), [MS Word](https://quarto.org/docs/output-formats/ms-word.html) document, [presentation](https://quarto.org/docs/presentations/), [website](https://quarto.org/docs/websites/), [book](https://quarto.org/docs/books/), [interactive document](https://quarto.org/docs/interactive/), or [other format](https://quarto.org/docs/output-formats/all-formats.html).
-
+When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an [HTML](https://quarto.org/docs/output-formats/all-formats.html), [PDF](https://quarto.org/docs/output-formats/pdf-basics.html), [MS Word](https://quarto.org/docs/output-formats/ms-word.html) document, [presentation](https://quarto.org/docs/presentations/), [website](https://quarto.org/docs/websites/), [book](https://quarto.org/docs/books/), [interactive document](https://quarto.org/docs/interactive/), or [other format](https://quarto.org/docs/output-formats/all-formats.html).
 
 ### Authoring
 
-In the image below we can see the same document in the two modes of the RStudio editor: visual (on the left) and source (on the right).
-RStudio's [visual editor](/docs/visual-editor/) offers an [WYSIWYM](https://en.wikipedia.org/wiki/WYSIWYM) authoring experience for markdown.
-For formatting (e.g. bolding text) you can use the toolbar, a keyboard shortcut (⌘B), or the markdown construct (`**bold**`).
+In the image below we can see the same document in the **two modes of the RStudio editor**:
 
-The plain text source code underlying the document is written for you and you can view/edit it at any point by switching to source mode for editing.
+-   visual (on the left)
+-   source (on the right)
+
+RStudio's [visual editor](/docs/visual-editor/) offers an [WYSIWYM](https://en.wikipedia.org/wiki/WYSIWYM) authoring experience for markdown. For formatting (e.g. bolding text) you can use the toolbar, a keyboard shortcut (⌘B), or the markdown construct (`**bold**`).
+
 You can toggle back and forth these two modes by clicking on **Source** and **Visual** in the editor toolbar (or using the keyboard shortcut ⌘⇧ F4).
 
 ![](../../images/rstudio-source-visual.png){.column-page-right fig-alt="On the left: Document in the visual editor. On the right: Same document in the source editor. The visual/source editor toggle is highlighted in both documents marking their current state. The document shown is the \"Hello Quarto\" document from a previous image on the page." fig-align="center"}
 
+### How does multi-language support work?
 
-
-
-### How does multi-language support work? 
-
-:::{.callout-tip}
-
+::: callout-tip
 ### Quarto supports multiple languages
 
 These languages include
 
-  - R
-  - Python
-  - Julia
-  - Observable
-  
-Quarto can also [interchange between languages using Apache Arrow](https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a).
+-   R
+-   Python
+-   Julia
+-   Observable javascript
 
+Quarto can also [interchange between languages using Apache Arrow](https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a).
 :::
 
-The idea behind how quarto supports multi-language code is that the code output is "frozen" by default after it is rendered. 
+The idea behind how quarto supports multi-language code is that the **code output is "frozen"** after it is rendered.
 
-In this way, code output is not recomputed, unless you want it to. 
+In this way, code output is not recomputed, unless you want it to.
 
 ## R Markdown vs Quarto
 
 Some high-level differences include
 
-- Standardized YAML across formats
-- Decoupled from RStudio
-- More consistent presentation across formats
-- [Tab Panels](https://quarto.org/docs/interactive/layout.html#tabset-panel)
-- [Code Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
+-   Standardized YAML across formats
+-   Decoupled from RStudio
+-   More consistent presentation across formats
+-   [Tab Panels](https://quarto.org/docs/interactive/layout.html#tabset-panel)
+-   [Code Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
 
 ### Code block options
 
-Another noticeable difference are options for code blocks. Rather than being in the header of the code block, options are **moved to within the code block** using the `#|` (hash-pipe) for each line. 
+Another noticeable difference are options for code blocks. Rather than being in the header of the code block, options are **moved to within the code block** using the `#|` (hash-pipe) for each line.
 
+This is a code block for R Markdown:
 
-This is a code block for R Markdown: 
-
-````{.markdown}
+```` markdown
 ```{{r setup, include=FALSE}}
 library(tidyverse)
 library(tidytext)
 ```
 ````
 
-This is a code block for Quarto: 
+This is a code block for Quarto:
 
-```{{r}}
+``` {{r}}
 #| label: "setup"
 #| include: false
 library(tidyverse)
 library(tidytext)
 ```
 
-
 ### Output Options
 
-There are a wide variety of options available for customizing output from executed code. All of these options can be specified either globally (in the document front-matter) or per code-block. For example, here's a modification of the Python example to specify that we don't want to "echo" the code into the output document:
+There are a **wide variety of output options available** for customizing output from executed code.
+
+All of these options can be specified either
+
+-   **globally** (in the document front-matter) or
+-   **per code-block**
+
+For example, here's a modification of the Python example to specify that we don't want to "echo" the code into the output document:
 
 ``` yaml
 ---
@@ -394,7 +357,7 @@ plt.show()
 Code block options available for customizing output include:
 
 | Option    | Description                                                                                                                                                                                       |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | `eval`    | Evaluate the code chunk (if `false`, just echos the code into the output).                                                                                                                        |
 | `echo`    | Include the source code in output                                                                                                                                                                 |
 | `output`  | Include the results of executing the code in the output (`true`, `false`, or `asis` to indicate that the output is raw markdown and should not have any of Quarto's standard enclosing markdown). |
@@ -402,7 +365,7 @@ Code block options available for customizing output include:
 | `error`   | Include errors in the output (note that this implies that errors executing code will not halt processing of the document).                                                                        |
 | `include` | Catch all for preventing any output (code or results) from being included (e.g. `include: false` suppresses all output from the code block).                                                      |
 
-Here's a Knitr example with some of these additional options included:
+Here's a example with r code blocks and some of these additional options included:
 
     ---
     title: "Knitr Document"
@@ -424,13 +387,14 @@ Here's a Knitr example with some of these additional options included:
     ```
 
 ::: callout-tip
-When using the Knitr engine, you can also use any of the available native options (e.g. `collapse`, `tidy`, `comment`, etc.). See the [Knitr options documentation](https://yihui.org/knitr/options/) for additional details. You can include these native options in option comment blocks as shown above, or on the same line as the `{r}` as shown in the Knitr documentation.
+When using the **Knitr engine**, you can also use any of the **available native options** (e.g. `collapse`, `tidy`, `comment`, etc.).
+
+See the [Knitr options documentation](https://yihui.org/knitr/options/) for additional details. You can include these native options in option comment blocks as shown above, or on the same line as the `{r}` as shown in the Knitr documentation.
 :::
 
 ### Margin content
 
 You can place content within the right margin of Quarto document. For example, here we use the `.column-margin` class to place an image in the margin:
-
 
 ``` md
 ::: {.column-margin}
@@ -446,10 +410,9 @@ We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]
 $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
 :::
 
-
 ### Margin Figures
 
-Figures that you create using code cells can be placed in the margin by using the `column: margin` code cell option. 
+Figures that you create using **code blocks can be placed in the margin** by using the `column: margin` code block option.
 
 If the code produces more than one figure, each of the figures will be placed in the margin.
 
@@ -503,82 +466,70 @@ ggplot(mtcars2, aes(hp, mpg, color = am)) +
   geom_point() +
   geom_smooth(formula = y ~ x, method = "loess") +
   theme(legend.position = 'bottom')
-
 ```
 
-You can also enable line numbers for an individual code block using the `code-line-numbers` attribute. 
-
-
+You can also enable line numbers for an individual code block using the `code-line-numbers` attribute.
 
 ### Should you switch to quarto?
 
-> Should you switch to Quarto? Not necessarily. 
-> If you find R Markdown meet your need, you can definitely stay there. It is not imperative to switch. - Yihui Xie
+> Should you switch to Quarto? Not necessarily. If you find R Markdown meet your need, you can definitely stay there. It is not imperative to switch. - Yihui Xie
 
 ::: aside
 <https://yihui.org/en/2022/04/quarto-r-markdown/>
 :::
 
-
-
-
 # Quarto demo
 
-Here we will demo create two Quarto products: 
+Here we will demo create two Quarto products:
 
-1. A Quarto project
-2. A Quarto website 
+1.  A Quarto project
+2.  A Quarto website
 
-To get started with your own `.qmd` file, select *File \> New File \> Quarto Document...* in the menu bar.
-RStudio will launch a wizard that you can use to pre-populate your file with useful content that reminds you how the key features of Quarto work.
-
+To get started with your own `.qmd` file, select *File \> New File \> Quarto Document...* in the menu bar. RStudio will launch a wizard that you can use to pre-populate your file with useful content that reminds you how the key features of Quarto work.
 
 ## Project
 
-Here are the general steps for creating a Quarto project: 
+Here are the general steps for creating a Quarto project:
 
-1. Create a new Quarto project
-2. Edit `_quarto.yml` file
-3. Add / delete relevant content
-4. Render the project
+1.  Create a new Quarto project
+2.  Edit `_quarto.yml` file
+3.  Add / delete relevant content
+4.  Render the project
 
-## Website 
+## Website
 
-Here are the general steps for creating a Quarto website: 
+Here are the general steps for creating a Quarto website:
 
-1. Create a new Quarto project
-2. Edit `_quarto.yml` file
-3. Add / delete relevant content
-4. Render the website
-5. Deploy the website
+1.  Create a new Quarto project
+2.  Edit `_quarto.yml` file
+3.  Add / delete relevant content
+4.  Render the website
+5.  Deploy the website
 
-:::{.callout-tip }
+::: callout-tip
+### Deploying a website
 
-### Deploying a website 
+`quarto publish` can push and update a number of different kinds of webhosts. You will need credentials to publish to each of these.
 
-`quarto publish` can push and update a number of different kinds of webhosts. 
-You will need credentials to publish to each of these.
-
-```{.bash}
+``` bash
 quarto publish gh-pages    # GitHub Pages
 quarto publish quarto-pub  # Quarto.pub 
 quarto publish netlify     # Netlify
 quarto publish connect     # RStudio Connect
 ```
-
 :::
 
 ## Freeze Results and avoid recomputing
 
-Freezing code output is generally used when you have either 
+Freezing code output is generally used when you have either
 
-- A large number of collaborators or 
-- Many computational documents created over a longer period of time
-- A project with different types of file formats from different languages (e.g. `.qmd`, `.ipynb`, `.Rmd`)
+-   A large number of collaborators or
+-   Many computational documents created over a longer period of time
+-   A project with different types of file formats from different languages (e.g. `.qmd`, `.ipynb`, `.Rmd`)
 
-In the above cases, it can be challenging to fully re-execute every document when you render the site. 
+In the above cases, it can be challenging to fully re-execute every document when you render the site.
 
-This could be because some documents have esoteric or environment-specific requirements (e.g. require access/authentication to a data source) or due to general fragility of dependencies over time. 
+This could be because some documents have esoteric or environment-specific requirements (e.g. require access/authentication to a data source) or due to general fragility of dependencies over time.
 
 Using freeze ensures that you can always reproducibly render your site.
 
@@ -586,17 +537,15 @@ The computational results of documents executed with `freeze` are stored in the 
 
 You should check the contents of `_freeze/` into version control so that others rendering the project don't need to reproduce your computational environment to render it in their environment.
 
-:::{.callout-note}
-
+::: callout-note
 ### Note
 
-You will still want to take care to fully re-render your project when things outside of source code change (e.g. input data). 
+You will still want to take care to fully re-render your project when things outside of source code change (e.g. input data).
 
 You can remove previously frozen output by deleting the `_freeze` folder at the root of your project.
-
 :::
 
-For example, consider the `_quarto.yml` file. 
+For example, consider the `_quarto.yml` file.
 
 One argument in the file is the `freeze` option to denote that computational documents should never be re-rendered during a global project render, or alternatively only be re-rendered when their source file changes:
 
@@ -620,55 +569,41 @@ execute:
   freeze: auto  # re-render only when source changes
 ```
 
-:::{.callout-note}
-
+::: callout-note
 ### Note
 
-The `freeze` option in the `_quarto.yml` file controls whether **execution occurs** during global project renders. 
+The `freeze` option in the `_quarto.yml` file controls whether **execution occurs** during global project renders.
 
 If you do an incremental render of either a single document or a project sub-directory then code is always executed. For example:
 
-```{.bash filename="Terminal"}
+``` {.bash filename="Terminal"}
 # render single document (always executes code)
 quarto render document.qmd
 
 # render project subdirectory (always executes code)
 quarto render articles
 ```
-
 :::
-
 
 ## Next steps
 
-Here are some tutorials I really like for getting started with Quarto generally and for getting started building and deploying websites with Quarto: 
+Here are some tutorials I really like for getting started with Quarto generally and for getting started building and deploying websites with Quarto:
 
-- [Creating Quarto websites](https://ucsb-meds.github.io/creating-quarto-websites)
-- [Customize Quarto websites](https://ucsb-meds.github.io/customizing-quarto-websites)
+-   [Creating Quarto websites](https://ucsb-meds.github.io/creating-quarto-websites)
+-   [Customize Quarto websites](https://ucsb-meds.github.io/customizing-quarto-websites)
 
 # Post-lecture materials
 
-### Exercises 
+### Exercises
 
-1.  Create a new Quarto document using *File \> New File \> Quarto Document*.
-    Read the instructions.
-    Practice running the chunks individually.
-    Then render the document by clicking the appropriate button and then by using the appropriate keyboard short cut.
-    Verify that you can modify the code, re-run it, and see modified output.
+1.  Create a new Quarto document using *File \> New File \> Quarto Document*. Read the instructions. Practice running the chunks individually. Then render the document by clicking the appropriate button and then by using the appropriate keyboard short cut. Verify that you can modify the code, re-run it, and see modified output.
 
-2.  Create one new Quarto document for each of the three built-in formats: HTML, PDF and Word.
-    Render each of the three documents.
-    How do the outputs differ?
-    How do the inputs differ?
-    (You may need to install LaTeX in order to build the PDF output --- RStudio will prompt you if this is necessary.)
-
+2.  Create one new Quarto document for each of the three built-in formats: HTML, PDF and Word. Render each of the three documents. How do the outputs differ? How do the inputs differ? (You may need to install LaTeX in order to build the PDF output --- RStudio will prompt you if this is necessary.)
 
 ### Additional Resources
 
 ::: callout-tip
-
-1. [Mine and Julia's talk about Collaborating with Quarto](https://www.rstudio.com/conference/2022/keynotes/collaborate-with-quarto/)
-2. [Joe Cheng's Shiny Talk](https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/)
-3. Quarto Publishing System: <https://quarto.org>
-
+1.  [Mine and Julia's talk about Collaborating with Quarto](https://www.rstudio.com/conference/2022/keynotes/collaborate-with-quarto/)
+2.  [Joe Cheng's Shiny Talk](https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/)
+3.  Quarto Publishing System: <https://quarto.org>
 :::
