@@ -45,7 +45,7 @@ Next, with the reflections from Part 2 in mind, you will create a public GitHub 
 
 Create a new public GitHub repository titled `biostat840-intro-<firstname>-<lastname>` (where you replace `<firstname>` with your first name and `<lastname>` with your last name) in your own personal GitHub account (e.g. `https://github.com/<yourgithubusername>/biostat840-intro-<firstname>-<lastname>`).
 
-### 2. Build a website using Quarto
+## 2. Build a website using Quarto
 
 Create a new project locally within RStudio and build a website for yourself. Your website should include the following: 
 
@@ -67,15 +67,15 @@ Create a new project locally within RStudio and build a website for yourself. Yo
     - You must summarize your analysis and/or results with a paragraph (4-6 sentences).
     - At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, and `ggplot2`) to help the TA with respect to making sure you met all the requirements described above. 
 
-### 3. Include a `README.md` file
+## 3. Include a `README.md` file
 
 Your local repository should include a `README.md` file describing who is the author of the website and a link to the website after it has been deployed. Other things you might include are the technical details for how the website was created and/or deployed. 
 
-### 4. Deploy your website
+## 4. Deploy your website
 
 Deploy your website using [Quarto Pub](https://quarto.org/docs/publishing/quarto-pub.html), [GitHub pages](https://quarto.org/docs/publishing/github-pages.html), or [Netlify](https://quarto.org/docs/publishing/netlify.html). (**Note**: Deploying your website to RPubs will not be accepted).
 
-### 5. Share your website
+## 5. Share your website
 
 Go to the Discussion Board in CoursePlus and write a short post with a link (URL) to your website (and URL to the corresponding GitHub repository) that you created. Also, list the URLs below for the purposes of grading. 
 
@@ -85,10 +85,9 @@ As you read the introductions from other folks in the class, feel free to commen
 
 - **Link to your deployed website**: [Delete this and replace the text with the link to the public deployed website you created above]
 
-
 # Part 4
 
-1. Use `wget` or `curl` to download four files that end in `.fastq` from [here](). 
+1. Use [`wget`](https://www.gnu.org/software/wget) to download four files that end in `.fastq` from [here](https://github.com/stephaniehicks/jhustatprogramming2022/tree/main/data). 
 2. Create a directory to download the data. The top level directory should be called `raw_data` and there should be a sub-level directory called `fastq`. The command you write should force the creation of both directories at the same time if either of them do not exist yet.
 3. Move all the `.fastq` files into the `fastq` sub-level directory. 
 4. Write a for loop in the shell that iterates over each `.fastq` file. For each `.fastq` file, do the following. In the first 1000 rows for each file, count the number of lines where the "@" symbol appears. Your final output should be four numbers printed to the screen. 
