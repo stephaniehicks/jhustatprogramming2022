@@ -446,6 +446,7 @@ Important
 title: "Diamond sizes"
 date: 2022-09-12
 format: html
+draft: true
 ---
 
 ```{r}
@@ -678,8 +679,13 @@ Note
 </section>
 <section id="authoring" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="authoring">Authoring</h3>
-<p>In the image below we can see the same document in the two modes of the RStudio editor: visual (on the left) and source (on the right). RStudio’s <a href="../../docs/visual-editor/">visual editor</a> offers an <a href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM</a> authoring experience for markdown. For formatting (e.g.&nbsp;bolding text) you can use the toolbar, a keyboard shortcut (⌘B), or the markdown construct (<code>**bold**</code>).</p>
-<p>The plain text source code underlying the document is written for you and you can view/edit it at any point by switching to source mode for editing. You can toggle back and forth these two modes by clicking on <strong>Source</strong> and <strong>Visual</strong> in the editor toolbar (or using the keyboard shortcut ⌘⇧ F4).</p>
+<p>In the image below we can see the same document in the <strong>two modes of the RStudio editor</strong>:</p>
+<ul>
+<li>visual (on the left)</li>
+<li>source (on the right)</li>
+</ul>
+<p>RStudio’s <a href="../../docs/visual-editor/">visual editor</a> offers an <a href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM</a> authoring experience for markdown. For formatting (e.g.&nbsp;bolding text) you can use the toolbar, a keyboard shortcut (⌘B), or the markdown construct (<code>**bold**</code>).</p>
+<p>You can toggle back and forth these two modes by clicking on <strong>Source</strong> and <strong>Visual</strong> in the editor toolbar (or using the keyboard shortcut ⌘⇧ F4).</p>
 <div class="quarto-figure quarto-figure-center column-page-right page-columns page-full">
 <figure class="figure page-columns page-full">
 <p class="page-columns page-full"><img src="../../images/rstudio-source-visual.png" class="column-page-right img-fluid figure-img" alt="On the left: Document in the visual editor. On the right: Same document in the source editor. The visual/source editor toggle is highlighted in both documents marking their current state. The document shown is the &quot;Hello Quarto&quot; document from a previous image on the page."></p>
@@ -703,12 +709,12 @@ Quarto supports multiple languages
 <li>R</li>
 <li>Python</li>
 <li>Julia</li>
-<li>Observable</li>
+<li>Observable javascript</li>
 </ul>
 <p>Quarto can also <a href="https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a">interchange between languages using Apache Arrow</a>.</p>
 </div>
 </div>
-<p>The idea behind how quarto supports multi-language code is that the code output is “frozen” by default after it is rendered.</p>
+<p>The idea behind how quarto supports multi-language code is that the <strong>code output is “frozen”</strong> after it is rendered.</p>
 <p>In this way, code output is not recomputed, unless you want it to.</p>
 </section>
 </section>
@@ -740,7 +746,13 @@ Quarto supports multiple languages
 </section>
 <section id="output-options" class="level3">
 <h3 class="anchored" data-anchor-id="output-options">Output Options</h3>
-<p>There are a wide variety of options available for customizing output from executed code. All of these options can be specified either globally (in the document front-matter) or per code-block. For example, here’s a modification of the Python example to specify that we don’t want to “echo” the code into the output document:</p>
+<p>There are a <strong>wide variety of output options available</strong> for customizing output from executed code.</p>
+<p>All of these options can be specified either</p>
+<ul>
+<li><strong>globally</strong> (in the document front-matter) or</li>
+<li><strong>per code-block</strong></li>
+</ul>
+<p>For example, here’s a modification of the Python example to specify that we don’t want to “echo” the code into the output document:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
@@ -758,8 +770,8 @@ Quarto supports multiple languages
 <p>Code block options available for customizing output include:</p>
 <table class="table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 94%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -794,7 +806,7 @@ Quarto supports multiple languages
 </tr>
 </tbody>
 </table>
-<p>Here’s a Knitr example with some of these additional options included:</p>
+<p>Here’s a example with r code blocks and some of these additional options included:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Knitr Document"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
@@ -823,7 +835,8 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When using the Knitr engine, you can also use any of the available native options (e.g.&nbsp;<code>collapse</code>, <code>tidy</code>, <code>comment</code>, etc.). See the <a href="https://yihui.org/knitr/options/">Knitr options documentation</a> for additional details. You can include these native options in option comment blocks as shown above, or on the same line as the <code>{r}</code> as shown in the Knitr documentation.</p>
+<p>When using the <strong>Knitr engine</strong>, you can also use any of the <strong>available native options</strong> (e.g.&nbsp;<code>collapse</code>, <code>tidy</code>, <code>comment</code>, etc.).</p>
+<p>See the <a href="https://yihui.org/knitr/options/">Knitr options documentation</a> for additional details. You can include these native options in option comment blocks as shown above, or on the same line as the <code>{r}</code> as shown in the Knitr documentation.</p>
 </div>
 </div>
 </section>
@@ -842,7 +855,7 @@ Tip
 </div></div></section>
 <section id="margin-figures" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="margin-figures">Margin Figures</h3>
-<p>Figures that you create using code cells can be placed in the margin by using the <code>column: margin</code> code cell option.</p>
+<p>Figures that you create using <strong>code blocks can be placed in the margin</strong> by using the <code>column: margin</code> code block option.</p>
 <p>If the code produces more than one figure, each of the figures will be placed in the margin.</p>
 <div class="cell page-columns page-full">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
