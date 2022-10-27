@@ -1,19 +1,16 @@
 ---
-title: "Data science at the command-line (Part 1)"
+title: "Introduction to the command-line"
 author: 
   - name: Stephanie Hicks
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "Introduction to the command-line for data analysis (part 1)"
+description: "Introduction to the command-line for data analysis"
 date: 2022-11-01
-draft: true
 categories: [module 1, week 2, command-line]
 editor_options: 
   chunk_output_type: inline
 ---
-
-<!-- Add interesting quote -->
 
 # Pre-lecture materials
 
@@ -24,8 +21,9 @@ editor_options:
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+1.  [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
+2.  [R Squared Academy](https://blog.rsquaredacademy.com/command-line-basics-for-r-users)
+
 :::
 
 ### Acknowledgements
@@ -45,6 +43,10 @@ Material for this lecture was borrowed and adopted from
 -   Understand what is a command shell and why would use one.
 -   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 -   Explain when and why command-line interfaces should be used instead of graphical interfaces.
+-   Be able to create, copy, move, rename, and delete files and folders
+-   Be able to print and sort file contents
+-   Be able to search for regular expressions in files
+-   Be able to execute R commands and scripts in the command line
 :::
 
 # Introduction
@@ -90,10 +92,16 @@ The **grammar of a shell** allows you to combine existing tools into powerful pi
 
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 
--   Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems.
--   As clusters and cloud computing systems become more popular for scientific data crunching, being able to interact with the shell is becoming a necessary skill.
+- Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems.
+- As clusters and cloud computing systems become more popular for scientific data crunching, being able to interact with the shell is becoming a necessary skill.
 
 Let's get started.
+
+## Where to find the shell
+
+- If you are working on a Mac, Apple calls the shell 'Terminal'. There is an application you can open called 'Terminal' and it also appears in a tab next to the R console in the RStudio IDE. 
+- If you are using Windows, by default, Windows does not use bash, but instead [you will need to install one of several Windows-specific tools](https://happygitwithr.com/shell.html#shell) (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system. 
+
 
 ## Opening the shell
 
@@ -184,7 +192,8 @@ Before we proceed further, let us learn to view the documentation/manual pages o
 
 | Command	| Description |  
 | ------- | ------------| 
-| `man`   | Display manual pages for a command | 
+| `nameofcommand -h` | For some `nameofcommand` command (e.g. `whoami`)
+| `man nameofcommand`   | Display manual pages for the `nameofcommand` command | 
 | `whatis` | Single line description of a command | 
 
 `man` is used to view the system’s reference manual.
@@ -209,6 +218,31 @@ DESCRIPTION
      When invoked without arguments, the date utility displays the current date and time.
 ```
 
+:::{.callout-tip}
+
+### Pro-tip
+
+For most commands, `NAMEOFCOMMAND -h` or `NAMEOFCOMMAND --help` will bring up a small guide to command options.
+
+For example, `python -h` or `python --help` bring up:
+
+``` md
+usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options and arguments (and corresponding environment variables):
+-b     : issue warnings about str(bytes_instance), str(bytearray_instance)
+         and comparing bytes/bytearray with str. (-bb: issue errors)
+-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x
+-c cmd : program passed in as string (terminates option list)
+-d     : turn on parser debugging output (for experts only, only works on
+         debug builds); also PYTHONDEBUG=x
+-E     : ignore PYTHON* environment variables (such as PYTHONPATH)
+-h     : print this help message and exit (also --help)
+-i     : inspect interactively after running script; forces a prompt even
+         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
+```
+
+:::
+
 
 
 # Move around files
@@ -222,7 +256,6 @@ Next, we will introduce commands that help us:
 - list all the files & folders in a directory
 - create and delete directories
 
-
 | Command	| Description | R commands | 
 | ------- | ------------| --------- |   
 | `pwd`   | Print working directory | `here::here()` | 
@@ -230,7 +263,6 @@ Next, we will introduce commands that help us:
 | `cd`    |	Change current working directory | `setwd()` | 
 | `mkdir`	| Create directory | `dir.create()` | 
 | `rmdir`	| Remove/delete directory | 
-
 
 `pwd` displays the name of the present working directory.
 
@@ -336,15 +368,23 @@ cd ../..
 ls -l
 ```
 
-List all files including hidden files
+Next, let's talk about hidden (or invisible) files. These are everywhere on modern operating systems. 
+
+When a programmer needs to have a file or folder, but does not want to show it to the user, they prefixes the file name with a single period (.). The operating system then hides this files from the user.
+
+But now you can see these invisible files using the command line. Just use the `-a` flag (short for "all") for the `ls` command to have it show you all the files that are there:
 
 ```{bash}
 cd ../..
 ls -a
 ```
 
+Yes, we have lots of hidden files and folders in our course repository: `.git`, `.github`, `.gitignore`, `.quarto`, etc. 
 
-Display file permissions, ownership, size & modification date
+These are normal files — you can move them, rename them, or open them like any other — they are just hidden by default. 
+
+
+Next, we can display file permissions, ownership, size & modification date
 ```{bash}
 cd ../..
 ls -la
@@ -356,14 +396,28 @@ cd ../..
 ls -lh
 ```
 
-
-
 ```{bash}
 cd ../..
 ls 
 ```
 
+## Wildcards
 
+Wildcards are the use of asterisk (`*`) to allow any pattern to appear in part of a filename. 
+
+For example, to list all the `.txt` files in a folder (but only the `.txt` files), you can type:
+
+```{bash}
+ls *.txt
+```
+
+Or if you wanted to see any file in the directory that has a "r" in it
+
+```{bash}
+ls *r*
+```
+
+This is an extremely powerful tool, and one you will likely use a lot. 
 
 # Create, copy, rename, delete files
 
@@ -473,10 +527,10 @@ The `rm` command is used to delete/remove files & folders. Using additional opti
 | Command	| Description | 
 | ------- | ------------ | 
 | `rm`    | Remove files/directories | 
-| `rm -r  | Recursively remove a directory & all its subdirectories | 
-| `rm -rf  | 	Forcibly remove directory without prompting for confirmation or showing error messages | 
-| `rm -i  | Interactively remove multiple files, with a prompt before every removal | 
-| `rm -v  | Remove files in verbose mode, printing a message for each removed file | 
+| `rm -r`  | Recursively remove a directory & all its subdirectories | 
+| `rm -rf`  | 	Forcibly remove directory without prompting for confirmation or showing error messages | 
+| `rm -i`  | Interactively remove multiple files, with a prompt before every removal | 
+| `rm -v`  | Remove files in verbose mode, printing a message for each removed file | 
 
 Let's remove the `secret_analysis.R` file that we created earlier with the `touch` command. 
 
@@ -541,9 +595,43 @@ echo Funny-looking Kid > r_release.txt
 cat r_release.txt
 ```
 
+## The PATH variable
+
+An important feature of the command line is the PATH variable. I won't get into all the details about the PATH variable, but having a basic understanding will likely prove useful if you ever have to troubleshoot problems in the future.
+
+- Have you ever wondered how the command-line knows what to do when you type a command like `python` or `ls`? 
+- How does it know what program to run, especially on a computer that might have multiple installations of a program like Python?
+
+The answer is that your system has a list of folders stored in an “environment variable” called PATH, and when you run a command (like `python` or `ls`), it goes through those folders in order until it finds an executable file with the name of the command you typed. Then, when it finds that file, it executes that program and stops looking.
+
+You can see the value of the PATH variable on your computer by typing 
+
+```{bash}
+echo $PATH
+```
+
+That means that when I type `python`, my computer will first look in the folder `/opt/homebrew/bin` to see if there is a file named `python` it can run. If it can’t find one there, it moves on to `/opt/homebrew/sbin:`, etc.
+
+### Why is this useful
+
+In a perfect world, you will never have to worry about your PATH variable, but there are a couple situations where knowing about your PATH variable can be helpful. In particular:
+
+- If you downloaded a program, but you can not run it from the command line, that probably means that its location is not in the PATH variable.
+- If you find that when you type a command like `python`, the command line isn not running the version of python you want it to run, that’s probably because a different version of python appears earlier in the PATH variable (since the command line will stop looking through these folders as soon as it finds a match). 
+
+Note that you can diagnose this problem by typing `which COMMANDNAME`, which will tell you the folder from which `COMMANDNAME` is being run.
+
+```{bash}
+which python
+```
+
+```{bash}
+which ls
+```
+
 ## Print file contents
 
-The `cat` (stands for _cat_enate) command reads data from files, and outputs their contents to the screen. 
+The `cat` (stands for **cat**enate) command reads data from files, and outputs their contents to the screen. 
 
 If we wanted to number all the output, use the `-n` option: 
 
@@ -729,9 +817,12 @@ First, we will search for packages that include the letter "R" in a list of R pa
 grep R package_names.txt
 ```
 
+If you are familiar with regular expressions, you can do cool things like search for a "r" followed by a white space with the `\s` character set for white spaces. 
+
 ```{bash}
-grep --color R package_names.txt
+grep -i 'r\s' release_names.txt
 ```
+
 If there is more than one file to search, use the `-H` option to print the filename for each match.
 
 ```{bash}
@@ -748,42 +839,75 @@ grep -Hn F r_release.txt package_names.txt
 grep -vi R r_release.txt package_names.txt
 ```
 
-
-
-
-
-# Data transfer
-
-# File compression
-
 # System info 
 
+In this section, we will explore commands that will allow us to
 
-# Pipes and filters
+- display information about the system
+- display file system disk space usage
+- exit the terminal
+- run commands a superuser
+- shutdown the system
 
-How can I combine existing commands to do new things?
+| Command	| Description | 
+| ------- | ------------ |
+| `uname` | Display important information about the system
+| `df` | Display file system disk space usage |
+| `exit` | Exit the terminal |
+| `sudo` | Run command as super user |
+| `shutdown` | Shutdown the system | 
 
-# Loops	
-How can I perform the same actions on many different files?
 
-# Finding things
+For example, we can display the file system disk usage 
 
+```{bash}
+df
+```
+# R in the shell
 
+In this section, we will learn to execute R commands and scripts in the command line using:
 
+- `R -e`
+- `Rscript -e`
+- `R CMD BATCH`
 
-``` {.bash filename="Hi"}
-# render single document (always executes code)
-quarto render document.qmd
+The `-e` option allows us to specify R expression(s). 
 
-# render project subdirectory (always executes code)
-quarto render articles
+`R -e` will launch R and then execute the code specified within quotes. Use semi-colon to execute multiple expressions as shown below. You will be able to run the below commands only if you are able to launch R from the command line. Windows users need to ensure that R is added to the path environment.
+
+```{bash}
+R -e "head(mtcars); tail(mtcars)"
 ```
 
-``` {{r}}
-mean(1:5)
+`Rscript -e` will run code without launching R.
+
+```{bash}
+Rscript -e "head(mtcars); tail(mtcars)"
+```
+
+We can use `Rscript` to execute a R script as well. In the below example, we execute the code in `analysis.R` file (which just asks to print the head of `mtcars`.
+
+```{bash}
+cat analysis.R
+```
+
+```{bash}
+Rscript analysis.R
 ```
 
 # Post-lecture materials
+
+### Summary 
+
+- Shell is a text based application for viewing, handling and manipulating files
+- It is also known by the following names
+    - CLI (Command Line Interface)
+    - Terminal
+    - Bash (Bourne Again Shell)
+- Use `Rscript -e` or `R -e` to execute R scripts from the command line
+- RStudio includes a Terminal (from version 1.1.383)
+- Execute commands from shell script in RStudio using Ctrl + Enter
+- RMarkdown and Quarto supports bash, sh and awk
 
 ### Final Questions
 
@@ -792,7 +916,8 @@ Here are some post-lecture questions to help you think about the material discus
 ::: callout-note
 ### Questions
 
-1.  Add here.
+1.  Explore the help files of `tar` and `gzip` commands for compressing files.
+2.  Practice your command line knowledge with [Command Challenge](https://cmdchallenge.com/).
 :::
 
 ### Additional Resources

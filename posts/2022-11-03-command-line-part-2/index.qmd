@@ -42,9 +42,14 @@ Material for this lecture was borrowed and adopted from
 -   Add here.
 :::
 
-# Add lecture here
+# Pipes and filters
 
-# Shell scripts
+How can I combine existing commands to do new things?
+
+
+# Loops	
+How can I perform the same actions on many different files?
+
 
 # Basics of bash scripting
 
