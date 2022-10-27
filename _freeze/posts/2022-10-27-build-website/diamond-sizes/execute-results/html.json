@@ -1,7 +1,7 @@
 {
-  "hash": "df2763e596af27234fff8107cccf70a7",
+  "hash": "fd97ffafb0210365b2f8581ea1a02600",
   "result": {
-    "markdown": "---\ntitle: \"Diamond sizes\"\ndate: 2022-09-12\nformat: html\n---\n\n\n\n\nWe have data about 53940 diamonds.\nOnly 126 are larger than 2.5 carats.\nThe distribution of the remainder is shown below:\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](diamond-sizes_files/figure-html/plot-smaller-diamonds-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Diamond sizes\"\ndate: 2022-09-12\nformat: html\ndraft: true\n---\n\n\n\n\nWe have data about 53940 diamonds.\nOnly 126 are larger than 2.5 carats.\nThe distribution of the remainder is shown below:\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](diamond-sizes_files/figure-html/plot-smaller-diamonds-1.png){width=672}\n:::\n:::\n",
     "supporting": [
       "diamond-sizes_files"
     ],

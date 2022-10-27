@@ -2,6 +2,7 @@
 title: "Diamond sizes"
 date: 2022-09-12
 format: html
+draft: true
 ---
 
 ```{r}

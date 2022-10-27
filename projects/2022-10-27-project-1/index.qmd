@@ -5,9 +5,8 @@ author:
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "TBA"
+description: "Building a website and practicing with command-line tools"
 date: 2022-10-27
-draft: true
 categories: [project 1, projects]
 ---
 
@@ -16,52 +15,61 @@ categories: [project 1, projects]
 
 **Due date: November 11 at 11:59pm**
 
-The goal of this assignment is to... 
+The goal of this assignment is to practice some of the skills we have been learning about in class around Quarto, command-line, and version control by building and deploying a website. You also are asked to practice with some command-line skills more formally. 
 
-### To submit your project
+### To submit your project 
+
+Please use this Quarto file (`.qmd`) and fill in the requested components by adding the URLs pointing to the private and public repositories and deployed websites. Render this file to a **HTML file** and submit your HTML file to the dropbox on CoursePlus. Please **show all your code**, if relevant to a section.
+
 
 # Part 1
 
 Complete the Git & GitHub Fundamentals Starter course. The link to create a private GitHub repository for yourself to complete the course will be posted in CoursePlus. When you are done, add the link to the GitHub repo here: 
 
-- **Action**: Delete this text and replace the text with the link to the private GitHub repo you created above
+- **Link to your GitHub repository**: [Delete this text and replace the text with the link to the private GitHub repo you created above]
 
 # Part 2
 
-Read this blogpost titled [Building a brand as a scientist](https://www.stephaniehicks.com/blog/building-a-brand-as-a-scientist). 
+1. Read this blogpost titled [Building a brand as a scientist](https://www.stephaniehicks.com/blog/building-a-brand-as-a-scientist). 
+2. Reflect on the questions in the "Defining your brand" section. 
+3. Write two paragraphs (4-6 sentences) max here answering one (or more) of the questions asked in the section above.
 
 
 # Part 3
 
-This part of the project is to help you introduce yourself (and your interests!) to others in this course. You will create a new GitHub repository and build a small website about yourself.
+Next, with the reflections from Part 2 in mind, you will create a public GitHub repository on your own GitHub account and build a small website to introduce yourself to others in the course. You will also create a small data analysis on one of the webpages to practice literate programming in [Quarto](https://quarto.org). 
+
+![](../../images/quarto_schematic.png)
 
 ## 1. Create a GitHub repo for your website
 
-Create a new GitHub repository titled `biostat840-intro-<firstname>-<lastname>` (where you replace `<firstname>` with your first name and `<lastname>` with your last name) in your own personal GitHub account (e.g. `https://github.com/<yourgithubusername>/biostat840-intro-<firstname>-<lastname>`).
+Create a new public GitHub repository titled `biostat840-intro-<firstname>-<lastname>` (where you replace `<firstname>` with your first name and `<lastname>` with your last name) in your own personal GitHub account (e.g. `https://github.com/<yourgithubusername>/biostat840-intro-<firstname>-<lastname>`).
 
-### 2. Build a website using `quarto`
+### 2. Build a website using Quarto
 
 Create a new project locally within RStudio and build a website for yourself. Your website should include the following: 
 
-- A landing page. This is home page that someone will land on your website. At minium it should include a picture of yourself, your name, and a short summary about yourself (max 2-3 sentences). 
-- An `About` page. This page should describe who you are in greater detail. It could include your professional interests and your educational and/or professional background and/or experience. It could also include any personal information you feel conformtable sharing on the website.
-- A data analysis page called `Example data analysis`. You can pick any dataset you wish you analyze. In this webpage, you will analyze a dataset and summarize it. The requirements for this webpage are the following: 
+1. A home/landing page. This is home page that someone will land on your website. At minimum it should include your name, a short summary about yourself (max 2-3 sentences), and a picture of something you enjoy to do for fun (or a picture of yourself if you are comfortable sharing one). 
+2. A page titled 'About'. This page should describe who you are in greater detail. It could include your professional interests and your educational and/or professional background and/or experience. It could also include any personal information you feel conformable sharing on the website. 
+3. A data analysis page called 'Example analysis'. You can pick any dataset you wish you analyze. In this webpage, you will analyze a dataset and summarize the results. The requirements for this webpage are the following: 
     - You must describe what is the question you aim to answer with the data and data analysis. 
     - You must describe who is the intended audience for the data analysis. 
-    - You must describe and link to where the original data come from tha you chose. You must also include a link to a data dictionary or create one inside the webpage. 
-    - Your analysis must include some minimal form of data wrangling with you using at least five differnt functions from `dplyr` or `tidyr`. 
-    - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). Plots should have titles, subtitles, and axis labels. 
-    - At least plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
-    - Your analysis must include one figure or table (not one you created yourself, but one you have saved locally or one from the web). 
+    - You must describe and link to where the original data come from that you chose. 
+    - You must include a link to a data dictionary for the data or create one inside the webpage. 
+    - Your analysis must include some minimal form of data wrangling with you using at least five different functions from `dplyr` or `tidyr`. 
+    - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
+    - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
+    - At least one plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
+    - Your analysis must include one image or table (not one you created yourself, but one you have saved locally or one from the web). 
     - Your analysis must include at least two different [callout blocks](https://quarto.org/docs/authoring/callouts.html).
     - Your analysis must include a `.bib` file, which you use to reference at least three unique citations. For example, it could be to a website or paper from where the original data came from or it could be to a paper describing a method you are using to analyze the data. 
-    - Your analysis must include the use of at least 1 footnote. 
+    - Your analysis must include the use of at least 1 [margin content](https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-10-27-build-website/#margin-content). 
     - You must summarize your analysis and/or results with a paragraph (4-6 sentences).
-    - At the end of the data analysis, list out each of the functions you used from each of the package to help the TA with respect to making sure you met all the requirements described above. 
+    - At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, and `ggplot2`) to help the TA with respect to making sure you met all the requirements described above. 
 
 ### 3. Include a `README.md` file
 
-Your GitHub repository should include a `README.md` file describing who is the author of the website and a link to the website that has been deployed. You can also describe the technical details for how the website was created and/or deployed. 
+Your local repository should include a `README.md` file describing who is the author of the website and a link to the website after it has been deployed. Other things you might include are the technical details for how the website was created and/or deployed. 
 
 ### 4. Deploy your website
 
@@ -73,13 +81,20 @@ Go to the Discussion Board in CoursePlus and write a short post with a link (URL
 
 As you read the introductions from other folks in the class, feel free to comment/reply using Discussion board.
 
-- **Action**: Delete this text and replace the text with the link to the GitHub repo you created above
-- **Action**: Delete this and replace the text with the link to the the deployed website you created above
+- **Link to your GitHub repository**: [Delete this text and replace the text with the link to the public GitHub repo you created above for your website]
+
+- **Link to your deployed website**: [Delete this and replace the text with the link to the public deployed website you created above]
 
 
 # Part 4
 
+1. Use `wget` or `curl` to download four files that end in `.fastq` from [here](). 
+2. Create a directory to download the data. The top level directory should be called `raw_data` and there should be a sub-level directory called `fastq`. The command you write should force the creation of both directories at the same time if either of them do not exist yet.
+3. Move all the `.fastq` files into the `fastq` sub-level directory. 
+4. Write a for loop in the shell that iterates over each `.fastq` file. For each `.fastq` file, do the following. In the first 1000 rows for each file, count the number of lines where the "@" symbol appears. Your final output should be four numbers printed to the screen. 
 
+```{bash}
+# Add your solution here
 
-
+```
 
