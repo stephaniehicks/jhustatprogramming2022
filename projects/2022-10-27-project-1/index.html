@@ -148,13 +148,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a></li>
   <li><a href="#part-3" id="toc-part-3" class="nav-link" data-scroll-target="#part-3">Part 3</a>
   <ul class="collapse">
-  <li><a href="#create-a-github-repo-for-your-website" id="toc-create-a-github-repo-for-your-website" class="nav-link" data-scroll-target="#create-a-github-repo-for-your-website">1. Create a GitHub repo for your website</a>
-  <ul class="collapse">
+  <li><a href="#create-a-github-repo-for-your-website" id="toc-create-a-github-repo-for-your-website" class="nav-link" data-scroll-target="#create-a-github-repo-for-your-website">1. Create a GitHub repo for your website</a></li>
   <li><a href="#build-a-website-using-quarto" id="toc-build-a-website-using-quarto" class="nav-link" data-scroll-target="#build-a-website-using-quarto">2. Build a website using Quarto</a></li>
   <li><a href="#include-a-readme.md-file" id="toc-include-a-readme.md-file" class="nav-link" data-scroll-target="#include-a-readme.md-file">3. Include a <code>README.md</code> file</a></li>
   <li><a href="#deploy-your-website" id="toc-deploy-your-website" class="nav-link" data-scroll-target="#deploy-your-website">4. Deploy your website</a></li>
   <li><a href="#share-your-website" id="toc-share-your-website" class="nav-link" data-scroll-target="#share-your-website">5. Share your website</a></li>
-  </ul></li>
   </ul></li>
   <li><a href="#part-4" id="toc-part-4" class="nav-link" data-scroll-target="#part-4">Part 4</a></li>
   </ul>
@@ -238,8 +236,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="create-a-github-repo-for-your-website" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-github-repo-for-your-website">1. Create a GitHub repo for your website</h2>
 <p>Create a new public GitHub repository titled <code>biostat840-intro-&lt;firstname&gt;-&lt;lastname&gt;</code> (where you replace <code>&lt;firstname&gt;</code> with your first name and <code>&lt;lastname&gt;</code> with your last name) in your own personal GitHub account (e.g.&nbsp;<code>https://github.com/&lt;yourgithubusername&gt;/biostat840-intro-&lt;firstname&gt;-&lt;lastname&gt;</code>).</p>
-<section id="build-a-website-using-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="build-a-website-using-quarto">2. Build a website using Quarto</h3>
+</section>
+<section id="build-a-website-using-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-website-using-quarto">2. Build a website using Quarto</h2>
 <p>Create a new project locally within RStudio and build a website for yourself. Your website should include the following:</p>
 <ol type="1">
 <li>A home/landing page. This is home page that someone will land on your website. At minimum it should include your name, a short summary about yourself (max 2-3 sentences), and a picture of something you enjoy to do for fun (or a picture of yourself if you are comfortable sharing one).</li>
@@ -263,16 +262,16 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="include-a-readme.md-file" class="level3">
-<h3 class="anchored" data-anchor-id="include-a-readme.md-file">3. Include a <code>README.md</code> file</h3>
+<section id="include-a-readme.md-file" class="level2">
+<h2 class="anchored" data-anchor-id="include-a-readme.md-file">3. Include a <code>README.md</code> file</h2>
 <p>Your local repository should include a <code>README.md</code> file describing who is the author of the website and a link to the website after it has been deployed. Other things you might include are the technical details for how the website was created and/or deployed.</p>
 </section>
-<section id="deploy-your-website" class="level3">
-<h3 class="anchored" data-anchor-id="deploy-your-website">4. Deploy your website</h3>
+<section id="deploy-your-website" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-your-website">4. Deploy your website</h2>
 <p>Deploy your website using <a href="https://quarto.org/docs/publishing/quarto-pub.html">Quarto Pub</a>, <a href="https://quarto.org/docs/publishing/github-pages.html">GitHub pages</a>, or <a href="https://quarto.org/docs/publishing/netlify.html">Netlify</a>. (<strong>Note</strong>: Deploying your website to RPubs will not be accepted).</p>
 </section>
-<section id="share-your-website" class="level3">
-<h3 class="anchored" data-anchor-id="share-your-website">5. Share your website</h3>
+<section id="share-your-website" class="level2">
+<h2 class="anchored" data-anchor-id="share-your-website">5. Share your website</h2>
 <p>Go to the Discussion Board in CoursePlus and write a short post with a link (URL) to your website (and URL to the corresponding GitHub repository) that you created. Also, list the URLs below for the purposes of grading.</p>
 <p>As you read the introductions from other folks in the class, feel free to comment/reply using Discussion board.</p>
 <ul>
@@ -281,11 +280,10 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-</section>
 <section id="part-4" class="level1">
 <h1>Part 4</h1>
 <ol type="1">
-<li>Use <code>wget</code> or <code>curl</code> to download four files that end in <code>.fastq</code> from <a href="">here</a>.</li>
+<li>Use <a href="https://www.gnu.org/software/wget"><code>wget</code></a> to download four files that end in <code>.fastq</code> from <a href="https://github.com/stephaniehicks/jhustatprogramming2022/tree/main/data">here</a>.</li>
 <li>Create a directory to download the data. The top level directory should be called <code>raw_data</code> and there should be a sub-level directory called <code>fastq</code>. The command you write should force the creation of both directories at the same time if either of them do not exist yet.</li>
 <li>Move all the <code>.fastq</code> files into the <code>fastq</code> sub-level directory.</li>
 <li>Write a for loop in the shell that iterates over each <code>.fastq</code> file. For each <code>.fastq</code> file, do the following. In the first 1000 rows for each file, count the number of lines where the “@” symbol appears. Your final output should be four numbers printed to the screen.</li>
