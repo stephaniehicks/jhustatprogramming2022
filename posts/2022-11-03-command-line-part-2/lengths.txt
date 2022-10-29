@@ -1,0 +1,7 @@
+      20 proteins/cubane.pdb
+      12 proteins/ethane.pdb
+       9 proteins/methane.pdb
+      30 proteins/octane.pdb
+      21 proteins/pentane.pdb
+      15 proteins/propane.pdb
+     107 total

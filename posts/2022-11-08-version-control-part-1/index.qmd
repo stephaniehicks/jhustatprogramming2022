@@ -44,6 +44,12 @@ Material for this lecture was borrowed and adopted from
 
 # Add lecture here
 
+Things to cover
+
+- basics of version control with git (`git init`, `git add`, `git commit`, `git push`, `git pull`)
+- basics of github 
+- basics of github pages
+
 # Post-lecture materials
 
 ### Final Questions

@@ -102,6 +102,20 @@ Let's get started.
 - If you are working on a Mac, Apple calls the shell 'Terminal'. There is an application you can open called 'Terminal' and it also appears in a tab next to the R console in the RStudio IDE. 
 - If you are using Windows, by default, Windows does not use bash, but instead [you will need to install one of several Windows-specific tools](https://happygitwithr.com/shell.html#shell) (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system. 
 
+![](../../images/terminal.png)
+
+[[Source](https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal-in-the-RStudio-IDE)]
+
+:::{.callout-tip}
+
+### The Unix shell setup
+
+You can follow these directions for setting up your shell for Windows, macOS, and Linux operating systems: 
+
+- <https://swcarpentry.github.io/shell-novice/setup>
+
+:::
+
 
 ## Opening the shell
 
@@ -588,7 +602,7 @@ Let us start with a simple example. We will print the text "Funny-Looking Kid" t
 echo Funny-looking Kid
 ```
 
-If we wanted to redirect that output from printing to the terminal and write to a file, we use the `>` syntax
+If we wanted to redirect that output from printing to the terminal and write to a file, we use the `>` operator.
 
 ```{bash}
 echo Funny-looking Kid > r_release.txt
