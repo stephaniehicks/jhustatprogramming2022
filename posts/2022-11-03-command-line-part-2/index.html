@@ -399,7 +399,7 @@ Question
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Pipe operator
+Redirection operator
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -698,16 +698,36 @@ Question
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="pp">*</span>.dat</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cp</span> <span class="va">$filename</span> original-<span class="va">$filename</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>basilisk.dat
+minotaur.dat
+original-basilisk.dat
+original-minotaur.dat
+original-unicorn.dat
+unicorn.dat</code></pre>
+</div>
 </div>
 <p>This loop runs the <code>cp</code> command once for each filename. The first time, when <code>$filename</code> expands to <code>basilisk.dat</code>, the shell executes:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Bash</strong></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> basilisk.dat original-basilisk.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> basilisk.dat original-basilisk.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and so on.</p>
+<p>Finally, let’s clean up our copies</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> creatures/original-<span class="pp">*</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> creatures/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>creatures/basilisk.dat
+creatures/minotaur.dat
+creatures/unicorn.dat</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="basics-of-bash-scripting" class="level1">
@@ -722,7 +742,7 @@ Question
 <h1>Basics of ssh</h1>
 <ul>
 <li>Explain what is ssh</li>
-<li>Demo connecting to JHPCE via termina.</li>
+<li>Demo connecting to JHPCE via terminal.</li>
 <li>Explain passwordless ssh with JHPCE (and GitHub)</li>
 </ul>
 </section>
