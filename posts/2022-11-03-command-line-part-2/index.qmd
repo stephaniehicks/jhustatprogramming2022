@@ -17,6 +17,7 @@ categories: [module 1, week 2, command-line]
 library(tidyverse)
 ```
 
+
 # Pre-lecture materials
 
 ### Read ahead
