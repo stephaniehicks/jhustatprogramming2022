@@ -32,6 +32,7 @@ Material for this lecture was borrowed and adopted from
 
 - [R Squared Academy](https://blog.rsquaredacademy.com/command-line-basics-for-r-users)
 - [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
+- [Data Science at the Command line](https://datascienceatthecommandline.com/2e)
 
 # Learning objectives
 
@@ -47,6 +48,12 @@ Material for this lecture was borrowed and adopted from
 -   Be able to print and sort file contents
 -   Be able to search for regular expressions in files
 -   Be able to execute R commands and scripts in the command line
+:::
+
+:::{.callout-tip}
+
+You can practice your command-line skills with the [Command Challenge](https://cmdchallenge.com/)
+
 :::
 
 # Introduction
@@ -79,10 +86,12 @@ This allows such repetitive tasks to be done automatically and fast. Using the s
 
 ## The Shell
 
-The **shell is a program** (or environment) where users can **type commands** and the commands can be executed. Another way of thinking about it is, a shell provides an **interface between the user and the UNIX system**.
+The **shell is a program** (or environment) where users can **type commands** and the commands can be executed. 
+
+Another way of thinking about it is, a shell provides an **interface between the user and the UNIX system**.
 
 ::: callout-note
-### Types of shells
+### Example types of shells
 
 -   **Bash** (Bourne Again SHell). The most popular Unix shell is Bash (the Bourne Again SHell --- so-called because it's derived from a shell written by Stephen Bourne). Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.
 -   **Zsh** (Z SHell). Zsh is built on top of bash with some additional features including providing the user with more flexibility by providing various features such as plug-in support, better customization, theme support, spelling correction, etc. Zsh is the default shell for macOS and Kali Linux.
@@ -116,27 +125,37 @@ You can follow these directions for setting up your shell for Windows, macOS, an
 
 :::
 
+:::{.callout-tip}
+
+### Demo
+
+- Let's open up the `Terminal` application and also show you where the Terminal is within RStudio. 
+- Next, let's show how to open up multiple terminals and close all terminals.
+
+:::
+
+
 
 ## Opening the shell
 
-When the shell is first opened, you are presented with a prompt, indicating that the shell is waiting for input.
+When the shell is first opened, you are presented with a prompt, indicating that the **shell is waiting for input**.
 
 ``` {.bash filename="Bash"}
 $
 ```
 
-The shell typically uses `$` as the prompt, but may use a different symbol (for the purposes of the rest of the lecture, I will omit the `$`).
+The **shell typically uses `$` as the prompt**, but may use a different symbol (for the purposes of the rest of the lecture, I will omit the `$`).
 
 ::: callout-important
 1.  When typing commands in the shell, **do not type the `$`**, only the commands that follow it.
 2.  After you type a command, you have to **press the Enter key** to execute it.
 :::
 
-The prompt is followed by a text cursor, a character that indicates the position where your typing will appear.
+The prompt is followed by a **text cursor**, a character that indicates the position where your typing will appear.
 
 ## Shell basics 
 
-So let's try our first command, `ls` which is short for listing files. With R, we know how to do this with `list.files()` function in base R: 
+So let's try our first command, `ls` which is short for **listing files**. With R, we know how to do this with `list.files()` function in base R: 
 
 ```{r}
 #| echo: fenced
@@ -181,13 +200,13 @@ Next, lets learn to display
 | `cal`           |     Display calendar | 
 | `clear`         |     Clear the screen | Ctrl + L
 
-`whoami` prints the effective user id i.e. the name of the user who runs the command. Use it to verify the user as which you are logged into the system.
+`whoami` **prints the user id** (i.e. the name of the user who runs the command). Use it to verify the user as which you are logged into the system.
 
 ```{bash}
 whoami
 ```
 
-`date` will display or change the value of the system’s time and date information.
+`date` will **display** or change the value of the **system’s time and date** information.
 
 ```{bash}
 date
@@ -207,7 +226,7 @@ Before we proceed further, let us learn to view the documentation/manual pages o
 | Command	| Description |  
 | ------- | ------------| 
 | `nameofcommand -h` | For some `nameofcommand` command (e.g. `whoami`)
-| `man nameofcommand`   | Display manual pages for the `nameofcommand` command | 
+| `man nameofcommand`   | Display manual pages (i.e. `man`) for the `nameofcommand` command | 
 | `whatis` | Single line description of a command | 
 
 `man` is used to view the system’s reference manual.
@@ -232,11 +251,22 @@ DESCRIPTION
      When invoked without arguments, the date utility displays the current date and time.
 ```
 
+:::{.callout-note}
+
+### Try it out
+
+- Let's explore the manual pages of `date` in the command line to show you what that looks like. 
+- We will figure out what is the argument to print out the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) or 00:00:00 UTC on 1 January 1970.
+- We will figure out what is the argument to display the date in UTC.
+
+:::
+
+
 :::{.callout-tip}
 
 ### Pro-tip
 
-For most commands, `NAMEOFCOMMAND -h` or `NAMEOFCOMMAND --help` will bring up a small guide to command options.
+For **most commands** (but not all!), `NAMEOFCOMMAND -h` or `NAMEOFCOMMAND --help` will bring up a small guide to command options.
 
 For example, `python -h` or `python --help` bring up:
 
@@ -278,13 +308,13 @@ Next, we will introduce commands that help us:
 | `mkdir`	| Create directory | `dir.create()` | 
 | `rmdir`	| Remove/delete directory | 
 
-`pwd` displays the name of the present working directory.
+`pwd` **displays the name and path** of the present (or current) working directory (`pwd`).
 
 ```{bash}
 pwd
 ```
 
-`ls` displays information about files and directories in the current directory along with their associated metadata such as
+`ls` **displays information about files** and directories in the current directory along with their associated metadata such as
 
 - size
 - ownership
@@ -317,7 +347,23 @@ mkdir secret_directory
 ls
 ```
 
-`rmdir` will remove empty directories from the file system. It can be used to remove multiple empty directories as well. If the directory is not empty, rmdir will not remove it and instead display a warning that the directory is not empty.
+
+:::{.callout-note}
+
+### Pro-tip
+
+**Pressing tab** at any time within the shell will prompt it to attempt to either
+
+- auto-complete the name of the command you are searching for
+- auto-complete the line based on the files or sub-directories in the current directory. 
+
+Where **two or more files have the same characters**, the auto-complete will only fill up to the first point of difference, after which we can add more characters, and try using tab again. 
+
+:::
+
+`rmdir` will **remove empty directories** from the file system. It can be used to remove multiple empty directories as well. 
+
+If the **directory is not empty**, `rmdir` will not remove it and instead display a warning that the directory is not empty.
 
 ```{bash}
 rmdir secret_directory
@@ -346,10 +392,15 @@ cd ..
 ls 
 ```
 
+
+This is a list of top-level files in my folder containing all the files for this website.
+
 ```{bash}
 cd ../..
 ls
 ```
+
+These are all the files in my home directory on my computer.
 
 ```{bash}
 cd ~ 
@@ -382,11 +433,13 @@ cd ../..
 ls -l
 ```
 
-Next, let's talk about hidden (or invisible) files. These are everywhere on modern operating systems. 
+### Hidden files
+
+Next, let's talk about **hidden (or invisible) files**. These are everywhere on modern operating systems. 
 
 When a programmer needs to have a file or folder, but does not want to show it to the user, they prefixes the file name with a single period (.). The operating system then hides this files from the user.
 
-But now you can see these invisible files using the command line. Just use the `-a` flag (short for "all") for the `ls` command to have it show you all the files that are there:
+But now you can **see these invisible files** using the command line. Just use the `-a` flag (short for "all") for the `ls` command to have it show you all the files that are there:
 
 ```{bash}
 cd ../..
@@ -410,14 +463,10 @@ cd ../..
 ls -lh
 ```
 
-```{bash}
-cd ../..
-ls 
-```
 
-## Wildcards
+### Wildcards
 
-Wildcards are the use of asterisk (`*`) to allow any pattern to appear in part of a filename. 
+**Wildcards** are the use of asterisk (`*`) to **allow any pattern to appear** in part of a filename. 
 
 For example, to list all the `.txt` files in a folder (but only the `.txt` files), you can type:
 
@@ -433,6 +482,15 @@ ls *r*
 
 This is an extremely powerful tool, and one you will likely use a lot. 
 
+
+:::{.callout-note}
+
+### Question
+
+Let's try to write the command to pattern match all files that start with the pattern "team"
+
+:::
+
 # Create, copy, rename, delete files
 
 In this section, we will explore commands for file management including:
@@ -446,7 +504,7 @@ In this section, we will explore commands for file management including:
 | Command	| Description |  R commands |
 | ------- | ------------ | ---------- | 
 | `touch` | Create empty file(s)/change timestamp | `file.create()` | 
-| `cp`    |	Copy files & folders | `file.copy()` |
+| `cp`    |	Copy files and folders | `file.copy()` |
 | `mv`    |	Rename/move file | `file.rename()` | 
 | `rm`    |	Remove/delete file | `file.remove()` | 
 | `diff`  |	Compare files | | 
@@ -459,12 +517,21 @@ In this section, we will explore commands for file management including:
 - modification time (the last time the contents of the file was changed)
 - change time (the last time the file’s metadata was changed)
 
-If the file does not exist, it will create an empty file of the same name. Let us use touch to create a new file myanalysis.R.
+If the **file does not exist**, it will create an empty file of the same name.
+
+:::{.callout-tip}
+
+### Example
+
+Let us use touch to create a new file `secret_analysis.R`.
 
 ```{bash}
 touch secret_analysis.R
 ls
 ```
+
+:::
+
 
 ## Copy files and folders
 
@@ -476,6 +543,11 @@ By default, it will overwrite files without prompting for confirmation so be cau
 
 :::
 
+
+:::{.callout-tip}
+
+### Example
+
 Let us create a copy of `team_standings.csv` file and name it as `team_standings_2.csv` in the same folder.
 
 ```{bash}
@@ -483,15 +555,16 @@ cp team_standings.csv team_standings_2.csv
 ls
 ```
 
+:::
 
-To copy folders, you use the `-r` option which refers to `--recursive` i.e. copy directories recursively.
+To **copy folders**, you use the `-r` option which refers to `--recursive` i.e. copy directories recursively.
 
 ```{bash}
 cp -r secret_directory secret_directory_2
-ls
+ls secret*
 ```
 
-## move and rename files
+## Move and rename files
 
 `mv` moves and renames files and directories. Using different options, we can ensure
 
@@ -512,7 +585,7 @@ Let us move/rename the `team_standings_2.csv` file to `team_standings_3.csv` in 
 
 ```{bash}
 mv -v team_standings_2.csv team_standings_3.csv
-ls
+ls team*
 ```
 
 We see that there is no more file called `team_standings_2.csv` as it's now been renamed! 
@@ -524,7 +597,7 @@ We will look into the `cat` command in more detail later, but for the time being
 The file contains release names of different R versions.
 
 ```{bash}
-cat team_standings.csv
+cat release_names.txt
 ```
 :::
 
@@ -602,21 +675,35 @@ Let us start with a simple example. We will print the text "Funny-Looking Kid" t
 echo Funny-looking Kid
 ```
 
-If we wanted to redirect that output from printing to the terminal and write to a file, we use the `>` operator.
+If we wanted to redirect that output from printing to the terminal and write to a file, we use the redirection (`>`) operator.
 
 ```{bash}
 echo Funny-looking Kid > r_release.txt
 cat r_release.txt
 ```
 
+:::{.callout-tip}
+
+### Redirection operator
+
+If we want to redirect that output from printing to the terminal and write to a file, we use the `>` operator like so (`command > [file] `) where on the left side is output gets piped into a file on the right side. 
+
+:::
+
 ## The PATH variable
 
-An important feature of the command line is the PATH variable. I won't get into all the details about the PATH variable, but having a basic understanding will likely prove useful if you ever have to troubleshoot problems in the future.
+An important feature of the command line is the PATH variable. 
+
+I won't get into all the details about the PATH variable, but having a basic understanding will likely prove useful if you ever have to troubleshoot problems in the future.
 
 - Have you ever wondered how the command-line knows what to do when you type a command like `python` or `ls`? 
 - How does it know what program to run, especially on a computer that might have multiple installations of a program like Python?
 
-The answer is that your system has a list of folders stored in an “environment variable” called PATH, and when you run a command (like `python` or `ls`), it goes through those folders in order until it finds an executable file with the name of the command you typed. Then, when it finds that file, it executes that program and stops looking.
+The answer is that **your system has a list of folders stored in an “environment variable” called PATH**. 
+
+When you run a command (like `python` or `ls`), it goes through those folders in order until it **finds an executable file with the name of the command you typed**. 
+
+Then, when it finds that file, it executes that program and stops looking.
 
 You can see the value of the PATH variable on your computer by typing 
 
@@ -624,16 +711,18 @@ You can see the value of the PATH variable on your computer by typing
 echo $PATH
 ```
 
-That means that when I type `python`, my computer will first look in the folder `/opt/homebrew/bin` to see if there is a file named `python` it can run. If it can’t find one there, it moves on to `/opt/homebrew/sbin:`, etc.
+That means that when I type `python`, my computer will first look in the folder `/opt/homebrew/Caskroom/miniforge/base/bin` to see if there is a file named `python` it can run. If it can’t find one there, it moves on to to the next one. 
 
 ### Why is this useful
 
-In a perfect world, you will never have to worry about your PATH variable, but there are a couple situations where knowing about your PATH variable can be helpful. In particular:
+In a perfect world, you will never have to worry about your PATH variable, but there are a couple situations where **knowing about your PATH variable can be helpful**. In particular:
 
-- If you downloaded a program, but you can not run it from the command line, that probably means that its location is not in the PATH variable.
-- If you find that when you type a command like `python`, the command line isn not running the version of python you want it to run, that’s probably because a different version of python appears earlier in the PATH variable (since the command line will stop looking through these folders as soon as it finds a match). 
+1. If you **downloaded a program**, but you cannot run it from the command line, that probably means that its location is not in the PATH variable.
+2. If you find that when you type a command like `python`, the command line is not running the version of python you want it to run, that’s probably because a different version of python appears earlier in the PATH variable (since the command line will stop looking through these folders as soon as it finds a match). 
 
-Note that you can diagnose this problem by typing `which COMMANDNAME`, which will tell you the folder from which `COMMANDNAME` is being run.
+:::{.callout-note}
+
+You can diagnose this problem by typing `which COMMANDNAME`, which will tell you the folder from which `COMMANDNAME` is being run.
 
 ```{bash}
 which python
@@ -642,6 +731,8 @@ which python
 ```{bash}
 which ls
 ```
+
+:::
 
 ## Print file contents
 
@@ -695,7 +786,7 @@ The `more` command displays text, one screen at a time. It opens a file for
 
 :::{.callout-tip}
 
-Press space to scroll down the page, the forward slash (`/`) for searching strings, `n` to go to the next match and `q` to quit.
+Press space to scroll down the page, the forward slash (`/`) for searching strings, `n` to go to the next match, and `q` to quit.
 
 :::
 
@@ -706,9 +797,9 @@ Press space to scroll down the page, the forward slash (`/`) for searching strin
 | `/`       | Search for a string; press n to go the next match |
 | `q`       | Quit |
 
-The `less` command is similar to more but offers more features. 
+The `less` command is similar to more, but offers more features. 
 
-It allows the user to scroll up and down, go to the beginning and end of the file, forward and backward search and the ability to go the next and previous match while searching the file.
+It **allows the user to scroll up and down the file**, go to the beginning and end of the file, forward and backward search and the ability to go the next and previous match while searching the file.
 
 | Command	| Description |
 | ------- | ------------ |
@@ -930,12 +1021,18 @@ Here are some post-lecture questions to help you think about the material discus
 ::: callout-note
 ### Questions
 
-1.  Explore the help files of `tar` and `gzip` commands for compressing files.
-2.  Practice your command line knowledge with [Command Challenge](https://cmdchallenge.com/).
+1. Explore the help files of `tar` and `gzip` commands for compressing files.
+2. Move around the computer, get used to moving in and out of directories, see how different file types appear in the Unix shell. Be sure to use the `pwd` and `cd` commands, and the different flags for the `ls` commands. 
+3. Practice using "Tab for Auto-complete" in the shell to autocomplete commands or file names.
+4. Practice your command line knowledge with [Command Challenge](https://cmdchallenge.com/).
 :::
 
 ### Additional Resources
 
 ::: callout-tip
--   Add here.
+
+- [R Squared Academy](https://blog.rsquaredacademy.com/command-line-basics-for-r-users)
+- [Software Carpentry: The Unix Shell](https://swcarpentry.github.io/shell-novice)
+- [Data Science at the Command line](https://datascienceatthecommandline.com/2e)
+
 :::

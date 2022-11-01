@@ -98,7 +98,7 @@ This is useful information, but all of that output gets printed to the screen an
 
 :::{.callout-tip}
 
-### Pipe operator
+### Redirection operator
 
 In the previous lecture, we learned that if we wanted to redirect that output from printing to the terminal and write to a file, we use the `>` operator like so (`command > [file] `) where on the left side is output gets piped into a file on the right side. 
 
@@ -348,7 +348,10 @@ for filename in *.dat
 do
     cp $filename original-$filename
 done
+
+ls *.dat
 ```
+
 
 This loop runs the `cp` command once for each filename. The first time, when `$filename` expands to `basilisk.dat`, the shell executes:
 
@@ -358,6 +361,12 @@ cp basilisk.dat original-basilisk.dat
 
 and so on.
 
+Finally, let's clean up our copies
+
+```{bash}
+rm creatures/original-*
+ls creatures/*
+```
 
 
 # Basics of bash scripting
@@ -372,6 +381,7 @@ Pull material from here
 - Explain what is ssh 
 - Demo connecting to JHPCE via terminal.
 - Explain passwordless ssh with JHPCE (and GitHub)
+
 
 
 # Post-lecture materials
