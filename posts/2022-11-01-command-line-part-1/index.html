@@ -361,10 +361,10 @@ Learning objectives
 <li>Understand what is a command shell and why would use one.</li>
 <li>Explain how the shell relates to the keyboard, the screen, the operating system, and users’ programs.</li>
 <li>Explain when and why command-line interfaces should be used instead of graphical interfaces.</li>
-<li>Be able to create, copy, move, rename, and delete files and folders</li>
-<li>Be able to print and sort file contents</li>
-<li>Be able to search for regular expressions in files</li>
-<li>Be able to execute R commands and scripts in the command line</li>
+<li>Create, copy, move, rename, and delete files and folders.</li>
+<li>Print and sort file contents.</li>
+<li>Search for regular expressions in files.</li>
+<li>Execute R commands and scripts in the command line.</li>
 </ul>
 </div>
 </div>
@@ -385,8 +385,8 @@ Tip
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>We we use interact with computers, we often do so with a keyboard and mouse, touch screen interfaces, or using speech recognition systems.</p>
-<p>The most widely used way to interact with personal computers is called a <strong>graphical user interface</strong> (GUI). With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.</p>
-<p>The problem with only working with GUIs is that while the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.</p>
+<p>The most widely used way to interact with personal computers is called a <strong>graphical user interface</strong> (GUI). With a GUI, we give instructions by <strong>clicking a mouse</strong> and using menu-driven interactions.</p>
+<p>The <strong>problem with only working with GUIs</strong> is that while the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -400,7 +400,7 @@ Example
 <p>Imagine the following task: for a literature search, you have to</p>
 <ol type="1">
 <li>Copy the third line of one thousand text files in one thousand different directories</li>
-<li>Paste the lines into a single file.</li>
+<li>Paste the lines into a separate single file.</li>
 </ol>
 <p>Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task.</p>
 </div>
@@ -432,38 +432,23 @@ Example types of shells
 </ul>
 </div>
 </div>
-<p>The <strong>grammar of a shell</strong> allows you to combine existing tools into powerful pipelines and handle large volumes of data automatically. Sequences of commands can be written into a script, improving the reproducibility of workflows.</p>
-<p>In addition, the command line is often the easiest way to interact with remote machines and supercomputers.</p>
+<p>The <strong>grammar of a shell</strong> allows you to combine existing tools into powerful pipelines and handle large volumes of data automatically.</p>
+<p>Benefits:</p>
 <ul>
-<li>Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems.</li>
-<li>As clusters and cloud computing systems become more popular for scientific data crunching, being able to interact with the shell is becoming a necessary skill.</li>
+<li><strong>Sequences of commands</strong> can be written into a script, improving the reproducibility of workflows.</li>
+<li>The command line is <strong>often the easiest way to interact with remote machines</strong> and supercomputers.</li>
+<li>Familiarity with the shell is near essential to <strong>run a variety of specialized tools</strong> and resources including <strong>high-performance computing systems</strong>.</li>
 </ul>
 <p>Let’s get started.</p>
 </section>
 <section id="where-to-find-the-shell" class="level2">
 <h2 class="anchored" data-anchor-id="where-to-find-the-shell">Where to find the shell</h2>
 <ul>
-<li>If you are working on a Mac, Apple calls the shell ‘Terminal’. There is an application you can open called ‘Terminal’ and it also appears in a tab next to the R console in the RStudio IDE.</li>
-<li>If you are using Windows, by default, Windows does not use bash, but instead <a href="https://happygitwithr.com/shell.html#shell">you will need to install one of several Windows-specific tools</a> (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system.</li>
+<li>If you are <strong>using Windows</strong>, by default, Windows does not use bash, but instead <a href="https://happygitwithr.com/shell.html#shell">you will need to install one of several Windows-specific tools</a> (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system.</li>
+<li>If you are <strong>using macOS</strong>, Apple calls the shell ‘Terminal’. There is an application you can open called ‘Terminal’ and it also appears in a tab next to the R console in the RStudio IDE.</li>
 </ul>
 <p><img src="../../images/terminal.png" class="img-fluid"></p>
 <p>[<a href="https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal-in-the-RStudio-IDE">Source</a>]</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-The Unix shell setup
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can follow these directions for setting up your shell for Windows, macOS, and Linux operating systems:</p>
-<ul>
-<li><a href="https://swcarpentry.github.io/shell-novice/setup" class="uri">https://swcarpentry.github.io/shell-novice/setup</a></li>
-</ul>
-</div>
-</div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -477,6 +462,22 @@ Demo
 <ul>
 <li>Let’s open up the <code>Terminal</code> application and also show you where the Terminal is within RStudio.</li>
 <li>Next, let’s show how to open up multiple terminals and close all terminals.</li>
+</ul>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Unix shell setup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can follow these directions for setting up your shell for Windows, macOS, and Linux operating systems:</p>
+<ul>
+<li><a href="https://swcarpentry.github.io/shell-novice/setup" class="uri">https://swcarpentry.github.io/shell-novice/setup</a></li>
 </ul>
 </div>
 </div>
@@ -618,24 +619,36 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mon Oct 31 23:56:52 EDT 2022</code></pre>
+<pre><code>Tue Nov  1 12:42:39 EDT 2022</code></pre>
 </div>
 </div>
-<p><code>cal</code> will display a formatted calendar and clear will clear all text on the screen and display a new prompt. You can clear the screen by pressing Ctrl + L as well.</p>
+<p><code>cal</code> will display a formatted calendar and clear will clear all text on the screen and display a new prompt.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    October 2022      
+<pre><code>   November 2022      
 Su Mo Tu We Th Fr Sa  
-                   1  
- 2  3  4  5  6  7  8  
- 9 10 11 12 13 14 15  
-16 17 18 19 20 21 22  
-23 24 25 26 27 28 29  
-30 _3_1                 </code></pre>
+      _ _1  2  3  4  5  
+ 6  7  8  9 10 11 12  
+13 14 15 16 17 18 19  
+20 21 22 23 24 25 26  
+27 28 29 30           
+                      </code></pre>
 </div>
 </div>
-<p>To clear the R console, we use Ctrl + L.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To <strong>clear</strong> the R console and the shell, we use Ctrl + L.</p>
+</div>
+</div>
 </section>
 <section id="getting-help" class="level2">
 <h2 class="anchored" data-anchor-id="getting-help">Getting help</h2>
@@ -654,7 +667,7 @@ Su Mo Tu We Th Fr Sa
 <tbody>
 <tr class="odd">
 <td><code>nameofcommand -h</code></td>
-<td>For some <code>nameofcommand</code> command (e.g.&nbsp;<code>whoami</code>)</td>
+<td>For some <code>nameofcommand</code> command (only for some commands)</td>
 </tr>
 <tr class="even">
 <td><code>man nameofcommand</code></td>
@@ -691,11 +704,14 @@ Try it out
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Let’s explore the manual pages of <code>date</code> in the command line to show you what that looks like.</p>
 <ul>
-<li>Let’s explore the manual pages of <code>date</code> in the command line to show you what that looks like.</li>
 <li>We will figure out what is the argument to print out the number of seconds since the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix epoch</a> or 00:00:00 UTC on 1 January 1970.</li>
 <li>We will figure out what is the argument to display the date in UTC.</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## try it out </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -710,18 +726,18 @@ Pro-tip
 <div class="callout-body-container callout-body">
 <p>For <strong>most commands</strong> (but not all!), <code>NAMEOFCOMMAND -h</code> or <code>NAMEOFCOMMAND --help</code> will bring up a small guide to command options.</p>
 <p>For example, <code>python -h</code> or <code>python --help</code> bring up:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="an">usage:</span><span class="co"> python [option] ... [-c cmd | -m mod | file | -] [arg] ...</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Options and arguments (and corresponding environment variables):</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>-b     : issue warnings about str(bytes_instance), str(bytearray_instance)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>         and comparing bytes/bytearray with str. (-bb: issue errors)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>-c cmd : program passed in as string (terminates option list)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>-d     : turn on parser debugging output (for experts only, only works on</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>         debug builds); also PYTHONDEBUG=x</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>-E     : ignore PYTHON* environment variables (such as PYTHONPATH)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>-h     : print this help message and exit (also --help)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>-i     : inspect interactively after running script; forces a prompt even</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>         if stdin does not appear to be a terminal; also PYTHONINSPECT=x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="an">usage:</span><span class="co"> python [option] ... [-c cmd | -m mod | file | -] [arg] ...</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Options and arguments (and corresponding environment variables):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>-b     : issue warnings about str(bytes_instance), str(bytearray_instance)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>         and comparing bytes/bytearray with str. (-bb: issue errors)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>-c cmd : program passed in as string (terminates option list)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>-d     : turn on parser debugging output (for experts only, only works on</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>         debug builds); also PYTHONDEBUG=x</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>-E     : ignore PYTHON* environment variables (such as PYTHONPATH)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>-h     : print this help message and exit (also --help)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>-i     : inspect interactively after running script; forces a prompt even</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>         if stdin does not appear to be a terminal; also PYTHONINSPECT=x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -780,7 +796,7 @@ Pro-tip
 </table>
 <p><code>pwd</code> <strong>displays the name and path</strong> of the present (or current) working directory (<code>pwd</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/posts/2022-11-01-command-line-part-1</code></pre>
 </div>
@@ -791,9 +807,9 @@ Pro-tip
 <li>ownership</li>
 <li>modification date</li>
 </ul>
-<p>With no options, it will list the files and directories in the current directory, sorted alphabetically.</p>
+<p>With no options, it will list the files and directories in the current directory, <strong>sorted alphabetically</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>analysis.R
 combined_names.txt
@@ -808,10 +824,10 @@ team_standings.csv
 team_standings_3.csv</code></pre>
 </div>
 </div>
-<p><code>cd</code> (change directory) changes the current working directory. It is among the most used commands as it allows the user to move around the file system.</p>
+<p><code>cd</code> (change directory) changes the current working directory. It is among the most used commands as it allows the user <strong>to move around the file system</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2022-10-27-build-website
 2022-11-01-command-line-part-1
@@ -849,10 +865,12 @@ Note
 <p>The <code>cd ..</code> means to change to the directory that is one level up.</p>
 </div>
 </div>
-<p><code>mkdir</code> will create new directory. It will allow you to set file mode (permissions associated with the directory) i.e.&nbsp;who can open/modify/delete the directory.</p>
+<p><code>mkdir</code> will <strong>create new directory</strong>.</p>
+<p>It will allow you to set file mode (permissions associated with the directory) i.e.&nbsp;who can open/modify/delete the directory.</p>
+<p>It will give you a warning <strong>if a folder already exists</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> secret_directory</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> secret_directory</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>mkdir: secret_directory: File exists
 analysis.R
@@ -889,8 +907,8 @@ Pro-tip
 <p><code>rmdir</code> will <strong>remove empty directories</strong> from the file system. It can be used to remove multiple empty directories as well.</p>
 <p>If the <strong>directory is not empty</strong>, <code>rmdir</code> will not remove it and instead display a warning that the directory is not empty.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> secret_directory</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> secret_directory</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>rmdir: secret_directory: Directory not empty
 analysis.R
@@ -947,8 +965,8 @@ team_standings_3.csv</code></pre>
 </tbody>
 </table>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2022-10-27-build-website
 2022-11-01-command-line-part-1
@@ -975,8 +993,8 @@ _metadata.yml</code></pre>
 </div>
 <p>This is a list of top-level files in my folder containing all the files for this website.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>_freeze
 _post_template.qmd
@@ -999,8 +1017,8 @@ syllabus.qmd</code></pre>
 </div>
 <p>These are all the files in my home directory on my computer.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~ </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~ </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Applications
 Creative Cloud Files
@@ -1069,14 +1087,14 @@ miniforge3</code></pre>
 </table>
 <p>List files one per line</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>total 232
 drwxr-xr-x   7 stephaniehicks  staff    224 Oct 21 22:40 _freeze
 -rw-r--r--@  1 stephaniehicks  staff    976 Oct 17 11:43 _post_template.qmd
 -rw-r--r--   1 stephaniehicks  staff    827 Oct 23 11:13 _quarto.yml
-drwxr-xr-x  16 stephaniehicks  staff    512 Oct 31 23:53 _site
+drwxr-xr-x  16 stephaniehicks  staff    512 Nov  1 12:39 _site
 drwxr-xr-x   6 stephaniehicks  staff    192 Oct 26 23:55 data
 drwxr-xr-x  13 stephaniehicks  staff    416 Oct 29 00:49 images
 -rw-r--r--   1 stephaniehicks  staff   2200 Oct 24 21:26 index.qmd
@@ -1098,8 +1116,8 @@ drwxr-xr-x   6 stephaniehicks  staff    192 Oct 21 21:17 projects
 <p>When a programmer needs to have a file or folder, but does not want to show it to the user, they prefixes the file name with a single period (.). The operating system then hides this files from the user.</p>
 <p>But now you can <strong>see these invisible files</strong> using the command line. Just use the <code>-a</code> flag (short for “all”) for the <code>ls</code> command to have it show you all the files that are there:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>.
 ..
@@ -1131,21 +1149,21 @@ syllabus.qmd</code></pre>
 <p>These are normal files — you can move them, rename them, or open them like any other — they are just hidden by default.</p>
 <p>Next, we can display file permissions, ownership, size &amp; modification date</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>total 240
-drwxr-xr-x  24 stephaniehicks  staff    768 Oct 31 23:53 .
+drwxr-xr-x  24 stephaniehicks  staff    768 Nov  1 12:39 .
 drwxr-xr-x@ 13 stephaniehicks  staff    416 Oct 16 09:32 ..
 drwxr-xr-x   4 stephaniehicks  staff    128 Aug  9 21:31 .Rproj.user
-drwxr-xr-x  14 stephaniehicks  staff    448 Oct 31 22:48 .git
+drwxr-xr-x  14 stephaniehicks  staff    448 Nov  1 00:07 .git
 drwxr-xr-x   3 stephaniehicks  staff     96 Aug 11 21:04 .github
 -rw-r--r--   1 stephaniehicks  staff     58 Aug 11 21:03 .gitignore
-drwxr-xr-x   8 stephaniehicks  staff    256 Oct 31 22:38 .quarto
+drwxr-xr-x   8 stephaniehicks  staff    256 Nov  1 12:04 .quarto
 drwxr-xr-x   7 stephaniehicks  staff    224 Oct 21 22:40 _freeze
 -rw-r--r--@  1 stephaniehicks  staff    976 Oct 17 11:43 _post_template.qmd
 -rw-r--r--   1 stephaniehicks  staff    827 Oct 23 11:13 _quarto.yml
-drwxr-xr-x  16 stephaniehicks  staff    512 Oct 31 23:53 _site
+drwxr-xr-x  16 stephaniehicks  staff    512 Nov  1 12:39 _site
 drwxr-xr-x   6 stephaniehicks  staff    192 Oct 26 23:55 data
 drwxr-xr-x  13 stephaniehicks  staff    416 Oct 29 00:49 images
 -rw-r--r--   1 stephaniehicks  staff   2200 Oct 24 21:26 index.qmd
@@ -1163,14 +1181,14 @@ drwxr-xr-x   6 stephaniehicks  staff    192 Oct 21 21:17 projects
 </div>
 <p>Display size in human readable format</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>total 232
 drwxr-xr-x   7 stephaniehicks  staff   224B Oct 21 22:40 _freeze
 -rw-r--r--@  1 stephaniehicks  staff   976B Oct 17 11:43 _post_template.qmd
 -rw-r--r--   1 stephaniehicks  staff   827B Oct 23 11:13 _quarto.yml
-drwxr-xr-x  16 stephaniehicks  staff   512B Oct 31 23:53 _site
+drwxr-xr-x  16 stephaniehicks  staff   512B Nov  1 12:39 _site
 drwxr-xr-x   6 stephaniehicks  staff   192B Oct 26 23:55 data
 drwxr-xr-x  13 stephaniehicks  staff   416B Oct 29 00:49 images
 -rw-r--r--   1 stephaniehicks  staff   2.1K Oct 24 21:26 index.qmd
@@ -1192,7 +1210,7 @@ drwxr-xr-x   6 stephaniehicks  staff   192B Oct 21 21:17 projects
 <p><strong>Wildcards</strong> are the use of asterisk (<code>*</code>) to <strong>allow any pattern to appear</strong> in part of a filename.</p>
 <p>For example, to list all the <code>.txt</code> files in a folder (but only the <code>.txt</code> files), you can type:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>combined_names.txt
 package_names.txt
@@ -1202,7 +1220,7 @@ release_names.txt</code></pre>
 </div>
 <p>Or if you wanted to see any file in the directory that has a “r” in it</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>r<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>r<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>index.rmarkdown
 r_release.txt
@@ -1227,6 +1245,9 @@ Question
 </div>
 <div class="callout-body-container callout-body">
 <p>Let’s try to write the command to pattern match all files that start with the pattern “team”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">### try it out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1299,8 +1320,8 @@ Example
 <div class="callout-body-container callout-body">
 <p>Let us use touch to create a new file <code>secret_analysis.R</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> secret_analysis.R</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> secret_analysis.R</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>analysis.R
 combined_names.txt
@@ -1347,8 +1368,8 @@ Example
 <div class="callout-body-container callout-body">
 <p>Let us create a copy of <code>team_standings.csv</code> file and name it as <code>team_standings_2.csv</code> in the same folder.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> team_standings.csv team_standings_2.csv</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> team_standings.csv team_standings_2.csv</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>analysis.R
 combined_names.txt
@@ -1369,8 +1390,8 @@ team_standings_3.csv</code></pre>
 </div>
 <p>To <strong>copy folders</strong>, you use the <code>-r</code> option which refers to <code>--recursive</code> i.e.&nbsp;copy directories recursively.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> secret_directory secret_directory_2</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> secret<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> secret_directory secret_directory_2</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> secret<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>secret_analysis.R
 
@@ -1422,8 +1443,8 @@ team_standings.csv</code></pre>
 </table>
 <p>Let us move/rename the <code>team_standings_2.csv</code> file to <code>team_standings_3.csv</code> in verbose mode.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="at">-v</span> team_standings_2.csv team_standings_3.csv</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> team<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="at">-v</span> team_standings_2.csv team_standings_3.csv</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> team<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>team_standings_2.csv -&gt; team_standings_3.csv
 team_standings.csv
@@ -1431,55 +1452,6 @@ team_standings_3.csv</code></pre>
 </div>
 </div>
 <p>We see that there is no more file called <code>team_standings_2.csv</code> as it’s now been renamed!</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We will look into the <code>cat</code> command in more detail later, but for the time being it is sufficient to know that it prints contents of a file.</p>
-<p>The file contains release names of different R versions.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> release_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Unsuffered Consequences
-Great Pumpkin
-December Snowflakes
-Gift-Getting Season
-Easter Beagle
-Roasted Marshmallows
-Trick or Treat
-Security Blanket
-Masked Marvel
-Good Sport
-Frisbee Sailing
-Warm Puppy
-Spring Dance
-Sock it to Me
-Pumpkin Helmet
-Smooth Sidewalk
-Full of Ingredients
-World-Famous Astronaut
-Fire Safety
-Wooden Christmas Tree
-Very Secure Dishes
-Very, Very Secure Dishes
-Supposedly Educational
-Bug in Your Hair
-Sincere Pumpkin Patch
-Another Canoe
-You Stupid Darkness
-Single Candle
-Short Summer
-Kite Eating Tree</code></pre>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="removedelete-files" class="level2">
 <h2 class="anchored" data-anchor-id="removedelete-files">remove/delete files</h2>
@@ -1732,10 +1704,59 @@ Note
 </section>
 <section id="print-file-contents" class="level2">
 <h2 class="anchored" data-anchor-id="print-file-contents">Print file contents</h2>
-<p>The <code>cat</code> (stands for <strong>cat</strong>enate) command reads data from files, and outputs their contents to the screen.</p>
-<p>If we wanted to number all the output, use the <code>-n</code> option:</p>
+<p>The <code>cat</code> (stands for <strong>cat</strong>enate) command reads data from files, and outputs (or prints) their contents to the screen.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s consider the <code>release_names.txt</code> file, which contains release names of different R versions.</p>
+<p>If we wanted to print the file contents to the screen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> release_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> release_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unsuffered Consequences
+Great Pumpkin
+December Snowflakes
+Gift-Getting Season
+Easter Beagle
+Roasted Marshmallows
+Trick or Treat
+Security Blanket
+Masked Marvel
+Good Sport
+Frisbee Sailing
+Warm Puppy
+Spring Dance
+Sock it to Me
+Pumpkin Helmet
+Smooth Sidewalk
+Full of Ingredients
+World-Famous Astronaut
+Fire Safety
+Wooden Christmas Tree
+Very Secure Dishes
+Very, Very Secure Dishes
+Supposedly Educational
+Bug in Your Hair
+Sincere Pumpkin Patch
+Another Canoe
+You Stupid Darkness
+Single Candle
+Short Summer
+Kite Eating Tree</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>If we wanted to <strong>number all the output</strong>, use the <code>-n</code> option:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> release_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     1  Unsuffered Consequences
      2  Great Pumpkin
@@ -1769,10 +1790,10 @@ Note
     30  Kite Eating Tree</code></pre>
 </div>
 </div>
-<p>To concatenate several files into one final target file, we can also use <code>&gt;</code>:</p>
+<p>To concatenate several source (or input) files into one final target (or output) file, we can also use the redirect operator (<code>&gt;</code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> r_release.txt release_names.txt <span class="op">&gt;</span> combined_names.txt</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> r_release.txt release_names.txt <span class="op">&gt;</span> combined_names.txt</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Funny-looking Kid
 Unsuffered Consequences
@@ -1807,7 +1828,10 @@ Short Summer
 Kite Eating Tree</code></pre>
 </div>
 </div>
-<p>The <code>head</code> command will display the first 10 lines of a file(s) by default. The <code>tail</code> command displays the last 10 lines of a file(s) by default.</p>
+<ul>
+<li>The <code>head</code> command will <strong>display the first 10 lines</strong> of a file(s) by default.</li>
+<li>The <code>tail</code> command <strong>displays the last 10 lines</strong> of a file(s) by default.</li>
+</ul>
 <p>It can be used to display the first (or last) few lines or bytes of a file as well.</p>
 <table class="table">
 <colgroup>
@@ -1853,14 +1877,14 @@ Kite Eating Tree</code></pre>
 </table>
 <p>To show the head of the first 8 lines of the <code>combined_names.txt</code> file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-c</span> 8 combined_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-c</span> 8 combined_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Funny-lo</code></pre>
 </div>
 </div>
 <p>To show all the lines starting from line 8 and beyond:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +8 combined_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +8 combined_names.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Trick or Treat
 Security Blanket
@@ -1988,7 +2012,7 @@ Tip
 <td>Go to previous match</td>
 </tr>
 <tr class="even">
-<td>`q</td>
+<td><code>q</code></td>
 <td>Quit</td>
 </tr>
 </tbody>
@@ -1996,7 +2020,7 @@ Tip
 </section>
 <section id="sort-files" class="level2">
 <h2 class="anchored" data-anchor-id="sort-files">Sort files</h2>
-<p>The <code>sort</code> command will sort the contents of text file, line by line. Using additional options, we can</p>
+<p>The <code>sort</code> command will <strong>sort the contents of text file</strong>, line by line. Using additional options, we can</p>
 <ul>
 <li>sort a file in ascending/descending order</li>
 <li>ignore case while sorting</li>
@@ -2013,7 +2037,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Using the <code>sort</code> command, the contents can be sorted numerically and alphabetically. By default, the rules for sorting are:</p>
+<p>Using the <code>sort</code> command, the contents can be <strong>sorted numerically and alphabetically</strong>. By default, the rules for sorting are:</p>
 <ul>
 <li>lines starting with a number will appear before lines starting with a letter.</li>
 <li>lines starting with a letter that appears earlier in the alphabet will appear before lines starting with a letter that appears later in the alphabet.</li>
@@ -2054,7 +2078,7 @@ Tip
 </table>
 <p>Here we are sorting in a descending alphabetical order of the <code>combined_names.txt</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-r</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-r</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>You Stupid Darkness
 World-Famous Astronaut
@@ -2092,29 +2116,38 @@ Another Canoe</code></pre>
 </section>
 <section id="count-length-of-file" class="level2">
 <h2 class="anchored" data-anchor-id="count-length-of-file">Count length of file</h2>
-<p><code>wc</code> (word count) will print newline, word, and byte counts for file(s). If more than one file is specified, it will also print total line.</p>
+<p><code>wc</code> (word count) will <strong>print newline, word, and byte counts</strong> for file(s).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      31      75     564 combined_names.txt</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      31 combined_names.txt</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      75 combined_names.txt</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> combined_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     564 combined_names.txt</code></pre>
+</div>
+</div>
+<p>If more than one file is specified, it will also print total line.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> combined_names.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      31      75     564 combined_names.txt
+     108     216    1498 package_names.txt
+     139     291    2062 total</code></pre>
 </div>
 </div>
 </section>
@@ -2151,7 +2184,7 @@ Another Canoe</code></pre>
 </table>
 <section id="search-for-a-string-in-a-file" class="level2">
 <h2 class="anchored" data-anchor-id="search-for-a-string-in-a-file">Search for a string in a file</h2>
-<p>The <code>grep</code> command is used for pattern matching. Along with additional options, it can be used to</p>
+<p>The <code>grep</code> command is used for <strong>pattern matching</strong>. Along with additional options, it can be used to</p>
 <ul>
 <li>match pattern in input text</li>
 <li>ignore case</li>
@@ -2159,7 +2192,7 @@ Another Canoe</code></pre>
 <li>print filename and line number for each match</li>
 <li>invert match for excluding specific strings</li>
 </ul>
-<p><code>grep</code> (stands for global regular expression) <strong>processes text line by line</strong>, and prints any lines which match a specified pattern.</p>
+<p><code>grep</code> (stands for <strong>g</strong>lobal <strong>r</strong>egular <strong>e</strong>x<strong>p</strong>ression) <strong>processes text line by line</strong>, and prints any lines which match a specified pattern.</p>
 <p>It is a powerful tool for matching a regular expression against text in a file, multiple files, or a stream of input.</p>
 <table class="table">
 <colgroup>
@@ -2201,7 +2234,7 @@ Another Canoe</code></pre>
 </table>
 <p>First, we will search for packages that include the letter “R” in a list of R package names (<code>package_names.txt</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> R package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> R package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14. RJDBC
 30. logNormReg
@@ -2220,7 +2253,7 @@ Another Canoe</code></pre>
 </div>
 <p>If you are familiar with regular expressions, you can do cool things like search for a “r” followed by a white space with the <code>\s</code> character set for white spaces.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">'r\s'</span> release_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">'r\s'</span> release_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>December Snowflakes
 Easter Beagle
@@ -2232,7 +2265,7 @@ Short Summer</code></pre>
 </div>
 <p>If there is more than one file to search, use the <code>-H</code> option to print the filename for each match.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-H</span> F r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-H</span> F r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>r_release.txt:Funny-looking Kid
 package_names.txt:69. FField
@@ -2241,15 +2274,16 @@ package_names.txt:78. sybilccFBA</code></pre>
 </div>
 <p>And here is the file name and line number</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-Hn</span> F r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-Hn</span> F r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>r_release.txt:1:Funny-looking Kid
 package_names.txt:82:69. FField
 package_names.txt:93:78. sybilccFBA</code></pre>
 </div>
 </div>
+<p>And here we invert match for excluding the string “R”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-vi</span> R r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-vi</span> R r_release.txt package_names.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>r_release.txt:Funny-looking Kid
 package_names.txt:36. mlflow
@@ -2353,18 +2387,18 @@ package_names.txt:54. OxyBS</code></pre>
 </table>
 <p>For example, we can display the file system disk usage</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Filesystem     512-blocks      Used  Available Capacity iused       ifree %iused  Mounted on
-/dev/disk3s1s1 3896910480  17251896 3306870784     1%  348619  4292631783    0%   /
+/dev/disk3s1s1 3896910480  17251896 3307197344     1%  348619  4292631783    0%   /
 devfs                 396       396          0   100%     686           0  100%   /dev
-/dev/disk3s6   3896910480        40 3306870784     1%       0 16534353920    0%   /System/Volumes/VM
-/dev/disk3s2   3896910480   9170792 3306870784     1%    1010 16534353920    0%   /System/Volumes/Preboot
-/dev/disk3s4   3896910480     24016 3306870784     1%      45 16534353920    0%   /System/Volumes/Update
+/dev/disk3s6   3896910480        40 3307197344     1%       0 16535986720    0%   /System/Volumes/VM
+/dev/disk3s2   3896910480   9170792 3307197344     1%    1010 16535986720    0%   /System/Volumes/Preboot
+/dev/disk3s4   3896910480     22024 3307197344     1%      45 16535986720    0%   /System/Volumes/Update
 /dev/disk1s2      1024000     12328     985144     2%       1     4925720    0%   /System/Volumes/xarts
 /dev/disk1s1      1024000     12504     985144     2%      27     4925720    0%   /System/Volumes/iSCPreboot
 /dev/disk1s3      1024000      4304     985144     1%      52     4925720    0%   /System/Volumes/Hardware
-/dev/disk3s5   3896910480 561514168 3306870784    15% 1584852 16534353920    0%   /System/Volumes/Data
+/dev/disk3s5   3896910480 561189600 3307197344    15% 1586425 16535986720    0%   /System/Volumes/Data
 map auto_home           0         0          0   100%       0           0  100%   /System/Volumes/Data/home</code></pre>
 </div>
 </div>
@@ -2378,9 +2412,14 @@ map auto_home           0         0          0   100%       0           0  100% 
 <li><code>R CMD BATCH</code></li>
 </ul>
 <p>The <code>-e</code> option allows us to specify R expression(s).</p>
-<p><code>R -e</code> will launch R and then execute the code specified within quotes. Use semi-colon to execute multiple expressions as shown below. You will be able to run the below commands only if you are able to launch R from the command line. Windows users need to ensure that R is added to the path environment.</p>
+<p><code>R -e</code> will launch R and then execute the code specified within quotes.</p>
+<ul>
+<li>Use semi-colon to execute multiple expressions as shown below.</li>
+<li>You will be able to run the below commands only if you are able to launch R from the command line. (<strong>Demo this</strong>).</li>
+<li>Windows users need to ensure that R is added to the path environment.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">-e</span> <span class="st">"head(mtcars); tail(mtcars)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">-e</span> <span class="st">"head(mtcars); tail(mtcars)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
@@ -2400,6 +2439,8 @@ Type 'contributors()' for more information and
 Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
+
+[Previously saved workspace restored]
 
 &gt; head(mtcars); tail(mtcars)
                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
@@ -2422,7 +2463,7 @@ Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2
 </div>
 <p><code>Rscript -e</code> will run code without launching R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"head(mtcars); tail(mtcars)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"head(mtcars); tail(mtcars)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -2440,15 +2481,15 @@ Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
 Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
 </div>
 </div>
-<p>We can use <code>Rscript</code> to execute a R script as well. In the below example, we execute the code in <code>analysis.R</code> file (which just asks to print the head of <code>mtcars</code>.</p>
+<p>We can use <code>Rscript</code> to execute a R script as well. In the below example, we execute the code in <code>analysis.R</code> file (which just asks to print the head of <code>mtcars</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>head(mtcars)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> analysis.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
