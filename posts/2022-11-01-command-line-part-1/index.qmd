@@ -44,10 +44,10 @@ Material for this lecture was borrowed and adopted from
 -   Understand what is a command shell and why would use one.
 -   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 -   Explain when and why command-line interfaces should be used instead of graphical interfaces.
--   Be able to create, copy, move, rename, and delete files and folders
--   Be able to print and sort file contents
--   Be able to search for regular expressions in files
--   Be able to execute R commands and scripts in the command line
+-   Create, copy, move, rename, and delete files and folders.
+-   Print and sort file contents.
+-   Search for regular expressions in files.
+-   Execute R commands and scripts in the command line.
 :::
 
 :::{.callout-tip}
@@ -60,9 +60,9 @@ You can practice your command-line skills with the [Command Challenge](https://c
 
 We we use interact with computers, we often do so with a keyboard and mouse, touch screen interfaces, or using speech recognition systems.
 
-The most widely used way to interact with personal computers is called a **graphical user interface** (GUI). With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.
+The most widely used way to interact with personal computers is called a **graphical user interface** (GUI). With a GUI, we give instructions by **clicking a mouse** and using menu-driven interactions.
 
-The problem with only working with GUIs is that while the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.
+The **problem with only working with GUIs** is that while the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.
 
 ::: callout-note
 ### Example
@@ -70,7 +70,7 @@ The problem with only working with GUIs is that while the visual aid of a GUI ma
 Imagine the following task: for a literature search, you have to
 
 1.  Copy the third line of one thousand text files in one thousand different directories
-2.  Paste the lines into a single file.
+2.  Paste the lines into a separate single file.
 
 Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task.
 :::
@@ -97,33 +97,24 @@ Another way of thinking about it is, a shell provides an **interface between the
 -   **Zsh** (Z SHell). Zsh is built on top of bash with some additional features including providing the user with more flexibility by providing various features such as plug-in support, better customization, theme support, spelling correction, etc. Zsh is the default shell for macOS and Kali Linux.
 :::
 
-The **grammar of a shell** allows you to combine existing tools into powerful pipelines and handle large volumes of data automatically. Sequences of commands can be written into a script, improving the reproducibility of workflows.
+The **grammar of a shell** allows you to combine existing tools into powerful pipelines and handle large volumes of data automatically. 
 
-In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
+Benefits: 
 
-- Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems.
-- As clusters and cloud computing systems become more popular for scientific data crunching, being able to interact with the shell is becoming a necessary skill.
+- **Sequences of commands** can be written into a script, improving the reproducibility of workflows.
+- The command line is **often the easiest way to interact with remote machines** and supercomputers.
+- Familiarity with the shell is near essential to **run a variety of specialized tools** and resources including **high-performance computing systems**.
 
 Let's get started.
 
 ## Where to find the shell
 
-- If you are working on a Mac, Apple calls the shell 'Terminal'. There is an application you can open called 'Terminal' and it also appears in a tab next to the R console in the RStudio IDE. 
-- If you are using Windows, by default, Windows does not use bash, but instead [you will need to install one of several Windows-specific tools](https://happygitwithr.com/shell.html#shell) (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system. 
+- If you are **using Windows**, by default, Windows does not use bash, but instead [you will need to install one of several Windows-specific tools](https://happygitwithr.com/shell.html#shell) (like Git for Windows or PowerShell) to allow this kind of text-based interaction with your operating system. 
+- If you are **using macOS**, Apple calls the shell 'Terminal'. There is an application you can open called 'Terminal' and it also appears in a tab next to the R console in the RStudio IDE. 
 
 ![](../../images/terminal.png)
 
 [[Source](https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal-in-the-RStudio-IDE)]
-
-:::{.callout-tip}
-
-### The Unix shell setup
-
-You can follow these directions for setting up your shell for Windows, macOS, and Linux operating systems: 
-
-- <https://swcarpentry.github.io/shell-novice/setup>
-
-:::
 
 :::{.callout-tip}
 
@@ -134,7 +125,15 @@ You can follow these directions for setting up your shell for Windows, macOS, an
 
 :::
 
+:::{.callout-tip}
 
+### The Unix shell setup
+
+You can follow these directions for setting up your shell for Windows, macOS, and Linux operating systems: 
+
+- <https://swcarpentry.github.io/shell-novice/setup>
+
+:::
 
 ## Opening the shell
 
@@ -212,12 +211,19 @@ whoami
 date
 ```
 
-`cal` will display a formatted calendar and clear will clear all text on the screen and display a new prompt. You can clear the screen by pressing Ctrl + L as well.
+`cal` will display a formatted calendar and clear will clear all text on the screen and display a new prompt.
 
 ```{bash}
 cal
 ```
-To clear the R console, we use Ctrl + L.
+
+:::{.callout-tip}
+
+### Pro-tip
+
+To **clear** the R console and the shell, we use Ctrl + L.
+
+:::
 
 ## Getting help
 
@@ -225,7 +231,7 @@ Before we proceed further, let us learn to view the documentation/manual pages o
 
 | Command	| Description |  
 | ------- | ------------| 
-| `nameofcommand -h` | For some `nameofcommand` command (e.g. `whoami`)
+| `nameofcommand -h` | For some `nameofcommand` command (only for some commands)
 | `man nameofcommand`   | Display manual pages (i.e. `man`) for the `nameofcommand` command | 
 | `whatis` | Single line description of a command | 
 
@@ -255,9 +261,17 @@ DESCRIPTION
 
 ### Try it out
 
-- Let's explore the manual pages of `date` in the command line to show you what that looks like. 
+Let's explore the manual pages of `date` in the command line to show you what that looks like. 
+
 - We will figure out what is the argument to print out the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) or 00:00:00 UTC on 1 January 1970.
 - We will figure out what is the argument to display the date in UTC.
+
+
+```{bash}
+## try it out 
+
+```
+
 
 :::
 
@@ -321,13 +335,13 @@ pwd
 - modification date
 
 
-With no options, it will list the files and directories in the current directory, sorted alphabetically.
+With no options, it will list the files and directories in the current directory, **sorted alphabetically**.
 
 ```{bash}
 ls
 ```
 
-`cd` (change directory) changes the current working directory. It is among the most used commands as it allows the user to move around the file system.
+`cd` (change directory) changes the current working directory. It is among the most used commands as it allows the user **to move around the file system**.
 
 ```{bash}
 cd .. 
@@ -340,7 +354,11 @@ The `cd ..`	means to change to the directory that is one level up.
 
 :::
 
-`mkdir` will create new directory. It will allow you to set file mode (permissions associated with the directory) i.e. who can open/modify/delete the directory.
+`mkdir` will **create new directory**. 
+
+It will allow you to set file mode (permissions associated with the directory) i.e. who can open/modify/delete the directory.
+
+It will give you a warning **if a folder already exists**.
 
 ```{bash}
 mkdir secret_directory
@@ -489,6 +507,12 @@ This is an extremely powerful tool, and one you will likely use a lot.
 
 Let's try to write the command to pattern match all files that start with the pattern "team"
 
+```{bash}
+### try it out
+
+```
+
+
 :::
 
 # Create, copy, rename, delete files
@@ -590,17 +614,6 @@ ls team*
 
 We see that there is no more file called `team_standings_2.csv` as it's now been renamed! 
 
-:::{.callout-tip}
-
-We will look into the `cat` command in more detail later, but for the time being it is sufficient to know that it prints contents of a file. 
-
-The file contains release names of different R versions.
-
-```{bash}
-cat release_names.txt
-```
-:::
-
 
 ## remove/delete files
 
@@ -690,6 +703,7 @@ If we want to redirect that output from printing to the terminal and write to a 
 
 :::
 
+
 ## The PATH variable
 
 An important feature of the command line is the PATH variable. 
@@ -736,23 +750,38 @@ which ls
 
 ## Print file contents
 
-The `cat` (stands for **cat**enate) command reads data from files, and outputs their contents to the screen. 
+The `cat` (stands for **cat**enate) command reads data from files, and outputs (or prints) their contents to the screen. 
 
-If we wanted to number all the output, use the `-n` option: 
+:::{.callout-tip}
+
+### Example
+
+Let's consider the `release_names.txt` file, which contains release names of different R versions.
+
+If we wanted to print the file contents to the screen: 
+
+```{bash}
+cat release_names.txt
+```
+
+:::
+
+
+If we wanted to **number all the output**, use the `-n` option: 
 
 ```{bash}
 cat -n release_names.txt 
 ```
 
-To concatenate several files into one final target file, we can also use `>`: 
+To concatenate several source (or input) files into one final target (or output) file, we can also use the redirect operator (`>`): 
 
 ```{bash}
 cat r_release.txt release_names.txt > combined_names.txt
 cat combined_names.txt
 ```
 
-The `head` command will display the first 10 lines of a file(s) by default.
-The `tail` command displays the last 10 lines of a file(s) by default.
+- The `head` command will **display the first 10 lines** of a file(s) by default.
+- The `tail` command **displays the last 10 lines** of a file(s) by default.
 
 It can be used to display the first (or last) few lines or bytes of a file as well.
 
@@ -812,12 +841,12 @@ It **allows the user to scroll up and down the file**, go to the beginning and e
 | `?`   | Backward search | 
 | `n`   | Go to next match | 
 | `N`   | Go to previous match | 
-| `q   | Quit | 
+| `q`   | Quit | 
 
 
 ## Sort files
 
-The `sort` command will sort the contents of text file, line by line. Using additional options, we can
+The `sort` command will **sort the contents of text file**, line by line. Using additional options, we can
 
 - sort a file in ascending/descending order
 - ignore case while sorting
@@ -826,7 +855,7 @@ The `sort` command will sort the contents of text file, line by line. Using addi
 
 :::{.callout-tip}
 
-Using the `sort` command, the contents can be sorted numerically and alphabetically. By default, the rules for sorting are:
+Using the `sort` command, the contents can be **sorted numerically and alphabetically**. By default, the rules for sorting are:
 
 - lines starting with a number will appear before lines starting with a letter.
 - lines starting with a letter that appears earlier in the alphabet will appear before lines starting with a letter that appears later in the alphabet.
@@ -853,27 +882,30 @@ sort -r combined_names.txt
 
 ## Count length of file
 
-`wc` (word count) will print newline, word, and byte counts for file(s). If more than one file is specified, it will also print total line.
+`wc` (word count) will **print newline, word, and byte counts** for file(s). 
 
 ```{bash}
 wc combined_names.txt
 ```
 
-
 ```{bash}
 wc -l combined_names.txt
 ```
-
 
 ```{bash}
 wc -w combined_names.txt
 ```
 
-
 ```{bash}
 wc -c combined_names.txt
 ```
 
+
+If more than one file is specified, it will also print total line.
+
+```{bash}
+wc combined_names.txt package_names.txt
+```
 
 
 
@@ -895,7 +927,7 @@ In this section, we will explore commands that will
 
 ## Search for a string in a file
 
-The `grep` command is used for pattern matching. Along with additional options, it can be used to
+The `grep` command is used for **pattern matching**. Along with additional options, it can be used to
 
 - match pattern in input text
 - ignore case
@@ -903,7 +935,7 @@ The `grep` command is used for pattern matching. Along with additional options, 
 - print filename and line number for each match
 - invert match for excluding specific strings
 
-`grep` (stands for global regular expression) **processes text line by line**, and prints any lines which match a specified pattern. 
+`grep` (stands for **g**lobal **r**egular **e**x**p**ression) **processes text line by line**, and prints any lines which match a specified pattern. 
 
 It is a powerful tool for matching a regular expression against text in a file, multiple files, or a stream of input.
 
@@ -939,6 +971,8 @@ And here is the file name and line number
 ```{bash}
 grep -Hn F r_release.txt package_names.txt
 ```
+
+And here we invert match for excluding the string "R"
 
 ```{bash}
 grep -vi R r_release.txt package_names.txt
@@ -978,7 +1012,11 @@ In this section, we will learn to execute R commands and scripts in the command 
 
 The `-e` option allows us to specify R expression(s). 
 
-`R -e` will launch R and then execute the code specified within quotes. Use semi-colon to execute multiple expressions as shown below. You will be able to run the below commands only if you are able to launch R from the command line. Windows users need to ensure that R is added to the path environment.
+`R -e` will launch R and then execute the code specified within quotes. 
+
+- Use semi-colon to execute multiple expressions as shown below. 
+- You will be able to run the below commands only if you are able to launch R from the command line. (**Demo this**).
+- Windows users need to ensure that R is added to the path environment.
 
 ```{bash}
 R -e "head(mtcars); tail(mtcars)"
@@ -990,7 +1028,7 @@ R -e "head(mtcars); tail(mtcars)"
 Rscript -e "head(mtcars); tail(mtcars)"
 ```
 
-We can use `Rscript` to execute a R script as well. In the below example, we execute the code in `analysis.R` file (which just asks to print the head of `mtcars`.
+We can use `Rscript` to execute a R script as well. In the below example, we execute the code in `analysis.R` file (which just asks to print the head of `mtcars`).
 
 ```{bash}
 cat analysis.R

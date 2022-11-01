@@ -352,16 +352,13 @@ done
 ls *.dat
 ```
 
-
 This loop runs the `cp` command once for each filename. The first time, when `$filename` expands to `basilisk.dat`, the shell executes:
 
 ```{.bash filename="Bash"}
 cp basilisk.dat original-basilisk.dat
 ```
 
-and so on.
-
-Finally, let's clean up our copies
+and so on. Finally, let's clean up our copies
 
 ```{bash}
 rm creatures/original-*
