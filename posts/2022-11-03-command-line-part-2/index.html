@@ -263,11 +263,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#loop-basics" id="toc-loop-basics" class="nav-link" data-scroll-target="#loop-basics">Loop basics</a></li>
   <li><a href="#naming-files" id="toc-naming-files" class="nav-link" data-scroll-target="#naming-files">Naming files</a></li>
   </ul></li>
-  <li><a href="#basics-of-bash-scripting" id="toc-basics-of-bash-scripting" class="nav-link" data-scroll-target="#basics-of-bash-scripting">Basics of bash scripting</a></li>
-  <li><a href="#basics-of-ssh" id="toc-basics-of-ssh" class="nav-link" data-scroll-target="#basics-of-ssh">Basics of ssh</a></li>
+  <li><a href="#basics-of-bash-scripting" id="toc-basics-of-bash-scripting" class="nav-link" data-scroll-target="#basics-of-bash-scripting">Basics of bash scripting</a>
+  <ul class="collapse">
+  <li><a href="#create-a-.sh-file" id="toc-create-a-.sh-file" class="nav-link" data-scroll-target="#create-a-.sh-file">Create a <code>.sh</code> file</a></li>
+  <li><a href="#file-arguements" id="toc-file-arguements" class="nav-link" data-scroll-target="#file-arguements">File arguements</a></li>
+  </ul></li>
+  <li><a href="#secure-shell-protocol" id="toc-secure-shell-protocol" class="nav-link" data-scroll-target="#secure-shell-protocol">Secure shell protocol</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul></li>
   </ul>
@@ -302,8 +308,6 @@ Read ahead
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
 <li><a href="https://swcarpentry.github.io/shell-novice" class="uri">https://swcarpentry.github.io/shell-novice</a></li>
-<li></li>
-<li></li>
 </ol>
 </div>
 </div>
@@ -478,7 +482,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s sort the rows in <code>lengths.txt</code> in a numeric order and then **pipe* the output into another command to show only the first row.</p>
+<p>Let’s sort the rows in <code>lengths.txt</code> in a numeric order and then <strong>pipe</strong> the output into another command to show only the first row.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> lengths.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -610,13 +614,27 @@ CLASSIFICATION: equus monoceros</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Pro-tip
+Pro-tip #1
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: <code>$filename</code> is equivalent to <code>${filename}</code>, but is different from <code>${file}name</code>. You may find this notation in other people’s programs.</p></li>
-<li><p>We have called the variable in this loop <code>filename</code> in order to make its purpose clearer to human readers. The shell itself doesn’t care what the variable is called; if we wrote this loop with <code>x</code>:</p></li>
+<li>When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: <code>$filename</code> is equivalent to <code>${filename}</code>, but is different from <code>${file}name</code>. You may find this notation in other people’s programs.</li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip #2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="2" type="1">
+<li>We have called the variable in this loop <code>filename</code> in order to make its purpose clearer to human readers. The shell itself doesn’t care what the variable is called; if we wrote this loop with <code>x</code>:</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> creatures</span>
@@ -630,6 +648,18 @@ CLASSIFICATION: bos hominus
 CLASSIFICATION: equus monoceros</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip #3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol start="3" type="1">
 <li>Spaces are used to separate the elements of the list that we are going to loop over. If one of those elements contains a space character, we need to surround it with quotes, and do the same thing to our loop variable.</li>
 </ol>
@@ -644,6 +674,18 @@ scary monster
 creepy spider</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip #4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol start="4" type="1">
 <li>There are other types of loops including</li>
 </ol>
@@ -731,41 +773,176 @@ creatures/unicorn.dat</code></pre>
 </section>
 <section id="basics-of-bash-scripting" class="level1">
 <h1>Basics of bash scripting</h1>
-<p>Pull material from here</p>
+<p>We are finally ready to see what makes the shell such a powerful programming environment.</p>
+<p>We are going to take the <strong>commands we repeat frequently</strong> and <strong>save them in files</strong> so that we can re-run all those operations again later by typing a single command.</p>
+<p>For historical reasons, a bunch of commands saved in a file is usually called a <strong>shell script</strong>, but make no mistake: these are actually small programs.</p>
+<p>Not only will writing shell scripts make your work faster — you won’t have to retype the same commands over and over again — it will also make it more accurate (fewer chances for typos) and more reproducible.</p>
+<section id="create-a-.sh-file" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-.sh-file">Create a <code>.sh</code> file</h2>
+<p>Let’s start by going back to <code>proteins/</code> and creating a new file, <code>middle.sh</code> which will become our shell script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> proteins</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> middle.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can open the file and simply insert the following line:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 15 octane.pdb <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is a variation on the pipe we constructed earlier:</p>
 <ul>
-<li><a href="https://swcarpentry.github.io/shell-novice/06-script/index.html" class="uri">https://swcarpentry.github.io/shell-novice/06-script/index.html</a></li>
-<li><a href="https://laderast.github.io/bash_for_bioinformatics/02-scripting-basics.html" class="uri">https://laderast.github.io/bash_for_bioinformatics/02-scripting-basics.html</a></li>
+<li>it selects lines 11-15 of the file <code>octane.pdb</code>.</li>
 </ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are not running it as a command just yet: we are putting the commands in a file.</p>
+</div>
+</div>
+<p>We can see that the directory <code>proteins/</code> now contains a file called <code>middle.sh</code>.</p>
+<p>Once we have saved the file, we can ask the shell to execute the commands it contains.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> proteins</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> middle.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="basics-of-ssh" class="level1">
-<h1>Basics of ssh</h1>
+<section id="file-arguements" class="level2">
+<h2 class="anchored" data-anchor-id="file-arguements">File arguements</h2>
+<p>What if we want to <strong>select lines from an arbitrary file</strong>?</p>
+<p>We could edit <code>middle.sh</code> each time to change the filename, but that would probably take longer than typing the command out again in the shell and executing it with a new file name.</p>
+<p>Instead, let’s edit <code>middle.sh</code> and make it more versatile:</p>
 <ul>
-<li>Explain what is ssh</li>
-<li>Demo connecting to JHPCE via terminal.</li>
-<li>Explain passwordless ssh with JHPCE (and GitHub)</li>
+<li>Replace the text <code>octane.pdb</code> with the special variable called <code>$1</code>:</li>
 </ul>
-</section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 15 <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Inside a shell script, <code>$1</code> means ‘the first filename (or other argument) on the command line’.</p>
+</div>
+</div>
+<p>We can now run our script like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> proteins</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> middle.sh octane.pdb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or on a different file like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> proteins</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> middle.sh pentane.pdb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip: double-quotes around arguments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the same reason that we put the loop variable inside double-quotes, in case the filename happens to contain any spaces, we surround <code>$1</code> with double-quotes.</p>
+</div>
+</div>
+<p>Currently, we need to edit <code>middle.sh</code> each time we want to adjust the range of lines that is returned.</p>
+<p>Let’s fix that by configuring our script to instead <strong>use three command-line arguments</strong>.</p>
+<ul>
+<li>After the first command-line argument (<code>$1</code>), each additional argument that we provide will be accessible via the special variables <code>$1</code>, <code>$2</code>, <code>$3</code>, which refer to the first, second, third command-line arguments, respectively.</li>
+</ul>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Questions
+Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
+<p>Knowing about <code>$1</code>, <code>$2</code>, <code>$3</code>, let’s modify <code>middle.sh</code> such that we can use additional arguments to define the range of lines to be passed to <code>head</code> and <code>tail</code> respectively.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">## try it out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>By changing the arguments to our command we can change our script’s behaviour:</li>
+</ul>
+</div>
+</div>
+<p>This works, but it may take the next person who reads middle.sh a moment to figure out what it does. We can improve our script by adding some comments at the top of the file:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select lines from the middle of a file.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: bash middle.sh filename end_line num_lines</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$2</span><span class="st">"</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$3</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A comment starts with a <code>#</code> character and runs to the end of the line.</li>
+<li>The computer ignores comments, but they are invaluable for helping people (including your future self) understand and use scripts.</li>
+<li>The only caveat is that each time you modify the script, you should check that the comment is still accurate: an explanation that sends the reader in the wrong direction is worse than none at all.</li>
+</ul>
+</div>
+</div>
+<p>Finally, let’s clean up our space</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> proteins</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> middle.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
+<section id="secure-shell-protocol" class="level1">
+<h1>Secure shell protocol</h1>
+<p>The <strong>Secure Shell Protocol</strong> (SSH) is a tool you can use to connect and authenticate to remote servers and services (e.g.&nbsp;GitHub, JHPCE, etc).</p>
+<p>With <strong>SSH keys</strong>, you can connect to GitHub without supplying your username and personal access token at each visit. You can also use an SSH key to sign commits.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The SSH protocol <strong>uses encryption to secure the connection</strong> between <strong>a client</strong> and <strong>a server</strong>.</p>
+<p>All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.</p>
+<p>For details of how the SSH protocol works, see the <a href="https://www.ssh.com/academy/ssh/protocol">protocol page</a>. To understand the SSH File Transfer Protocol, see the <a href="https://www.ssh.com/academy/ssh/sftp">SFTP page</a>.</p>
+<p><img src="../../images/ssh_protocol.png" class="img-fluid"></p>
+<p>You can read more about setting up your SSH keys to connect to JHPCE here:</p>
+<ul>
+<li><p><a href="https://jhpce.jhu.edu/knowledge-base/authentication/ssh-key-setup" class="uri">https://jhpce.jhu.edu/knowledge-base/authentication/ssh-key-setup</a></p></li>
+<li><p><strong>Demo connecting to JHPCE via <code>ssh</code></strong></p></li>
+</ul>
+<p>You can read more about setting up your SSH keys to connect to GitHub here:</p>
+<ul>
+<li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh</a></li>
+</ul>
+</section>
+</section>
+<section id="post-lecture-materials" class="level1">
+<h1>Post-lecture materials</h1>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Next steps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you haven’t already done it yet, follow the directions in the link above and set up your SSH keys for password-less connection to interact with GitHub.</p>
+</div>
+</div>
 <section id="additional-resources" class="level3">
 <h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -779,7 +956,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li>Practice your command line knowledge with <a href="https://cmdchallenge.com/">Command Challenge</a>.</li>
 </ul>
 </div>
 </div>
