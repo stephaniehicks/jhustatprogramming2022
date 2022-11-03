@@ -20,7 +20,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | |
 | Week 2 | Nov 1  | Introduction to the command-line \[[html](posts/2022-11-01-command-line-part-1/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-01-command-line-part-1/index.qmd)\]  |   |
 | | | | | 
-| | Nov 3  | More advanced command-line tools | |
+| | Nov 3  | More advanced command-line tools \[[html](posts/2022-11-03-command-line-part-2/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-03-command-line-part-2/index.qmd)\] | |
 | | |  | | 
 | Week 3  | Nov 8 |  Version control  | `r emojifont::emoji('palm_tree')` Project 2 | 
 | | | |                            | | | |
