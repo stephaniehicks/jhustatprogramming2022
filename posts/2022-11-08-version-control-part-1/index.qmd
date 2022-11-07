@@ -53,6 +53,9 @@ We'll start by exploring how version control can be used to keep track of what o
 
 For a nice illustration, we will refer to the [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/01-basics/index.html) lesson materials.
 
+
+### Overview
+
 We've all been in this situation before: it seems unnecessary to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, such as Microsoft Word's Track Changes or Google Docs' version history.
 
 Version control systems start with a base version of the document and then record changes you make each step of the way.
@@ -105,6 +108,9 @@ This user name and email will be associated with your subsequent Git activity af
 
 For this lesson, we will be interacting with GitHub and so the email address used should be the same as the one used when setting up your GitHub account.
 
+
+### Check settings
+
 You can check your settings at any time:
 
 ```
@@ -130,13 +136,6 @@ You can also get the list of available git commands and further resources of the
 $ git help
 ```
 :::
-
-
-# Things to cover
-
-- basics of version control with git (`git init`, `git add`, `git commit`, `git push`, `git pull`)
-- basics of github 
-- basics of github pages
 
 
 # Post-lecture materials
