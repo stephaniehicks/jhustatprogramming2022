@@ -11,14 +11,6 @@ categories: [module 1, week 3, version control, git, GitHub]
 ---
 
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-library(tidyverse)
-```
-
-
 # Pre-lecture materials
 
 ### Read ahead
