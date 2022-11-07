@@ -154,11 +154,64 @@ cd planets
 pwd
 ```
 
-Then we tell Git to make planets a repository – a place where Git can store versions of our files:
+Then we tell Git to make `planets` a repository – a place where Git can store versions of our files:
 
 ```
 git init
 ```
+
+Note that the creation of the `planets` directory and its initialization as a repository are completely separate processes.
+
+If we use `ls` to show the directory's contents, it appears that nothing has changed:
+
+```
+ls
+```
+
+But if we add the `-a` flag to show everything, we can see that Git has created a hidden directory within planets called `.git`:
+
+```
+ls -a
+```
+
+Git uses this special subdirectory to store all the information about the project, including the tracked files and sub-directories located within the project's directory.
+
+If we ever delete the `.git` subdirectory, we will lose the project's history.
+
+Next, we will change the default branch to be called `main.` This might be the default branch depending on your settings and version of git.
+
+```
+git checkout -b main
+```
+
+We can check that everything is set up correctly by asking Git to tell us the status of our project:
+
+```
+git status
+```
+
+
+::: callout-note
+### Correcting git init Mistakes
+
+Suppose you have created the Git repository in the wrong directory, or made some other mistake.
+
+You can delete the git repository by simply deleting the `.git` directory, either in Finder / Windows Explorer or from the command line:
+
+```
+rm -rf .git
+```
+
+But be careful! Running this command in the wrong directory will remove the entire Git history of a project you might want to keep. Therefore, always check your current directory using the command `pwd`.
+:::
+
+
+::: callout-note
+### Key Points
+
+-   `git init` initializes a repository.
+-   Git stores all of its repository data in the `.git` directory.
+:::
 
 
 # Post-lecture materials
