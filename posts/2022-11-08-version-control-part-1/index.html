@@ -369,8 +369,51 @@ $ git config --help</code></pre>
 mkdir planets
 cd planets
 pwd</code></pre>
-<p>Then we tell Git to make planets a repository – a place where Git can store versions of our files:</p>
+<p>Then we tell Git to make <code>planets</code> a repository – a place where Git can store versions of our files:</p>
 <pre><code>git init</code></pre>
+<p>Note that the creation of the <code>planets</code> directory and its initialization as a repository are completely separate processes.</p>
+<p>If we use <code>ls</code> to show the directory’s contents, it appears that nothing has changed:</p>
+<pre><code>ls</code></pre>
+<p>But if we add the <code>-a</code> flag to show everything, we can see that Git has created a hidden directory within planets called <code>.git</code>:</p>
+<pre><code>ls -a</code></pre>
+<p>Git uses this special subdirectory to store all the information about the project, including the tracked files and sub-directories located within the project’s directory.</p>
+<p>If we ever delete the <code>.git</code> subdirectory, we will lose the project’s history.</p>
+<p>Next, we will change the default branch to be called <code>main.</code> This might be the default branch depending on your settings and version of git.</p>
+<pre><code>git checkout -b main</code></pre>
+<p>We can check that everything is set up correctly by asking Git to tell us the status of our project:</p>
+<pre><code>git status</code></pre>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Correcting git init Mistakes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you have created the Git repository in the wrong directory, or made some other mistake.</p>
+<p>You can delete the git repository by simply deleting the <code>.git</code> directory, either in Finder / Windows Explorer or from the command line:</p>
+<pre><code>rm -rf .git</code></pre>
+<p>But be careful! Running this command in the wrong directory will remove the entire Git history of a project you might want to keep. Therefore, always check your current directory using the command <code>pwd</code>.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>git init</code> initializes a repository.</li>
+<li>Git stores all of its repository data in the <code>.git</code> directory.</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
