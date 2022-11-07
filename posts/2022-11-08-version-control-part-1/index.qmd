@@ -147,7 +147,7 @@ Once Git is configured, we can start using it.
 
 First, let's create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:
 
-```{bash}
+```
 cd ~/Desktop
 mkdir planets
 cd planets
