@@ -42,6 +42,8 @@ Material for this lecture was borrowed and adopted from
 -   Understand the benefits of an automated version control system.
 -   Understand the basics of how automated version control systems work.
 -   Configure git the first time it is used on a computer.
+-   Create a local git repository.
+-   Describe the purpose of the `.git` directory.
 :::
 
 
@@ -136,6 +138,30 @@ You can also get the list of available git commands and further resources of the
 $ git help
 ```
 :::
+
+
+# Creating a Repository
+
+Once Git is configured, we can start using it.
+
+First, let's create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:
+
+```{r}
+getwd()
+```
+
+```{bash}
+cd ~/Desktop
+mkdir planets
+cd planets
+pwd
+```
+
+Then we tell Git to make planets a repository – a place where Git can store versions of our files:
+
+```
+git init
+```
 
 
 # Post-lecture materials
