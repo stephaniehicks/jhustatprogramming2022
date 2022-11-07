@@ -201,6 +201,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-do-i-get-set-up-to-use-git" id="toc-how-do-i-get-set-up-to-use-git" class="nav-link" data-scroll-target="#how-do-i-get-set-up-to-use-git">How do I get set up to use Git?</a></li>
   <li><a href="#check-settings" id="toc-check-settings" class="nav-link" data-scroll-target="#check-settings">Check settings</a></li>
   </ul></li>
+  <li><a href="#creating-a-repository" id="toc-creating-a-repository" class="nav-link" data-scroll-target="#creating-a-repository">Creating a Repository</a></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
   <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
@@ -264,6 +265,8 @@ Learning objectives
 <li>Understand the benefits of an automated version control system.</li>
 <li>Understand the basics of how automated version control systems work.</li>
 <li>Configure git the first time it is used on a computer.</li>
+<li>Create a local git repository.</li>
+<li>Describe the purpose of the <code>.git</code> directory.</li>
 </ul>
 </div>
 </div>
@@ -357,6 +360,17 @@ $ git config --help</code></pre>
 </div>
 </div>
 </section>
+</section>
+<section id="creating-a-repository" class="level1">
+<h1>Creating a Repository</h1>
+<p>Once Git is configured, we can start using it.</p>
+<p>First, let’s create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:</p>
+<pre><code>cd ~/Desktop
+mkdir planets
+cd planets
+pwd</code></pre>
+<p>Then we tell Git to make planets a repository – a place where Git can store versions of our files:</p>
+<pre><code>git init</code></pre>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
