@@ -2,53 +2,142 @@
 title: "Version control (Part 1)"
 author: 
   - name: Lukas Weber
-    url: https://lmweber.org
-    affiliation: Department of Biostatistics, Johns Hopkins
+    url: https://lmweber.org/
+    affiliation: Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
     affiliation_url: https://publichealth.jhu.edu
 description: "Introduction to version control with git and GitHub (part 1)"
 date: 2022-11-08
-draft: true
 categories: [module 1, week 3, version control, git, GitHub]
 ---
-
-<!-- Add interesting quote -->
 
 # Pre-lecture materials
 
 ### Read ahead
+
 
 ::: callout-note
 ## Read ahead
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+-   [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/)
 :::
+
 
 ### Acknowledgements
 
 Material for this lecture was borrowed and adopted from
 
--   Add here.
+-   [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/)
+
 
 # Learning objectives
+
 
 ::: callout-note
 # Learning objectives
 
 **At the end of this lesson you will:**
 
--   Add here.
+-   Understand the benefits of an automated version control system.
+-   Understand the basics of how automated version control systems work.
+-   Configure git the first time it is used on a computer.
 :::
 
-# Add lecture here
 
-Things to cover
+# Introduction
+
+### What is version control and why should I use it?
+
+We'll start by exploring how version control can be used to keep track of what one person did and when.
+
+For a nice illustration, we will refer to the [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/01-basics/index.html) lesson materials.
+
+We've all been in this situation before: it seems unnecessary to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, such as Microsoft Word's Track Changes or Google Docs' version history.
+
+Version control systems start with a base version of the document and then record changes you make each step of the way.
+
+For example, two users can make independent sets of changes on the same document.
+
+Unless multiple users make changes to the same section of the document - a conflict - you can incorporate two sets of changes into the same base document.
+
+A version control system is a tool that keeps track of these changes for us, effectively creating different versions of our files.
+
+It allows us to decide which changes will be made to the next version (each record of these changes is called a commit), and keeps useful metadata about them. The complete history of commits for a particular project and their metadata make up a repository. Repositories can be kept in sync across different computers, facilitating collaboration among different people.
+
+
+::: callout-note
+### Terminology
+
+1.  `commit`: a record of each set of changes in a document or file
+2.  `repository`: the complete history of commits for a particular project and their metadata
+:::
+
+
+::: callout-note
+### Key Points
+
+1.  Version control is like an unlimited 'undo'.
+2.  Version control also allows many people to work in parallel.
+:::
+
+
+# Setting Up Git
+
+### How do I get set up to use Git?
+
+When we use Git on a new computer for the first time, we need to configure a few things:
+
+-   our name and email address
+-   what our preferred text editor is
+-   and that we want to use these settings globally (i.e. for every project).
+
+On a command line, Git commands are written as `git verb options`, where `verb` is what we actually want to do and `options` is additional optional information.
+
+Here is how to set up Git on a new laptop:
+
+```
+$ git config --global user.name "My Name"
+$ git config --global user.email "myemail@email.com"
+```
+
+This user name and email will be associated with your subsequent Git activity after this lesson.
+
+For this lesson, we will be interacting with GitHub and so the email address used should be the same as the one used when setting up your GitHub account.
+
+You can check your settings at any time:
+
+```
+$ git config --list
+```
+
+
+::: callout-note
+### Git Help and Manual
+
+If you forget the options of a `git` command, you can type `git <command> -h` or access the corresponding Git manual by typing `git <command> --help`, e.g.:
+
+```
+$ git config -h
+$ git config --help
+```
+
+You can press Q to exit the manual.
+
+You can also get the list of available git commands and further resources of the Git manual typing:
+
+```
+$ git help
+```
+:::
+
+
+# Things to cover
 
 - basics of version control with git (`git init`, `git add`, `git commit`, `git push`, `git pull`)
 - basics of github 
 - basics of github pages
+
 
 # Post-lecture materials
 
@@ -67,3 +156,4 @@ Here are some post-lecture questions to help you think about the material discus
 ::: callout-tip
 -   Add here.
 :::
+
