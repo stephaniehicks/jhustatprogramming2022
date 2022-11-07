@@ -1,5 +1,5 @@
 ---
-title: "R package development: building and documenting"
+title: "Building R packages"
 author: 
   - name: Stephanie Hicks
     url: https://stephaniehicks.com
@@ -8,8 +8,9 @@ author:
 description: "Introduction to building and documenting R packages"
 date: 2022-11-17
 draft: true
-categories: [module 2, week 4, R, package development, documentation, programming]
+categories: [module 2, week 4, R, programming, documentation, R package, functions]
 ---
+
 
 <!-- Add interesting quote -->
 
@@ -22,15 +23,33 @@ categories: [module 2, week 4, R, package development, documentation, programmin
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+1. <https://r-pkgs.org>
+2. <https://stat545.com/package-overview>
+
 :::
+
+### Prerequisites 
+
+Before starting you **must** install two additional packages:
+
+* `devtools` - this provides many additional tools for building packages
+* `roxygen2` - this provides tools for writing documentation
+
+You can do this by calling
+
+```{r}
+#| eval: false
+install.packages(c("devtools", "roxygen2"))
+```
+
+or use the "Install Packages..." option from the "Tools" menu in RStudio.
+
 
 ### Acknowledgements
 
 Material for this lecture was borrowed and adopted from
 
--   Add here.
+- <https://rdpeng.github.io/Biostat776/lecture-building-r-packages>
 
 # Learning objectives
 
@@ -39,25 +58,389 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
--   Add here.
+- Create an empty R package  within RStudio
+- Design a R function and write documentation
+- Describe what a `DESCRIPTION` file is and what goes in it
+- Be able to build and install a R package
+
 :::
 
-# Add lecture here
+# Introduction
+
+This lesson will cover how to build R packages using R and RStudio. Using RStudio for this lesson will be critical as RStudio includes a number of tools that make building R packages *much* simpler. 
+
+For the purposes of demonstration in this lesson, we will be building a package called `greetings` that has a single function called `hello()`. The `hello()` function takes a single argument called `name` (which is required) and makes a plot containing a message directed at `name`. For example,
+
+```{r}
+library(greetings)
+hello("Stephanie")
+```
+
+Admittedly, this is not a useful package, but it allows us to demonstrate all of the necessary ingredients for building a simple R package.
+
+## Create a New R Package Project
+
+
+Creating a new R packages begins with creating a new RStudio project.
+
+```{r}
+#| echo: false
+#| fig-cap: 'A screenshot of starting a New Project in R'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/NewProject.png")
+```
+
+
+You should choose **New Directory** as this will be a brand new project (not an existing project).
+
+```{r}
+#| echo: false
+#| fig-cap: 'A screenshot of starting a New Directory for a New Project in R'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/NewDirectory.png")
+```
+
+Next, you should choose the "Project Type" as **R Package using devtools** (you may need to scroll down a little in that menu).
+
+```{r}
+#| echo: false
+#| fig-cap: 'Create a R package using devtools'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/UseDevtools.png")
+```
+
+Finally, you should specify the name of your package. For this example, we will use **greetings** as the name of the package. Also you should double check the name of the sub-directory listed under "Create project as subdirectory of" is a directory that you can find. 
+
+
+:::{.callout-tip}
+
+### Note 
+
+The name of this directory **should not have any spaces in its name**. 
+
+:::
+
+
+```{r}
+#| echo: false
+#| fig-cap: 'Package name'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/PackageName.png")
+```
+
+
+Click "Create Project" and allow R and RStudio to restart. You should get a brand new session. You will also see a window with a series of tabs. One of those tabs will be called **Build** and that will be important as we build our package.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Build menu'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/BuildMenu.png")
+```
+
+
+## Configure Build Tools
+
+The next step after creating a new project is to configure your build tools. Click on the **Build** tab and then **More** and then **Configure Build Tools...**.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Configure Build tools'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/ConfigureBuild.png")
+```
+
+In the next screen, you should make sure that the check box for **Generate documentation with Roxygen** is checked. Then click the **Configure...** button.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Click the Configure button'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/ConfigureButton.png")
+```
+
+In the next menu, make sure to check the check box for **Install and Restart**.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Check box for Install and Restart'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/InstallRestart.png")
+```
+
+
+Then click "OK" and then "OK" again to exit the options menu.
+
+
+
+
+## R Package Files
+
+In this session, there will be the following files listed in the file browser.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Files are listed in the File browser'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/FileMenu.png")
+```
+
+
+The files we will focus on here are 
+
+* the `DESCRIPTION` file; and 
+* any files in the `R` sub-directory. This package will only have one R script in the `R` sub-directory.
+
+There is no need to worry about the other files for now.
+
+# Edit main files
+
+Now, we need to write the R code and documentation for our one function in this package. 
+
+## Add a R Script file
+
+First, create an R script in which the R code will go. You can do this by clicking on **File > New File > R Script**. 
+
+```{r}
+#| echo: false
+#| fig-cap: 'Saving a new R Script file called hello.R'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/SaveRScript.png")
+```
+
+:::{.callout-tip}
+
+### Note 
+
+Make sure that your R script is saved inside the `R/` sub-directory.
+
+:::
+
+```{r}
+#| echo: false
+#| fig-cap: 'R Script file must be in the R/ sub-directory'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/EmptyRScript.png")
+```
+
+Next, once you have your R Script created, you can start to write the function and the **documentation**. 
+
+:::{.callout-tip}
+
+### Note 
+
+The idea is that when you write a function in a R package, just above the function is the **documentation**. The function is written in the usual way and the documentation is written using a special style.
+
+:::
+
+## Documentation
+
+Let's start with the documentation. Here is the documentation for the `hello()` function.
+
+```r
+#' Print a Greeting
+#'
+#' Print a greeting for a custom name
+#'
+#' @details This function make a plot with a greeting to the name passed as an argument to the function
+#' 
+#' @param name character, name of person to whom greeting should be directed
+#'
+#' @return nothing useful is returned.
+#'
+#' @import ggplot2
+#' @export
+#'
+#' @examples
+#' hello("Chris")
+#'
+
+```
+
+We will take each line of documentation in order:
+
+1. The first line is a short title for the function
+
+2. The next line is the "description" line and should be a slightly longer description of what the function does. Generally, this line is one sentence.
+
+3. This line contains the first **Roxygen directive**, which is `@details`. This directive indicates that the text that comes afterwards has detailed information about the function. 
+
+4. The next Roxygen directive is the `@param` directive. This indicates the name of the parameter that the function will accept. In this case, this is the name to which the greeting will be directed.
+
+5. The `@return` directive indicates what the function returns to the user. This function does not return anything useful, but it is still useful to indicate that.
+
+6. This function requires the `ggplot()` function and associated plotting functions. Therefore we need to use the `@import` directive to indicate that we need to **import** all of the functions in the `ggplot2` package.
+
+7. We want to indicate with the `@export` directive that this function should be visible to the user (i.e. we want the user to call this function). Therefore, the function should be **exported** to the user. More complex packages may have many functions and not all of them will be functions that the user will need to call. In addition, any function that is exported is required to have documentation.
+
+8. Under the `@examples` directive, you can put R code that demonstrates how to call the function. Here, we provide a simple example of how to use the `hello()` function.
+
+Once the documentation is written, we can write the code for the function itself. The complete R script file looks as follows.
+
+
+```r
+#' Print a Greeting
+#'
+#' Print a greeting for a custom name
+#'
+#' @details This function make a plot with a greeting to the name passed as an argument to the function
+
+#' @param name character, name of person to whom greeting should be directed
+#'
+#' @return nothing useful is returned.
+#'
+#' @import ggplot2
+#' @export
+#'
+#' @examples
+#' hello("Chris")
+#'
+hello <- function(name) {
+        message <- paste0("Hello, ", name, "!")
+        ggplot() +
+                geom_text(aes(0, 0), label = message, size = 4) +
+                theme_minimal()
+
+}
+```
+
+:::{.callout-tip}
+
+### Note 
+
+In the function we do not actually plot any data. 
+We just use the `ggplot()` function to setup a plot window so that we 
+can add the message using `geom_text()`.
+
+:::
+
+
+## Editing the DESCRIPTION file
+
+After writing the code and documentation we need to edit the `DESCRIPTION` 
+file for the package. This contains metadata about the package. Here is 
+the final `DESCRIPTION` file for the package.
+
+```r
+Package: greetings
+Title: Displays a greeting plot
+Version: 1.0
+Authors@R: 
+    person(given = "Stephanie",
+           family = "Hicks",
+           role = c("aut", "cre"),
+           email = "shicks19@jhu.edu")
+Description: This package displays a nice greeting for a custom name.
+Imports: ggplot2
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+```
+
+We can go through each field one at time:
+
+1. `Package` is just the name of the package. In this case it is `greetings`.
+
+2. `Title` is a short description of the package.
+
+3. `Version` is the version number. This is the first version so we use 1.0.
+
+4. `Authors@R` indicates the author of the package (this is you!). This package only has one author but packages can have multiple authors. Look at the help file for `person()` to see how this is specified.
+
+5. `Description` provides a multi-sentence description of what the package does.
+
+6. `Imports` is only needed because the package imports the functions from the `ggplot2` package. You will need to add this line explicitly to the `DESCRIPTION` file.
+
+6. `License` indicates the legal license for the package. This should be an open source license and we use the GNU General Public License Version 3 here. You can read more about [R package licenses](https://www.r-project.org/Licenses/). Every R package **must** have a license.
+
+The remaining fields are auto-generated by RStudio and you don't need to worry about them for now.
+
+
+# Build and Install
+
+Once you have the code, documentation, and `DESCRIPTION` file written, you can build the package and install it in order to try it out.
+
+## Within RStudio
+
+In the **Build** tab, click the button labeled **Install and Restart**.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Click the Build tab to install and restart'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/BuildPackage.png")
+```
+
+Clicking this button will
+
+1. Build the R package
+
+2. Install the R package on your system
+
+3. Restart the R session
+
+4. Load your package using the `library()` function.
+
+Once this is done, you can call the `hello()` function and see the results.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Now you can load and use the hello() function'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/HelloPackage.png")
+```
+
+
+## Build Source Package
+
+Once the package is completed, you must build a source package so that it can be distributed to others. This can be done in the **Build** menu and clicking **Build source package**.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Build the source package'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/BuildSourcePackage.png")
+```
+
+This will produce a file with a `.tar.gz` extension. This is the **package source file**. 
+
+You should see a screen that looks something like this.
+
+```{r}
+#| echo: false
+#| fig-cap: 'Source file is built (file ends in a .tar.gz)'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/screen/PackageBuilt.png")
+```
+
+
+Once your package is built, you can send to others and they will be able to install it. The package source file would also be the file that would be uploaded to CRAN if you were submitting a package to CRAN.
+
+:::{.callout-tip}
+
+### Pro-tip
+
+If you are interested, you can also use the `usethis` package to create, build, document, and intall a R package: 
+
+- <https://usethis.r-lib.org>
+
+FWIW, this is how I create R packages.
+
+:::
+
 
 # Post-lecture materials
 
-### Final Questions
-
-Here are some post-lecture questions to help you think about the material discussed.
-
-::: callout-note
-### Questions
-
-1.  Add here.
-:::
 
 ### Additional Resources
 
 ::: callout-tip
--   Add here.
+
+- <https://rdpeng.github.io/Biostat776/lecture-building-r-packages>
+- <https://r-pkgs.org>
+- <https://stat545.com/package-overview>
+- <https://usethis.r-lib.org>
+
 :::
