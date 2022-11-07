@@ -10,6 +10,15 @@ date: 2022-11-08
 categories: [module 1, week 3, version control, git, GitHub]
 ---
 
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+```
+
+
 # Pre-lecture materials
 
 ### Read ahead
@@ -145,10 +154,6 @@ $ git help
 Once Git is configured, we can start using it.
 
 First, let's create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:
-
-```{r}
-getwd()
-```
 
 ```{bash}
 cd ~/Desktop
