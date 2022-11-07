@@ -45,12 +45,19 @@ Material for this lecture was borrowed and adopted from
 -   Configure git the first time it is used on a computer.
 -   Create a local git repository.
 -   Describe the purpose of the `.git` directory.
+-   Understand the modify-add-commit cycle for files.
+-   Distinguish between descriptive and non-descriptive commit messages.
 :::
 
 
 # Introduction
 
-### What is version control and why should I use it?
+::: callout-note
+### Questions
+
+-   What is version control and why should I use it?
+:::
+
 
 We'll start by exploring how version control can be used to keep track of what one person did and when.
 
@@ -90,7 +97,12 @@ It allows us to decide which changes will be made to the next version (each reco
 
 # Setting Up Git
 
-### How do I get set up to use Git?
+::: callout-note
+### Questions
+
+-   How do I get set up to use Git?
+:::
+
 
 When we use Git on a new computer for the first time, we need to configure a few things:
 
@@ -143,6 +155,13 @@ $ git help
 
 # Creating a Repository
 
+::: callout-note
+### Questions
+
+-   Where does Git store information?
+:::
+
+
 Once Git is configured, we can start using it.
 
 First, let's create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:
@@ -192,7 +211,7 @@ git status
 
 
 ::: callout-note
-### Correcting git init Mistakes
+### Correcting `git init` Mistakes
 
 Suppose you have created the Git repository in the wrong directory, or made some other mistake.
 
@@ -212,6 +231,140 @@ But be careful! Running this command in the wrong directory will remove the enti
 -   `git init` initializes a repository.
 -   Git stores all of its repository data in the `.git` directory.
 :::
+
+
+# Tracking Changes
+
+::: callout-note
+### Questions
+
+-   How do I record changes in Git?
+-   How do I check the status of my version control repository?
+-   How do I record notes about what changes I made and why?
+:::
+
+
+First let's make sure we're still in the right directory. You should be in the `planets` directory.
+
+```
+cd ~/Desktop/planets
+```
+
+
+### Adding a new file
+
+Let's create a file called `mars.txt` that contains some notes about the Red Planet's suitability as a base.
+
+We will use `touch` to create the file, and then open it in TextEdit or Notepad. Alternatively, you can use a command-line text editor such as `nano`.
+
+```
+touch mars.txt
+```
+
+Navigate to the directory in Finder / Windows Explorer and open the `.txt` file in TextEdit / Notepad.
+
+Type the text below into the `mars.txt` file:
+
+```
+Cold and dry, but everything is my favorite color
+```
+
+Let's first verify that the file was properly created by running the list command (`ls`):
+
+```
+ls
+```
+
+`mars.txt` contains a single line, which we can see by running:
+
+```
+cat mars.txt
+```
+
+If we check the status of our project again, Git tells us that it's noticed the new file:
+
+```
+git status
+```
+
+The "untracked files" message means that there's a file in the directory that Git isn't keeping track of. We can tell Git to track a file using `git add`:
+
+```
+git add mars.txt
+```
+
+and then check that the right thing happened:
+
+```
+git status
+```
+
+Git now knows that it's supposed to keep track of `mars.txt`, but it hasn't recorded these changes as a commit yet. To get it to do that, we need to run one more command:
+
+```
+git commit -m "Start notes on Mars as a base"
+```
+
+When we run git commit, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a commit (or revision) and its short identifier is f22b25e. Your commit may have another identifier.
+
+We use the `-m` flag (for "message") to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor is configured as `core.editor`) so that we can write a longer message.
+
+Good commit messages start with a brief (<50 characters) statement about the changes made in the commit. Generally, the message should complete the sentence "If applied, this commit will". If you want to go into more detail, add a blank line between the summary line and your additional notes. Use this additional space to explain why you made changes and/or what their impact will be.
+
+If we run `git status` now:
+
+```
+git status
+```
+
+it tells us everything is up to date. If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`:
+
+```
+git log
+```
+
+git log lists all commits made to a repository in reverse chronological order.
+
+
+### Adding changes to a file
+
+Now suppose we add more information to the file. (Again, we’ll edit with TextEdit / Notepad and then `cat` the file to show its contents.)
+
+Paste the following text into the file:
+
+```
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+```
+
+When we run `git status` now, it tells us that a file it already knows about has been modified:
+
+```
+git status
+```
+
+The last line is the key phrase: "no changes added to commit". We have changed this file, but we haven't told Git we will want to save those changes (which we do with `git add`) nor have we saved them (which we do with `git commit`).
+
+So let's do that now. It is good practice to always review our changes before saving them. We do this using `git diff`. This shows us the differences between the current state of the file and the most recently saved version:
+
+```
+git diff
+```
+
+The output is cryptic because it is actually a series of commands for tools like editors and `patch` telling them how to reconstruct one file given the other.
+
+After reviewing our change, it's time to commit it:
+
+```
+git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+```
+
+Whoops: Git won't commit because we didn't use `git add` first. Let's fix that:
+
+```
+git add mars.txt
+git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+```
 
 
 # Post-lecture materials
