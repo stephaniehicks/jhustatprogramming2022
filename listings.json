@@ -8,6 +8,7 @@
   {
     "listing": "/lectures.html",
     "items": [
+      "/posts/2022-11-08-version-control-part-1/index.html",
       "/posts/2022-11-03-command-line-part-2/index.html",
       "/posts/2022-11-01-command-line-part-1/index.html",
       "/posts/2022-10-27-build-website/index.html"
