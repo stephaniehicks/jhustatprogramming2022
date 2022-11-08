@@ -166,14 +166,14 @@ $ git help
 :::
 
 
-Note that we will omit the `$` from shell commands shown from here onwards to make it easier to run them interactively in this tutorial.
-
-
 ::: callout-important
 ### Key Points
 
 -   Use `git config` with the `--global` option to configure a user name, email address, editor, and other preferences once per machine.
 :::
+
+
+Note that we will omit the `$` from shell commands shown from here onwards to make it easier to run them interactively in this tutorial.
 
 
 # Creating a Repository
@@ -201,7 +201,14 @@ First, let's create a new directory in the Desktop folder for our work and then 
 cd ~/Desktop
 mkdir planets
 cd planets
+```
+
+```bash
 pwd
+```
+
+```default
+/Users/lukas/Desktop/planets
 ```
 
 Then we tell Git to make `planets` a repository – a place where Git can store versions of our files:
@@ -224,6 +231,10 @@ But if we add the `-a` flag to show everything, we can see that Git has created 
 ls -a
 ```
 
+```default
+.	..	.git
+```
+
 Git uses this special subdirectory to store all the information about the project, including the tracked files and sub-directories located within the project's directory.
 
 If we ever delete the `.git` subdirectory, we will lose the project's history.
@@ -234,10 +245,22 @@ Next, we will change the default branch to be called `main.` This might be the d
 git checkout -b main
 ```
 
+```default
+Switched to a new branch 'main'
+```
+
 We can check that everything is set up correctly by asking Git to tell us the status of our project:
 
 ```bash
 git status
+```
+
+```default
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
 ```
 
 
@@ -287,6 +310,11 @@ First let's make sure we're still in the right directory. You should be in the `
 
 ```bash
 cd ~/Desktop/planets
+pwd
+```
+
+```default
+/Users/lukas/Desktop/planets
 ```
 
 
@@ -304,7 +332,7 @@ Navigate to the directory in Finder / Windows Explorer and open the `.txt` file 
 
 Type the text below into the `mars.txt` file:
 
-```
+```default
 Cold and dry, but everything is my favorite color
 ```
 
@@ -320,10 +348,27 @@ ls
 cat mars.txt
 ```
 
+```default
+Cold and dry, but everything is my favorite color
+```
+
 If we check the status of our project again, Git tells us that it's noticed the new file:
 
 ```bash
 git status
+```
+
+```default
+On branch main
+
+No commits yet
+
+Untracked files:
+   (use "git add <file>..." to include in what will be committed)
+
+	mars.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 The "untracked files" message means that there's a file in the directory that Git isn't keeping track of. We can tell Git to track a file using `git add`:
@@ -338,13 +383,31 @@ and then check that the right thing happened:
 git status
 ```
 
+```default
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   mars.txt
+
+```
+
 Git now knows that it's supposed to keep track of `mars.txt`, but it hasn't recorded these changes as a commit yet. To get it to do that, we need to run one more command:
 
 ```bash
 git commit -m "Start notes on Mars as a base"
 ```
 
-When we run git commit, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a commit (or revision) and its short identifier is f22b25e. Your commit may have another identifier.
+```default
+[main (root-commit) 7c806ef] Start notes on Mars as a base
+ 1 file changed, 1 insertion(+)
+ create mode 100644 mars.txt
+```
+
+When we run git commit, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a commit (or revision) and its short identifier is 7c806ef. Your commit may have another identifier.
 
 We use the `-m` flag (for "message") to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor is configured as `core.editor`) so that we can write a longer message.
 
@@ -356,10 +419,23 @@ If we run `git status` now:
 git status
 ```
 
+```default
+On branch main
+nothing to commit, working directory clean
+```
+
 it tells us everything is up to date. If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`:
 
 ```bash
 git log
+```
+
+```
+commit 7c806ef264455022f29ee71a5bc9972fa17b634b (HEAD -> main)
+Author: Lukas Weber <lukas.weber.edu@gmail.com>
+Date:   Tue Nov 8 11:57:09 2022 -0500
+
+    Start notes on Mars as a base
 ```
 
 git log lists all commits made to a repository in reverse chronological order.
@@ -371,7 +447,7 @@ Now suppose we add more information to the file. (Again, we’ll edit with TextE
 
 Paste the following text into the file:
 
-```
+```default
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 ```
@@ -382,12 +458,33 @@ When we run `git status` now, it tells us that a file it already knows about has
 git status
 ```
 
+```default
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   mars.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
 The last line is the key phrase: "no changes added to commit". We have changed this file, but we haven't told Git we will want to save those changes (which we do with `git add`) nor have we saved them (which we do with `git commit`).
 
 So let's do that now. It is good practice to always review our changes before saving them. We do this using `git diff`. This shows us the differences between the current state of the file and the most recently saved version:
 
 ```bash
 git diff
+```
+
+```default
+diff --git a/mars.txt b/mars.txt
+index df0654a..315bf3a 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1 +1,2 @@
+ Cold and dry, but everything is my favorite color
++The two moons may be a problem for Wolfman
 ```
 
 The output is cryptic because it is actually a series of commands for tools like editors and `patch` telling them how to reconstruct one file given the other.
@@ -398,11 +495,27 @@ After reviewing our change, it's time to commit it:
 git commit -m "Add concerns about effects of Mars' moons on Wolfman"
 ```
 
+```default
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   mars.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
 Whoops: Git won't commit because we didn't use `git add` first. Let's fix that:
 
 ```bash
 git add mars.txt
 git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+```
+
+```default
+[main 58f8cda] Add concerns about effects of Mars' moons on Wolfman
+ 1 file changed, 1 insertion(+)
 ```
 
 
@@ -430,7 +543,7 @@ Let's watch as our changes to a file move from our editor to the staging area an
 cat mars.txt
 ```
 
-```
+```default
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
@@ -438,6 +551,17 @@ But the Mummy will appreciate the lack of humidity
 
 ```bash
 git diff
+```
+
+```default
+diff --git a/mars.txt b/mars.txt
+index 315bf3a..b36abfd 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,2 +1,3 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
 ```
 
 So far, so good: we've added one line to the end of the file (shown with a `+` in the first column). Now let's put that change in the staging area and see what `git diff` reports:
@@ -453,10 +577,26 @@ There is no output: as far as Git can tell, there's no difference between what i
 git diff --staged
 ```
 
+```default
+diff --git a/mars.txt b/mars.txt
+index 315bf3a..b36abfd 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,2 +1,3 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
+```
+
 it shows us the difference between the last committed change and what's in the staging area. Let's save our changes:
 
 ```bash
 git commit -m "Discuss concerns about Mars' climate for Mummy"
+```
+
+```default
+[main 5aa34b9] Discuss concerns about Mars' climate for Mummy
+ 1 file changed, 1 insertion(+)
 ```
 
 check our status:
@@ -465,10 +605,35 @@ check our status:
 git status
 ```
 
+```default
+On branch main
+nothing to commit, working directory clean
+```
+
 and look at the history of what we've done so far:
 
 ```bash
 git log
+```
+
+```default
+commit 5aa34b9344976e2cf37e8f69bfb374a5798921ea (HEAD -> main)
+Author: Lukas Weber <lukas.weber.edu@gmail.com>
+Date:   Tue Nov 8 12:01:23 2022 -0500
+
+    Discuss concerns about Mars' climate for Mummy
+
+commit 58f8cdaf5b99f730cce460f35d8698f112dfb911
+Author: Lukas Weber <lukas.weber.edu@gmail.com>
+Date:   Tue Nov 8 11:59:39 2022 -0500
+
+    Add concerns about effects of Mars' moons on Wolfman
+
+commit 7c806ef264455022f29ee71a5bc9972fa17b634b
+Author: Lukas Weber <lukas.weber.edu@gmail.com>
+Date:   Tue Nov 8 11:57:09 2022 -0500
+
+    Start notes on Mars as a base
 ```
 
 
@@ -503,6 +668,11 @@ git add spaceships
 git status
 ```
 
+```default
+On branch main
+nothing to commit, working tree clean
+```
+
 Note, our newly created empty directory `spaceships` does not appear in the list of untracked files even if we explicitly add it (via `git add`) to our repository.
 
 
@@ -521,10 +691,26 @@ git add spaceships
 git status
 ```
 
+```default
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   spaceships/apollo-11
+        new file:   spaceships/sputnik-1
+
+```
+
 Before moving on, we will commit these changes.
 
 ```bash
 git commit -m "Add some initial thoughts on spaceships"
+```
+
+```default
+[main 359fc60] Add some initial thoughts on spaceships
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 spaceships/apollo-11
+ create mode 100644 spaceships/sputnik-1
 ```
 
 To recap, when we want to add changes to our repository, we first need to add the changed files to the staging area (`git add`) and then commit the staged changes to the repository (`git commit`).
@@ -613,7 +799,7 @@ Let's make a change to mars.txt, adding yet another line.
 cat mars.txt
 ```
 
-```
+```default
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
@@ -624,6 +810,18 @@ Now, let's see what we get.
 
 ```bash
 git diff HEAD mars.txt
+```
+
+```default
+diff --git a/mars.txt b/mars.txt
+index b36abfd..93a3e13 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,3 +1,4 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
+ But the Mummy will appreciate the lack of humidity
++An ill-considered change
 ```
 
 which is the same as what you would get if you leave out `HEAD` (try it).
@@ -640,10 +838,38 @@ If we want to see the differences between older commits we can use `git diff` ag
 git diff HEAD~3 mars.txt
 ```
 
+```default
+diff --git a/mars.txt b/mars.txt
+index df0654a..93a3e13 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1 +1,4 @@
+ Cold and dry, but everything is my favorite color
++The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
++An ill-considered change
+```
+
 We could also use `git show` which shows us what changes we made at an older commit as well as the commit message, rather than the differences between a commit and our working directory that we see by using `git diff`.
 
 ```bash
 git show HEAD~3 mars.txt
+```
+
+```default
+commit 7c806ef264455022f29ee71a5bc9972fa17b634b
+Author: Lukas Weber <lukas.weber.edu@gmail.com>
+Date:   Tue Nov 8 11:57:09 2022 -0500
+
+    Start notes on Mars as a base
+
+diff --git a/mars.txt b/mars.txt
+new file mode 100644
+index 0000000..df0654a
+--- /dev/null
++++ b/mars.txt
+@@ -0,0 +1 @@
++Cold and dry, but everything is my favorite color
 ```
 
 In this way, we can build up a chain of commits. The most recent end of the chain is referred to as `HEAD`; we can refer to previous commits using the `~` notation, so `HEAD~1` means "the previous commit".
@@ -651,13 +877,37 @@ In this way, we can build up a chain of commits. The most recent end of the chai
 We can also refer to commits using those long strings of digits and letters that `git log` displays. These are unique IDs for the changes, and "unique" really does mean unique: every change to any set of files on any computer has a unique 40-character identifier. Our first commit was given the ID `f22b25e3233b4645dabd0d81e651fe074bd8e73b`, so let’s try this:
 
 ```bash
-git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b mars.txt
+git diff 7c806ef264455022f29ee71a5bc9972fa17b634b mars.txt
+```
+
+```default
+diff --git a/mars.txt b/mars.txt
+index df0654a..93a3e13 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1 +1,4 @@
+ Cold and dry, but everything is my favorite color
++The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
++An ill-considered change
 ```
 
 Git lets us use just the first few characters (typically seven):
 
 ```bash
-git diff f22b25e mars.txt
+git diff 7c806ef mars.txt
+```
+
+```default
+diff --git a/mars.txt b/mars.txt
+index df0654a..93a3e13 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1 +1,4 @@
+ Cold and dry, but everything is my favorite color
++The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
++An ill-considered change
 ```
 
 
@@ -673,6 +923,17 @@ Now, how can we restore older versions of things? Let's suppose we change our mi
 git status
 ```
 
+```default
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   mars.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
 We can put things back the way they were by using `git checkout`:
 
 ```bash
@@ -680,26 +941,52 @@ git checkout HEAD mars.txt
 cat mars.txt
 ```
 
+```default
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+```
+
 As you might guess from its name, `git checkout` checks out (i.e., restores) an old version of a file. In this case, we're telling Git that we want to recover the version of the file recorded in `HEAD`, which is the last saved commit.
 
 If we want to go back even further, we can use a commit identifier instead:
 
 ```bash
-git checkout f22b25e mars.txt
+git checkout 7c806ef mars.txt
+```
+
+```default
+Updated 1 path from 12125a8
 ```
 
 ```bash
 cat mars.txt
 ```
 
+```default
+Cold and dry, but everything is my favorite color
+```
+
 ```bash
 git status
+```
+
+```default
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   mars.txt
+
 ```
 
 Notice that the changes are currently in the staging area. Again, we can put things back the way they were by using git checkout:
 
 ```bash
 git checkout HEAD mars.txt
+```
+
+```default
+Updated 1 path from aab57ac
 ```
 
 
@@ -709,23 +996,49 @@ git checkout HEAD mars.txt
 Above we used
 
 ```bash
-git checkout f22b25e mars.txt
+git checkout 7c806ef mars.txt
 ```
 
-to revert `mars.txt` to its state after the commit `f22b25e`.
+to revert `mars.txt` to its state after the commit `7c806ef`.
 
 But be careful! The command `checkout` has other important functionalities and Git will misunderstand your intentions if you are not accurate with the typing.
 
 For example, if you forget `mars.txt` in the previous command.
 
 ```bash
-git checkout f22b25e
+git checkout 7c806ef
+```
+
+```default
+Note: switching to '7c806ef'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 7c806ef Start notes on Mars as a base
 ```
 
 The "detached HEAD" state lets you look around without the repository without making any changes, so you shouldn't make any changes in this state. After investigating your repository's past state, reattach your `HEAD` with `git checkout main`.
 
 ```bash
 git checkout main
+```
+
+```default
+Previous HEAD position was 7c806ef Start notes on Mars as a base
+Switched to branch 'main'
 ```
 :::
 
@@ -840,6 +1153,19 @@ and see what Git says:
 git status
 ```
 
+```default
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	a.dat
+	b.dat
+	c.dat
+	results/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
 Putting these files under version control would be a waste of disk space. What's worse, having them all listed could distract us from changes that actually matter, so let's tell Git to ignore them.
 
 We do this by creating a file in the root directory of our project called `.gitignore`:
@@ -878,6 +1204,16 @@ Once we have created this file, the output of `git status` is much cleaner:
 git status
 ```
 
+```default
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
 The only thing Git notices now is the newly-created `.gitignore` file. You might think we wouldn't want to track it, but everyone we're sharing our repository with will probably want to ignore the same things that we're ignoring. Let's add and commit `.gitignore`:
 
 ```bash
@@ -886,16 +1222,40 @@ git commit -m "Ignore data files and the results folder."
 git status
 ```
 
+```default
+On branch main
+nothing to commit, working directory clean
+```
+
 As a bonus, using `.gitignore` helps us avoid accidentally adding files to the repository that we don't want to track:
 
 ```bash
 git add a.dat
 ```
 
+```default
+The following paths are ignored by one of your .gitignore files:
+a.dat
+Use -f if you really want to add them.
+```
+
 If we really want to override our ignore settings, we can use `git add -f` to force Git to add something. For example, `git add -f a.dat`. We can also always see the status of ignored files if we want:
 
 ```bash
 git status --ignored
+```
+
+```default
+On branch main
+Ignored files:
+ (use "git add -f <file>..." to include in what will be committed)
+
+        a.dat
+        b.dat
+        c.dat
+        results/
+
+nothing to commit, working directory clean
 ```
 
 
