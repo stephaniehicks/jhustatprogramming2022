@@ -267,6 +267,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#adding-a-new-file" id="toc-adding-a-new-file" class="nav-link" data-scroll-target="#adding-a-new-file">Adding a new file</a></li>
   <li><a href="#adding-changes-to-a-file" id="toc-adding-changes-to-a-file" class="nav-link" data-scroll-target="#adding-changes-to-a-file">Adding changes to a file</a></li>
+  <li><a href="#staging-area" id="toc-staging-area" class="nav-link" data-scroll-target="#staging-area">Staging area</a></li>
+  <li><a href="#directories" id="toc-directories" class="nav-link" data-scroll-target="#directories">Directories</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
@@ -451,6 +454,7 @@ Git Help and Manual
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git help</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+<p>Note that we will omit the <code>$</code> from shell commands shown from here onwards to make it easier to run them interactively in this tutorial.</p>
 </section>
 </section>
 <section id="creating-a-repository" class="level1">
@@ -550,7 +554,7 @@ Questions
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Navigate to the directory in Finder / Windows Explorer and open the <code>.txt</code> file in TextEdit / Notepad.</p>
 <p>Type the text below into the <code>mars.txt</code> file:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Cold</span> and dry, but everything is my favorite color</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Cold and dry, but everything is my favorite color</code></pre>
 <p>Let’s first verify that the file was properly created by running the list command (<code>ls</code>):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>mars.txt</code> contains a single line, which we can see by running:</p>
@@ -576,8 +580,8 @@ Questions
 <h3 class="anchored" data-anchor-id="adding-changes-to-a-file">Adding changes to a file</h3>
 <p>Now suppose we add more information to the file. (Again, we’ll edit with TextEdit / Notepad and then <code>cat</code> the file to show its contents.)</p>
 <p>Paste the following text into the file:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Cold</span> and dry, but everything is my favorite color</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> two moons may be a problem for Wolfman</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman</code></pre>
 <p>When we run <code>git status</code> now, it tells us that a file it already knows about has been modified:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The last line is the key phrase: “no changes added to commit”. We have changed this file, but we haven’t told Git we will want to save those changes (which we do with <code>git add</code>) nor have we saved them (which we do with <code>git commit</code>).</p>
@@ -589,6 +593,152 @@ Questions
 <p>Whoops: Git won’t commit because we didn’t use <code>git add</code> first. Let’s fix that:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add mars.txt</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add concerns about effects of Mars' moons on Wolfman"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="staging-area" class="level3">
+<h3 class="anchored" data-anchor-id="staging-area">Staging area</h3>
+<p>Git insists that we add files to the set we want to commit before actually committing anything. This allows us to commit our changes in stages and capture changes in logical portions rather than only large batches.</p>
+<p>To allow for this, Git has a special staging area where it keeps track of things that have been added but not yet committed.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Staging Area
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you think of Git as taking snapshots of changes over the life of a project, <code>git add</code> specifies what will go in a snapshot (putting things in the staging area), and <code>git commit</code> then actually takes the snapshot, and makes a permanent record of it (as a commit).</p>
+<p>If you don’t have anything staged when you type git commit, Git will prompt you to use <code>git commit -a</code> or <code>git commit --all</code>, which will add all files. However, it’s almost always better to explicitly add things to the staging area, because you might commit changes you forgot you made.</p>
+<p>Try to stage things manually, or you might find yourself searching for “git undo commit” more than you would like!</p>
+</div>
+</div>
+<p>Let’s watch as our changes to a file move from our editor to the staging area and into long-term storage. First, we’ll add another line to the file:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So far, so good: we’ve added one line to the end of the file (shown with a <code>+</code> in the first column). Now let’s put that change in the staging area and see what <code>git diff</code> reports:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add mars.txt</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There is no output: as far as Git can tell, there’s no difference between what it’s been asked to save permanently and what’s currently in the directory. However, if we do this:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--staged</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>it shows us the difference between the last committed change and what’s in the staging area. Let’s save our changes:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Discuss concerns about Mars' climate for Mummy"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>check our status:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and look at the history of what we’ve done so far:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Word-based diffing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes, e.g.&nbsp;in the case of the text documents a line-wise diff is too coarse. That is where the <code>--color-words</code> option of <code>git diff</code> comes in very useful as it highlights the changed words using colors.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Paging the Log
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the output of <code>git log</code> is too long to fit in your screen, Git splits it into pages.</p>
+<p>To get out of the pager, press <code>Q</code>.</p>
+<p>To move to the next page, press <code>Spacebar</code>.</p>
+</div>
+</div>
+</section>
+<section id="directories" class="level3">
+<h3 class="anchored" data-anchor-id="directories">Directories</h3>
+<p>Two important facts you should know about directories in Git.</p>
+<p>First, Git does not track directories on their own, only files within them. Try it for yourself:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> spaceships</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add spaceships</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note, our newly created empty directory <code>spaceships</code> does not appear in the list of untracked files even if we explicitly add it (via <code>git add</code>) to our repository.</p>
+<p>Second, if you create a directory in your Git repository and populate it with files, you can add all files in the directory at once by:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>directory-with-files<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try it for yourself:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> spaceships/apollo-11 spaceships/sputnik-1</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add spaceships</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Before moving on, we will commit these changes.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add some initial thoughts on spaceships"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To recap, when we want to add changes to our repository, we first need to add the changed files to the staging area (<code>git add</code>) and then commit the staged changes to the repository (<code>git commit</code>).</p>
+<p>For a visualization of this workflow, see the <a href="https://swcarpentry.github.io/git-novice/04-changes/index.html#directories">Software Carpentry: Version Control with Git</a> page.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Choosing a Commit Message
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the following commit messages would be most appropriate for the last commit made to <code>mars.txt</code>?</p>
+<ol type="1">
+<li>“Changes”</li>
+<li>“Added line ‘But the Mummy will appreciate the lack of humidity’ to mars.txt”</li>
+<li>“Discuss effects of Mars’ climate on the Mummy”</li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Committing Changes to Git
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which command(s) below would save the changes of <code>myfile.txt</code> to my local Git repository?</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"my recent changes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init myfile.txt</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"my recent changes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add myfile.txt</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"my recent changes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> myfile.txt <span class="st">"my recent changes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Additional exercises are available on the <a href="https://swcarpentry.github.io/git-novice/04-changes/index.html#choosing-a-commit-message">Software Carpentry: Version Control with Git</a> page.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>git status</code> shows the status of a repository.</p></li>
+<li><p>Files can be stored in a project’s working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).</p></li>
+<li><p><code>git add</code> puts files in the staging area.</p></li>
+<li><p><code>git commit</code> saves the staged content as a new commit in the local repository.</p></li>
+<li><p>Write a commit message that accurately describes your changes.</p></li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="post-lecture-materials" class="level1">
