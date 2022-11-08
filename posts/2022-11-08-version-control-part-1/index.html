@@ -276,10 +276,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#restoring-older-versions" id="toc-restoring-older-versions" class="nav-link" data-scroll-target="#restoring-older-versions">Restoring older versions</a></li>
   <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises</a></li>
   </ul></li>
+  <li><a href="#ignoring-things" id="toc-ignoring-things" class="nav-link" data-scroll-target="#ignoring-things">Ignoring Things</a>
+  <ul class="collapse">
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2">Exercises</a></li>
+  </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#preparation-for-next-lesson" id="toc-preparation-for-next-lesson" class="nav-link" data-scroll-target="#preparation-for-next-lesson">Preparation for next lesson</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -390,7 +393,7 @@ Terminology
 </ol>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -514,7 +517,7 @@ Correcting <code>git init</code> Mistakes
 <p>But be careful! Running this command in the wrong directory will remove the entire Git history of a project you might want to keep. Therefore, always check your current directory using the command <code>pwd</code>.</p>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -725,7 +728,7 @@ Committing Changes to Git
 </div>
 </div>
 <p>Additional exercises are available on the <a href="https://swcarpentry.github.io/git-novice/04-changes/index.html#choosing-a-commit-message">Software Carpentry: Version Control with Git</a> page.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -931,7 +934,7 @@ Checking Understanding of <code>git diff</code>
 </div>
 </div>
 <p>Additional exercises are available on the <a href="https://swcarpentry.github.io/git-novice/05-history/index.html#recovering-older-versions-of-a-file">Software Carpentry: Version Control with Git</a> page.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -947,11 +950,8 @@ Key Points
 </div>
 </section>
 </section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<section id="ignoring-things" class="level1">
+<h1>Ignoring Things</h1>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -962,29 +962,159 @@ Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
+<ul>
+<li>How can I tell Git to ignore files I don’t want to track?</li>
+</ul>
 </div>
 </div>
-</section>
-<section id="additional-resources" class="level3">
-<h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Configure Git to ignore specific files.</p></li>
+<li><p>Explain why ignoring files can be useful.</p></li>
+</ul>
+</div>
+</div>
+<p>What if we have files that we do not want Git to track for us, like backup files created by our editor or intermediate files created during data analysis? Let’s create a few dummy files:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> a.dat b.dat c.dat results/a.out results/b.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and see what Git says:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Putting these files under version control would be a waste of disk space. What’s worse, having them all listed could distract us from changes that actually matter, so let’s tell Git to ignore them.</p>
+<p>We do this by creating a file in the root directory of our project called <code>.gitignore</code>:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open the file in TextEdit / Notepad, or alternatively from the command line using <code>nano</code>.</p>
+<p>Note this is a hidden file (filename beginning with <code>.</code>), so you will need to enable Finder / Windows Explorer to show hidden files.</p>
+<p>Add the following lines in the <code>.gitignore</code> file and save it.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>*.dat</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>results/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These patterns tell Git to ignore any file whose name ends in <code>.dat</code> and everything in the <code>results</code> directory.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Adding existing files in <code>.gitignore</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that if any of these files were already being tracked, Git would continue to track them.</p>
+</div>
+</div>
+<p>Once we have created this file, the output of <code>git status</code> is much cleaner:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The only thing Git notices now is the newly-created <code>.gitignore</code> file. You might think we wouldn’t want to track it, but everyone we’re sharing our repository with will probably want to ignore the same things that we’re ignoring. Let’s add and commit <code>.gitignore</code>:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ignore data files and the results folder."</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As a bonus, using <code>.gitignore</code> helps us avoid accidentally adding files to the repository that we don’t want to track:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add a.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If we really want to override our ignore settings, we can use <code>git add -f</code> to force Git to add something. For example, <code>git add -f a.dat</code>. We can also always see the status of ignored files if we want:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--ignored</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercises-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Ignoring Nested Files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given a directory structure that looks like:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>results/data</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>results/plots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How would you ignore only <code>results/plots</code> and not <code>results/data</code>?</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Including Specific Files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you ignore all <code>.dat</code> files in your root directory except for <code>final.dat</code>?</p>
+<p>Hint: Find out what <code>!</code> (the exclamation point operator) does.</p>
+<p>The exclamation point operator will include a previously excluded entry.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Ignoring all data Files in a Directory
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assuming you have an empty <code>.gitignore</code> file, and given a directory structure that looks like:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>results/data/position/gps/a.dat</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>results/data/position/gps/b.dat</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>results/data/position/gps/c.dat</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>results/data/position/gps/info.txt</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>results/plots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What’s the shortest <code>.gitignore</code> rule you could write to ignore all <code>.dat</code> files in <code>result/data/position/gps</code>? Do not ignore the <code>info.txt</code>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Ignoring all data Files in the repository
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let us assume you have many <code>.dat</code> files in different subdirectories of your repository. For example, you might have:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>results/a.dat</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>data/experiment_1/b.dat</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>data/experiment_2/c.dat</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>data/experiment_2/variation_1/d.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How do you ignore all the <code>.dat</code> files, without explicitly listing the names of the corresponding folders?</p>
+</div>
+</div>
+<p>Additional exercises are available on the <a href="https://swcarpentry.github.io/git-novice/06-ignore/index.html#ignoring-nested-files">Software Carpentry: Version Control with Git</a> page.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li>The <code>.gitignore</code> file tells Git what files to ignore.</li>
 </ul>
 </div>
 </div>
+</section>
+</section>
+<section id="post-lecture-materials" class="level1">
+<h1>Post-lecture materials</h1>
+<section id="preparation-for-next-lesson" class="level3">
+<h3 class="anchored" data-anchor-id="preparation-for-next-lesson">Preparation for next lesson</h3>
+<p>In the next lesson, we will learn how to use git remotes and GitHub.</p>
+<p>As preparation, you can sign up for a GitHub account if you do not already have one.</p>
 
 
 </section>
