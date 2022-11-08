@@ -8,13 +8,7 @@ author:
 description: "Introduction to version control with git and GitHub (part 1)"
 date: 2022-11-08
 categories: [module 1, week 3, version control, git, GitHub]
-engine: knitr
 ---
-
-
-```{bash}
-pwd
-```
 
 
 # Pre-lecture materials
@@ -120,7 +114,7 @@ On a command line, Git commands are written as `git verb options`, where `verb` 
 
 Here is how to set up Git on a new laptop:
 
-```
+```bash
 $ git config --global user.name "My Name"
 $ git config --global user.email "myemail@email.com"
 ```
@@ -134,7 +128,7 @@ For this lesson, we will be interacting with GitHub and so the email address use
 
 You can check your settings at any time:
 
-```
+```bash
 $ git config --list
 ```
 
@@ -144,7 +138,7 @@ $ git config --list
 
 If you forget the options of a `git` command, you can type `git <command> -h` or access the corresponding Git manual by typing `git <command> --help`, e.g.:
 
-```
+```bash
 $ git config -h
 $ git config --help
 ```
@@ -153,7 +147,7 @@ You can press Q to exit the manual.
 
 You can also get the list of available git commands and further resources of the Git manual typing:
 
-```
+```bash
 $ git help
 ```
 :::
@@ -172,7 +166,7 @@ Once Git is configured, we can start using it.
 
 First, let's create a new directory in the Desktop folder for our work and then change the current working directory to the newly created one:
 
-```
+```bash
 cd ~/Desktop
 mkdir planets
 cd planets
@@ -181,7 +175,7 @@ pwd
 
 Then we tell Git to make `planets` a repository – a place where Git can store versions of our files:
 
-```
+```bash
 git init
 ```
 
@@ -189,13 +183,13 @@ Note that the creation of the `planets` directory and its initialization as a re
 
 If we use `ls` to show the directory's contents, it appears that nothing has changed:
 
-```
+```bash
 ls
 ```
 
 But if we add the `-a` flag to show everything, we can see that Git has created a hidden directory within planets called `.git`:
 
-```
+```bash
 ls -a
 ```
 
@@ -205,13 +199,13 @@ If we ever delete the `.git` subdirectory, we will lose the project's history.
 
 Next, we will change the default branch to be called `main.` This might be the default branch depending on your settings and version of git.
 
-```
+```bash
 git checkout -b main
 ```
 
 We can check that everything is set up correctly by asking Git to tell us the status of our project:
 
-```
+```bash
 git status
 ```
 
@@ -223,7 +217,7 @@ Suppose you have created the Git repository in the wrong directory, or made some
 
 You can delete the git repository by simply deleting the `.git` directory, either in Finder / Windows Explorer or from the command line:
 
-```
+```bash
 rm -rf .git
 ```
 
@@ -252,7 +246,7 @@ But be careful! Running this command in the wrong directory will remove the enti
 
 First let's make sure we're still in the right directory. You should be in the `planets` directory.
 
-```
+```bash
 cd ~/Desktop/planets
 ```
 
@@ -263,7 +257,7 @@ Let's create a file called `mars.txt` that contains some notes about the Red Pla
 
 We will use `touch` to create the file, and then open it in TextEdit or Notepad. Alternatively, you can use a command-line text editor such as `nano`.
 
-```
+```bash
 touch mars.txt
 ```
 
@@ -271,43 +265,43 @@ Navigate to the directory in Finder / Windows Explorer and open the `.txt` file 
 
 Type the text below into the `mars.txt` file:
 
-```
+```bash
 Cold and dry, but everything is my favorite color
 ```
 
 Let's first verify that the file was properly created by running the list command (`ls`):
 
-```
+```bash
 ls
 ```
 
 `mars.txt` contains a single line, which we can see by running:
 
-```
+```bash
 cat mars.txt
 ```
 
 If we check the status of our project again, Git tells us that it's noticed the new file:
 
-```
+```bash
 git status
 ```
 
 The "untracked files" message means that there's a file in the directory that Git isn't keeping track of. We can tell Git to track a file using `git add`:
 
-```
+```bash
 git add mars.txt
 ```
 
 and then check that the right thing happened:
 
-```
+```bash
 git status
 ```
 
 Git now knows that it's supposed to keep track of `mars.txt`, but it hasn't recorded these changes as a commit yet. To get it to do that, we need to run one more command:
 
-```
+```bash
 git commit -m "Start notes on Mars as a base"
 ```
 
@@ -319,13 +313,13 @@ Good commit messages start with a brief (<50 characters) statement about the cha
 
 If we run `git status` now:
 
-```
+```bash
 git status
 ```
 
 it tells us everything is up to date. If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`:
 
-```
+```bash
 git log
 ```
 
@@ -338,14 +332,14 @@ Now suppose we add more information to the file. (Again, we’ll edit with TextE
 
 Paste the following text into the file:
 
-```
+```bash
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 ```
 
 When we run `git status` now, it tells us that a file it already knows about has been modified:
 
-```
+```bash
 git status
 ```
 
@@ -353,7 +347,7 @@ The last line is the key phrase: "no changes added to commit". We have changed t
 
 So let's do that now. It is good practice to always review our changes before saving them. We do this using `git diff`. This shows us the differences between the current state of the file and the most recently saved version:
 
-```
+```bash
 git diff
 ```
 
@@ -361,13 +355,13 @@ The output is cryptic because it is actually a series of commands for tools like
 
 After reviewing our change, it's time to commit it:
 
-```
+```bash
 git commit -m "Add concerns about effects of Mars' moons on Wolfman"
 ```
 
 Whoops: Git won't commit because we didn't use `git add` first. Let's fix that:
 
-```
+```bash
 git add mars.txt
 git commit -m "Add concerns about effects of Mars' moons on Wolfman"
 ```
