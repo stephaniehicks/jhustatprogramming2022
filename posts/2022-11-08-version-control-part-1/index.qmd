@@ -87,7 +87,7 @@ It allows us to decide which changes will be made to the next version (each reco
 :::
 
 
-::: callout-tip
+::: callout-important
 ### Key Points
 
 1.  Version control is like an unlimited 'undo'.
@@ -228,7 +228,7 @@ But be careful! Running this command in the wrong directory will remove the enti
 :::
 
 
-::: callout-tip
+::: callout-important
 ### Key Points
 
 -   `git init` initializes a repository.
@@ -537,7 +537,7 @@ git commit -m myfile.txt "my recent changes"
 Additional exercises are available on the [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/04-changes/index.html#choosing-a-commit-message) page.
 
 
-::: callout-tip
+::: callout-important
 ### Key Points
 
 -   `git status` shows the status of a repository.
@@ -783,7 +783,7 @@ Try another command, `git diff [ID] mars.txt`, where `[ID]` is replaced with the
 Additional exercises are available on the [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/05-history/index.html#recovering-older-versions-of-a-file) page.
 
 
-::: callout-tip
+::: callout-important
 ### Key Points
 
 `git diff` displays differences between commits.
@@ -792,21 +792,171 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 :::
 
 
-# Post-lecture materials
-
-### Final Questions
-
-Here are some post-lecture questions to help you think about the material discussed.
+# Ignoring Things
 
 ::: callout-note
 ### Questions
 
-1.  Add here.
+-   How can I tell Git to ignore files I don’t want to track?
 :::
 
-### Additional Resources
+
+::: callout-note
+### Objectives
+
+-   Configure Git to ignore specific files.
+
+-   Explain why ignoring files can be useful.
+:::
+
+
+What if we have files that we do not want Git to track for us, like backup files created by our editor or intermediate files created during data analysis? Let's create a few dummy files:
+
+```bash
+mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+```
+
+and see what Git says:
+
+```bash
+git status
+```
+
+Putting these files under version control would be a waste of disk space. What's worse, having them all listed could distract us from changes that actually matter, so let's tell Git to ignore them.
+
+We do this by creating a file in the root directory of our project called `.gitignore`:
+
+```bash
+touch .gitignore
+```
+
+Open the file in TextEdit / Notepad, or alternatively from the command line using `nano`.
+
+Note this is a hidden file (filename beginning with `.`), so you will need to enable Finder / Windows Explorer to show hidden files.
+
+Add the following lines in the `.gitignore` file and save it.
+
+```default
+*.dat
+results/
+```
+
+```bash
+cat .gitignore
+```
+
+These patterns tell Git to ignore any file whose name ends in `.dat` and everything in the `results` directory.
+
+::: callout-warning
+### Adding existing files in `.gitignore`
+
+Note that if any of these files were already being tracked, Git would continue to track them.
+:::
+
+
+Once we have created this file, the output of `git status` is much cleaner:
+
+```bash
+git status
+```
+
+The only thing Git notices now is the newly-created `.gitignore` file. You might think we wouldn't want to track it, but everyone we're sharing our repository with will probably want to ignore the same things that we're ignoring. Let's add and commit `.gitignore`:
+
+```bash
+git add .gitignore
+git commit -m "Ignore data files and the results folder."
+git status
+```
+
+As a bonus, using `.gitignore` helps us avoid accidentally adding files to the repository that we don't want to track:
+
+```bash
+git add a.dat
+```
+
+If we really want to override our ignore settings, we can use `git add -f` to force Git to add something. For example, `git add -f a.dat`. We can also always see the status of ignored files if we want:
+
+```bash
+git status --ignored
+```
+
+
+### Exercises
 
 ::: callout-tip
--   Add here.
+### Ignoring Nested Files
+
+Given a directory structure that looks like:
+
+```default
+results/data
+results/plots
+```
+
+How would you ignore only `results/plots` and not `results/data`?
 :::
+
+
+::: callout-tip
+### Including Specific Files
+
+How would you ignore all `.dat` files in your root directory except for `final.dat`?
+
+Hint: Find out what `!` (the exclamation point operator) does.
+
+The exclamation point operator will include a previously excluded entry.
+:::
+
+
+::: callout-tip
+### Ignoring all data Files in a Directory
+
+Assuming you have an empty `.gitignore` file, and given a directory structure that looks like:
+
+```default
+results/data/position/gps/a.dat
+results/data/position/gps/b.dat
+results/data/position/gps/c.dat
+results/data/position/gps/info.txt
+results/plots
+```
+
+What's the shortest `.gitignore` rule you could write to ignore all `.dat` files in `result/data/position/gps`? Do not ignore the `info.txt`.
+:::
+
+
+::: callout-tip
+### Ignoring all data Files in the repository
+
+Let us assume you have many `.dat` files in different subdirectories of your repository. For example, you might have:
+
+```default
+results/a.dat
+data/experiment_1/b.dat
+data/experiment_2/c.dat
+data/experiment_2/variation_1/d.dat
+```
+
+How do you ignore all the `.dat` files, without explicitly listing the names of the corresponding folders?
+:::
+
+
+Additional exercises are available on the [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/06-ignore/index.html#ignoring-nested-files) page.
+
+
+::: callout-important
+### Key Points
+
+-   The `.gitignore` file tells Git what files to ignore.
+:::
+
+
+# Post-lecture materials
+
+### Preparation for next lesson
+
+In the next lesson, we will learn how to use git remotes and GitHub.
+
+As preparation, you can sign up for a GitHub account if you do not already have one.
 
