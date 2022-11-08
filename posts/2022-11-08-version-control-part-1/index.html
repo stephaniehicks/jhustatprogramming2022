@@ -690,7 +690,7 @@ Objectives
 <p>If we run <code>git status</code> now:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>On branch main</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working tree clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>it tells us everything is up to date. If we want to know what we’ve done recently, we can ask Git to show us the project’s history using <code>git log</code>:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>commit 7c806ef264455022f29ee71a5bc9972fa17b634b (HEAD -&gt; main)
@@ -796,7 +796,7 @@ Staging Area
 <p>check our status:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb54"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>On branch main</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working tree clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and look at the history of what we’ve done so far:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb56"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>commit 5aa34b9344976e2cf37e8f69bfb374a5798921ea (HEAD -&gt; main)</span>
@@ -1220,7 +1220,10 @@ Key Points
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>git diff</code> displays differences between commits. <code>git checkout</code> recovers old versions of files.</p>
+<ul>
+<li><code>git diff</code> displays differences between commits.</li>
+<li><code>git checkout</code> recovers old versions of files.</li>
+</ul>
 </div>
 </div>
 </section>
@@ -1310,7 +1313,7 @@ Adding existing files in <code>.gitignore</code>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ignore data files and the results folder."</span></span>
 <span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb108"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>On branch main</span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>nothing to commit, working tree clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>As a bonus, using <code>.gitignore</code> helps us avoid accidentally adding files to the repository that we don’t want to track:</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add a.dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb110"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>The following paths are ignored by one of your .gitignore files:</span>
@@ -1327,7 +1330,7 @@ Adding existing files in <code>.gitignore</code>
 <span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a>        c.dat</span>
 <span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a>        results/</span>
 <span id="cb112-9"><a href="#cb112-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a>nothing to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a>nothing to commit, working tree clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="exercises-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
