@@ -271,6 +271,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#directories" id="toc-directories" class="nav-link" data-scroll-target="#directories">Directories</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
+  <li><a href="#exploring-history" id="toc-exploring-history" class="nav-link" data-scroll-target="#exploring-history">Exploring History</a>
+  <ul class="collapse">
+  <li><a href="#restoring-older-versions" id="toc-restoring-older-versions" class="nav-link" data-scroll-target="#restoring-older-versions">Restoring older versions</a></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises</a></li>
+  </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
   <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
@@ -385,7 +390,7 @@ Terminology
 </ol>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -509,7 +514,7 @@ Correcting <code>git init</code> Mistakes
 <p>But be careful! Running this command in the wrong directory will remove the entire Git history of a project you might want to keep. Therefore, always check your current directory using the command <code>pwd</code>.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -737,6 +742,207 @@ Key Points
 <li><p><code>git commit</code> saves the staged content as a new commit in the local repository.</p></li>
 <li><p>Write a commit message that accurately describes your changes.</p></li>
 </ul>
+</div>
+</div>
+</section>
+</section>
+<section id="exploring-history" class="level1">
+<h1>Exploring History</h1>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>How can I identify old versions of files?</p></li>
+<li><p>How do I review my changes?</p></li>
+<li><p>How can I recover old versions of files?</p></li>
+</ul>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Explain what the HEAD of a repository is and how to use it.</p></li>
+<li><p>Identify and use Git commit numbers.</p></li>
+<li><p>Compare various versions of tracked files.</p></li>
+<li><p>Restore old versions of files.</p></li>
+</ul>
+</div>
+</div>
+<p>As we saw in the previous episode, we can refer to commits by their identifiers. You can refer to the <em>most recent commit</em> of the working directory by using the identifier <code>HEAD</code>.</p>
+<p>Let’s make a change to mars.txt, adding yet another line.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+An ill-considered change</code></pre>
+<p>Now, let’s see what we get.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>which is the same as what you would get if you leave out <code>HEAD</code> (try it).</p>
+<p>You can refer to previous commits by adding <code>~1</code> (where “~” is “tilde”) to refer to the commit one before <code>HEAD</code>.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If we want to see the differences between older commits we can use <code>git diff</code> again, but with the notation <code>HEAD~1</code>, <code>HEAD~2</code>, and so on, to refer to them:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~3 mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We could also use <code>git show</code> which shows us what changes we made at an older commit as well as the commit message, rather than the differences between a commit and our working directory that we see by using <code>git diff</code>.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show HEAD~3 mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this way, we can build up a chain of commits. The most recent end of the chain is referred to as <code>HEAD</code>; we can refer to previous commits using the <code>~</code> notation, so <code>HEAD~1</code> means “the previous commit”.</p>
+<p>We can also refer to commits using those long strings of digits and letters that <code>git log</code> displays. These are unique IDs for the changes, and “unique” really does mean unique: every change to any set of files on any computer has a unique 40-character identifier. Our first commit was given the ID <code>f22b25e3233b4645dabd0d81e651fe074bd8e73b</code>, so let’s try this:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff f22b25e3233b4645dabd0d81e651fe074bd8e73b mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Git lets us use just the first few characters (typically seven):</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff f22b25e mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="restoring-older-versions" class="level3">
+<h3 class="anchored" data-anchor-id="restoring-older-versions">Restoring older versions</h3>
+<p>All right! So we can save changes to files and see what we’ve changed.</p>
+<p>Now, how can we restore older versions of things? Let’s suppose we change our mind about the last update to <code>mars.txt</code>.</p>
+<p><code>git status</code> now tells us that the file has been changed, but those changes haven’t been staged:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can put things back the way they were by using <code>git checkout</code>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout HEAD mars.txt</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As you might guess from its name, <code>git checkout</code> checks out (i.e., restores) an old version of a file. In this case, we’re telling Git that we want to recover the version of the file recorded in <code>HEAD</code>, which is the last saved commit.</p>
+<p>If we want to go back even further, we can use a commit identifier instead:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout f22b25e mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice that the changes are currently in the staging area. Again, we can put things back the way they were by using git checkout:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout HEAD mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Don’t Lose Your HEAD
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Above we used</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout f22b25e mars.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to revert <code>mars.txt</code> to its state after the commit <code>f22b25e</code>.</p>
+<p>But be careful! The command <code>checkout</code> has other important functionalities and Git will misunderstand your intentions if you are not accurate with the typing.</p>
+<p>For example, if you forget <code>mars.txt</code> in the previous command.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout f22b25e</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The “detached HEAD” state lets you look around without the repository without making any changes, so you shouldn’t make any changes in this state. After investigating your repository’s past state, reattach your <code>HEAD</code> with <code>git checkout main</code>.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Sequence of commits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s important to remember that we must use the commit number that identifies the state of the repository <em>before</em> the change we’re trying to undo. A common mistake is to use the number of the commit in which we made the change we’re trying to discard.</p>
+</div>
+</div>
+<p>For some additional visualizations, see the <a href="https://swcarpentry.github.io/git-novice/05-history/index.html#dont-lose-your-head">Software Carpentry: Version Control with Git</a> page.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Simplifying the Common Case
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you read the output of git status carefully, you’ll see that it includes this hint:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>(use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As it says, <code>git checkout</code> without a version identifier restores files to the state saved in <code>HEAD.</code> The double dash <code>--</code> is needed to separate the names of the files being recovered from the command itself: without it, Git would try to use the name of the file as the commit identifier.</p>
+</div>
+</div>
+<p>The fact that files can be reverted one by one tends to change the way people organize their work. If everything is in one large document, it’s hard (but not impossible) to undo changes to the introduction without also undoing changes made later to the conclusion. If the introduction and conclusion are stored in separate files, on the other hand, moving backward and forward in time becomes much easier.</p>
+</section>
+<section id="exercises-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Recovering Older Versions of a File
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jennifer has made changes to the R script that she has been working on for weeks, and the modifications she made this morning “broke” the script and it no longer runs. She has spent ~ 1hr trying to fix it, with no luck…</p>
+<p>Luckily, she has been keeping track of her project’s versions using Git! Which commands below will let her recover the last committed version of her R script called <code>data_cruncher.R</code>?</p>
+<ol type="1">
+<li><p><code>git checkout HEAD</code></p></li>
+<li><p><code>git checkout HEAD data_cruncher.R</code></p></li>
+<li><p><code>git checkout HEAD~1 data_cruncher.R</code></p></li>
+<li><p><code>git checkout &lt;unique ID of last commit&gt; data_cruncher.R</code></p></li>
+<li><p>Both 2 and 4</p></li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Reverting a Commit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jennifer is collaborating with colleagues on her R script. She realizes her last commit to the project’s repository contained an error, and wants to undo it. Jennifer wants to undo correctly so everyone in the project’s repository gets the correct change. The command <code>git revert [erroneous commit ID]</code> will create a new commit that reverses the erroneous commit.</p>
+<p>The command <code>git revert</code> is different from <code>git checkout [commit ID]</code> because <code>git checkout</code> returns the files not yet committed within the local repository to a previous state, whereas git revert reverses changes committed to the local and project repositories.</p>
+<p>Below are the right steps and explanations for Jennifer to use <code>git revert</code>, what is the missing command?</p>
+<ol type="1">
+<li><p><code>________ # Look at the git history of the project to find the commit ID</code></p></li>
+<li><p>Copy the ID (the first few characters of the ID, e.g.&nbsp;<code>0b1d055</code>).</p></li>
+<li><p><code>git revert [commit ID]</code></p></li>
+<li><p>Type in the new commit message.</p></li>
+<li><p>Save and close</p></li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Checking Understanding of <code>git diff</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider this command: <code>git diff HEAD~9 mars.txt</code>. What do you predict this command will do if you execute it? What happens when you do execute it? Why?</p>
+<p>Try another command, <code>git diff [ID] mars.txt</code>, where <code>[ID]</code> is replaced with the unique identifier for your most recent commit. What do you think will happen, and what does happen?</p>
+</div>
+</div>
+<p>Additional exercises are available on the <a href="https://swcarpentry.github.io/git-novice/05-history/index.html#recovering-older-versions-of-a-file">Software Carpentry: Version Control with Git</a> page.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>git diff</code> displays differences between commits.</p>
+<p><code>git checkout</code> recovers old versions of files.</p>
 </div>
 </div>
 </section>
