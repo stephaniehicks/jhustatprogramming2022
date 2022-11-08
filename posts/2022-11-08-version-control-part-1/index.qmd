@@ -41,12 +41,9 @@ Material for this lecture was borrowed and adopted from
 **At the end of this lesson you will:**
 
 -   Understand the benefits of an automated version control system.
--   Understand the basics of how automated version control systems work.
--   Configure git the first time it is used on a computer.
--   Create a local git repository.
--   Describe the purpose of the `.git` directory.
--   Understand the modify-add-commit cycle for files.
--   Distinguish between descriptive and non-descriptive commit messages.
+-   Understand how to set up git.
+-   Understand how to set up a git repository.
+-   Understand how to track changes, explore history, and ignore files in a git repository.
 :::
 
 
@@ -56,6 +53,14 @@ Material for this lecture was borrowed and adopted from
 ### Questions
 
 -   What is version control and why should I use it?
+:::
+
+
+::: callout-note
+### Objectives
+
+-   Understand the benefits of an automated version control system.
+-   Understand the basics of how automated version control systems work.
 :::
 
 
@@ -79,19 +84,19 @@ A version control system is a tool that keeps track of these changes for us, eff
 It allows us to decide which changes will be made to the next version (each record of these changes is called a commit), and keeps useful metadata about them. The complete history of commits for a particular project and their metadata make up a repository. Repositories can be kept in sync across different computers, facilitating collaboration among different people.
 
 
-::: callout-note
+::: callout-tip
 ### Terminology
 
-1.  `commit`: a record of each set of changes in a document or file
-2.  `repository`: the complete history of commits for a particular project and their metadata
+-   `commit`: a record of each set of changes in a document or file
+-   `repository`: the complete history of commits for a particular project and their metadata
 :::
 
 
 ::: callout-important
 ### Key Points
 
-1.  Version control is like an unlimited 'undo'.
-2.  Version control also allows many people to work in parallel.
+-   Version control is like an unlimited 'undo'.
+-   Version control also allows many people to work in parallel.
 :::
 
 
@@ -101,6 +106,14 @@ It allows us to decide which changes will be made to the next version (each reco
 ### Questions
 
 -   How do I get set up to use Git?
+:::
+
+
+::: callout-note
+### Objectives
+
+-   Configure `git` the first time it is used on a computer.
+-   Understand the meaning of the `--global` configuration flag.
 :::
 
 
@@ -133,7 +146,7 @@ $ git config --list
 ```
 
 
-::: callout-note
+::: callout-tip
 ### Git Help and Manual
 
 If you forget the options of a `git` command, you can type `git <command> -h` or access the corresponding Git manual by typing `git <command> --help`, e.g.:
@@ -156,12 +169,27 @@ $ git help
 Note that we will omit the `$` from shell commands shown from here onwards to make it easier to run them interactively in this tutorial.
 
 
+::: callout-important
+### Key Points
+
+-   Use `git config` with the `--global` option to configure a user name, email address, editor, and other preferences once per machine.
+:::
+
+
 # Creating a Repository
 
 ::: callout-note
 ### Questions
 
 -   Where does Git store information?
+:::
+
+
+::: callout-note
+### Objectives
+
+-   Create a local Git repository.
+-   Describe the purpose of the `.git` directory.
 :::
 
 
@@ -244,6 +272,14 @@ But be careful! Running this command in the wrong directory will remove the enti
 -   How do I record changes in Git?
 -   How do I check the status of my version control repository?
 -   How do I record notes about what changes I made and why?
+:::
+
+
+::: callout-note
+### Objectives
+-   Go through the modify-add-commit cycle for one or more files.
+-   Explain where information is stored at each stage of that cycle.
+-   Distinguish between descriptive and non-descriptive commit messages.
 :::
 
 
@@ -541,13 +577,9 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ### Key Points
 
 -   `git status` shows the status of a repository.
-
 -   Files can be stored in a project's working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).
-
 -   `git add` puts files in the staging area.
-
 -   `git commit` saves the staged content as a new commit in the local repository.
-
 -   Write a commit message that accurately describes your changes.
 :::
 
@@ -558,9 +590,7 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ### Questions
 
 - How can I identify old versions of files?
-
 - How do I review my changes?
-
 - How can I recover old versions of files?
 :::
 
@@ -569,11 +599,8 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ### Objectives
 
 - Explain what the HEAD of a repository is and how to use it.
-
 - Identify and use Git commit numbers.
-
 - Compare various versions of tracked files.
-
 - Restore old versions of files.
 :::
 
@@ -739,13 +766,9 @@ Jennifer has made changes to the R script that she has been working on for weeks
 Luckily, she has been keeping track of her project's versions using Git! Which commands below will let her recover the last committed version of her R script called `data_cruncher.R`?
 
 1.    `git checkout HEAD`
-
 2.    `git checkout HEAD data_cruncher.R`
-
 3.    `git checkout HEAD~1 data_cruncher.R`
-
 4.    `git checkout <unique ID of last commit> data_cruncher.R`
-
 5.    Both 2 and 4
 :::
 
@@ -760,13 +783,9 @@ The command `git revert` is different from `git checkout [commit ID]` because `g
 Below are the right steps and explanations for Jennifer to use `git revert`, what is the missing command?
 
 1.    `________ # Look at the git history of the project to find the commit ID`
-
 2.    Copy the ID (the first few characters of the ID, e.g. `0b1d055`).
-
 3.    `git revert [commit ID]`
-
 4.    Type in the new commit message.
-
 5.    Save and close
 :::
 
@@ -787,7 +806,6 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ### Key Points
 
 `git diff` displays differences between commits.
-
 `git checkout` recovers old versions of files.
 :::
 
@@ -805,7 +823,6 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ### Objectives
 
 -   Configure Git to ignore specific files.
-
 -   Explain why ignoring files can be useful.
 :::
 
