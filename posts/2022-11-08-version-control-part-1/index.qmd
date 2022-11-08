@@ -421,7 +421,7 @@ git status
 
 ```default
 On branch main
-nothing to commit, working directory clean
+nothing to commit, working tree clean
 ```
 
 it tells us everything is up to date. If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`:
@@ -607,7 +607,7 @@ git status
 
 ```default
 On branch main
-nothing to commit, working directory clean
+nothing to commit, working tree clean
 ```
 
 and look at the history of what we've done so far:
@@ -1118,8 +1118,8 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 ::: callout-important
 ### Key Points
 
-`git diff` displays differences between commits.
-`git checkout` recovers old versions of files.
+-   `git diff` displays differences between commits.
+-   `git checkout` recovers old versions of files.
 :::
 
 
@@ -1224,7 +1224,7 @@ git status
 
 ```default
 On branch main
-nothing to commit, working directory clean
+nothing to commit, working tree clean
 ```
 
 As a bonus, using `.gitignore` helps us avoid accidentally adding files to the repository that we don't want to track:
@@ -1255,7 +1255,7 @@ Ignored files:
         c.dat
         results/
 
-nothing to commit, working directory clean
+nothing to commit, working tree clean
 ```
 
 
