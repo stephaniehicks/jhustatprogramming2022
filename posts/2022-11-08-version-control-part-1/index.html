@@ -340,12 +340,9 @@ Learning objectives
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
 <li>Understand the benefits of an automated version control system.</li>
-<li>Understand the basics of how automated version control systems work.</li>
-<li>Configure git the first time it is used on a computer.</li>
-<li>Create a local git repository.</li>
-<li>Describe the purpose of the <code>.git</code> directory.</li>
-<li>Understand the modify-add-commit cycle for files.</li>
-<li>Distinguish between descriptive and non-descriptive commit messages.</li>
+<li>Understand how to set up git.</li>
+<li>Understand how to set up a git repository.</li>
+<li>Understand how to track changes, explore history, and ignore files in a git repository.</li>
 </ul>
 </div>
 </div>
@@ -367,6 +364,22 @@ Questions
 </ul>
 </div>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Understand the benefits of an automated version control system.</li>
+<li>Understand the basics of how automated version control systems work.</li>
+</ul>
+</div>
+</div>
 <p>We’ll start by exploring how version control can be used to keep track of what one person did and when.</p>
 <p>For a nice illustration, we will refer to the <a href="https://swcarpentry.github.io/git-novice/01-basics/index.html">Software Carpentry: Version Control with Git</a> lesson materials.</p>
 <section id="overview" class="level3">
@@ -377,7 +390,7 @@ Questions
 <p>Unless multiple users make changes to the same section of the document - a conflict - you can incorporate two sets of changes into the same base document.</p>
 <p>A version control system is a tool that keeps track of these changes for us, effectively creating different versions of our files.</p>
 <p>It allows us to decide which changes will be made to the next version (each record of these changes is called a commit), and keeps useful metadata about them. The complete history of commits for a particular project and their metadata make up a repository. Repositories can be kept in sync across different computers, facilitating collaboration among different people.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -387,10 +400,10 @@ Terminology
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
+<ul>
 <li><code>commit</code>: a record of each set of changes in a document or file</li>
 <li><code>repository</code>: the complete history of commits for a particular project and their metadata</li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -403,10 +416,10 @@ Key Points
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
+<ul>
 <li>Version control is like an unlimited ‘undo’.</li>
 <li>Version control also allows many people to work in parallel.</li>
-</ol>
+</ul>
 </div>
 </div>
 </section>
@@ -428,6 +441,22 @@ Questions
 </ul>
 </div>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Configure <code>git</code> the first time it is used on a computer.</li>
+<li>Understand the meaning of the <code>--global</code> configuration flag.</li>
+</ul>
+</div>
+</div>
 <p>When we use Git on a new computer for the first time, we need to configure a few things:</p>
 <ul>
 <li>our name and email address</li>
@@ -444,7 +473,7 @@ Questions
 <h3 class="anchored" data-anchor-id="check-settings">Check settings</h3>
 <p>You can check your settings at any time:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -463,6 +492,21 @@ Git Help and Manual
 </div>
 </div>
 <p>Note that we will omit the <code>$</code> from shell commands shown from here onwards to make it easier to run them interactively in this tutorial.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Use <code>git config</code> with the <code>--global</code> option to configure a user name, email address, editor, and other preferences once per machine.</li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="creating-a-repository" class="level1">
@@ -479,6 +523,22 @@ Questions
 <div class="callout-body-container callout-body">
 <ul>
 <li>Where does Git store information?</li>
+</ul>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Create a local Git repository.</li>
+<li>Describe the purpose of the <code>.git</code> directory.</li>
 </ul>
 </div>
 </div>
@@ -550,6 +610,23 @@ Questions
 <li>How do I record changes in Git?</li>
 <li>How do I check the status of my version control repository?</li>
 <li>How do I record notes about what changes I made and why?</li>
+</ul>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Go through the modify-add-commit cycle for one or more files.</li>
+<li>Explain where information is stored at each stage of that cycle.</li>
+<li>Distinguish between descriptive and non-descriptive commit messages.</li>
 </ul>
 </div>
 </div>
@@ -739,11 +816,11 @@ Key Points
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><code>git status</code> shows the status of a repository.</p></li>
-<li><p>Files can be stored in a project’s working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).</p></li>
-<li><p><code>git add</code> puts files in the staging area.</p></li>
-<li><p><code>git commit</code> saves the staged content as a new commit in the local repository.</p></li>
-<li><p>Write a commit message that accurately describes your changes.</p></li>
+<li><code>git status</code> shows the status of a repository.</li>
+<li>Files can be stored in a project’s working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).</li>
+<li><code>git add</code> puts files in the staging area.</li>
+<li><code>git commit</code> saves the staged content as a new commit in the local repository.</li>
+<li>Write a commit message that accurately describes your changes.</li>
 </ul>
 </div>
 </div>
@@ -762,9 +839,9 @@ Questions
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>How can I identify old versions of files?</p></li>
-<li><p>How do I review my changes?</p></li>
-<li><p>How can I recover old versions of files?</p></li>
+<li>How can I identify old versions of files?</li>
+<li>How do I review my changes?</li>
+<li>How can I recover old versions of files?</li>
 </ul>
 </div>
 </div>
@@ -779,10 +856,10 @@ Objectives
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Explain what the HEAD of a repository is and how to use it.</p></li>
-<li><p>Identify and use Git commit numbers.</p></li>
-<li><p>Compare various versions of tracked files.</p></li>
-<li><p>Restore old versions of files.</p></li>
+<li>Explain what the HEAD of a repository is and how to use it.</li>
+<li>Identify and use Git commit numbers.</li>
+<li>Compare various versions of tracked files.</li>
+<li>Restore old versions of files.</li>
 </ul>
 </div>
 </div>
@@ -889,11 +966,11 @@ Recovering Older Versions of a File
 <p>Jennifer has made changes to the R script that she has been working on for weeks, and the modifications she made this morning “broke” the script and it no longer runs. She has spent ~ 1hr trying to fix it, with no luck…</p>
 <p>Luckily, she has been keeping track of her project’s versions using Git! Which commands below will let her recover the last committed version of her R script called <code>data_cruncher.R</code>?</p>
 <ol type="1">
-<li><p><code>git checkout HEAD</code></p></li>
-<li><p><code>git checkout HEAD data_cruncher.R</code></p></li>
-<li><p><code>git checkout HEAD~1 data_cruncher.R</code></p></li>
-<li><p><code>git checkout &lt;unique ID of last commit&gt; data_cruncher.R</code></p></li>
-<li><p>Both 2 and 4</p></li>
+<li><code>git checkout HEAD</code></li>
+<li><code>git checkout HEAD data_cruncher.R</code></li>
+<li><code>git checkout HEAD~1 data_cruncher.R</code></li>
+<li><code>git checkout &lt;unique ID of last commit&gt; data_cruncher.R</code></li>
+<li>Both 2 and 4</li>
 </ol>
 </div>
 </div>
@@ -911,11 +988,11 @@ Reverting a Commit
 <p>The command <code>git revert</code> is different from <code>git checkout [commit ID]</code> because <code>git checkout</code> returns the files not yet committed within the local repository to a previous state, whereas git revert reverses changes committed to the local and project repositories.</p>
 <p>Below are the right steps and explanations for Jennifer to use <code>git revert</code>, what is the missing command?</p>
 <ol type="1">
-<li><p><code>________ # Look at the git history of the project to find the commit ID</code></p></li>
-<li><p>Copy the ID (the first few characters of the ID, e.g.&nbsp;<code>0b1d055</code>).</p></li>
-<li><p><code>git revert [commit ID]</code></p></li>
-<li><p>Type in the new commit message.</p></li>
-<li><p>Save and close</p></li>
+<li><code>________ # Look at the git history of the project to find the commit ID</code></li>
+<li>Copy the ID (the first few characters of the ID, e.g.&nbsp;<code>0b1d055</code>).</li>
+<li><code>git revert [commit ID]</code></li>
+<li>Type in the new commit message.</li>
+<li>Save and close</li>
 </ol>
 </div>
 </div>
@@ -944,8 +1021,7 @@ Key Points
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>git diff</code> displays differences between commits.</p>
-<p><code>git checkout</code> recovers old versions of files.</p>
+<p><code>git diff</code> displays differences between commits. <code>git checkout</code> recovers old versions of files.</p>
 </div>
 </div>
 </section>
@@ -978,8 +1054,8 @@ Objectives
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Configure Git to ignore specific files.</p></li>
-<li><p>Explain why ignoring files can be useful.</p></li>
+<li>Configure Git to ignore specific files.</li>
+<li>Explain why ignoring files can be useful.</li>
 </ul>
 </div>
 </div>
