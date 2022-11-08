@@ -8,15 +8,9 @@ author:
 description: "Introduction to version control with git and GitHub (part 1)"
 date: 2022-11-08
 categories: [module 1, week 3, version control, git, GitHub]
+engine: knitr
 ---
 
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-library(tidyverse)
-```
 
 ```{bash}
 pwd
