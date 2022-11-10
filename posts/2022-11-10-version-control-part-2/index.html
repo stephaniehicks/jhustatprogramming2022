@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lukas Weber">
 <meta name="dcterms.date" content="2022-11-10">
-<meta name="description" content="Introduction to version control with git and GitHub (part 1)">
+<meta name="description" content="Introduction to version control with git and GitHub (part 2)">
 
 <title>Statistical Programming Paradigms and Workflows (BSPH 140.840) - Version control (Part 2)</title>
 <style>
@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -138,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       <h1 class="title">Version control (Part 2)</h1>
                   <div>
         <div class="description">
-          Introduction to version control with git and GitHub (part 1)
+          Introduction to version control with git and GitHub (part 2)
         </div>
       </div>
                           <div class="quarto-categories">
@@ -160,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
-              Department of Biostatistics, Johns Hopkins
+              Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
             </p>
         </div>
       </div>
@@ -187,15 +250,14 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#pre-lecture-materials" id="toc-pre-lecture-materials" class="nav-link active" data-scroll-target="#pre-lecture-materials">Pre-lecture materials</a>
   <ul class="collapse">
-  <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#add-lecture-here" id="toc-add-lecture-here" class="nav-link" data-scroll-target="#add-lecture-here">Add lecture here</a></li>
-  <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
+  <li><a href="#remotes-in-github" id="toc-remotes-in-github" class="nav-link" data-scroll-target="#remotes-in-github">Remotes in GitHub</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#create-a-remote-repository" id="toc-create-a-remote-repository" class="nav-link" data-scroll-target="#create-a-remote-repository">Create a remote repository</a></li>
+  <li><a href="#connect-local-to-remote-repository" id="toc-connect-local-to-remote-repository" class="nav-link" data-scroll-target="#connect-local-to-remote-repository">Connect local to remote repository</a></li>
+  <li><a href="#ssh-background-and-setup" id="toc-ssh-background-and-setup" class="nav-link" data-scroll-target="#ssh-background-and-setup">SSH Background and Setup</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -209,11 +271,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<!-- Add interesting quote -->
 <section id="pre-lecture-materials" class="level1">
 <h1>Pre-lecture materials</h1>
-<section id="read-ahead" class="level3">
-<h3 class="anchored" data-anchor-id="read-ahead">Read ahead</h3>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -225,18 +284,31 @@ Read ahead
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
-<ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
-</ol>
+<ul>
+<li><a href="https://swcarpentry.github.io/git-novice/">Software Carpentry: Version Control with Git</a></li>
+</ul>
 </div>
 </div>
-</section>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Read ahead
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the previous lesson, we learned how to use git from the command line.</p>
+<p>In this lesson, we will learn how to use git remotes and GitHub. As preparation, you can sign up for a GitHub account if you do not already have one.</p>
+<p>We will use the local git repository in the <code>planets</code> directory that we created in the previous lesson. If you do not have this any more, please create it by initializing the git repository and adding the set of git commits from the previous lesson.</p>
+</div>
+</div>
 <section id="acknowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li>Add here.</li>
+<li><a href="https://swcarpentry.github.io/git-novice/">Software Carpentry: Version Control with Git</a></li>
 </ul>
 </section>
 </section>
@@ -254,19 +326,14 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>Understand git remotes.</li>
+<li>Understand how to use GitHub.</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="add-lecture-here" class="level1">
-<h1>Add lecture here</h1>
-</section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<section id="remotes-in-github" class="level1">
+<h1>Remotes in GitHub</h1>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -277,29 +344,88 @@ Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
+<ul>
+<li>How do I share my changes with others on the web?</li>
+</ul>
 </div>
 </div>
-</section>
-<section id="additional-resources" class="level3">
-<h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li>Explain what remote repositories are and why they are useful.</li>
+<li>Push to or pull from a remote repository.</li>
 </ul>
 </div>
 </div>
+<p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
+<p>Systems like Git allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like GitHub to hold those main copies.</p>
+<p>Let’s start by sharing the changes we’ve made to our current project (in the previous lesson) with the world. To this end we are going to create a <em>remote</em> repository that will be linked to our local repository.</p>
+<section id="create-a-remote-repository" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-remote-repository">Create a remote repository</h2>
+<p>Log in to GitHub, then click on the icon in the top right corner to create a new repository called <code>planets</code>.</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#1-create-a-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>Name your repository “planets” and then click “Create Repository”.</p>
+<p>Note: Since this repository will be connected to a local repository, it needs to be empty. Leave “Initialize this repository with a README” unchecked, and keep “None” as options for both “Add .gitignore” and “Add a license.” See the “GitHub License and README files” exercise in the Software Carpentry materials for a full explanation of why the repository needs to be empty.</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#1-create-a-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>As soon as the repository is created, GitHub displays a page with a URL and some information on how to configure your local repository</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#1-create-a-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>This effectively does the following on GitHub’s servers:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> planets</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> planets</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you remember back to the earlier lesson where we added and committed our earlier work on <code>mars.txt</code>, we had a diagram of the local repository which looked like this:</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#1-create-a-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>Now that we have two repositories, we need a diagram like this:</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#1-create-a-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>Note that our local repository still contains our earlier work on <code>mars.txt</code>, but the remote repository on GitHub appears empty as it doesn’t contain any files yet.</p>
+<p>Check that we still have our history of commits in the git repository from the previous lesson:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Desktop/planets</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c687412 (HEAD -&gt; main) Ignore data files and the results folder.</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>1507c2a Add some initial thoughts on spaceships</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ad5b7d1 Discuss concerns about Mars' climate for Mummy</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>75a0e21 Add concerns about effects of Mars' moons on Wolfman</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cf69058 Start notes on Mars as a base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="connect-local-to-remote-repository" class="level2">
+<h2 class="anchored" data-anchor-id="connect-local-to-remote-repository">Connect local to remote repository</h2>
+<p>Now we connect the two repositories. We do this by making the GitHub repository a “remote” for the local repository. The home page of the repository on GitHub includes the URL string we need to identify it:</p>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#2-connect-local-to-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>Click on the ‘SSH’ link to change the protocol from HTTPS to SSH.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+HTTPS vs.&nbsp;SSH
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We use SSH here because, while it requires some additional configuration, it is a security protocol widely used by many applications. The steps below describe SSH at a minimum level for GitHub. A supplemental lesson in the Software Carpentry materials discusses advanced setup and concepts of SSH and key pairs, and other material supplemental to git related SSH.</p>
+</div>
+</div>
+<p>(See <a href="https://swcarpentry.github.io/git-novice/07-github/index.html#2-connect-local-to-remote-repository">screenshots</a> on the Software Carpentry website.)</p>
+<p>Copy that URL from the browser, go into the local <code>planets</code> repository, and run this command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:<span class="op">&lt;</span>username<span class="op">&gt;</span>/planets.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Make sure to use the URL for your repository, i.e.&nbsp;your username.</p>
+<p><code>origin</code> is a local name used to refer to the remote repository. It could be called anything, but <code>origin</code> is a convention that is often used by default in git and GitHub, so it’s helpful to stick with this unless there’s a reason not to.</p>
+<p>We can check that the command has worked by running <code>git remote -v</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>origin   git@github.com:lmweber/planets.git (fetch)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>origin   git@github.com:lmweber/planets.git (push)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We’ll discuss remotes in more detail in the next section, while talking about how they might be used for collaboration.</p>
+</section>
+<section id="ssh-background-and-setup" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-background-and-setup">SSH Background and Setup</h2>
 
 
 </section>
