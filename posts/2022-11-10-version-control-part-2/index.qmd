@@ -3,61 +3,54 @@ title: "Version control (Part 2)"
 author: 
   - name: Lukas Weber
     url: https://lmweber.org
-    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation: Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
     affiliation_url: https://publichealth.jhu.edu
-description: "Introduction to version control with git and GitHub (part 1)"
+description: "Introduction to version control with git and GitHub (part 2)"
 date: 2022-11-10
-draft: true
 categories: [module 1, week 3, version control, git, GitHub]
 ---
 
-<!-- Add interesting quote -->
 
 # Pre-lecture materials
-
-### Read ahead
 
 ::: callout-note
 ## Read ahead
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+-   [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/)
 :::
+
+
+::: callout-note
+## Read ahead
+
+In the previous lesson, we learned how to use git from the command line.
+
+In this lesson, we will learn how to use git remotes and GitHub. As preparation, you can sign up for a GitHub account if you do not already have one.
+:::
+
 
 ### Acknowledgements
 
 Material for this lecture was borrowed and adopted from
 
--   Add here.
+-   [Software Carpentry: Version Control with Git](https://swcarpentry.github.io/git-novice/)
+
 
 # Learning objectives
+
 
 ::: callout-note
 # Learning objectives
 
 **At the end of this lesson you will:**
 
--   Add here.
+-   Understand git remotes.
+-   Understand how to use GitHub.
 :::
 
-# Add lecture here
 
-# Post-lecture materials
+# Remotes in GitHub
 
-### Final Questions
 
-Here are some post-lecture questions to help you think about the material discussed.
-
-::: callout-note
-### Questions
-
-1.  Add here.
-:::
-
-### Additional Resources
-
-::: callout-tip
--   Add here.
-:::
