@@ -1333,7 +1333,5 @@ Additional exercises are available on the [Software Carpentry: Version Control w
 
 ### Preparation for next lesson
 
-In the next lesson, we will learn how to use git remotes and GitHub.
-
-As preparation, you can sign up for a GitHub account if you do not already have one.
+In the next lesson, we will learn how to use git remotes and GitHub. As preparation, you can sign up for a GitHub account if you do not already have one.
 
