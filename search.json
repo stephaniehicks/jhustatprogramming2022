@@ -319,14 +319,14 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction [syllabus]\n🌴 Project 1 [html] [Qmd]\n\n\n\n\n\nBuilding websites with quarto [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nIntroduction to the command-line [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nMore advanced command-line tools [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control [html] [Qmd]\n🌴 Project 2\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with targets\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nPython and R with reticulate\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
+    "text": "For Rmd files, go to the course GitHub repository and navigate the directories, or best of all to clone the repo and navigate within RStudio.\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDates\nTopics\nProjects\n\n\n\n\n\nModule 1\n\nStatistical programming at the command-line\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\nOct 27\nCourse introduction [syllabus]\n🌴 Project 1 [html] [Qmd]\n\n\n\n\n\nBuilding websites with quarto [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\nNov 1\nIntroduction to the command-line [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\n\nNov 3\nMore advanced command-line tools [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\nNov 8\nVersion control (git) [html] [Qmd]\n🌴 Project 2 [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\nNov 10\nVersion control (GitHub) [html] [Qmd]\n\n\n\n\n\n\n\n\n\n\n\n\nNov 11\n\n🍂 Project 1 due\n\n\n\n\n\n\n\n\n\n\nModule 2\n\nR software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\nNov 15\nObject Oriented Programming\n\n\n\n\n\n\n\n\n\n\n\n\nNov 17\nR package software development\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\nNov 22\nR package software development\n🌴 Project 3\n\n\n\n\n\n\n\n\n\n\n\nNov 24\n🦃 No lecture, enjoy the break!\n\n\n\n\n\n\n\n\n\n\n\n\nNov 25\n\n🍂 Project 2 due\n\n\n\n\n\n\n\n\n\n\nModule 3\n\nAdvanced programming paradigms\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\nNov 29\nFunctional programming with purrr\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1\nProject management with targets\n\n\n\n\n\n\nPackage website with pkgdown\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\nDec 6\nAdvanced ggplot2\n🌴 Project 4\n\n\n\n\n\n\n\n\n\n\n\nDec 8\nPython and R with reticulate\n\n\n\n\n\n\n\n\n\n\n\n\nDec 9\n\n🍂 Project 3 due\n\n\n\n\n\n\n\n\n\n\nModule 4\n\nInteractive web apps and dashboards\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\nDec 13\nBuilding dashboards with flexdashboard\n\n\n\n\n\n\n\n\n\n\n\n\nDec 15\nBuilding dashboards with shinydashboard\n\n\n\n\n\n\n\n\n\n\n\nModule 5\n\nDealing with “big” data\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\nDec 20\nProfiling R code\n\n\n\n\n\n\nStrategies for dealing with large data\n\n\n\n\n\n\nParallel computing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 22\nRelational databases and SQL basics\n\n\n\n\n\n\nInteracting with APIs to databases\n\n\n\n\n\n\n\n\n\n\n\n\nDec 23\n\n🍂 Project 4 due"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "project 1\n\n\nprojects\n\n\n\n\nBuilding a website and practicing with command-line tools\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
+    "text": "project 2\n\n\nprojects\n\n\n\n\nBuilding an R package and practicing with S3\n\n\n\n\n\n\nNov 8, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nproject 1\n\n\nprojects\n\n\n\n\nBuilding a website and practicing with command-line tools\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -446,6 +446,69 @@
     "title": "Syllabus",
     "section": "Typos and corrections",
     "text": "Typos and corrections\nFeel free to submit typos/errors/etc via the github repository associated with the class: https://github.com/stephaniehicks/jhustatprogramming2022. You will have the thanks of your grateful instructor!"
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html",
+    "href": "projects/2022-11-08-project-2/index.html",
+    "title": "Project 2",
+    "section": "",
+    "text": "Due date: November 25 at 11:59pm\nThe goal of this homework is to write a set of functions and put them into an R package so that other people can easily use the functions in their own data analyses after installing the package. In addition, they would receive documentation on how to use the functions.\nIn addition to building the R package, you will also build a S3 class for your package, and create a vignette where you demonstrate the functions in your R package with an example dataset from TidyTuesday.\nFinally, we will practice our command-line and version control skills by submitting the assignment through GitHub Classroom.\n\n\n\nThe link to create a private GitHub repository for yourself to complete Project 2 will be posted in CoursePlus (Note: this creates an empty repository and you need to push your code in your locate remote repository to GitHub when ready).\nBuild your R package locally and then push the files to the private Github repository that you created for yourself via GitHub Classroom.\nThe TA will grade the R package by cloning the repository, installing it, and checking for all the things described below. It must be installable without any errors."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-1a-cosine-and-sine-transformation",
+    "href": "projects/2022-11-08-project-2/index.html#part-1a-cosine-and-sine-transformation",
+    "title": "Project 2",
+    "section": "Part 1A: Cosine and sine transformation",
+    "text": "Part 1A: Cosine and sine transformation\nThe cosine and sine of a number can be written as an infinite series expansion of the form\n\\[\n\\cos(x) = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\frac{x^6}{6!}  \\cdots\n\\]\n\\[\n\\sin(x) = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} \\cdots\n\\]\nWrite two functions that compute the cosine and sine (respectively) of a number using the truncated series expansion. Each function should take two arguments:\n\nx: the number to be transformed\nk: the number of terms to be used in the series expansion beyond the constant 1. The value of k is always \\(\\geq 1\\).\n\n\n\n\n\n\n\nNotes\n\n\n\n\nYou can assume that the input value x will always be a single number.\nYou can assume that the value k will always be an integer \\(\\geq 1\\).\nDo not use the cos() or sin() functions in R.\n\n\n\n\nfn_cos <- function(x, k) {\n        # Add your solution here\n}\n\nfun_sin <- function(x, k) { \n        # Add your solution here\n}"
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-1b-calculating-confidence-intervals",
+    "href": "projects/2022-11-08-project-2/index.html#part-1b-calculating-confidence-intervals",
+    "title": "Project 2",
+    "section": "Part 1B: Calculating confidence intervals",
+    "text": "Part 1B: Calculating confidence intervals\nWrite the following set of functions:\n\nsample_mean(), which calculates the sample mean\n\n\\[\n\\bar{x} = \\frac{1}{N} \\sum_{i=1}^n x_i\n\\]\n\nsample_sd(), which calculates the sample standard deviation\n\n\\[\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n\\]\n\ncalculate_CI(), which calculates the confidence intervals of a sample mean and returns a named vector of length 2, where the first value is the lower_bound, the second value is the upper_bound.\n\n\\[\n\\bar{x} \\pm t_{\\alpha/2, N-1} s_{\\bar{x}}\n\\]\n\n\n\n\n\n\nNotes\n\n\n\n\nYou can assume that the input value x will always be a vector of numbers of length N.\nDo not use the mean() and sd() functions in R.\n\n\n\n\nsample_mean <- function(x) {\n        # Add your solution here\n}\n\nsample_sd <- function(x) {\n        # Add your solution here\n}\n\ncalculate_CI <- function(x, conf = 0.95) {\n        # Add your solution here\n}"
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-1c-put-functions-into-an-r-package",
+    "href": "projects/2022-11-08-project-2/index.html#part-1c-put-functions-into-an-r-package",
+    "title": "Project 2",
+    "section": "Part 1C: Put functions into an R package",
+    "text": "Part 1C: Put functions into an R package\nCreate an R package for the functions you wrote from Part 1A and 1B. Your package will have three exported functions for users to call (see below). You will need to write documentation for each function that you export. Your package should include the functions:\n\nfn_cos(), which computes the approximation to the cosine function (exported)\nfn_sin(), which computes the approximation to the sine function (exported)\nsample_mean(), which calculates the sample mean (not exported)\nsample_sd(), which calculates the sample standard deviation (not exported)\ncalculate_CI(), which calculates the confidence intervals from simulated data (exported)\n\n\n\n\n\n\n\nNotes\n\n\n\n\nRemember that you should only export the functions that you want the user to use.\nFunctions that are not exported do not require any documentation.\nEach exported function should have at least one example of its usage (using the @example directive in the documentation).\nIn the functions in your package, consider using control structures and include checks (e.g. is.na(), is.numeric(), if()) to make sure the input is as you expect it to be. For example, try to break the the function with unexpected values that a user might provide (e.g. providing a negative value to a log transformation). This can help guide you on ways to address the possible ways to break the function.\nYour package should be installable without any warnings or errors."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-3a-create-a-vignette",
+    "href": "projects/2022-11-08-project-2/index.html#part-3a-create-a-vignette",
+    "title": "Project 2",
+    "section": "Part 3A: Create a vignette",
+    "text": "Part 3A: Create a vignette\nIn this part, you will create a vignette where you demonstrate the functions in your R package. Specifically, you will create a R Markdown and put it in a folder called “vignettes” within your R package. The purpose of a vignette is to demonstrate the functions of your package in a longer tutorial instead of just short examples within the documentation of your functions (i.e. using the @example directive in the documentation).\n\n\n\n\n\n\nNote\n\n\n\nYou might find the use_vignette() function from the usethis R package helpful."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-3b-create-a-readme.md-file",
+    "href": "projects/2022-11-08-project-2/index.html#part-3b-create-a-readme.md-file",
+    "title": "Project 2",
+    "section": "Part 3B: Create a README.md file",
+    "text": "Part 3B: Create a README.md file\nCreate a README.md file in the R package, which will be useful to readers when they learn about your package. The readme must include:\n\nThe title of package\nThe author of the package\nA goal / description of the package\nA list of exported functions that are in the package. Briefly describe each function.\nA basic example with one of the functions.\n\n\n\n\n\n\n\nNote\n\n\n\nYou might find the use_readme_md() function from the usethis R package helpful."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-3c-demonstrate-fn_cos",
+    "href": "projects/2022-11-08-project-2/index.html#part-3c-demonstrate-fn_cos",
+    "title": "Project 2",
+    "section": "Part 3C: Demonstrate fn_cos()",
+    "text": "Part 3C: Demonstrate fn_cos()\nIn the vignette, make a plot and show the output of your function fn_cos(x,k) and how it approximates the cos(x) function from base R as \\(k\\) increases.\n\n\n\n\n\n\nNotes\n\n\n\n\nThe x-axis should range between 0 and 10.\nThe y-axis should be the output from fn_cos(x,k) or cos(x).\nPlot the output from cos(x) as points on the graph.\nPlot the output from fn_cos(x,k) as lines on the graph.\nShow 5 lines for values k = 1, 3, 5, 7, 9. Each line should be a different color."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-3d-demonstrate-fn_sin",
+    "href": "projects/2022-11-08-project-2/index.html#part-3d-demonstrate-fn_sin",
+    "title": "Project 2",
+    "section": "Part 3D: Demonstrate fn_sin()",
+    "text": "Part 3D: Demonstrate fn_sin()\nRepeat a similar task and make a similar plot as in Part 3C, but here using fn_sin() instead of fn_cos()."
+  },
+  {
+    "objectID": "projects/2022-11-08-project-2/index.html#part-3e-demonstrate-calculate_ci",
+    "href": "projects/2022-11-08-project-2/index.html#part-3e-demonstrate-calculate_ci",
+    "title": "Project 2",
+    "section": "Part 3E: Demonstrate calculate_CI()",
+    "text": "Part 3E: Demonstrate calculate_CI()\nThe goal here is to demonstrate the calculate_CI() function in your package inside the vignette with some example data from TidyTuesday. However, part of the requirement is to also wrangle and plot the data. At the end of the section, you must demonstrate how to apply calculate_CI() as an example to the data.\nOther requirements for this part of vignette are the following:\n\nPick any dataset you wish from TidyTuesday to analyze.\n\n\nYou must describe what is the question you aim to answer with the data and data analysis.\nYou must describe and link to where the original data come from that you chose.\nYou must include a link to a data dictionary for the data or create one inside the webpage.\n\n\nLoad the data into R (you must show the code from this section)\n\n\nIn this step, you must test if a directory named data exists locally. If it does not, write an R function that creates it programmatically.\n\nSaves the data only once (not each time you knit/render the document).\nRead in the data locally each time you knit/render.\n\n\nYour analysis must include some form of data wrangling and data visualization.\n\n\nYou must use at least eight different functions from dplyr, tidyr, lubridate, stringr, or forcats.\nYour analysis should include at least three plots with you using at least three different geom_*() functions from ggplot2 (or another package with geom_*() functions).\n\nPlots should have titles, subtitles, captions, and human-understandable axis labels.\n\n\n\nApply the function calculate_CI() at least once in the vignette.\n\n\nSummarize and interpret the results in 1-2 sentences.\n\n\nAt the end of the data analysis, list out each of the functions you used from each of the packages (dplyr, tidyr, ggplot2, etc) to help the TA with respect to making sure you met all the requirements described above."
   },
   {
     "objectID": "projects/2022-10-27-project-1/index.html",
