@@ -5,9 +5,8 @@ author:
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "TBA"
+description: "Building an R package and practicing with S3"
 date: 2022-11-08
-draft: true
 categories: [project 2, projects]
 ---
 
@@ -16,9 +15,233 @@ categories: [project 2, projects]
 
 **Due date: November 25 at 11:59pm**
 
-The goal of this assignment is to... 
+The goal of this homework is to write a set of functions and put them into an R package so that other people can easily use the functions in their own data analyses after installing the package. In addition, they would receive documentation on how to use the functions.
+
+In addition to building the R package, you will also build a S3 class for your package, and create a vignette where you demonstrate the functions in your R package with an example dataset from TidyTuesday.
+
+Finally, we will practice our command-line and version control skills by submitting the assignment through GitHub Classroom. 
 
 ### To submit your project
 
-# Part 1
+- The link to create a private GitHub repository for yourself to complete Project 2 will be posted in CoursePlus (**Note**: this creates an empty repository and you need to push your code in your locate remote repository to GitHub when ready).
+- Build your R package locally and then push the files to the private Github repository that you created for yourself via GitHub Classroom. 
+- The TA will grade the R package by cloning the repository, installing it, and checking for all the things described below. **It must be installable without any errors**. 
+
+# Part 1: Create an R package
+
+
+## Part 1A: Cosine and sine transformation 
+
+The cosine and sine of a number can be written as an infinite series expansion of the form
+
+$$
+\cos(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!}  \cdots
+$$
+
+$$
+\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} \cdots
+$$
+
+
+Write two functions that compute the cosine and sine (respectively) of a number using the truncated series expansion. Each function should take two arguments:
+
+- `x`: the number to be transformed
+- `k`: the number of terms to be used in the series expansion beyond the constant 1. The value of `k` is always $\geq 1$.
+
+:::{.callout-tip}
+
+### Notes
+
+- You can assume that the input value `x` will always be a *single* number. 
+- You can assume that the value `k` will always be an integer $\geq 1$. 
+- Do not use the `cos()` or `sin()` functions in R.
+
+:::
+
+```{r}
+fn_cos <- function(x, k) {
+        # Add your solution here
+}
+
+fun_sin <- function(x, k) { 
+        # Add your solution here
+}
+```
+
+## Part 1B: Calculating confidence intervals
+
+Write the following set of functions:
+
+* `sample_mean()`, which calculates the sample mean
+
+$$
+\bar{x} = \frac{1}{N} \sum_{i=1}^n x_i
+$$
+
+* `sample_sd()`, which calculates the sample standard deviation
+
+$$
+s = \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+$$
+
+* `calculate_CI()`, which calculates the confidence intervals of a sample mean and returns a named vector of length 2, where the first value is the `lower_bound`, the second value is the `upper_bound`.
+
+$$
+\bar{x} \pm t_{\alpha/2, N-1} s_{\bar{x}}
+$$ 
+
+:::{.callout-tip}
+
+### Notes
+
+- You can assume that the input value `x` will always be a *vector* of numbers of length *N*.
+- Do not use the `mean()` and `sd()` functions in R.
+
+:::
+
+```{r}
+sample_mean <- function(x) {
+        # Add your solution here
+}
+
+sample_sd <- function(x) {
+        # Add your solution here
+}
+
+calculate_CI <- function(x, conf = 0.95) {
+        # Add your solution here
+}
+```
+
+## Part 1C: Put functions into an R package
+
+Create an R package for the functions you wrote from Part 1A and 1B. Your package will have three exported functions for users to call (see below). You will need to write documentation for each function that you export. Your package should include the functions: 
+
+* `fn_cos()`, which computes the approximation to the cosine function (**exported**)
+* `fn_sin()`, which computes the approximation to the sine function (**exported**)
+* `sample_mean()`, which calculates the sample mean (**not exported**)
+* `sample_sd()`, which calculates the sample standard deviation (**not exported**)
+* `calculate_CI()`, which calculates the confidence intervals from simulated data (**exported**)
+
+:::{.callout-tip}
+
+### Notes
+
+* Remember that you should only export the functions that you want the user to use.
+* Functions that are *not* exported do not require any documentation.
+* Each exported function should have at least **one example** of its usage (using the `@example` directive in the documentation).
+* In the functions in your package, consider using control structures and include checks (e.g. `is.na()`, `is.numeric()`, `if()`) to make sure the input is as you expect it to be. For example, try to break the the function with unexpected values that a user might provide (e.g. providing a negative value to a log transformation). This can help guide you on ways to address the possible ways to break the function. 
+* Your package should be installable without any warnings or errors.
+
+:::
+
+
+# Part 2: Create a S3 class as part of your package
+
+In this part, you will create a new S3 class called `ci_class` (confidence interval class) to be used in your R package. You will 
+
+1. Create a constructor function for the `ci_class` called `make_ci_class()`. 
+2. Create a `print()` method to work with the `ci_class` to return a message with name of the class and the the number of observations in the S3 object. 
+3. Modify the `calculate_CI()` function to work with the `ci_class` and still return a `lower_bound` and `upper_bound`. 
+
+For example, this is what the output of your code might look like: 
+
+```
+> set.seed(1234)
+> x <- rnorm(100)
+> obj <- make_ci_class(x)
+> print(obj)         # explicitly using the print() method
+#> a ci_class with 100 observations
+> obj                # using autoprinting
+#> a ci_class with 100 observations
+```
+
+Calculate a 90% confidence interval:
+
+```
+> calculate_CI(obj, conf = 0.90)
+#> lower_bound upper_bound 
+#> -0.32353231  0.01000883
+```
+
+
+# Part 3: Create supporting documents as part of your package
+
+## Part 3A: Create a vignette
+
+In this part, you will create a vignette where you demonstrate the functions in your R package. 
+Specifically, you will create a R Markdown and put it in a folder called "vignettes" within your R package. The purpose of a vignette is to demonstrate the functions of your package in a longer tutorial instead of just short examples within the documentation of your functions (i.e. using the `@example` directive in the documentation). 
+
+:::{.callout-tip}
+
+### Note 
+
+You might find the `use_vignette()` [function](https://usethis.r-lib.org/reference/use_vignette.html) from the `usethis` R package helpful. 
+
+:::
+
+
+## Part 3B: Create a `README.md` file 
+
+Create a `README.md` file in the R package, which will be useful to readers when they learn about your package. The readme must include: 
+
+- The title of package
+- The author of the package
+- A goal / description of the package
+- A list of **exported** functions that are in the package. Briefly describe each function. 
+- A basic example with one of the functions. 
+
+:::{.callout-tip}
+
+### Note 
+
+You might find the `use_readme_md()` [function](https://usethis.r-lib.org/reference/use_readme_rmd.html) from the `usethis` R package helpful. 
+
+:::
+
+
+## Part 3C: Demonstrate `fn_cos()`
+
+In the vignette, make a plot and show the output of your function `fn_cos(x,k)` and how it approximates the `cos(x)` function from base R as $k$ increases. 
+
+:::{.callout-tip}
+
+### Notes
+
+- The x-axis should range between 0 and 10. 
+- The y-axis should be the output from `fn_cos(x,k)` or `cos(x)`.
+- Plot the output from `cos(x)` as points on the graph. 
+- Plot the output from `fn_cos(x,k)` as lines on the graph. 
+- Show 5 lines for values `k` = 1, 3, 5, 7, 9. Each line should be a different color. 
+
+:::
+
+
+## Part 3D: Demonstrate `fn_sin()`
+
+Repeat a similar task and make a similar plot as in Part 3C, but here using `fn_sin()` instead of `fn_cos()`. 
+
+
+## Part 3E: Demonstrate `calculate_CI()`
+
+The goal here is to demonstrate the `calculate_CI()` function in your package inside the vignette with some example data from [TidyTuesday](https://www.tidytuesday.com). However, part of the requirement is to also wrangle and plot the data. At the end of the section, you must demonstrate how to apply `calculate_CI()` as an example to the data. 
+
+Other requirements for this part of vignette are the following: 
+
+1. Pick any dataset you wish from [TidyTuesday](https://www.tidytuesday.com) to analyze. 
+  - You must describe what is the question you aim to answer with the data and data analysis. 
+  - You must describe and link to where the original data come from that you chose.
+  - You must include a link to a data dictionary for the data or create one inside the webpage. 
+2. Load the data into R (you must show the code from this section)
+  - In this step, you must test if a directory named `data` exists locally. If it does not, write an R function that creates it programmatically.  
+  - Saves the data only once (not each time you knit/render the document). 
+  - Read in the data locally each time you knit/render. 
+3. Your analysis must include some form of data wrangling and data visualization. 
+  - You must use at least eight different functions from `dplyr`, `tidyr`, `lubridate`, `stringr`, or `forcats`. 
+  - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
+    - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
+4. Apply the function `calculate_CI()` at least once in the vignette. 
+  - Summarize and interpret the results in 1-2 sentences.
+5. At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, `ggplot2`, etc) to help the TA with respect to making sure you met all the requirements described above. 
+    
 

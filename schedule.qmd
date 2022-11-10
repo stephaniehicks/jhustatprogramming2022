@@ -23,9 +23,9 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | 
 | | Nov 3  | More advanced command-line tools \[[html](posts/2022-11-03-command-line-part-2/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-03-command-line-part-2/index.qmd)\] | |
 | | |  | | 
-| Week 3  | Nov 8 |  Version control \[[html](posts/2022-11-08-version-control-part-1/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-08-version-control-part-1/index.qmd)\] | `r emojifont::emoji('palm_tree')` Project 2 | 
+| Week 3  | Nov 8 |  Version control (git) \[[html](posts/2022-11-08-version-control-part-1/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-08-version-control-part-1/index.qmd)\] | `r emojifont::emoji('palm_tree')` Project 2 \[[html](projects/2022-11-08-project-2/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/projects/2022-11-08-project-2/index.qmd)\]  | 
 | | | |                            | | | |
-| | Nov 10 | Version control |   |
+| | Nov 10 | Version control (GitHub) \[[html](posts/2022-11-10-version-control-part-2/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-10-version-control-part-2/index.qmd)\]  |   |
 | | | | | 
 | | Nov 11 | | `r emojifont::emoji('fallen_leaf')` Project 1 due | 
 | | | | | 
