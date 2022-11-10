@@ -1048,5 +1048,7 @@ How can I use Git with RStudio?
 Understand how to use Git from RStudio.
 :::
 
-See [Software Carpentry](https://swcarpentry.github.io/git-novice/14-supplemental-rstudio/index.html) materials online.
+Version control can be very useful when developing data analysis scripts. For that reason, RStudio has built-in integration with Git. While some advanced Git features still require the command-line, RStudio has a nice interface for many common Git operations.
+
+For instructions and examples on how to use Git in an RStudio project, see the [Software Carpentry](https://swcarpentry.github.io/git-novice/14-supplemental-rstudio/index.html) materials online.
 
