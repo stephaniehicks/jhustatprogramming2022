@@ -57,7 +57,7 @@ At it's core, **object oriented programming** (OOP) is a paradigm that is made u
 
 At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. **classes**), which are used to create instances of concrete **objects**.
 
-The blueprint (or **class**) typically represents broad categories, e.g. `bus` or `car` that share **attributes** (e.g. color). 
+The blueprint (or **class**) typically represents broad categories, e.g. `bus` or `car` that share **attributes** (e.g. color) (or **fields**). 
 
 - The **classes specify what attributes you want**, but not the actual values for a particular object. 
 - However, when you **create instances with objects**, you are specifying the attributes (e.g. a blue car, a red car, etc). 
@@ -156,7 +156,7 @@ To **be more precise**, OO systems call the type of an object its **class**, and
 - a class defines what an object *is* and 
 - methods describe what that object can *do*
 
-The class defines the **fields**, the data possessed by every instance of that class. Classes are organised in a hierarchy so that if a method does not exist for one class, its parent's method is used, and the child is said to **inherit** behavior. 
+The class defines the **fields** (or **attributes**), the data possessed by every instance of that class. Classes are organised in a hierarchy so that if a method does not exist for one class, its parent's method is used, and the child is said to **inherit** behavior. 
 
 :::{.callout-tip}
 
@@ -175,7 +175,7 @@ The process of finding the correct method given a class is called **method dispa
 
 The two main paradigms of OOP differ in how methods and classes are related. We will call these paradigms **encapsulated** and **functional**:
 
-1. In **encapsulated OOP**, methods belong to objects or classes, and method calls typically look like `object.method(arg1, arg2)`. This is called encapsulated because the object encapsulates both data (with fields) and behaviour (with methods), and is the paradigm found in most popular languages.
+1. In **encapsulated OOP**, methods belong to objects or classes, and method calls typically look like `object.method(arg1, arg2)`. This is called encapsulated because the object encapsulates both data (with fields) and behavior (with methods), and is the paradigm found in most popular languages.
 
 2. In **functional OOP**, methods belong to generic functions, and method calls look like ordinary function calls: `generic(object, arg2, arg3)`. This is called functional because from the outside it looks like a regular function call, and internally the components are also functions.
 
@@ -286,8 +286,9 @@ You might wonder if S1 and S2 exist. They don’t: S3 and S4 were named accordin
 
 # S3
 
-S3 allows your functions to return rich results with user-friendly display and programmer-friendly internals. S3 is used throughout base R, so it’s important to master if you want to extend base R functions to work with new types of input.
+S3 allows your functions to **return rich results with user-friendly display** and **programmer-friendly internals**. 
 
+**S3 is used throughout base R**, so it’s important to master if you want to extend base R functions to work with new types of input.
 
 Conveniently everything in R is an **object**. By "everything" I mean every single
 "thing" in R including numbers, functions, strings, data frames, lists, etc. 
@@ -311,14 +312,16 @@ To tell the difference between a base and OO object, use `is.object()`
 is.object(1:10)
 
 # An OO object
-is.object(airquality)
+is.object(mtcars)
 ```
 
 Technically, the difference between base and OO objects is that OO objects have a "class" attribute:
 
 ```{r}
 attr(1:10, "class")
-attr(penguins, "class")
+attributes(1:10)
+attr(mtcars, "class")
+attributes(mtcars)
 ```
 
 :::{.callout-tip}
@@ -474,31 +477,40 @@ triangle_3 <- shape_s3(c(3, 3, 3))
 class(triangle_3)
 ```
 
-We have now made two shape_S3 objects: `square_4` and `triangle_3`, which are both
-instantiations of the shape_S3 class. 
+
+We have now made two `shape_S3` objects: `square_4` and `triangle_3`, which are both
+instantiations of the `shape_S3` class. 
 
 :::
 
 Imagine that you wanted to create a **method** (or function)
-that would return `TRUE` if a shape_S3 object was a square, `FALSE` if a
-shape_S3 object was not a square, and `NA` if the object provided as an
-argument to the method was not a shape_s3 object. 
+that would return `TRUE` if a `shape_S3` object was a square, `FALSE` if a
+`shape_S3` object was not a square, and `NA` if the object provided as an
+argument to the method was not a `shape_s3` object. 
 
 This can be achieved using R's **generic methods** system. 
 A generic method can return different values based depending on the class of 
 its input. 
 
-For example `mean()` is a generic method that can find the average 
+
+:::{.callout-tip}
+
+### Example
+
+For example, `mean()` is a generic method that can find the average 
 of a vector of number or it can find the "average day" from a vector of dates. 
-The following snippet demonstrates this behavior:
 
 ```{r}
 mean(c(2, 3, 7))
 mean(c(as.Date("2016-09-01"), as.Date("2016-09-03")))
 ```
 
-Now let's create a generic method for identifying shape_S3 objects that are
-squares. The creation of every generic method uses the `UseMethod()` function
+:::
+
+Now let's create a generic method for identifying `shape_S3` objects that are
+squares. 
+
+The creation of every generic method uses the `UseMethod()` function
 in the following way with only slight variations:
 
 ```
@@ -511,7 +523,7 @@ Let's call this method `is_square`:
 is_square <- function(x) UseMethod("is_square")
 ```
 
-Now we can add the actual function definition for detecting whether or not a
+Now we can add the **actual definition** for the function to detect whether or not a
 shape is a square by specifying `is_square.shape_S3`. By putting a dot (`.`)
 and then the name of the class after `is_square`, we can create a method that
 associates `is_square` with the `shape_S3` class:
@@ -528,8 +540,12 @@ is_square(square_4)
 is_square(triangle_3)
 ```
 
-Seems to be working well! We also want `is_square()` to return `NA` when its
-argument is not a shape_S3. We can specify `is_square.default` as a last resort
+Seems to be working well! 
+
+We also want `is_square()` to return `NA` when its
+argument is not a `shape_S3`. 
+
+We can specify `is_square.default` as a last resort
 if there is not method associated with the object passed to `is_square()`.
 
 ```{r}
