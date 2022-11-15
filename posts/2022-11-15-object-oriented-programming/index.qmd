@@ -458,11 +458,13 @@ to have a better behaved S3 class you should create a constructor which
 returns an S3 object. 
 
 
+### Create a constructor called `shape_s3()`
+
 :::{.callout-tip}
 
 ### Example 
 
-Consider the `shape_S3()` function below, which is a constructor 
+Consider the `shape_s3()` function below, which is a constructor 
 that returns a `shape_S3` object:
 
 ```{r}
@@ -486,7 +488,7 @@ instantiations of the `shape_S3` class.
 Imagine that you wanted to create a **method** (or function)
 that would return `TRUE` if a `shape_S3` object was a square, `FALSE` if a
 `shape_S3` object was not a square, and `NA` if the object provided as an
-argument to the method was not a `shape_s3` object. 
+argument to the method was not a `shape_S3` object. 
 
 This can be achieved using R's **generic methods** system. 
 A generic method can return different values based depending on the class of 
@@ -507,10 +509,17 @@ mean(c(as.Date("2016-09-01"), as.Date("2016-09-03")))
 
 :::
 
-Now let's create a generic method for identifying `shape_S3` objects that are
+
+### Create a generic method called `is_square()`
+
+Now, let's **create a generic method** for identifying `shape_S3` objects that are
 squares. 
 
-The creation of every generic method uses the `UseMethod()` function
+:::{.callout-tip}
+
+### Step 1: use `UseMethod()`
+
+First, the creation of every generic method uses the `UseMethod()` function
 in the following way with only slight variations:
 
 ```
@@ -523,8 +532,17 @@ Let's call this method `is_square`:
 is_square <- function(x) UseMethod("is_square")
 ```
 
-Now we can add the **actual definition** for the function to detect whether or not a
-shape is a square by specifying `is_square.shape_S3`. By putting a dot (`.`)
+:::
+
+
+:::{.callout-tip}
+
+### Step 2: Define what's inside the method
+
+Next, we add the **actual definition** for the function to detect whether or not a
+shape is a square by specifying `is_square.shape_S3`. 
+
+By putting a dot (`.`)
 and then the name of the class after `is_square`, we can create a method that
 associates `is_square` with the `shape_S3` class:
 
@@ -539,6 +557,8 @@ is_square.shape_S3 <- function(x){
 is_square(square_4)
 is_square(triangle_3)
 ```
+
+:::
 
 Seems to be working well! 
 
@@ -563,8 +583,13 @@ Let's try printing `square_4`:
 print(square_4)
 ```
 
-Doesn't that look ugly? Lucky for us `print()` is a generic method, so we can
-specify a print method for the shape_S3 class:
+Doesn't that look ugly? 
+
+
+### Create a generic method `print()` for `shape_S3` class
+
+Lucky for us `print()` is a generic method, so we can
+specify a print method for the `shape_S3` class:
 
 ```{r}
 print.shape_S3 <- function(x){
@@ -589,18 +614,31 @@ print(shape_s3(c(10, 10, 20, 20, 15)))
 print(shape_s3(c(2, 3, 4, 5)))
 ```
 
-Since printing an object to the console is one of the most common things to do
-in R, nearly every class has an associated print method! To see all of the
-methods associated with a generic like `print()` use the `methods()` function:
+:::{.callout-tip}
+
+### Pro-tip
+
+Since **printing an object to the console** is one of the most common things to do
+in R, nearly every class has an associated print method! 
+
+To see all of the methods associated with a generic like `print()` use the `methods()` function:
 
 ```{r}
+length(methods(print))
 head(methods(print), 10)
 ```
 
-One last note on S3 with regard to inheritance. In the previous section we
-discussed how a sub-class can inherit attributes and methods from a super-class.
-Since you can assign any class to an object in S3, you can specify a super
-class for an object the same way you would specify a class for an object:
+:::
+
+### Inheritance
+
+One last note on S3 with regard to **inheritance**. 
+
+In the previous section we
+discussed how **a sub-class can inherit attributes and methods from a super-class**.
+
+Since you can assign any class to an object in S3, you can **specify a super
+class** for an object the same way you would specify a class for an object:
 
 ```{r}
 class(square_4)
@@ -608,7 +646,7 @@ class(square_4) <- c("shape_S3", "square")
 class(square_4)
 ```
 
-To check if an object is a sub-class of a specified class you can use the
+To **check if an object is a sub-class of a specified class** you can use the
 `inherits()` function:
 
 ```{r}
@@ -624,7 +662,10 @@ knitr::opts_chunk$set(comment = NA)
 
 The S3 system doesn't have a formal way to define a class but typically, we use a list to define the class and elements of the list serve as data elements.
 
-Here is our definition of a polygon represented using Cartesian coordinates. The class contains an element called `xcoord` and `ycoord` for the x- and y-coordinates, respectively. The `make_poly()` function is the "constructor" function for polygon objects. It takes as arguments a numeric vector of x-coordinates and a corresponding numeric vector of y-coordinates.
+Here is our definition of a **polygon represented using Cartesian coordinates**. 
+
+- The class contains an element called `xcoord` and `ycoord` for the x- and y-coordinates, respectively. 
+- The `make_poly()` function is the "constructor" function for polygon objects. It takes as arguments a numeric vector of x-coordinates and a corresponding numeric vector of y-coordinates.
 
 ```{r}
 ## Constructor function for polygon objects
@@ -643,11 +684,13 @@ make_poly <- function(x, y) {
 }
 ```
 
-Now that we have a class definition, we can develop some methods for operating on objects from that class. 
+Now that we have a class definition, we can **develop some methods for operating on objects from that class**. 
 
 The first method that we will define is the `print()` method. The `print()` method should just show some simple information about the object and should not be too verbose---just enough information that the user knows what the object is. 
 
-Here the `print()` method just shows the user how many vertices the polygon has. It is a convention for `print()` methods to return the object `x` invisibly using the `invisible()` function.
+Here the `print()` method just shows the user how many vertices the polygon has. 
+
+It is a convention for `print()` methods to **return the object `x` invisibly** using the `invisible()` function.
 
 ```{r}
 ## Print method for polygon objects
@@ -660,17 +703,26 @@ print.polygon <- function(x, ...) {
 }
 ```
 
+:::{.callout-tip}
 
-The `invisible()` function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.
+### Pro-tip
+
+The `invisible()` function is useful when it is **desired to have functions return values which can be assigned, but which do not print when they are not assigned**.
+
+:::
+
+:::{.callout-tip}
+
+### Example
+
+These functions both return their argument
 
 ```{r}
-# These functions both return their argument
-
 f1 <- function(x) x
 f2 <- function(x) invisible(x)
 
 f1(1)  # prints
-f2(1)  # does not
+f2(1)  # does not print
 ```
 
 However, when you assign the `f2()` function to an object, it does return the value
@@ -680,20 +732,18 @@ z <- f2(1)
 z
 ```
 
+:::
 
+Next is the `summary()` method.
 
-Next is the `summary()` method. The `summary()` method typically shows a bit more information and may even do some calculations. This `summary()` method computes the ranges of the x- and y-coordinates.
+The `summary()` method **typically shows a bit more information and may even do some calculations**, but does **not** print something. The general strategy of `summary()` methods is
 
-The typical approach for `summary()` methods is to allow the summary method to compute something, but to *not* print something. The strategy is
+1. The `summary()` method returns an object of class `"summary_'class name'"`
+2. There is a separate `print()` method for `"summary_'class name'"` objects.
 
-1. The `summary()` method returns an object of class "summary_'class name'"
-
-2. There is a separate `print()` method for "summary_'class name'" objects.
-
-For example, here is the `summary()` method.
+For example, here is a `summary()` method for `polygon` objects that computes the ranges of the x- and y-coordinates.
 
 ```{r}
-## Summary method for polygon objects
 ## object an object of class "polygon"
 
 summary.polygon <- function(object, ...) {
@@ -704,13 +754,18 @@ summary.polygon <- function(object, ...) {
 }
 ```
 
-Note that it simply returns an object of class `summary_polygon`. 
+:::{.callout-tip}
 
-Now the corresponding `print()` method:
+### Note
+
+The `summary` method simply returns an object of class `summary_polygon`. 
+
+:::
+
+Now the corresponding `print()` method for `summary.polygon` objects:
 
 ```{r}
-## Print method for summary.polygon objects
-## x an object of class "summary_polygon"
+## Note: x an object of class "summary_polygon"
 print.summary_polygon <- function(x, ...) {
         cat("x:", x$rng.x[1], "-->", x$rng.x[2], "\n")
         cat("y:", x$rng.y[1], "-->", x$rng.y[2], "\n")
@@ -718,7 +773,7 @@ print.summary_polygon <- function(x, ...) {
 }
 ```
 
-Now we can make use of our new class and methods.
+Now we can make use of our new `polygon` class and methods (`summary()` and `print()`).
 
 ```{r}
 ## Construct a new "polygon" object
@@ -746,23 +801,37 @@ Because of auto-printing we can just call the `summary()` method and let the res
 summary(x)
 ```
 
-From here, we could build other methods for interacting with our `polygon` object. For example, it may make sense to define a `plot()` method or maybe methods for intersecting two polygons together.
+:::{.callout-tip}
+
+### What next? 
+
+From here, we could build other methods for interacting with our `polygon` object. 
+
+For example, it may make sense to define a `plot()` method or maybe methods for intersecting two polygons together.
+
+:::
 
 
 # S4
 
 
-S4 is a rigorous system that forces you to think carefully about program design. It’s particularly well-suited for building large systems that evolve over time and will receive contributions from many programmers. This is why it is used by the Bioconductor project, so another reason to learn S4 is to equip you to contribute to that project.
+S4 is a **rigorous system that forces you to think carefully about program design**.
 
+It’s particularly **well-suited for building large systems** that evolve over time and will receive contributions from many programmers. This is why it is used by the Bioconductor project, so another reason to learn S4 is to equip you to contribute to that project.
 
-The S4 system is slightly more restrictive than S3, but it's similar in many
-ways. To create a new class in S4 you need to use the `setClass()` function.
-You need to specify two or three arguments for this function: `Class` which
-is the name of the class as a string, `slots`, which is a named list of
-attributes for the class with the class of those attributes specified, and
-optionally `contains` which includes the super-class of they class you are
-specifying (if there is a super-class). Take look at the class definition for
-a `bus_S4` and a `party_bus_S4` below:
+The S4 system is **slightly more restrictive than S3**, but it's similar in many
+ways. 
+
+## Constructors in S4
+
+- To create a new class in S4 you need to use the `setClass()` function. 
+- You need to specify two (or three arguments) for this function: 
+  - `Class` which is the name of the class as a string
+  - `slots`, which is a named list of attributes for the class with the class of those attributes specified
+  - (optionally) `contains`, which includes the super-class of they class you are
+specifying (if there is a super-class)
+
+Take look at the class definition for a `bus_S4` and a `party_bus_S4` below:
 
 ```{r, echo=FALSE}
 library(methods)
@@ -804,6 +873,8 @@ my_party_bus@top_speed
 This is essentially the same as using the `$` operator with a list or an
 environment.
 
+## Methods in S4
+
 S4 classes use a generic method system that is similar to S3 classes. In order
 to implement a new generic method you need to use the `setGeneric()` function
 and the `standardGeneric()` function in the following way:
@@ -823,11 +894,14 @@ setGeneric("is_bus_moving", function(x){
 })
 ```
 
-Now we need to actually define the function, which we can to with
-`setMethod()`. The `setMethod()` functions takes as arguments the name of the
-method as a string (or `f`), the method signature (`signature`),
-which specifies the class of each argument for the method, 
-and then the function definition of the method:
+Now, we need to actually define the function, which we can to with
+`setMethod()`. 
+
+The `setMethod()` functions takes as arguments 
+
+- the **name of the method as a string** (or `f`)
+- the **method signature** (`signature`), which specifies the class of each argument for the method
+- the **function definition** of the method
 
 ```{r}
 setMethod(f = "is_bus_moving",
@@ -848,7 +922,7 @@ for your new class from an existing generic.
 First, use the `setGeneric()` function with the name of the existing method 
 you want to use with your class, 
 and then use the `setMethod()` function like in the previous example. Let's
-make a `print()` method for the bus_S4 class:
+make a `print()` method for the `bus_S4` class:
 
 ```{r}
 setGeneric("print")
@@ -862,7 +936,6 @@ setMethod(f = "print",
 print(my_bus)
 print(my_party_bus)
 ```
-
 
 # Reference Classes
 
