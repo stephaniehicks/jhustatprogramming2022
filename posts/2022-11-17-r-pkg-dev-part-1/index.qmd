@@ -7,7 +7,6 @@ author:
     affiliation_url: https://publichealth.jhu.edu
 description: "Introduction to building and documenting R packages"
 date: 2022-11-17
-draft: true
 categories: [module 2, week 4, R, programming, documentation, R package, functions]
 ---
 
@@ -43,7 +42,6 @@ install.packages(c("devtools", "roxygen2"))
 ```
 
 or use the "Install Packages..." option from the "Tools" menu in RStudio.
-
 
 ### Acknowledgements
 
