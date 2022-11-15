@@ -271,10 +271,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#s3" id="toc-s3" class="nav-link" data-scroll-target="#s3">S3</a>
   <ul class="collapse">
   <li><a href="#base-types" id="toc-base-types" class="nav-link" data-scroll-target="#base-types">Base types</a></li>
-  <li><a href="#oo-objects" id="toc-oo-objects" class="nav-link" data-scroll-target="#oo-objects">OO objects</a></li>
+  <li><a href="#oo-objects" id="toc-oo-objects" class="nav-link" data-scroll-target="#oo-objects">OO objects</a>
+  <ul class="collapse">
+  <li><a href="#create-a-constructor-called-shape_s3" id="toc-create-a-constructor-called-shape_s3" class="nav-link" data-scroll-target="#create-a-constructor-called-shape_s3">Create a constructor called <code>shape_s3()</code></a></li>
+  <li><a href="#create-a-generic-method-called-is_square" id="toc-create-a-generic-method-called-is_square" class="nav-link" data-scroll-target="#create-a-generic-method-called-is_square">Create a generic method called <code>is_square()</code></a></li>
+  <li><a href="#create-a-generic-method-print-for-shape_s3-class" id="toc-create-a-generic-method-print-for-shape_s3-class" class="nav-link" data-scroll-target="#create-a-generic-method-print-for-shape_s3-class">Create a generic method <code>print()</code> for <code>shape_S3</code> class</a></li>
+  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance">Inheritance</a></li>
+  </ul></li>
   <li><a href="#example-s3-classmethods-for-polygons" id="toc-example-s3-classmethods-for-polygons" class="nav-link" data-scroll-target="#example-s3-classmethods-for-polygons">Example: S3 Class/Methods for Polygons</a></li>
   </ul></li>
-  <li><a href="#s4" id="toc-s4" class="nav-link" data-scroll-target="#s4">S4</a></li>
+  <li><a href="#s4" id="toc-s4" class="nav-link" data-scroll-target="#s4">S4</a>
+  <ul class="collapse">
+  <li><a href="#constructors-in-s4" id="toc-constructors-in-s4" class="nav-link" data-scroll-target="#constructors-in-s4">Constructors in S4</a></li>
+  <li><a href="#methods-in-s4" id="toc-methods-in-s4" class="nav-link" data-scroll-target="#methods-in-s4">Methods in S4</a></li>
+  </ul></li>
   <li><a href="#reference-classes" id="toc-reference-classes" class="nav-link" data-scroll-target="#reference-classes">Reference Classes</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
@@ -856,6 +866,8 @@ Question
 </div>
 </div>
 <p>As crazy as this is, it is completely legal R code, but if you want to have a better behaved S3 class you should create a constructor which returns an S3 object.</p>
+<section id="create-a-constructor-called-shape_s3" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-constructor-called-shape_s3">Create a constructor called <code>shape_s3()</code></h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -866,7 +878,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider the <code>shape_S3()</code> function below, which is a constructor that returns a <code>shape_S3</code> object:</p>
+<p>Consider the <code>shape_s3()</code> function below, which is a constructor that returns a <code>shape_S3</code> object:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>shape_s3 <span class="ot">&lt;-</span> <span class="cf">function</span>(side_lengths){</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">side_lengths =</span> side_lengths), <span class="at">class =</span> <span class="st">"shape_S3"</span>)</span>
@@ -886,7 +898,7 @@ Example
 <p>We have now made two <code>shape_S3</code> objects: <code>square_4</code> and <code>triangle_3</code>, which are both instantiations of the <code>shape_S3</code> class.</p>
 </div>
 </div>
-<p>Imagine that you wanted to create a <strong>method</strong> (or function) that would return <code>TRUE</code> if a <code>shape_S3</code> object was a square, <code>FALSE</code> if a <code>shape_S3</code> object was not a square, and <code>NA</code> if the object provided as an argument to the method was not a <code>shape_s3</code> object.</p>
+<p>Imagine that you wanted to create a <strong>method</strong> (or function) that would return <code>TRUE</code> if a <code>shape_S3</code> object was a square, <code>FALSE</code> if a <code>shape_S3</code> object was not a square, and <code>NA</code> if the object provided as an argument to the method was not a <code>shape_S3</code> object.</p>
 <p>This can be achieved using R’s <strong>generic methods</strong> system. A generic method can return different values based depending on the class of its input.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -911,14 +923,40 @@ Example
 </div>
 </div>
 </div>
-<p>Now let’s create a generic method for identifying <code>shape_S3</code> objects that are squares.</p>
-<p>The creation of every generic method uses the <code>UseMethod()</code> function in the following way with only slight variations:</p>
+</section>
+<section id="create-a-generic-method-called-is_square" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-generic-method-called-is_square">Create a generic method called <code>is_square()</code></h3>
+<p>Now, let’s <strong>create a generic method</strong> for identifying <code>shape_S3</code> objects that are squares.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Step 1: use <code>UseMethod()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First, the creation of every generic method uses the <code>UseMethod()</code> function in the following way with only slight variations:</p>
 <pre><code>[name of method] &lt;- function(x) UseMethod("[name of method]")</code></pre>
 <p>Let’s call this method <code>is_square</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>is_square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"is_square"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now we can add the <strong>actual definition</strong> for the function to detect whether or not a shape is a square by specifying <code>is_square.shape_S3</code>. By putting a dot (<code>.</code>) and then the name of the class after <code>is_square</code>, we can create a method that associates <code>is_square</code> with the <code>shape_S3</code> class:</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Step 2: Define what’s inside the method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Next, we add the <strong>actual definition</strong> for the function to detect whether or not a shape is a square by specifying <code>is_square.shape_S3</code>.</p>
+<p>By putting a dot (<code>.</code>) and then the name of the class after <code>is_square</code>, we can create a method that associates <code>is_square</code> with the <code>shape_S3</code> class:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>is_square.shape_S3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(x<span class="sc">$</span>side_lengths) <span class="sc">==</span> <span class="dv">4</span> <span class="sc">&amp;&amp;</span></span>
@@ -934,6 +972,8 @@ Example
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_square</span>(triangle_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
+</div>
+</div>
 </div>
 </div>
 <p>Seems to be working well!</p>
@@ -964,7 +1004,11 @@ attr(,"class")
 [1] "shape_S3"</code></pre>
 </div>
 </div>
-<p>Doesn’t that look ugly? Lucky for us <code>print()</code> is a generic method, so we can specify a print method for the shape_S3 class:</p>
+<p>Doesn’t that look ugly?</p>
+</section>
+<section id="create-a-generic-method-print-for-shape_s3-class" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-generic-method-print-for-shape_s3-class">Create a generic method <code>print()</code> for <code>shape_S3</code> class</h3>
+<p>Lucky for us <code>print()</code> is a generic method, so we can specify a print method for the <code>shape_S3</code> class:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>print.shape_S3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(x<span class="sc">$</span>side_lengths) <span class="sc">==</span> <span class="dv">3</span>){</span>
@@ -999,123 +1043,184 @@ attr(,"class")
 <pre><code>[1] "A quadrilateral with side lengths of 2 3 4 and 5"</code></pre>
 </div>
 </div>
-<p>Since printing an object to the console is one of the most common things to do in R, nearly every class has an associated print method! To see all of the methods associated with a generic like <code>print()</code> use the <code>methods()</code> function:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since <strong>printing an object to the console</strong> is one of the most common things to do in R, nearly every class has an associated print method!</p>
+<p>To see all of the methods associated with a generic like <code>print()</code> use the <code>methods()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">methods</span>(print), <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">methods</span>(print))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 260</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">methods</span>(print), <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "print.acf"     "print.AES"     "print.anova"   "print.aov"    
  [5] "print.aovlist" "print.ar"      "print.Arima"   "print.arima0" 
  [9] "print.AsIs"    "print.aspell" </code></pre>
 </div>
 </div>
-<p>One last note on S3 with regard to inheritance. In the previous section we discussed how a sub-class can inherit attributes and methods from a super-class. Since you can assign any class to an object in S3, you can specify a super class for an object the same way you would specify a class for an object:</p>
+</div>
+</div>
+</section>
+<section id="inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="inheritance">Inheritance</h3>
+<p>One last note on S3 with regard to <strong>inheritance</strong>.</p>
+<p>In the previous section we discussed how <strong>a sub-class can inherit attributes and methods from a super-class</strong>.</p>
+<p>Since you can assign any class to an object in S3, you can <strong>specify a super class</strong> for an object the same way you would specify a class for an object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "shape_S3"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shape_S3"</span>, <span class="st">"square"</span>)</span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shape_S3"</span>, <span class="st">"square"</span>)</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(square_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "shape_S3" "square"  </code></pre>
 </div>
 </div>
-<p>To check if an object is a sub-class of a specified class you can use the <code>inherits()</code> function:</p>
+<p>To <strong>check if an object is a sub-class of a specified class</strong> you can use the <code>inherits()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inherits</span>(square_4, <span class="st">"square"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inherits</span>(square_4, <span class="st">"square"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 </section>
+</section>
 <section id="example-s3-classmethods-for-polygons" class="level2">
 <h2 class="anchored" data-anchor-id="example-s3-classmethods-for-polygons">Example: S3 Class/Methods for Polygons</h2>
 <p>The S3 system doesn’t have a formal way to define a class but typically, we use a list to define the class and elements of the list serve as data elements.</p>
-<p>Here is our definition of a polygon represented using Cartesian coordinates. The class contains an element called <code>xcoord</code> and <code>ycoord</code> for the x- and y-coordinates, respectively. The <code>make_poly()</code> function is the “constructor” function for polygon objects. It takes as arguments a numeric vector of x-coordinates and a corresponding numeric vector of y-coordinates.</p>
+<p>Here is our definition of a <strong>polygon represented using Cartesian coordinates</strong>.</p>
+<ul>
+<li>The class contains an element called <code>xcoord</code> and <code>ycoord</code> for the x- and y-coordinates, respectively.</li>
+<li>The <code>make_poly()</code> function is the “constructor” function for polygon objects. It takes as arguments a numeric vector of x-coordinates and a corresponding numeric vector of y-coordinates.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Constructor function for polygon objects</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x a numeric vector of x coordinates</span></span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="do">## y a numeric vector of y coordinates</span></span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>make_poly <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="fu">length</span>(y))</span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">stop</span>(<span class="st">"'x' and 'y' should be the same length"</span>)</span>
-<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>        <span class="do">## Create the "polygon" object </span></span>
-<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>        object <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">xcoord =</span> x, <span class="at">ycoord =</span> y)</span>
-<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a>        <span class="do">## Set the class name</span></span>
-<span id="cb89-12"><a href="#cb89-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(object) <span class="ot">&lt;-</span> <span class="st">"polygon"</span></span>
-<span id="cb89-13"><a href="#cb89-13" aria-hidden="true" tabindex="-1"></a>        object</span>
-<span id="cb89-14"><a href="#cb89-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Constructor function for polygon objects</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x a numeric vector of x coordinates</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="do">## y a numeric vector of y coordinates</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>make_poly <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="fu">length</span>(y))</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">stop</span>(<span class="st">"'x' and 'y' should be the same length"</span>)</span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>        <span class="do">## Create the "polygon" object </span></span>
+<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>        object <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">xcoord =</span> x, <span class="at">ycoord =</span> y)</span>
+<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>        <span class="do">## Set the class name</span></span>
+<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(object) <span class="ot">&lt;-</span> <span class="st">"polygon"</span></span>
+<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a>        object</span>
+<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now that we have a class definition, we can develop some methods for operating on objects from that class.</p>
+<p>Now that we have a class definition, we can <strong>develop some methods for operating on objects from that class</strong>.</p>
 <p>The first method that we will define is the <code>print()</code> method. The <code>print()</code> method should just show some simple information about the object and should not be too verbose—just enough information that the user knows what the object is.</p>
-<p>Here the <code>print()</code> method just shows the user how many vertices the polygon has. It is a convention for <code>print()</code> methods to return the object <code>x</code> invisibly using the <code>invisible()</code> function.</p>
+<p>Here the <code>print()</code> method just shows the user how many vertices the polygon has.</p>
+<p>It is a convention for <code>print()</code> methods to <strong>return the object <code>x</code> invisibly</strong> using the <code>invisible()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print method for polygon objects</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x an object of class "polygon"</span></span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>print.polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"a polygon with"</span>, <span class="fu">length</span>(x<span class="sc">$</span>xcoord), </span>
-<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"vertices</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">invisible</span>(x)</span>
-<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print method for polygon objects</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x an object of class "polygon"</span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>print.polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"a polygon with"</span>, <span class="fu">length</span>(x<span class="sc">$</span>xcoord), </span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"vertices</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">invisible</span>(x)</span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>invisible()</code> function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>invisible()</code> function is useful when it is <strong>desired to have functions return values which can be assigned, but which do not print when they are not assigned</strong>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These functions both return their argument</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These functions both return their argument</span></span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">invisible</span>(x)</span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f1</span>(<span class="dv">1</span>)  <span class="co"># prints</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">invisible</span>(x)</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="fu">f1</span>(<span class="dv">1</span>)  <span class="co"># prints</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f2</span>(<span class="dv">1</span>)  <span class="co"># does not</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f2</span>(<span class="dv">1</span>)  <span class="co"># does not print</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, when you assign the <code>f2()</code> function to an object, it does return the value</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">f2</span>(<span class="dv">1</span>)</span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">f2</span>(<span class="dv">1</span>)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 </div>
-<p>Next is the <code>summary()</code> method. The <code>summary()</code> method typically shows a bit more information and may even do some calculations. This <code>summary()</code> method computes the ranges of the x- and y-coordinates.</p>
-<p>The typical approach for <code>summary()</code> methods is to allow the summary method to compute something, but to <em>not</em> print something. The strategy is</p>
+</div>
+</div>
+<p>Next is the <code>summary()</code> method.</p>
+<p>The <code>summary()</code> method <strong>typically shows a bit more information and may even do some calculations</strong>, but does <strong>not</strong> print something. The general strategy of <code>summary()</code> methods is</p>
 <ol type="1">
-<li><p>The <code>summary()</code> method returns an object of class “summary_‘class name’”</p></li>
-<li><p>There is a separate <code>print()</code> method for “summary_‘class name’” objects.</p></li>
+<li>The <code>summary()</code> method returns an object of class <code>"summary_'class name'"</code></li>
+<li>There is a separate <code>print()</code> method for <code>"summary_'class name'"</code> objects.</li>
 </ol>
-<p>For example, here is the <code>summary()</code> method.</p>
+<p>For example, here is a <code>summary()</code> method for <code>polygon</code> objects that computes the ranges of the x- and y-coordinates.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Summary method for polygon objects</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="do">## object an object of class "polygon"</span></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>summary.polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(object, ...) {</span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>        object <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">rng.x =</span> <span class="fu">range</span>(object<span class="sc">$</span>xcoord),</span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rng.y =</span> <span class="fu">range</span>(object<span class="sc">$</span>ycoord))</span>
-<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(object) <span class="ot">&lt;-</span> <span class="st">"summary_polygon"</span></span>
-<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>        object</span>
-<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="do">## object an object of class "polygon"</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>summary.polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(object, ...) {</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>        object <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">rng.x =</span> <span class="fu">range</span>(object<span class="sc">$</span>xcoord),</span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rng.y =</span> <span class="fu">range</span>(object<span class="sc">$</span>ycoord))</span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(object) <span class="ot">&lt;-</span> <span class="st">"summary_polygon"</span></span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>        object</span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that it simply returns an object of class <code>summary_polygon</code>.</p>
-<p>Now the corresponding <code>print()</code> method:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print method for summary.polygon objects</span></span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="do">## x an object of class "summary_polygon"</span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>print.summary_polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"x:"</span>, x<span class="sc">$</span>rng.x[<span class="dv">1</span>], <span class="st">"--&gt;"</span>, x<span class="sc">$</span>rng.x[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"y:"</span>, x<span class="sc">$</span>rng.y[<span class="dv">1</span>], <span class="st">"--&gt;"</span>, x<span class="sc">$</span>rng.y[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">invisible</span>(x)</span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Now we can make use of our new class and methods.</p>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>summary</code> method simply returns an object of class <code>summary_polygon</code>.</p>
+</div>
+</div>
+<p>Now the corresponding <code>print()</code> method for <code>summary.polygon</code> objects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Construct a new "polygon" object</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">make_poly</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Note: x an object of class "summary_polygon"</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>print.summary_polygon <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"x:"</span>, x<span class="sc">$</span>rng.x[<span class="dv">1</span>], <span class="st">"--&gt;"</span>, x<span class="sc">$</span>rng.x[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"y:"</span>, x<span class="sc">$</span>rng.y[<span class="dv">1</span>], <span class="st">"--&gt;"</span>, x<span class="sc">$</span>rng.y[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">invisible</span>(x)</span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can make use of our new <code>polygon</code> class and methods (<code>summary()</code> and <code>print()</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Construct a new "polygon" object</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">make_poly</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$names
 [1] "xcoord" "ycoord"
@@ -1126,19 +1231,19 @@ $class
 </div>
 <p>We can use the <code>print()</code> to see what the object is.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>a polygon with 4 vertices</code></pre>
 </div>
 </div>
 <p>And we can use the <code>summary()</code> method to get a bit more information about the object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">summary</span>(x)</span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">summary</span>(x)</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "summary_polygon"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x: 1 --&gt; 4 
 y: 1 --&gt; 5 </code></pre>
@@ -1146,38 +1251,64 @@ y: 1 --&gt; 5 </code></pre>
 </div>
 <p>Because of auto-printing we can just call the <code>summary()</code> method and let the results auto-print.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x: 1 --&gt; 4 
 y: 1 --&gt; 5 </code></pre>
 </div>
 </div>
-<p>From here, we could build other methods for interacting with our <code>polygon</code> object. For example, it may make sense to define a <code>plot()</code> method or maybe methods for intersecting two polygons together.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What next?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From here, we could build other methods for interacting with our <code>polygon</code> object.</p>
+<p>For example, it may make sense to define a <code>plot()</code> method or maybe methods for intersecting two polygons together.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="s4" class="level1">
 <h1>S4</h1>
-<p>S4 is a rigorous system that forces you to think carefully about program design. It’s particularly well-suited for building large systems that evolve over time and will receive contributions from many programmers. This is why it is used by the Bioconductor project, so another reason to learn S4 is to equip you to contribute to that project.</p>
-<p>The S4 system is slightly more restrictive than S3, but it’s similar in many ways. To create a new class in S4 you need to use the <code>setClass()</code> function. You need to specify two or three arguments for this function: <code>Class</code> which is the name of the class as a string, <code>slots</code>, which is a named list of attributes for the class with the class of those attributes specified, and optionally <code>contains</code> which includes the super-class of they class you are specifying (if there is a super-class). Take look at the class definition for a <code>bus_S4</code> and a <code>party_bus_S4</code> below:</p>
+<p>S4 is a <strong>rigorous system that forces you to think carefully about program design</strong>.</p>
+<p>It’s particularly <strong>well-suited for building large systems</strong> that evolve over time and will receive contributions from many programmers. This is why it is used by the Bioconductor project, so another reason to learn S4 is to equip you to contribute to that project.</p>
+<p>The S4 system is <strong>slightly more restrictive than S3</strong>, but it’s similar in many ways.</p>
+<section id="constructors-in-s4" class="level2">
+<h2 class="anchored" data-anchor-id="constructors-in-s4">Constructors in S4</h2>
+<ul>
+<li>To create a new class in S4 you need to use the <code>setClass()</code> function.</li>
+<li>You need to specify two (or three arguments) for this function:
+<ul>
+<li><code>Class</code> which is the name of the class as a string</li>
+<li><code>slots</code>, which is a named list of attributes for the class with the class of those attributes specified</li>
+<li>(optionally) <code>contains</code>, which includes the super-class of they class you are specifying (if there is a super-class)</li>
+</ul></li>
+</ul>
+<p>Take look at the class definition for a <code>bus_S4</code> and a <code>party_bus_S4</code> below:</p>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="at">Class =</span> <span class="st">"bus_S4"</span>,</span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">slots =</span> <span class="fu">list</span>(<span class="at">n_seats =</span> <span class="st">"numeric"</span>, </span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">top_speed =</span> <span class="st">"numeric"</span>,</span>
-<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">current_speed =</span> <span class="st">"numeric"</span>,</span>
-<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">brand =</span> <span class="st">"character"</span>))</span>
-<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="at">Class =</span> <span class="st">"party_bus_S4"</span>,</span>
-<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">slots =</span> <span class="fu">list</span>(<span class="at">n_subwoofers =</span> <span class="st">"numeric"</span>,</span>
-<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">smoke_machine_on =</span> <span class="st">"logical"</span>),</span>
-<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">contains =</span> <span class="st">"bus_S4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="at">Class =</span> <span class="st">"bus_S4"</span>,</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">slots =</span> <span class="fu">list</span>(<span class="at">n_seats =</span> <span class="st">"numeric"</span>, </span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">top_speed =</span> <span class="st">"numeric"</span>,</span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">current_speed =</span> <span class="st">"numeric"</span>,</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">brand =</span> <span class="st">"character"</span>))</span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="at">Class =</span> <span class="st">"party_bus_S4"</span>,</span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">slots =</span> <span class="fu">list</span>(<span class="at">n_subwoofers =</span> <span class="st">"numeric"</span>,</span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">smoke_machine_on =</span> <span class="st">"logical"</span>),</span>
+<span id="cb110-9"><a href="#cb110-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">contains =</span> <span class="st">"bus_S4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have created the <code>bus_S4</code> and the <code>party_bus_S4</code> classes we can create bus objects using the <code>new()</code> function. The <code>new()</code> function’s arguments are the name of the class and values for each “slot” in our S4 object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>my_bus <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"bus_S4"</span>, <span class="at">n_seats =</span> <span class="dv">20</span>, <span class="at">top_speed =</span> <span class="dv">80</span>, </span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">current_speed =</span> <span class="dv">0</span>, <span class="at">brand =</span> <span class="st">"Volvo"</span>)</span>
-<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>my_bus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>my_bus <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"bus_S4"</span>, <span class="at">n_seats =</span> <span class="dv">20</span>, <span class="at">top_speed =</span> <span class="dv">80</span>, </span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">current_speed =</span> <span class="dv">0</span>, <span class="at">brand =</span> <span class="st">"Volvo"</span>)</span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>my_bus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An object of class "bus_S4"
 Slot "n_seats":
@@ -1192,10 +1323,10 @@ Slot "current_speed":
 Slot "brand":
 [1] "Volvo"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>my_party_bus <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"party_bus_S4"</span>, <span class="at">n_seats =</span> <span class="dv">10</span>, <span class="at">top_speed =</span> <span class="dv">100</span>,</span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">current_speed =</span> <span class="dv">0</span>, <span class="at">brand =</span> <span class="st">"Mercedes-Benz"</span>, </span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">n_subwoofers =</span> <span class="dv">2</span>, <span class="at">smoke_machine_on =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>my_party_bus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>my_party_bus <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"party_bus_S4"</span>, <span class="at">n_seats =</span> <span class="dv">10</span>, <span class="at">top_speed =</span> <span class="dv">100</span>,</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">current_speed =</span> <span class="dv">0</span>, <span class="at">brand =</span> <span class="st">"Mercedes-Benz"</span>, </span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">n_subwoofers =</span> <span class="dv">2</span>, <span class="at">smoke_machine_on =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>my_party_bus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An object of class "party_bus_S4"
 Slot "n_subwoofers":
@@ -1219,70 +1350,80 @@ Slot "brand":
 </div>
 <p>You can use the <code>@</code> operator to access the slots of an S4 object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>my_bus<span class="sc">@</span>n_seats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>my_bus<span class="sc">@</span>n_seats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 20</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>my_party_bus<span class="sc">@</span>top_speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>my_party_bus<span class="sc">@</span>top_speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100</code></pre>
 </div>
 </div>
 <p>This is essentially the same as using the <code>$</code> operator with a list or an environment.</p>
+</section>
+<section id="methods-in-s4" class="level2">
+<h2 class="anchored" data-anchor-id="methods-in-s4">Methods in S4</h2>
 <p>S4 classes use a generic method system that is similar to S3 classes. In order to implement a new generic method you need to use the <code>setGeneric()</code> function and the <code>standardGeneric()</code> function in the following way:</p>
 <pre><code>setGeneric("new_generic", function(x){
   standardGeneric("new_generic")
 })</code></pre>
 <p>Let’s create a generic function called <code>is_bus_moving()</code> to see if a bus_S4 object is in motion:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"is_bus_moving"</span>, <span class="cf">function</span>(x){</span>
-<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardGeneric</span>(<span class="st">"is_bus_moving"</span>)</span>
-<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"is_bus_moving"</span>, <span class="cf">function</span>(x){</span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardGeneric</span>(<span class="st">"is_bus_moving"</span>)</span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "is_bus_moving"</code></pre>
 </div>
 </div>
-<p>Now we need to actually define the function, which we can to with <code>setMethod()</code>. The <code>setMethod()</code> functions takes as arguments the name of the method as a string (or <code>f</code>), the method signature (<code>signature</code>), which specifies the class of each argument for the method, and then the function definition of the method:</p>
+<p>Now, we need to actually define the function, which we can to with <code>setMethod()</code>.</p>
+<p>The <code>setMethod()</code> functions takes as arguments</p>
+<ul>
+<li>the <strong>name of the method as a string</strong> (or <code>f</code>)</li>
+<li>the <strong>method signature</strong> (<code>signature</code>), which specifies the class of each argument for the method</li>
+<li>the <strong>function definition</strong> of the method</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="at">f =</span> <span class="st">"is_bus_moving"</span>,</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">signature =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="st">"bus_S4"</span>),</span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">definition =</span> <span class="cf">function</span>(x){</span>
-<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>                          x<span class="sc">@</span>current_speed <span class="sc">&gt;</span> <span class="dv">0</span></span>
-<span id="cb120-5"><a href="#cb120-5" aria-hidden="true" tabindex="-1"></a>                      }</span>
-<span id="cb120-6"><a href="#cb120-6" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb120-7"><a href="#cb120-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-8"><a href="#cb120-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is_bus_moving</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="at">f =</span> <span class="st">"is_bus_moving"</span>,</span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">signature =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="st">"bus_S4"</span>),</span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">definition =</span> <span class="cf">function</span>(x){</span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a>                          x<span class="sc">@</span>current_speed <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a>                      }</span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is_bus_moving</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>my_bus<span class="sc">@</span>current_speed <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is_bus_moving</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>my_bus<span class="sc">@</span>current_speed <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is_bus_moving</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>In addition to creating your own generic methods, you can also create a method for your new class from an existing generic.</p>
-<p>First, use the <code>setGeneric()</code> function with the name of the existing method you want to use with your class, and then use the <code>setMethod()</code> function like in the previous example. Let’s make a <code>print()</code> method for the bus_S4 class:</p>
+<p>First, use the <code>setGeneric()</code> function with the name of the existing method you want to use with your class, and then use the <code>setMethod()</code> function like in the previous example. Let’s make a <code>print()</code> method for the <code>bus_S4</code> class:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"print"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"print"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "print"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="at">f =</span> <span class="st">"print"</span>,</span>
-<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">signature =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="st">"bus_S4"</span>),</span>
-<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">definition =</span> <span class="cf">function</span>(x){</span>
-<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">paste</span>(<span class="st">"This"</span>, x<span class="sc">@</span>brand, <span class="st">"bus is traveling at a speed of"</span>, x<span class="sc">@</span>current_speed)</span>
-<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a>          })</span>
-<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="at">f =</span> <span class="st">"print"</span>,</span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">signature =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="st">"bus_S4"</span>),</span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">definition =</span> <span class="cf">function</span>(x){</span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">paste</span>(<span class="st">"This"</span>, x<span class="sc">@</span>brand, <span class="st">"bus is traveling at a speed of"</span>, x<span class="sc">@</span>current_speed)</span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a>          })</span>
+<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "This Volvo bus is traveling at a speed of 1"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_party_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_party_bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "This Mercedes-Benz bus is traveling at a speed of 0"</code></pre>
 </div>
 </div>
+</section>
 </section>
 <section id="reference-classes" class="level1">
 <h1>Reference Classes</h1>
@@ -1292,54 +1433,54 @@ Click here to learn about reference classes (RC).
 </summary>
 <p>With reference classes we leave the world of R’s old object oriented systems and enter the philosophies of other prominent object oriented programming languages. We can use the <code>setRefClass()</code> function to define a class’ fields, methods, and super-classes. Let’s make a reference class that represents a student:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>Student <span class="ot">&lt;-</span> <span class="fu">setRefClass</span>(<span class="st">"Student"</span>,</span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fields =</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"character"</span>,</span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">grad_year =</span> <span class="st">"numeric"</span>,</span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">credits =</span> <span class="st">"numeric"</span>,</span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">id =</span> <span class="st">"character"</span>,</span>
-<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">courses =</span> <span class="st">"list"</span>),</span>
-<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">methods =</span> <span class="fu">list</span>(</span>
-<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">hello =</span> <span class="cf">function</span>(){</span>
-<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste</span>(<span class="st">"Hi! My name is"</span>, name)</span>
-<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>                        },</span>
-<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">add_credits =</span> <span class="cf">function</span>(n){</span>
-<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>                          credits <span class="ot">&lt;&lt;-</span> credits <span class="sc">+</span> n</span>
-<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a>                        },</span>
-<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">get_email =</span> <span class="cf">function</span>(){</span>
-<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste0</span>(id, <span class="st">"@jhu.edu"</span>)</span>
-<span id="cb130-16"><a href="#cb130-16" aria-hidden="true" tabindex="-1"></a>                        }</span>
-<span id="cb130-17"><a href="#cb130-17" aria-hidden="true" tabindex="-1"></a>                      ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>Student <span class="ot">&lt;-</span> <span class="fu">setRefClass</span>(<span class="st">"Student"</span>,</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fields =</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"character"</span>,</span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">grad_year =</span> <span class="st">"numeric"</span>,</span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">credits =</span> <span class="st">"numeric"</span>,</span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">id =</span> <span class="st">"character"</span>,</span>
+<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">courses =</span> <span class="st">"list"</span>),</span>
+<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">methods =</span> <span class="fu">list</span>(</span>
+<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">hello =</span> <span class="cf">function</span>(){</span>
+<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste</span>(<span class="st">"Hi! My name is"</span>, name)</span>
+<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a>                        },</span>
+<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">add_credits =</span> <span class="cf">function</span>(n){</span>
+<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a>                          credits <span class="ot">&lt;&lt;-</span> credits <span class="sc">+</span> n</span>
+<span id="cb132-13"><a href="#cb132-13" aria-hidden="true" tabindex="-1"></a>                        },</span>
+<span id="cb132-14"><a href="#cb132-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">get_email =</span> <span class="cf">function</span>(){</span>
+<span id="cb132-15"><a href="#cb132-15" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste0</span>(id, <span class="st">"@jhu.edu"</span>)</span>
+<span id="cb132-16"><a href="#cb132-16" aria-hidden="true" tabindex="-1"></a>                        }</span>
+<span id="cb132-17"><a href="#cb132-17" aria-hidden="true" tabindex="-1"></a>                      ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To recap: we have created a class definition called <code>Student</code>, which defines the student class. This class has five fields and three methods. To create a Student object use the <code>new()</code> method:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>brooke <span class="ot">&lt;-</span> Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Brooke"</span>, <span class="at">grad_year =</span> <span class="dv">2019</span>, <span class="at">credits =</span> <span class="dv">40</span>,</span>
-<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"ba123"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Ecology"</span>, <span class="st">"Calculus III"</span>))</span>
-<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a>stephanie <span class="ot">&lt;-</span> Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Stephanie"</span>, <span class="at">grad_year =</span> <span class="dv">2021</span>, <span class="at">credits =</span> <span class="dv">10</span>,</span>
-<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"shicks456"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Puppetry"</span>, <span class="st">"Elementary Algebra"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>brooke <span class="ot">&lt;-</span> Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Brooke"</span>, <span class="at">grad_year =</span> <span class="dv">2019</span>, <span class="at">credits =</span> <span class="dv">40</span>,</span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"ba123"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Ecology"</span>, <span class="st">"Calculus III"</span>))</span>
+<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>stephanie <span class="ot">&lt;-</span> Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Stephanie"</span>, <span class="at">grad_year =</span> <span class="dv">2021</span>, <span class="at">credits =</span> <span class="dv">10</span>,</span>
+<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"shicks456"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Puppetry"</span>, <span class="st">"Elementary Algebra"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can access the fields and methods of each object using the <code>$</code> operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 40</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>stephanie<span class="sc">$</span><span class="fu">hello</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>stephanie<span class="sc">$</span><span class="fu">hello</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hi! My name is Stephanie"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>stephanie<span class="sc">$</span><span class="fu">get_email</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>stephanie<span class="sc">$</span><span class="fu">get_email</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "shicks456@jhu.edu"</code></pre>
 </div>
 </div>
 <p>Methods can change the state of an object, for instance in the case of the <code>add_credits()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 40</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span><span class="fu">add_credits</span>(<span class="dv">4</span>)</span>
-<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span><span class="fu">add_credits</span>(<span class="dv">4</span>)</span>
+<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>brooke<span class="sc">$</span>credits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 44</code></pre>
 </div>
@@ -1347,21 +1488,21 @@ Click here to learn about reference classes (RC).
 <p>Notice that the <code>add_credits()</code> method uses the complex assignment operator (<code>&lt;&lt;-</code>). You need to use this operator if you want to modify one of the fields of an object with a method. You’ll learn more about this operator in the Expressions &amp; Environments section.</p>
 <p>Reference classes can inherit from other classes by specifying the <code>contains</code> argument when they’re defined. Let’s create a sub-class of Student called Grad_Student which includes a few extra features:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>Grad_Student <span class="ot">&lt;-</span> <span class="fu">setRefClass</span>(<span class="st">"Grad_Student"</span>,</span>
-<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">contains =</span> <span class="st">"Student"</span>,</span>
-<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">fields =</span> <span class="fu">list</span>(<span class="at">thesis_topic =</span> <span class="st">"character"</span>),</span>
-<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">methods =</span> <span class="fu">list</span>(</span>
-<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">defend =</span> <span class="cf">function</span>(){</span>
-<span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">paste0</span>(thesis_topic, <span class="st">". QED."</span>)</span>
-<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>                              }</span>
-<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a>                            ))</span>
-<span id="cb142-9"><a href="#cb142-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-10"><a href="#cb142-10" aria-hidden="true" tabindex="-1"></a>jeff <span class="ot">&lt;-</span> Grad_Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Jeff"</span>, <span class="at">grad_year =</span> <span class="dv">2021</span>, <span class="at">credits =</span> <span class="dv">8</span>,</span>
-<span id="cb142-11"><a href="#cb142-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"jl55"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Fitbit Repair"</span>, </span>
-<span id="cb142-12"><a href="#cb142-12" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">"Advanced Base Graphics"</span>),</span>
-<span id="cb142-13"><a href="#cb142-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thesis_topic =</span> <span class="st">"Batch Effects"</span>)</span>
-<span id="cb142-14"><a href="#cb142-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-15"><a href="#cb142-15" aria-hidden="true" tabindex="-1"></a>jeff<span class="sc">$</span><span class="fu">defend</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>Grad_Student <span class="ot">&lt;-</span> <span class="fu">setRefClass</span>(<span class="st">"Grad_Student"</span>,</span>
+<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">contains =</span> <span class="st">"Student"</span>,</span>
+<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">fields =</span> <span class="fu">list</span>(<span class="at">thesis_topic =</span> <span class="st">"character"</span>),</span>
+<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">methods =</span> <span class="fu">list</span>(</span>
+<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">defend =</span> <span class="cf">function</span>(){</span>
+<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">paste0</span>(thesis_topic, <span class="st">". QED."</span>)</span>
+<span id="cb144-7"><a href="#cb144-7" aria-hidden="true" tabindex="-1"></a>                              }</span>
+<span id="cb144-8"><a href="#cb144-8" aria-hidden="true" tabindex="-1"></a>                            ))</span>
+<span id="cb144-9"><a href="#cb144-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-10"><a href="#cb144-10" aria-hidden="true" tabindex="-1"></a>jeff <span class="ot">&lt;-</span> Grad_Student<span class="sc">$</span><span class="fu">new</span>(<span class="at">name =</span> <span class="st">"Jeff"</span>, <span class="at">grad_year =</span> <span class="dv">2021</span>, <span class="at">credits =</span> <span class="dv">8</span>,</span>
+<span id="cb144-11"><a href="#cb144-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> <span class="st">"jl55"</span>, <span class="at">courses =</span> <span class="fu">list</span>(<span class="st">"Fitbit Repair"</span>, </span>
+<span id="cb144-12"><a href="#cb144-12" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">"Advanced Base Graphics"</span>),</span>
+<span id="cb144-13"><a href="#cb144-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thesis_topic =</span> <span class="st">"Batch Effects"</span>)</span>
+<span id="cb144-14"><a href="#cb144-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-15"><a href="#cb144-15" aria-hidden="true" tabindex="-1"></a>jeff<span class="sc">$</span><span class="fu">defend</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Batch Effects. QED."</code></pre>
 </div>
