@@ -10,8 +10,6 @@ date: 2022-11-15
 categories: [module 2, week 4, R, functions, programming]
 ---
 
-<!-- Add interesting quote -->
-
 # Pre-lecture materials
 
 ### Read ahead
@@ -22,6 +20,10 @@ categories: [module 2, week 4, R, functions, programming]
 **Before class, you can prepare by reading the following materials:**
 
 1. <https://adv-r.hadley.nz/oo>
+2. <https://adv-r.hadley.nz/base-types>
+3. <https://adv-r.hadley.nz/s3>
+4. <https://adv-r.hadley.nz/s4>
+
 :::
 
 ### Acknowledgements
@@ -39,9 +41,9 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- Recognize the primary object-oriented systems in R: S3, S4, and Reference Classes (RC). 
+- Recognize the primary object-oriented systems in R: S3, S4, R6, and Reference Classes (RC). 
 - Understand the terminology of a **class**, **object**, **method**, **constructor** and **generic**.
-- Be able to create a new S3, S4 or reference class with generics and methods
+- Be able to create a new S3 or S4 with generics and methods
 
 :::
 
@@ -55,37 +57,136 @@ At it's core, **object oriented programming** (OOP) is a paradigm that is made u
 
 At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. **classes**), which are used to create instances of concrete **objects**.
 
-The blueprint (or **class**) typically represents broad categories, e.g. `bus` or `car` that share **attributes** (e.g. color). The classes specify what attributes you want, but not the actual values for a particular object. However, when you create instances with objects, you are specifying the attributes (e.g. a blue car, a red car, etc). 
+The blueprint (or **class**) typically represents broad categories, e.g. `bus` or `car` that share **attributes** (e.g. color). 
 
-In addition, classes can also contain functions, called **methods** available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object. For example, our `car` class may have a method `repaint` that changes the color attribute of our car. This function is only helpful to objects of type `car`, so we declare it within the `car` class thus making it a method.
+- The **classes specify what attributes you want**, but not the actual values for a particular object. 
+- However, when you **create instances with objects**, you are specifying the attributes (e.g. a blue car, a red car, etc). 
+
+In addition, classes can also contain functions, called **methods** available only to objects of that type. 
+
+- These functions are **defined within the class** and perform some action helpful to that specific type of object. 
+- For example, our `car` class may have a method `repaint` that changes the color attribute of our car. 
+- This function is only helpful to objects of type `car`, so we declare it within the `car` class thus making it a method.
 
 
 ## OOP in R
 
-Base R has three object oriented systems
-because the roots of R date back to 1976, when the idea of object orientated
-programming was barely [four years old](https://en.wikipedia.org/wiki/Smalltalk).
+**Base R has three object oriented systems**, because the roots of R 
+date back to 1976, when the idea of object orientated programming was 
+barely [four years old](https://en.wikipedia.org/wiki/Smalltalk).
 
-New object oriented paradigms were added to R as they were invented, so some of
-the ideas in R about OOP have gone stale in the years
-since. It is still important to understand these older systems since a huge
-amount of R code is written with them, and they are still useful and interesting!
-Long time object oriented programmers reading this book may find these old ideas
-refreshing.
+**New object oriented paradigms** were added to R as they were invented, 
+and they exist in their own R packages.
 
-The two older object oriented systems in R are called S3 and S4, and the modern
-system is called RC which stands for "reference classes." Programmers who are
-already familiar with object oriented programming will feel at home using RC.
+:::{.callout-tip}
 
-Today we are going to focus on S3 and S4, but we leave RC for you to review, if you wish. 
+### Why is OOP hard in R? 
 
-In general, you should know and use S3 and this is also the OOP system that is 
-most widely used in R. However, there are different R communities that prioritize 
-other OOP systems (e.g. Bioconductor uses mostly S4).
+OOP is a little more challenging in R than in other languages because:
 
-## Object Oriented Principles
+1. There are **multiple OOP systems to choose from**. Here, I will focus on the following three: **S3**, **R6**, and **S4**. 
+  - S3 and S4 are provided by base R (two older OOP languages). 
+  - R6 is provided by the R6 package, and is similar to the 
+  - Reference Classes, or RC for short, from base R. Programmers who are
+already familiar with object oriented programming will feel at home using RC. 
 
-Ok let's talk about some OOP principles. The first is is the idea of a **class** and an **object**. 
+2. There is **disagreement about the relative importance** of the OOP systems. Hadley Wickham thinks S3 is most important, followed by R6, then S4. Others believe that S4 is most important (e.g. Bioconductor community), followed by RC, and that S3 should be avoided. This means that different R communities use different systems.
+
+3. S3 and S4 use **generic function OOP** which is rather different from the **encapsulated OOP** used by most languages popular today (the exception is Julia which also uses generic function OOP) (more on these later). Basically, while the underlying ideas of OOP are the same across languages, their expressions are rather different. This means that you can not immediately transfer your existing OOP skills to R.
+
+:::
+
+
+:::{.callout-tip}
+
+### Pro-tip
+
+Generally in R, functional programming is much more important than object-oriented programming, because you typically solve complex problems by decomposing them into simple functions, not simple objects. 
+
+:::
+
+This lesson focuses on the mechanics of OOP, not its effective use, and it may be challenging to fully understand if you have not done object-oriented programming before. 
+
+## sloop
+
+Before we go on I want to introduce the `sloop` package:
+
+```{r}
+library(sloop)
+```
+
+The `sloop` package (think "sail the seas of OOP") provides a number of helpers that fill in missing pieces in base R. The first of these is `sloop::otype()`. It makes it easy to figure out the OOP system used by a wild-caught object:
+
+```{r}
+otype(1:10)
+```
+
+```{r}
+library(palmerpenguins)
+otype(penguins)
+```
+
+```{r}
+mle_obj <- stats4::mle(function(x = 1) (x - 2) ^ 2)
+otype(mle_obj)
+```
+
+
+
+## OOP systems
+
+Different people use OOP terms in different ways, so this section provides a quick overview of **important vocabulary**. The explanations are necessarily compressed, but we will come back to these ideas multiple times.
+
+The main reason to use OOP is **polymorphism** (literally: many shapes). 
+
+- **Polymorphism** means that a developer can consider a function’s interface separately from its implementation, making it possible to use the same function form for different types of input. 
+- This is closely related to the idea of **encapsulation**: the user doesn’t need to worry about details of an object because they are encapsulated behind a standard interface.
+
+To be concrete, polymorphism is what allows `summary()` to produce different outputs for numeric and factor variables:
+
+```{r}
+summary(penguins$bill_length_mm)
+summary(penguins$species)
+```
+
+You could imagine `summary()` containing a series of if-else statements, but that would mean only the original author could add new implementations. An OOP system makes it possible for any developer to extend the interface with implementations for new types of input.
+
+To **be more precise**, OO systems call the type of an object its **class**, and an implementation for a specific class is called a **method**. Roughly speaking, 
+
+- a class defines what an object *is* and 
+- methods describe what that object can *do*
+
+The class defines the **fields**, the data possessed by every instance of that class. Classes are organised in a hierarchy so that if a method does not exist for one class, its parent's method is used, and the child is said to **inherit** behavior. 
+
+:::{.callout-tip}
+
+### Example
+
+- An ordered factor inherits from a regular factor.
+- A generalized linear model inherits from a linear model. 
+
+:::
+
+The process of finding the correct method given a class is called **method dispatch**.
+
+:::{.callout-tip}
+
+### Two paradigms of OOP
+
+The two main paradigms of OOP differ in how methods and classes are related. We will call these paradigms **encapsulated** and **functional**:
+
+1. In **encapsulated OOP**, methods belong to objects or classes, and method calls typically look like `object.method(arg1, arg2)`. This is called encapsulated because the object encapsulates both data (with fields) and behaviour (with methods), and is the paradigm found in most popular languages.
+
+2. In **functional OOP**, methods belong to generic functions, and method calls look like ordinary function calls: `generic(object, arg2, arg3)`. This is called functional because from the outside it looks like a regular function call, and internally the components are also functions.
+
+:::
+
+With this terminology in hand, we can now talk precisely about the different OO systems available in R.
+
+
+## OOP principles
+
+Ok let's talk more about some OOP principles. The first is is the idea of a **class** and an **object**. 
 
 The world is made up of physical objects - the chair you are
 sitting in, the clock next to your bed, the bus you ride every day, etc. Just
@@ -93,39 +194,100 @@ like the world is full of physical objects, your programs can be made of objects
 as well. 
 
 A **class is a blueprint for an object**: it describes the parts of an
-object, how to make an object, and what the object is able to do. If you were to
-think about a class for a bus (as in the public buses that roam the roads), this
-class would describe attributes for the bus like the number of seats on the bus,
-the number of windows, the color of the bus, the top speed of the bus, 
-and the maximum distance the bus can drive on one tank of gas. 
+object, how to make an object, and what the object is able to do. 
 
-Buses, in general, can perform the same actions,
-and these actions are also described in the class: a bus can open and close its
-doors, the bus can steer, and the accelerator or the brake can be used to slow
-down or speed up the bus. Each of these actions can be described as a **method**,
-which is a **function** that is associated with a particular class. 
+:::{.callout-tip}
 
-We will be using this class in order to create individual bus objects, so we should
-provide a **constructor**, which is a method where we can specify attributes of
-the bus as arguments. This constructor method will then return an individual bus
+### Example
+
+If you were to think about a class for a bus (as in the public buses that roam the roads), this class would describe **attributes** for the bus like 
+
+- the number of seats on the bus 
+- the number of windows
+- the color of the bus 
+- the top speed of the bus
+- the maximum distance the bus can drive on one tank of gas
+
+:::
+
+A **method is a function that is associated with a class** to perform an action. 
+
+:::{.callout-tip}
+
+### Example
+
+Buses, in general, can perform the same actions, and these actions are also described in the class: 
+
+- a bus can open and close its doors
+- the bus can steer
+- the accelerator or the brake can be used to slow down or speed up the bus
+
+:::
+
+A **constructor is a method to specify attributes of the class** to create a object with the specific attributes that we specified. 
+
+:::{.callout-tip}
+
+### Example
+
+We will use the `bus` class in order to create individual `bus` objects. 
+
+To do this, we will create a constructor method for the `bus` class to return an individual bus
 object with the attributes that we specified.
 
-You could also imagine that after making the bus class you might want to make
-a special kind of class for a [party bus](https://en.wikipedia.org/wiki/Party_bus).
-Party buses have all of the same attributes and methods as our bus class, but
-they also have additional attributes and methods like the number of
-refrigerators, window blinds that can be opened and closed, and smoke machines
-that can be turned on and off. 
+:::
 
-Instead of rewriting the entire bus class and
-then adding new attributes and methods, it is possible for the party bus class
-to **inherit** all of the attributes and methods from the bus class. In this
-framework of inheritance, we talk about the bus class as the super-class of the
-party bus, and the party bus is the sub-class of the bus. What this relationship
-means is that the party bus has all of the same attributes and methods as the
-bus class plus additional attributes and methods.
+If we want to make a new class that has all the same attributes and methods as an existing class, but also has additional attributes, we do not want to rewrite the entire class, but rather we want to **define a new class that inherits from the original class**. 
+
+:::{.callout-tip}
+
+### Example
+
+Imagine that after making the `bus` class you might want to make
+a special kind of class for a [party bus](https://en.wikipedia.org/wiki/Party_bus).
+
+The `party_bus` class has all of the same attributes and methods as our `bus` class, but
+they also has additional attributes and methods like 
+
+- the number of refrigerators
+- window blinds that can be opened and closed
+- smoke machines that can be turned on and off
+
+:::
+
+In this framework of inheritance, we talk about the bus class as the 
+super-class of the party bus, and the party bus is the sub-class of the bus. 
+
+What this relationship means is that the party bus has all of the same attributes 
+and methods as the bus class plus additional attributes and methods.
+
+
+## OOP in R (v2)
+
+Base R provides three OOP systems: S3, S4, and reference classes (RC):
+
+1. **S3** is R’s first OOP system, and is described in *Statistical Models in S*. S3 is an informal implementation of functional OOP and relies on common conventions rather than ironclad guarantees. This makes it easy to get started with, providing a low cost way of solving many simple problems.
+
+2. **S4** is a formal and rigorous rewrite of S3, and was introduced in *Programming with Data*. It requires more upfront work than S3, but in return provides more guarantees and greater encapsulation. S4 is implemented in the base **methods** package, which is always installed with R.
+
+:::{.callout-tip}
+
+### Pro-tip
+
+You might wonder if S1 and S2 exist. They don’t: S3 and S4 were named according to the versions of S that they accompanied. The first two versions of S didn’t have any OOP framework. 
+
+:::
+
+3. **RC** implements encapsulated OO. RC objects are a special type of S4 objects that are also **mutable** (i.e., instead of using R’s usual copy-on-modify semantics, they can be modified in place). This makes them harder to reason about, but allows them to solve problems that are difficult to solve in the functional OOP style of S3 and S4.
+
+
+
+
 
 # S3
+
+S3 allows your functions to return rich results with user-friendly display and programmer-friendly internals. S3 is used throughout base R, so it’s important to master if you want to extend base R functions to work with new types of input.
+
 
 Conveniently everything in R is an **object**. By "everything" I mean every single
 "thing" in R including numbers, functions, strings, data frames, lists, etc. 
@@ -134,7 +296,7 @@ And while everything in R is an object, not everything is **object-oriented**.
 
 This confusion arises because the base objects come from S, and were developed before anyone thought that S might need an OOP system. The tools and nomenclature evolved organically over many years without a single guiding principle.
 
-Most of the time, the distinction between objects and object-oriented objects is not important. But here we need to get into the nitty gritty details so we will use the terms base objects and OO objects to distinguish them.
+Most of the time, the distinction between objects and object-oriented objects is not important. But here we need to get into the nitty gritty details so we will use the terms **base objects** and **OO objects** to distinguish them.
 
 ```{r atomic-vectors, echo=FALSE, fig.cap='Everything in R is an object!', out.width = '60%', fig.align='center'}
 knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/5d6b4926530f3da70f16b54dcdf1a55eb8fa3d71/703e0/diagrams/oo-venn.png")
@@ -152,23 +314,30 @@ is.object(1:10)
 is.object(airquality)
 ```
 
-
 Technically, the difference between base and OO objects is that OO objects have a "class" attribute:
 
 ```{r}
 attr(1:10, "class")
-attr(airquality, "class")
+attr(penguins, "class")
 ```
 
+:::{.callout-tip}
+
+### Pro-tip
+
 This can be slightly confusing, but important to note: 
-you can find out the class of an object in R using
-the `class()` function, but this may or may not have a class attribute. 
+
+You can **find out the class of an object** in R using the `class()` function, 
+but the **object may or may not have a class attribute**. 
 
 ```{r}
 class(1:10)
 class("is in session.")
+class(mtcars)
 class(class)
 ```
+
+:::
 
 
 ## Base types
@@ -180,13 +349,22 @@ typeof(1:10)
 typeof(mtcars)
 ```
 
-Base types do not form an OOP system because functions that behave differently for different base types are primarily written in C code that uses switch statements. 
+**Base types do not form an OOP system** because functions that behave differently for different base types are primarily written in C code that uses switch statements. 
 
-This means that only the R-core team can create new types, and creating a new type is a lot of work because every switch statement needs to be modified to handle a new case. As a consequence, new base types are rarely added. In total, there are [25 different base types](https://adv-r.hadley.nz/base-types.html#base-types-2). 
+This means that only the R-core team can create new types, and creating a new type is a lot of work because every switch statement needs to be modified to handle a new case. As a consequence, new base types are rarely added. 
 
-Here are two more base types we have already learned about: 
+:::{.callout-tip}
+
+### Pro-tip
+
+In total, there are [25 different base types](https://adv-r.hadley.nz/base-types.html#base-types-2).
+
+:::
+
+Here are some more base types we have already learned about: 
 
 ```{r}
+typeof(NULL)
 typeof(1L)
 typeof(1i)
 ```
@@ -195,13 +373,37 @@ typeof(1i)
 
 At a high-level, an S3 object is a **base type** with at least a **class** attribute. 
 
-For example, take the `factor`. Its base type is the `integer` vector, it has a `class` attribute of "factor", and a `levels` attribute that stores the possible levels:
+:::{.callout-tip}
+
+### Example
+
+Take the `factor`. Its base type is the `integer` vector, it has a `class` attribute of "factor", and a `levels` attribute that stores the possible levels:
 
 ```{r}
 f <- factor(c("a", "b", "c"))
 typeof(f)
 attributes(f)
 ```
+
+:::
+
+
+:::{.callout-note}
+
+### Question
+
+Let's consider the `penguins` data frame. 
+
+- What is it's base type? 
+- What is it's `class` attribute? 
+- What other attributes does it have? 
+
+```{r}
+## try it here
+
+```
+
+:::
 
 Cool. Let's try creating a new class in the S3 system. 
 
@@ -211,19 +413,54 @@ assign the class using `class()` and `<-`:
 
 ```{r}
 special_num_1 <- structure(1, class = "special_number")
+special_num_1
 class(special_num_1)
+```
 
-special_num_2 <- 2
-class(special_num_2)
+:::{.callout-note}
 
+### Question
+
+Let's assign the number 2 to `special_num_2` and look at the class of `special_num_2`. 
+
+```{r}
+### try it here
+
+```
+
+What's happened here? 
+
+:::
+
+
+:::{.callout-note}
+
+### Question
+
+Next, let's assign "special_number" to the class of `special_num_2`. 
+
+```{r}
+#| eval: false
 class(special_num_2) <- "special_number"
 class(special_num_2)
+special_num_2
 ```
+
+What's happening here? 
+
+:::
 
 As crazy as this is, it is completely legal R code, but if you want 
 to have a better behaved S3 class you should create a constructor which
-returns an S3 object. The `shape_S3()` function below is a constructor 
-that returns a shape_S3 object:
+returns an S3 object. 
+
+
+:::{.callout-tip}
+
+### Example 
+
+Consider the `shape_S3()` function below, which is a constructor 
+that returns a `shape_S3` object:
 
 ```{r}
 shape_s3 <- function(side_lengths){
@@ -239,6 +476,8 @@ class(triangle_3)
 
 We have now made two shape_S3 objects: `square_4` and `triangle_3`, which are both
 instantiations of the shape_S3 class. 
+
+:::
 
 Imagine that you wanted to create a **method** (or function)
 that would return `TRUE` if a shape_S3 object was a square, `FALSE` if a
@@ -495,6 +734,10 @@ From here, we could build other methods for interacting with our `polygon` objec
 
 
 # S4
+
+
+S4 is a rigorous system that forces you to think carefully about program design. It’s particularly well-suited for building large systems that evolve over time and will receive contributions from many programmers. This is why it is used by the Bioconductor project, so another reason to learn S4 is to equip you to contribute to that project.
+
 
 The S4 system is slightly more restrictive than S3, but it's similar in many
 ways. To create a new class in S4 you need to use the `setClass()` function.
