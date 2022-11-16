@@ -947,6 +947,7 @@ languages. We can use the `setRefClass()` function to define a class' fields,
 methods, and super-classes. Let's make a reference class that represents a
 student:
 
+
 ```{r}
 Student <- setRefClass("Student",
                       fields = list(name = "character",

@@ -106,8 +106,8 @@ There will be 4 assignments, due every 2--3 weeks. Projects will be submitted el
 The project assignments will be due on
 
 -   Project 1: Friday November 11, 11:59pm
--   Project 2: Friday November 25, 11:59pm
--   Project 3: Friday December 9, 11:59pm
+-   Project 2: Tuesday November 29, 11:59pm (was previously Friday November 25)
+-   Project 3: Tuesday December 13, 11:59pm (was previously Friday December 9)
 -   Project 4: Friday December 23, 11:59pm
 
 ### Project collaboration
