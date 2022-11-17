@@ -279,7 +279,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#within-rstudio" id="toc-within-rstudio" class="nav-link" data-scroll-target="#within-rstudio">Within RStudio</a></li>
   <li><a href="#build-source-package" id="toc-build-source-package" class="nav-link" data-scroll-target="#build-source-package">Build Source Package</a></li>
+  <li><a href="#install-from-github" id="toc-install-from-github" class="nav-link" data-scroll-target="#install-from-github">Install from GitHub</a></li>
   </ul></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final thoughts</a></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
@@ -296,7 +298,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<!-- Add interesting quote -->
 <section id="pre-lecture-materials" class="level1">
 <h1>Pre-lecture materials</h1>
 <section id="read-ahead" class="level3">
@@ -630,19 +631,20 @@ Note
 <p>After writing the code and documentation we need to edit the <code>DESCRIPTION</code> file for the package. This contains metadata about the package. Here is the final <code>DESCRIPTION</code> file for the package.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Package<span class="sc">:</span> greetings</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Title<span class="sc">:</span> Displays a greeting plot</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Version<span class="sc">:</span> <span class="fl">1.0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Version<span class="sc">:</span> <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">person</span>(<span class="at">given =</span> <span class="st">"Stephanie"</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"Hicks"</span>,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"shicks19@jhu.edu"</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Description<span class="sc">:</span> This package displays a nice greeting <span class="cf">for</span> a custom name.</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> ggplot2</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>License<span class="sc">:</span> <span class="fu">GPL</span> (<span class="sc">&gt;=</span> <span class="dv">3</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Encoding<span class="sc">:</span> UTF<span class="dv">-8</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>LazyData<span class="sc">:</span> true</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Roxygen<span class="sc">:</span> <span class="fu">list</span>(<span class="at">markdown =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>RoxygenNote<span class="sc">:</span> <span class="dv">7</span>.<span class="fl">1.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"shicks19@jhu.edu"</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">comment =</span> <span class="fu">c</span>(<span class="at">ORCID =</span> <span class="st">"0000-0002-5682-5998"</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>Description<span class="sc">:</span> This package displays a nice greeting <span class="cf">for</span> a custom name.</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> ggplot2</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>License<span class="sc">:</span> <span class="fu">GPL</span> (<span class="sc">&gt;=</span> <span class="dv">3</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>Encoding<span class="sc">:</span> UTF<span class="dv">-8</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>LazyData<span class="sc">:</span> true</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>Roxygen<span class="sc">:</span> <span class="fu">list</span>(<span class="at">markdown =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>RoxygenNote<span class="sc">:</span> <span class="dv">7</span>.<span class="fl">2.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can go through each field one at time:</p>
 <ol type="1">
 <li><p><code>Package</code> is just the name of the package. In this case it is <code>greetings</code>.</p></li>
@@ -662,6 +664,19 @@ Note
 <section id="within-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="within-rstudio">Within RStudio</h2>
 <p>In the <strong>Build</strong> tab, click the button labeled <strong>Install and Restart</strong>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On more recent versions of RStudio, it might just stay “Install”, not “Install and Restart”.</p>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -727,7 +742,7 @@ Pro-tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are interested, you can also use the <code>usethis</code> package to create, build, document, and intall a R package:</p>
+<p>If you are interested, you can also use the <code>usethis</code> package to create, build, document, and install a R package:</p>
 <ul>
 <li><a href="https://usethis.r-lib.org" class="uri">https://usethis.r-lib.org</a></li>
 </ul>
@@ -735,6 +750,44 @@ Pro-tip
 </div>
 </div>
 </section>
+<section id="install-from-github" class="level2">
+<h2 class="anchored" data-anchor-id="install-from-github">Install from GitHub</h2>
+<p>You can also install an R package that’s available on GitHub. For example, here is the <code>greetings</code> package on my personal GitHub page - <a href="https://github.com/stephaniehicks/greetings" class="uri">https://github.com/stephaniehicks/greetings</a></p>
+<p>To install this, we can use the <code>remotes::install_github(repo="username/repo")</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"stephaniehicks/greetings"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="final-thoughts" class="level1">
+<h1>Final thoughts</h1>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>You can create multiple <code>.R</code> files in the <code>/R</code> folder. Typically, its best to have one <code>.R</code> file for each of your <strong>exported</strong> functions. For the <strong>non-exported</strong> functions, you can place into one file (e.g.&nbsp;<code>utils.R</code>, etc). You can read more about this here <a href="https://r-pkgs.org/code.html" class="uri">https://r-pkgs.org/code.html</a>.</li>
+<li>You will want to check your package with <code>R CMD check</code> or <code>devtools::check()</code>. You can read more about this here <a href="https://r-pkgs.org/check.html" class="uri">https://r-pkgs.org/check.html</a>.</li>
+<li>When you define <code>print</code> methods with generic functions that exist in base R (e.g.&nbsp;<code>print.object</code>), you need use the variable argument (<code>...</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>print.object <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>instead of</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>print.object <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is because <code>print()</code> in base R has a set of arguments and to let your own S3 method pass the <code>R CMD check</code> you need allow for the same arguments as with the base R generic. Otherwise, you’ll get warnings about “checking S3 generic/method consistency …”.</p>
+</div>
+</div>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
