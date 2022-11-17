@@ -11,8 +11,6 @@ categories: [module 2, week 4, R, programming, documentation, R package, functio
 ---
 
 
-<!-- Add interesting quote -->
-
 # Pre-lecture materials
 
 ### Read ahead
@@ -56,7 +54,7 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- Create an empty R package  within RStudio
+- Create an empty R package within RStudio
 - Design a R function and write documentation
 - Describe what a `DESCRIPTION` file is and what goes in it
 - Be able to build and install a R package
@@ -322,19 +320,20 @@ the final `DESCRIPTION` file for the package.
 ```r
 Package: greetings
 Title: Displays a greeting plot
-Version: 1.0
+Version: 0.0.0.9000
 Authors@R: 
     person(given = "Stephanie",
            family = "Hicks",
            role = c("aut", "cre"),
-           email = "shicks19@jhu.edu")
+           email = "shicks19@jhu.edu", 
+           comment = c(ORCID = "0000-0002-5682-5998"))
 Description: This package displays a nice greeting for a custom name.
 Imports: ggplot2
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 ```
 
 We can go through each field one at time:
@@ -363,6 +362,14 @@ Once you have the code, documentation, and `DESCRIPTION` file written, you can b
 ## Within RStudio
 
 In the **Build** tab, click the button labeled **Install and Restart**.
+
+:::{.callout-tip}
+
+### Note
+
+On more recent versions of RStudio, it might just stay "Install", not "Install and Restart". 
+
+:::
 
 ```{r}
 #| echo: false
@@ -420,11 +427,47 @@ Once your package is built, you can send to others and they will be able to inst
 
 ### Pro-tip
 
-If you are interested, you can also use the `usethis` package to create, build, document, and intall a R package: 
+If you are interested, you can also use the `usethis` package to create, build, document, and install a R package: 
 
 - <https://usethis.r-lib.org>
 
 FWIW, this is how I create R packages.
+
+:::
+
+## Install from GitHub
+
+You can also install an R package that's available on GitHub. For example, here is the `greetings` package on my personal GitHub page 
+- <https://github.com/stephaniehicks/greetings>
+
+To install this, we can use the `remotes::install_github(repo="username/repo")` function: 
+
+```{r}
+#| eval: false
+remotes::install_github(repo = "stephaniehicks/greetings")
+```
+
+# Final thoughts
+
+:::{.callout-tip}
+
+### Pro-tip
+
+- You can create multiple `.R` files in the `/R` folder. Typically, its best to have one `.R` file for each of your **exported** functions. For the **non-exported** functions, you can place into one file (e.g. `utils.R`, etc). You can read more about this here <https://r-pkgs.org/code.html>. 
+- You will want to check your package with `R CMD check` or `devtools::check()`. You can read more about this here <https://r-pkgs.org/check.html>. 
+- When you define `print` methods with generic functions that exist in base R (e.g. `print.object`), you need use the variable argument (`...`)
+
+```{r}
+print.object <- function(x, ...){
+}
+```
+instead of 
+```{r}
+print.object <- function(x){
+}
+```
+
+This is because `print()` in base R has a set of arguments and to let your own S3 method pass the `R CMD check` you need allow for the same arguments as with the base R generic. Otherwise, you'll get warnings about "checking S3 generic/method consistency ...". 
 
 :::
 

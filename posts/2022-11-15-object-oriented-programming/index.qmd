@@ -585,7 +585,6 @@ print(square_4)
 
 Doesn't that look ugly? 
 
-
 ### Create a generic method `print()` for `shape_S3` class
 
 Lucky for us `print()` is a generic method, so we can
