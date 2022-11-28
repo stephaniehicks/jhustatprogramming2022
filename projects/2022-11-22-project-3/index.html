@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stephanie Hicks">
-<meta name="dcterms.date" content="2022-11-22">
-<meta name="description" content="TBA">
+<meta name="dcterms.date" content="2022-11-29">
+<meta name="description" content="Building websites for R packages">
 
 <title>Statistical Programming Paradigms and Workflows (BSPH 140.840) - Project 3</title>
 <style>
@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,7 +212,14 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#to-submit-your-project" id="toc-to-submit-your-project" class="nav-link" data-scroll-target="#to-submit-your-project">To submit your project</a></li>
   </ul></li>
-  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
+  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a>
+  <ul class="collapse">
+  <li><a href="#part-1a-create-website-locally" id="toc-part-1a-create-website-locally" class="nav-link" data-scroll-target="#part-1a-create-website-locally">Part 1A: Create website locally</a></li>
+  <li><a href="#part-1b-customize-the-website" id="toc-part-1b-customize-the-website" class="nav-link" data-scroll-target="#part-1b-customize-the-website">Part 1B: Customize the website</a></li>
+  <li><a href="#part-1c-create-an-example-data-analysis" id="toc-part-1c-create-an-example-data-analysis" class="nav-link" data-scroll-target="#part-1c-create-an-example-data-analysis">Part 1C: Create an example data analysis</a></li>
+  <li><a href="#part-1d-create-a-readme.md-file" id="toc-part-1d-create-a-readme.md-file" class="nav-link" data-scroll-target="#part-1d-create-a-readme.md-file">Part 1D: Create a <code>README.md</code> file</a></li>
+  <li><a href="#part-1e-deploy-the-website" id="toc-part-1e-deploy-the-website" class="nav-link" data-scroll-target="#part-1e-deploy-the-website">Part 1E: Deploy the website</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -167,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    TBA
+    Building websites for R packages
   </div>
 </div>
 
@@ -191,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 22, 2022</p>
+      <p class="date">November 29, 2022</p>
     </div>
   </div>
   
@@ -203,7 +273,10 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="background" class="level1">
 <h1>Background</h1>
-<p><strong>Due date: December 9 at 11:59pm</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Due date: December 13 at 11:59pm</strong></p>
 <p>The goal of this assignment is to…</p>
 <section id="to-submit-your-project" class="level3">
 <h3 class="anchored" data-anchor-id="to-submit-your-project">To submit your project</h3>
@@ -211,8 +284,116 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="part-1" class="level1">
 <h1>Part 1</h1>
+<p>Here, we will practice using <a href="https://pkgdown.r-lib.org"><code>pkgdown</code></a>. Using any R package with a GitHub repository (that does not already have a pkgdown website), use <code>pkgdown</code> to create a website for the software package.</p>
+<p>This could even been a package that you have written (or are working on creating right now). Otherwise, this could be a package that you have used previously or you can pick one you are not familiar with and just want to know more about!</p>
+<section id="part-1a-create-website-locally" class="level2">
+<h2 class="anchored" data-anchor-id="part-1a-create-website-locally">Part 1A: Create website locally</h2>
+<p>Fork the GitHub repository from the original location to your own GitHub account. Clone the repository to your local computer.</p>
+<p>Use <code>usethis</code> and <code>pkgdown</code> to create a website locally for the R package of your choice.</p>
+</section>
+<section id="part-1b-customize-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="part-1b-customize-the-website">Part 1B: Customize the website</h2>
+<p>Here, you need to customize the website in <strong>at least 5 ways</strong>. How you customize is up to you. The <code>pkgdown</code> website has lots of suggestions for you to try out!</p>
+</section>
+<section id="part-1c-create-an-example-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="part-1c-create-an-example-data-analysis">Part 1C: Create an example data analysis</h2>
+<p>In this part, you will create a data analysis (or a case study) where you demonstrate the functions in the R package. Specifically, you will add <a href="https://pkgdown.r-lib.org/articles/customise.html#navbar">another article or vignette</a> titled “Example analysis” inside the <code>/vignettes</code> folder.</p>
+<p>Similar to Project 2, you must pick out a data set from <a href="https://www.tidytuesday.com">TidyTuesday</a> <strong>that you have not worked with before</strong> (i.e.&nbsp;not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable). You must also demonstrate wrangling and ploting the data. Finally, your example analysis, must also demonstrate at least 2 functions from the R package in some way in the vignette.</p>
+<p>Other requirements for this part of vignette are the following:</p>
+<ol type="1">
+<li>Pick any data set you wish from <a href="https://www.tidytuesday.com">TidyTuesday</a> to analyze.</li>
+</ol>
+<ul>
+<li>You must describe what is the question you aim to answer with the data and data analysis.</li>
+<li>You must describe and link to where the original data come from that you chose.</li>
+<li>You must include a link to a data dictionary for the data or create one inside the webpage.</li>
+</ul>
+<ol start="2" type="1">
+<li>Load the data into R</li>
+</ol>
+<ul>
+<li>In this step, you must test if a directory named <code>data</code> exists locally. If it does not, write an R function that creates it programmatically.<br>
+</li>
+<li>Saves the data only once (not each time you knit/render the document).</li>
+<li>Read in the data locally each time you knit/render.</li>
+</ul>
+<ol start="3" type="1">
+<li>Your analysis must include some form of data wrangling and data visualization.</li>
+</ol>
+<ul>
+<li>You must use at least eight different functions from <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>stringr</code>, or <code>forcats</code>.</li>
+<li>You must use at least two functions from <code>purr</code>.</li>
+<li>Your analysis should include at least three plots with you using at least three different <code>geom_*()</code> functions from <code>ggplot2</code> (or another package with <code>geom_*()</code> functions).
+<ul>
+<li>Plots should have titles, subtitles, captions, and human-understandable axis labels.</li>
+<li>At least one plot should using a type of faceting (<code>facet_grid()</code> or <code>facet_wrap()</code>).</li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li>Apply at least 2 functions from the R package in the vignette.</li>
+<li>Summarize and interpret the results in 1-2 sentences.</li>
+<li>At the end of the data analysis, list out each of the functions you used from each of the packages (<code>dplyr</code>, <code>tidyr</code>, <code>ggplot2</code>, etc) to help the TA with respect to making sure you met all the requirements described above.</li>
+</ol>
+</section>
+<section id="part-1d-create-a-readme.md-file" class="level2">
+<h2 class="anchored" data-anchor-id="part-1d-create-a-readme.md-file">Part 1D: Create a <code>README.md</code> file</h2>
+<p>If the package does not already include one, make and include a <code>README.md</code> file in the folder where the R package and pkgdown files are on your computer and add the following information below.</p>
+<p>If it already has a <code>README.md</code> file, just edit the top of the file with the following information:</p>
+<ul>
+<li>Include a URL to the GitHub link to where the original R package came from.</li>
+<li>Include a URL to the deployed website that you will do in Part 1E, but it should be something like <code>https://jhu-statprogramming-fall-2022.github.io/biostat840-project3-pkgdown-&lt;your_github_username&gt;</code>.</li>
+<li>Include a description of the 5 things you customized in your <code>pkgdown</code> website (excluding adding the example data analysis from Part 1C).</li>
+</ul>
+<p>The readme must also include (if it does not already):</p>
+<ul>
+<li>The title of package</li>
+<li>The original author of the package (and you who made the website and example data analysis)</li>
+<li>A goal / description of the package</li>
+<li>A list of <strong>exported</strong> functions that are in the package. Briefly describe each function.</li>
+<li>A basic example with one of the functions.</li>
+</ul>
+</section>
+<section id="part-1e-deploy-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="part-1e-deploy-the-website">Part 1E: Deploy the website</h2>
+<p>The link to create a public GitHub repository for yourself to complete this part of Project 3 will be posted in CoursePlus. This creates an empty GitHub repository.</p>
+<p>When ready, deploy the website.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You need to modify the template code that is provided to you from GitHub when you set the remote. There will already be a remote <code>origin</code> (from where you cloned the repo), which you can see with</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bash</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To change where you push your code, instead of</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bash</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>link<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You want to use something like</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bash</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream <span class="op">&lt;</span>link<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and when you push, you use <code>git push -u upstream main</code>, for example.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
