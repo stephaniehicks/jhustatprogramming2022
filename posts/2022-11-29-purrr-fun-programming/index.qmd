@@ -7,7 +7,6 @@ author:
     affiliation_url: https://publichealth.jhu.edu
 description: "Introduction to tools to work with functions and vectors in R"
 date: 2022-11-29
-draft: true
 categories: [module 3, week 6, functions, functional, programming, purrr]
 ---
 
