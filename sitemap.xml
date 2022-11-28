@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-08-version-control-part-1/index.html</loc>
-    <lastmod>2022-11-20T00:46:58.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-03-command-line-part-2/index.html</loc>
-    <lastmod>2022-11-20T00:46:59.769Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-15-object-oriented-programming/index.html</loc>
-    <lastmod>2022-11-20T00:47:02.130Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-17-r-pkg-dev-part-1/index.html</loc>
-    <lastmod>2022-11-20T00:47:03.086Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-10-27-build-website/index.html</loc>
-    <lastmod>2022-11-20T00:47:05.062Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/index.html</loc>
-    <lastmod>2022-11-20T00:47:06.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-01-command-line-part-1/index.html</loc>
-    <lastmod>2022-11-20T00:47:09.270Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/index.html</loc>
-    <lastmod>2022-11-20T00:47:09.630Z</lastmod>
-  </url>
-  <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/schedule.html</loc>
-    <lastmod>2022-11-20T00:47:10.230Z</lastmod>
+    <lastmod>2022-11-28T03:17:49.038Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/projects.html</loc>
-    <lastmod>2022-11-20T00:47:10.626Z</lastmod>
+    <lastmod>2022-11-28T03:17:49.818Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/syllabus.html</loc>
-    <lastmod>2022-11-20T00:47:11.270Z</lastmod>
+    <lastmod>2022-11-28T03:17:50.426Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/projects/2022-11-08-project-2/index.html</loc>
-    <lastmod>2022-11-20T00:47:12.046Z</lastmod>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/index.html</loc>
+    <lastmod>2022-11-28T03:17:50.762Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/projects/2022-10-27-project-1/index.html</loc>
-    <lastmod>2022-11-20T00:47:13.586Z</lastmod>
+    <lastmod>2022-11-28T03:17:52.218Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/projects/2022-11-08-project-2/index.html</loc>
+    <lastmod>2022-11-28T03:17:52.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-08-version-control-part-1/index.html</loc>
+    <lastmod>2022-11-28T03:17:53.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-15-object-oriented-programming/index.html</loc>
+    <lastmod>2022-11-28T03:17:55.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-17-r-pkg-dev-part-1/index.html</loc>
+    <lastmod>2022-11-28T03:17:56.722Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/index.html</loc>
+    <lastmod>2022-11-28T03:17:59.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-01-command-line-part-1/index.html</loc>
+    <lastmod>2022-11-28T03:18:03.706Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-11-03-command-line-part-2/index.html</loc>
+    <lastmod>2022-11-28T03:18:04.470Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/stephaniehicks/jhustatprogramming2022/posts/2022-10-27-build-website/index.html</loc>
+    <lastmod>2022-11-28T03:18:06.630Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/lectures.html</loc>
-    <lastmod>2022-11-20T00:47:14.147Z</lastmod>
+    <lastmod>2022-11-28T03:18:07.150Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/stephaniehicks/jhustatprogramming2022/resources.html</loc>
-    <lastmod>2022-11-20T00:47:14.487Z</lastmod>
+    <lastmod>2022-11-28T03:18:07.466Z</lastmod>
   </url>
 </urlset>
