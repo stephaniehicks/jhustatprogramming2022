@@ -113,7 +113,7 @@ The bottom line, you can manipulate functions as the same way as you can to a ve
 ## Why is functional programming important?
 Functional programming introduces a new style of programming, namely **functional style**. Broadly speaking, this programming style encourages programmers to write a big function as many smaller isolated functions, where each function addresses one specific task.
 
-<iframe src='https://gfycat.com/ifr/NeedyRipeKingbird' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/needyripekingbird">via Gfycat</a></p>
+<iframe src='https://gfycat.com/ifr/NeedyRipeKingbird' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe>
 
 As a by-product, **funcitonal style** motivates more humanly readable code, and recyclable code.
 ```{r}
