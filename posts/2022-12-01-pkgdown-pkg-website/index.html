@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -193,13 +256,19 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pre-lecture-materials" id="toc-pre-lecture-materials" class="nav-link active" data-scroll-target="#pre-lecture-materials">Pre-lecture materials</a>
   <ul class="collapse">
   <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#add-lecture-here" id="toc-add-lecture-here" class="nav-link" data-scroll-target="#add-lecture-here">Add lecture here</a></li>
-  <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
+  <li><a href="#why-do-we-want-a-website-for-our-packages" id="toc-why-do-we-want-a-website-for-our-packages" class="nav-link" data-scroll-target="#why-do-we-want-a-website-for-our-packages">Why do we want a website for our packages?</a></li>
+  <li><a href="#what-is-pkgdown" id="toc-what-is-pkgdown" class="nav-link" data-scroll-target="#what-is-pkgdown">What is <code>pkgdown</code>?</a></li>
+  <li><a href="#how-to-use-pkgdown" id="toc-how-to-use-pkgdown" class="nav-link" data-scroll-target="#how-to-use-pkgdown">How to use <code>pkgdown</code>?</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
+  <li><a href="#live-demonstration" id="toc-live-demonstration" class="nav-link" data-scroll-target="#live-demonstration">Live demonstration</a></li>
+  <li><a href="#website-customization" id="toc-website-customization" class="nav-link" data-scroll-target="#website-customization">Website customization</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
+  <ul class="collapse">
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul></li>
   </ul>
@@ -231,17 +300,30 @@ Read ahead
 <div class="callout-body-container callout-body">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
+<li><a href="https://pkgdown.r-lib.org/articles/pkgdown.html" class="uri">https://pkgdown.r-lib.org/articles/pkgdown.html</a></li>
 </ol>
 </div>
 </div>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>Before starting you must install the additional package:</p>
+<ul>
+<li><code>pkgdown</code> - the R package that helps you to build a package website with little efforts</li>
+</ul>
+<p>You can do this by calling</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pkgdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or use the “Install Packages…” option from the “Tools” menu in RStudio.</p>
+<p>You also need to have a <code>GitHub</code> account and set up your access from your local computer to <code>GitHub.com</code>. If you forget, please re-visite your <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/">previous lecture</a>.</p>
 </section>
 <section id="acknowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li>Add here.</li>
+<li><a href="https://pkgdown.r-lib.org/index.html" class="uri">https://pkgdown.r-lib.org/index.html</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/pkgdown-components.html" class="uri">https://bookdown.org/yihui/rmarkdown/pkgdown-components.html</a></li>
 </ul>
 </section>
 </section>
@@ -259,35 +341,53 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>be able to build a website for your package</li>
+<li>Deploy your website on GitHub</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="add-lecture-here" class="level1">
-<h1>Add lecture here</h1>
+<section id="why-do-we-want-a-website-for-our-packages" class="level1">
+<h1>Why do we want a website for our packages?</h1>
+<p>The primary reason to make a website for our packages is to make it more popular. Having a publicly available website is similar to create a home for your package where people know where to find you package. Reciprocally, you can tell others a more stable address, i.e.&nbsp;your website link, to find your package.</p>
+<p>Moreover, compare to the default reference manual, a website provides more interactability and accessibility. It is easier to navigate through different functions via clickable links or to follow through a vignette with a table of content in a point-and-click system. A website is also a more integrative resources where it keep records not only the reference manual and vignettes, but also change log and development history. All of these makes it easier for the users to understand and appreciate your package.</p>
+<p>In addition, a website is a great place to market yourself and show your personality. Different from a <code>GitHub</code> repo which follows the same template, a website is the place where you have more freedom to show case your creativity. You can customize the websites and have more space to explain.</p>
 </section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<section id="what-is-pkgdown" class="level1">
+<h1>What is <code>pkgdown</code>?</h1>
+<p>While creating a website can be a daunting task for people who don’t have extensive web programming experience, <code>pkgdown</code> provides a shortcut. <code>pkgdown</code> can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code. It also helps to deploy the website to <code>GitHub</code> server. Amazingly, <code>pkgdown</code> allows an automatic update of the website following any changes made to the package that are uploaded to <code>GitHub</code>.</p>
+</section>
+<section id="how-to-use-pkgdown" class="level1">
+<h1>How to use <code>pkgdown</code>?</h1>
+<section id="live-demonstration" class="level2">
+<h2 class="anchored" data-anchor-id="live-demonstration">Live demonstration</h2>
+<p>While the <code>pkgdown</code> website provides a comprehensive <a href="https://pkgdown.r-lib.org/articles/pkgdown.html">walkthrough</a> for those who set up their <code>GitHub</code> access using <a href="https://usethis.r-lib.org/articles/git-credentials.html">personal access token</a>, it is slightly tricky for those whose access is <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/#ssh-background-and-setup">set up with SSH</a>. During this lecture, we live demonstrate how to deploy the website, specifically when <code>GitHub</code> access is via SSH instead of HTTPS.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Questions
+Did you try <code>pkgdown::deploy_to_branch()</code>?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
+<p>If you run into problem when running <code>usethis::use_pkgdown_github_pages()</code> and get stuck, you should try to understand what the function does by reading its manual <code>?usethis::use_pkgdown_github_pages()</code>. Is it possible to create the necessary <code>gh_pages</code> using <code>pkgdown::deploy_to_branch()</code>? Don’t forget to set up the GitHub Action by calling <code>usethis::use_github_action("pkgdown")</code>. Now you should be able to find access your website via &lt;github_account_name.github.io/pkg_name&gt;</p>
 </div>
 </div>
 </section>
+<section id="website-customization" class="level2">
+<h2 class="anchored" data-anchor-id="website-customization">Website customization</h2>
+<p>There is a lot of customization that is possible. Nevertheless, there is not a point-and-click system for it. You need to manually edit <code>_pkgdown.yml</code> following certain syntax. For examples, please refer to <a href="https://pkgdown.r-lib.org/articles/customise.html" class="uri">https://pkgdown.r-lib.org/articles/customise.html</a>.</p>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>In this lecture, we</p>
+<ul>
+<li>introduce the packge <code>pkgdown</code> that automates website</li>
+<li>demonstrate how to use <code>pkgdown</code> to create website for an R package</li>
+</ul>
 <section id="additional-resources" class="level3">
 <h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -301,7 +401,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li>Create hexagon sticker for your package <a href="https://github.com/GuangchuangYu/hexSticker" class="uri">https://github.com/GuangchuangYu/hexSticker</a></li>
 </ul>
 </div>
 </div>
