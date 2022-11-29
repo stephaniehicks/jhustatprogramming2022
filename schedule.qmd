@@ -43,7 +43,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | |
 | **Module 3** |         | **Advanced programming paradigms** | |  
 | | | | | 
-| Week 6 | Nov 29 | Functional programming with `purrr` \[[html](posts/2022-11-29-purrr-fun-programming/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-29-purrr-fun-programming/index.qmd)\] | `r emojifont::emoji('fallen_leaf')` Project 2 due  <br /> `r emojifont::emoji('palm_tree')` Project 3  |
+| Week 6 | Nov 29 | Functional programming with `purrr` \[[html](posts/2022-11-29-purrr-fun-programming/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-11-29-purrr-fun-programming/index.qmd)\] | `r emojifont::emoji('fallen_leaf')` Project 2 due  <br /> `r emojifont::emoji('palm_tree')` Project 3  \[[html](projects/2022-11-22-project-3/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/projects/2022-11-22-project-3/index.qmd)\]  |
 | | | | | 
 | | Dec 1  | Project management with `targets` | |
 | | | Package website with `pkgdown`\[[html](posts/2022-12-01-pkgdown-pkg-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-12-01-pkgdown-pkg-website/index.qmd)\]  | |
