@@ -58,8 +58,8 @@ Material for this lecture was borrowed and adopted from
 **At the end of this lesson you will:**
 
 -   Be familiar with the concept of _functional programming_
--   Get comfortable with the major functions R package `purrr`, e.g. `map`, `reduce`, predicate functions
--   Write your loops with `map` functions instead of `for` loops
+-   Get comfortable with the major functions in  `purrr`, e.g. the `map` family, `reduce`
+-   Write your loops with `map` functions instead of the `for` loop
 :::
 
 # Functional Programming
@@ -70,11 +70,12 @@ At it is core, functional programming treats functions equally as other data str
 
 ## What do you mean?
 
-* Assign names to functions
+* Assign a function to a variable
 ```{r}
 foo <- function(){
   return("This is foo.")
 }
+class(foo)
 ```
 
 * Store functions in a list
@@ -109,8 +110,10 @@ foo_wrap()
 
 The bottom line, you can manipulate functions as the same way as you can to a vector or a matrix. 
 
-## Why functional programming important?
-Functional programming introduces a new style of programming, namely **functional style**. Broadly speaking, this programming style encourage one to write a big function as many smaller isolated functions, where each function address one specific task.
+## Why is functional programming important?
+Functional programming introduces a new style of programming, namely **functional style**. Broadly speaking, this programming style encourages programmers to write a big function as many smaller isolated functions, where each function addresses one specific task.
+
+<iframe src='https://gfycat.com/ifr/NeedyRipeKingbird' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/needyripekingbird">via Gfycat</a></p>
 
 As a by-product, **funcitonal style** motivates more humanly readable code, and recyclable code.
 ```{r}
@@ -118,14 +121,16 @@ As a by-product, **funcitonal style** motivates more humanly readable code, and 
 
 "data_set.csv" |> 
   import_data_from_file() |> 
+  data_cleaning() |> 
   run_regression() |>
-  model_diagnostic() |>
+  model_diagnostics() |>
   model_visualization()
 
 "data_set2.csv" |> 
   import_data_from_file() |> 
+  data_cleaning() |> 
   run_different_regression() |>
-  model_diagnostic() |>
+  model_diagnostics() |>
   model_visualization()
 ```
 
@@ -133,7 +138,7 @@ As a by-product, **funcitonal style** motivates more humanly readable code, and 
 ### Pipe operators
 R provides some pipe operators to make code readable, e.g. `|>` from the base R, `%>%` from the package `magrittr`. These pipe operators operate like a pipe, piping the output from the previous function (left hand side of the pipe operator)  to the following function (right hand side of the pipe operator). The pipe operator `|>` was introduced in R 4.1.0 and requires no loading of additional packages, unlike `%>%`.
 
-A keyboard short cut to type a pipe operator in RStudio is `shift+cmd+m` for Mac or `shift+ctrl+m` in Windows.
+A keyboard shortcut to type a pipe operator in RStudio is `shift+cmd+m` for Mac or `shift+ctrl+m` in Windows.
 :::
 
 # `purrr`: the functional programming toolkit
@@ -147,7 +152,7 @@ The R package `purrr`, as one important component of the [`tidyverse`](https://w
 It is very difficulty, if not impossible, to remember all functions that a package offers as well as their use cases. Hence, `purrr` developers offer a nice compact cheatsheet with visualizations at <https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf>. Similar cheatsheets are available for other `tidyverse` packages.
 :::
 
-The most popular function in `purrr` is `map()` which iterates over the supplied data structure and apply a function during this iteration. `purrr` also offers a series of useful functions to manipulate `list`.
+The most popular function in `purrr` is `map()` which iterates over the supplied data structure and apply a function during the iterations. Beside the `map` function,`purrr` also offers a series of useful functions to manipulate `list` the data structure.
 
 
 ## The `map` family
@@ -190,14 +195,17 @@ tmp_dat <- data.frame(
 
 tmp_dat |> 
   map(.f = mean)
+
+# Alternatively
+# map(.x = tmp_dat, .f = mean)
 ```
 
 ::: callout-tip
 ### `data.frame` vs `list`
 `data.frame` is a special case of `list`, where each column as one item of the list. Don't confuse with each row as an item.
 ```{r}
-class(data.frame())
-typeof(data.frame())
+class(tmp_dat)
+typeof(tmp_dat)
 ```
 :::
 
@@ -215,8 +223,8 @@ tmp_dat2 |>
       remove_na = TRUE)
 ```
 
-### Stratified model with `map`
-We use the `mtcar` from the package `datasets` to demonstrate
+### Stratified analysis with `map`
+We use the `mtcars` from the package `datasets` to demonstrate
 ```{r}
 library(datasets)
 str(mtcars)
@@ -235,7 +243,7 @@ str_dat |>
   map(.f = ~mean(.x$mpg))
 ```
 ### Matrix as the output
-The `map` family include functions that organize the output in a different data structure, whose names follow the pattern `map_*`. As we've seen, the `map` function return a list. The following functions will return a vector of a specific kind, e.g. `map_lgl` returns a vector of logical variables, `map_chr` returns a vector of strings. It is also possible to return the the results as data frames by row binding (`map_dfr`) or column binding (`map_dfc`).
+The `map` family include functions that organize the output in different data structures, whose names follow the pattern `map_*`. As we've seen, the `map` function return a list. The following functions will return a vector of a specific kind, e.g. `map_lgl` returns a vector of logical variables, `map_chr` returns a vector of strings. It is also possible to return the the results as data frames by row binding (`map_dfr`) or column binding (`map_dfc`).
 
 ```{r}
 str_dat |> 
@@ -250,7 +258,7 @@ str_dat |>
 
 
 ### Multiple Input
-It is possible that an operation requires a pair of variables as input. While it is still managable in `map` to achieve this. There are better options provided in `purrr`, specifically `map2` and `pmap`.
+It is possible that an operation requires a pair of variables as input. While it is still managable in `map` to achieve this, there are better options provided in `purrr`, specifically `map2` and `pmap`.
 
 ```{r}
 map_avg <- map_dbl(.x = mtcars, .f = mean)
@@ -331,6 +339,8 @@ Let's move to the `purrr` cheatsheet at <https://github.com/rstudio/cheatsheets/
 * The function `map2` and `pmap` allow having more than one list as input.
 * The function `walk` and its alternatives `walk2`, `walk_*` do not provide any output.
 * The functions `reduce` and `accumulate` help to summarize a list with a preferred operator or function.
+
+<iframe src="https://giphy.com/embed/VEsfbW0pBu145PPhOi" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 # Post-lecture materials
 
