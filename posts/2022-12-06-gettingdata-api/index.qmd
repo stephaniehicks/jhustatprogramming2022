@@ -1,14 +1,14 @@
 ---
-title: "Advanced data visualizations with `ggplot2`"
+title: "Getting data and using APIs"
 author: 
   - name: Stephanie Hicks
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "Building more exciting (and complicated) data visualizations with `ggplot2`"
+description: "Intro to JSON files and interacting with APIs`"
 date: 2022-12-06
 draft: true
-categories: [module 3, week 7, data viz, ggplot2]
+categories: [module 3, week 7, JSON, APIs]
 ---
 
 <!-- Add interesting quote -->
@@ -35,7 +35,6 @@ Material for this lecture was borrowed and adopted from
 # Learning objectives
 
 ::: callout-note
-# Learning objectives
 
 **At the end of this lesson you will:**
 
@@ -43,6 +42,8 @@ Material for this lecture was borrowed and adopted from
 :::
 
 # Add lecture here
+
+
 
 # Post-lecture materials
 

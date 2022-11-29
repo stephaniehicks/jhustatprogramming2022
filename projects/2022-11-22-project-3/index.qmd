@@ -5,9 +5,8 @@ author:
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "Building websites for R packages"
+description: "Building websites for R packages; practice functional programming and APIs"
 date: 2022-11-29
-draft: true
 categories: [project 3, projects]
 ---
 
@@ -23,15 +22,28 @@ library(tidyverse)
 
 **Due date: December 13 at 11:59pm**
 
-The goal of this assignment is to... 
+The goal of this assignment is to practice building websites for R packages, along with practice functional programming and using APIs. 
 
 ### To submit your project
+
+In both parts below, you will need to create two separate github repositories for yourself. The links to create the repositories will be in CoursePlus. 
+
+The first one (Part 1) will be a public repository to build a website for an R package. It is public because you will need to deploy the website. 
+
+The second one (Part 2) will be a private repository to practice using two different APIs, practice functional programming, and building data analyses. 
 
 # Part 1
 
 Here, we will practice using [`pkgdown`](https://pkgdown.r-lib.org). Using any R package with a GitHub repository (that does not already have a pkgdown website), use `pkgdown` to create a website for the software package. 
 
-This could even been a package that you have written (or are working on creating right now). Otherwise, this could be a package that you have used previously or you can pick one you are not familiar with and just want to know more about!
+
+:::{.callout-note}
+
+This could even been a package that you have written (or are working on creating right now). Otherwise, this could be a package that you have used previously or you can pick one you are not familiar with and just want to know more about! 
+
+It should **not** be the package you created in Project 2 for this course. 
+
+:::
 
 ## Part 1A: Create website locally 
 
@@ -47,7 +59,7 @@ Here, you need to customize the website in **at least 5 ways**. How you customiz
 
 In this part, you will create a data analysis (or a case study) where you demonstrate the functions in the R package. Specifically, you will add [another article or vignette](https://pkgdown.r-lib.org/articles/customise.html#navbar) titled "Example analysis" inside the `/vignettes` folder.  
 
-Similar to Project 2, you must pick out a data set from [TidyTuesday](https://www.tidytuesday.com) **that you have not worked with before** (i.e. not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable). You must also demonstrate wrangling and ploting the data. Finally, your example analysis, must also demonstrate at least 2 functions from the R package in some way in the vignette. 
+Similar to Project 2, you must pick out a data set from [TidyTuesday](https://www.tidytuesday.com) **that you have not worked with before** (i.e. not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable). You must also demonstrate wrangling and plotting the data. Finally, your example analysis, must also demonstrate at least 2 functions from the R package in some way in the vignette. 
 
 Other requirements for this part of vignette are the following: 
 
@@ -60,18 +72,18 @@ Other requirements for this part of vignette are the following:
   - Saves the data only once (not each time you knit/render the document). 
   - Read in the data locally each time you knit/render. 
 3. Your analysis must include some form of data wrangling and data visualization. 
-  - You must use at least eight different functions from `dplyr`, `tidyr`, `lubridate`, `stringr`, or `forcats`. 
-  - You must use at least two functions from `purr`. 
+  - You must use at least six different functions from `dplyr`, `tidyr`, `lubridate`, `stringr`, or `forcats`. 
+  - You **must use at least two functions from `purrr`**. 
   - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
     - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
     - At least one plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
-4. Apply at least 2 functions from the R package in the vignette. 
+4. Apply **at least 2 functions from the R package** in the vignette. 
 5. Summarize and interpret the results in 1-2 sentences.
 6. At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, `ggplot2`, etc) to help the TA with respect to making sure you met all the requirements described above. 
 
 ## Part 1D: Create a `README.md` file 
 
-If the package does not already include one, make and include a `README.md` file in the folder where the R package and pkgdown files are on your computer and add the following information below. 
+If the package does not already include one, create and include a `README.md` file in the folder where the R package and pkgdown files are on your computer and add the following information below. 
 
 If it already has a `README.md` file, just edit the top of the file with the following information: 
 
@@ -93,17 +105,15 @@ The link to create a public GitHub repository for yourself to complete this part
 
 When ready, deploy the website. 
 
-:::{.callout-tip}
+:::{.callout-note}
 
-### Note
-
-You need to modify the template code that is provided to you from GitHub when you set the remote. There will already be a remote `origin` (from where you cloned the repo), which you can see with 
+You need to modify the template code that is provided to you from GitHub when you set the remote. There will already be a remote `origin` (from where you cloned the remote repository to your local repository), which you can see with 
 
 ``` {.bash filename="Bash"}
 git remote -v
 ```
 
-To change where you push your code, instead of 
+To change where you push your code, instead of (you will see this in the template code from GitHub when you create the public repository)
 
 ``` {.bash filename="Bash"}
 git remote add origin <link>
@@ -115,10 +125,66 @@ You want to use something like
 git remote add upstream <link>
 ```
 
-and when you push, you use `git push -u upstream main`, for example.
+and when you push your code, you want to use `git push -u upstream main`, for example (not `git push -u origin main`).
 
 :::
 
+# Part 2
 
+Here, we will practice using APIs and making data visualizations. 
 
+For this part of Project 3, you need to create a private GitHub repository for yourself, which will be posted in CoursePlus. This creates an empty GitHub repository. You need to show all your code and submit both the `.qmd` file and the rendered HTML file. 
 
+:::{.callout-note}
+
+When you use an API, you want to figure out the data you want to extract and then save it locally so that you are not using the API each time you knit or render your data analysis. 
+
+Most APIs have limits on the number of times you can ping it in a given hour and your IP address can be blocked if you try to ping it too many times within a short time. 
+
+:::
+
+## Part 2A
+
+The first API we will use is `tidycensus` (<https://walker-data.com/tidycensus>), which is an R package that allows users to interface with a select number of the US Census Bureau’s data APIs and return tidyverse-ready data frames, optionally with simple feature geometry included.
+
+The goal of this part is to create a data analysis (or a case study) using the US Census Bureau’s data. 
+
+Other requirements for this part are the following: 
+
+1. You must describe what is the question you aim to answer with the data and data analysis. 
+2. You must use at least three different calls to the `tidycensus` API to extract out different datasets. For example, these could be across years, locations, or variables. 
+  - In this step, you must test if a directory named `data` exists locally. If it does not, write an R function that creates it programmatically.  
+  - Saves the data only once (not each time you knit/render the document). 
+  - Read in the data locally each time you knit/render. 
+  
+3. Your analysis must include some form of data wrangling and data visualization. 
+  - You must use at least six different functions from `dplyr`, `tidyr`, `lubridate`, `stringr`, or `forcats`. 
+  - You **must use at least two functions from `purrr`**. 
+  - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
+    - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
+    - At least one plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
+4. Summarize and interpret the results in 1-2 sentences.
+5. At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, `ggplot2`, etc) to help the TA with respect to making sure you met all the requirements described above. 
+
+## Part 2B 
+
+The second API we will use is the [Covid Act Now Data API](https://covidactnow.org/data-api). 
+
+The goal of this part is to create a data analysis (or a case study) using the US Census Bureau’s data. 
+
+Other requirements for this part are the following: 
+
+1. You must describe what is the question you aim to answer with the data and data analysis. 
+2. You must use at least three different calls to the Covid Act Now Data API to extract out different datasets. For example, these could be across counties, etc. 
+  - In this step, you must test if a directory named `data` exists locally. If it does not, write an R function that creates it programmatically.  
+  - Saves the data only once (not each time you knit/render the document). 
+  - Read in the data locally each time you knit/render. 
+3. Your analysis must include some form of data wrangling and data visualization. 
+  - You must use at least six different functions from `dplyr`, `tidyr`, `lubridate`, `stringr`, or `forcats`. 
+  - You **must use at least two functions from `purrr`**. 
+  - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
+    - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
+    - At least one plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
+4. Summarize and interpret the results in 1-2 sentences.
+5. At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, `ggplot2`, etc) to help the TA with respect to making sure you met all the requirements described above. 
+6. Push your code and rendered HTML to the private repository that you created for yourself. 
