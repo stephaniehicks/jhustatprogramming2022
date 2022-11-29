@@ -11,7 +11,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Project 2\n\n\n\n\n\n\n\nproject 2\n\n\nprojects\n\n\n\n\nBuilding an R package and practicing with S3\n\n\n\n\n\n\nNov 8, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n  \n\n\n\n\nProject 1\n\n\n\n\n\n\n\nproject 1\n\n\nprojects\n\n\n\n\nBuilding a website and practicing with command-line tools\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
+    "text": "Project 3\n\n\n\n\n\n\n\nproject 3\n\n\nprojects\n\n\n\n\nBuilding websites for R packages; practice functional programming and APIs\n\n\n\n\n\n\nNov 29, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject 2\n\n\n\n\n\n\n\nproject 2\n\n\nprojects\n\n\n\n\nBuilding an R package and practicing with S3\n\n\n\n\n\n\nNov 8, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\n  \n\n\n\n\nProject 1\n\n\n\n\n\n\n\nproject 1\n\n\nprojects\n\n\n\n\nBuilding a website and practicing with command-line tools\n\n\n\n\n\n\nOct 27, 2022\n\n\nStephanie Hicks\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -159,6 +159,62 @@
     "title": "Welcome to Statistical Programming Paradigms and Workflows!",
     "section": "Acknowledgements",
     "text": "Acknowledgements\nThis course was developed and is maintained by Stephanie Hicks.\nThe following individuals have contributed to improving the course or materials have been adapted from their courses: Roger D. Peng, Andreas Handel, Naim Rashid, Michael Love.\nThe image above was generated with aRtsy.\nThe course materials are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html",
+    "href": "projects/2022-11-22-project-3/index.html",
+    "title": "Project 3",
+    "section": "",
+    "text": "library(tidyverse)\n\nDue date: December 13 at 11:59pm\nThe goal of this assignment is to practice building websites for R packages, along with practice functional programming and using APIs.\n\n\nIn both parts below, you will need to create two separate github repositories for yourself. The links to create the repositories will be in CoursePlus.\nThe first one (Part 1) will be a public repository to build a website for an R package. It is public because you will need to deploy the website.\nThe second one (Part 2) will be a private repository to practice using two different APIs, practice functional programming, and building data analyses."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-1a-create-website-locally",
+    "href": "projects/2022-11-22-project-3/index.html#part-1a-create-website-locally",
+    "title": "Project 3",
+    "section": "Part 1A: Create website locally",
+    "text": "Part 1A: Create website locally\nFork the GitHub repository from the original location to your own GitHub account. Clone the repository to your local computer.\nUse usethis and pkgdown to create a website locally for the R package of your choice."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-1b-customize-the-website",
+    "href": "projects/2022-11-22-project-3/index.html#part-1b-customize-the-website",
+    "title": "Project 3",
+    "section": "Part 1B: Customize the website",
+    "text": "Part 1B: Customize the website\nHere, you need to customize the website in at least 5 ways. How you customize is up to you. The pkgdown website has lots of suggestions for you to try out!"
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-1c-create-an-example-data-analysis",
+    "href": "projects/2022-11-22-project-3/index.html#part-1c-create-an-example-data-analysis",
+    "title": "Project 3",
+    "section": "Part 1C: Create an example data analysis",
+    "text": "Part 1C: Create an example data analysis\nIn this part, you will create a data analysis (or a case study) where you demonstrate the functions in the R package. Specifically, you will add another article or vignette titled “Example analysis” inside the /vignettes folder.\nSimilar to Project 2, you must pick out a data set from TidyTuesday that you have not worked with before (i.e. not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable). You must also demonstrate wrangling and plotting the data. Finally, your example analysis, must also demonstrate at least 2 functions from the R package in some way in the vignette.\nOther requirements for this part of vignette are the following:\n\nPick any data set you wish from TidyTuesday to analyze.\n\n\nYou must describe what is the question you aim to answer with the data and data analysis.\nYou must describe and link to where the original data come from that you chose.\nYou must include a link to a data dictionary for the data or create one inside the webpage.\n\n\nLoad the data into R\n\n\nIn this step, you must test if a directory named data exists locally. If it does not, write an R function that creates it programmatically.\n\nSaves the data only once (not each time you knit/render the document).\nRead in the data locally each time you knit/render.\n\n\nYour analysis must include some form of data wrangling and data visualization.\n\n\nYou must use at least six different functions from dplyr, tidyr, lubridate, stringr, or forcats.\nYou must use at least two functions from purrr.\nYour analysis should include at least three plots with you using at least three different geom_*() functions from ggplot2 (or another package with geom_*() functions).\n\nPlots should have titles, subtitles, captions, and human-understandable axis labels.\nAt least one plot should using a type of faceting (facet_grid() or facet_wrap()).\n\n\n\nApply at least 2 functions from the R package in the vignette.\nSummarize and interpret the results in 1-2 sentences.\nAt the end of the data analysis, list out each of the functions you used from each of the packages (dplyr, tidyr, ggplot2, etc) to help the TA with respect to making sure you met all the requirements described above."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-1d-create-a-readme.md-file",
+    "href": "projects/2022-11-22-project-3/index.html#part-1d-create-a-readme.md-file",
+    "title": "Project 3",
+    "section": "Part 1D: Create a README.md file",
+    "text": "Part 1D: Create a README.md file\nIf the package does not already include one, create and include a README.md file in the folder where the R package and pkgdown files are on your computer and add the following information below.\nIf it already has a README.md file, just edit the top of the file with the following information:\n\nInclude a URL to the GitHub link to where the original R package came from.\nInclude a URL to the deployed website that you will do in Part 1E, but it should be something like https://jhu-statprogramming-fall-2022.github.io/biostat840-project3-pkgdown-<your_github_username>.\nInclude a description of the 5 things you customized in your pkgdown website (excluding adding the example data analysis from Part 1C).\n\nThe readme must also include (if it does not already):\n\nThe title of package\nThe original author of the package (and you who made the website and example data analysis)\nA goal / description of the package\nA list of exported functions that are in the package. Briefly describe each function.\nA basic example with one of the functions."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-1e-deploy-the-website",
+    "href": "projects/2022-11-22-project-3/index.html#part-1e-deploy-the-website",
+    "title": "Project 3",
+    "section": "Part 1E: Deploy the website",
+    "text": "Part 1E: Deploy the website\nThe link to create a public GitHub repository for yourself to complete this part of Project 3 will be posted in CoursePlus. This creates an empty GitHub repository.\nWhen ready, deploy the website.\n\n\n\n\n\n\nNote\n\n\n\nYou need to modify the template code that is provided to you from GitHub when you set the remote. There will already be a remote origin (from where you cloned the remote repository to your local repository), which you can see with\n\n\nBash\n\ngit remote -v\n\nTo change where you push your code, instead of (you will see this in the template code from GitHub when you create the public repository)\n\n\nBash\n\ngit remote add origin <link>\n\nYou want to use something like\n\n\nBash\n\ngit remote add upstream <link>\n\nand when you push your code, you want to use git push -u upstream main, for example (not git push -u origin main)."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-2a",
+    "href": "projects/2022-11-22-project-3/index.html#part-2a",
+    "title": "Project 3",
+    "section": "Part 2A",
+    "text": "Part 2A\nThe first API we will use is tidycensus (https://walker-data.com/tidycensus), which is an R package that allows users to interface with a select number of the US Census Bureau’s data APIs and return tidyverse-ready data frames, optionally with simple feature geometry included.\nThe goal of this part is to create a data analysis (or a case study) using the US Census Bureau’s data.\nOther requirements for this part are the following:\n\nYou must describe what is the question you aim to answer with the data and data analysis.\nYou must use at least three different calls to the tidycensus API to extract out different datasets. For example, these could be across years, locations, or variables.\n\n\nIn this step, you must test if a directory named data exists locally. If it does not, write an R function that creates it programmatically.\n\nSaves the data only once (not each time you knit/render the document).\nRead in the data locally each time you knit/render.\n\n\nYour analysis must include some form of data wrangling and data visualization.\n\n\nYou must use at least six different functions from dplyr, tidyr, lubridate, stringr, or forcats.\nYou must use at least two functions from purrr.\nYour analysis should include at least three plots with you using at least three different geom_*() functions from ggplot2 (or another package with geom_*() functions).\n\nPlots should have titles, subtitles, captions, and human-understandable axis labels.\nAt least one plot should using a type of faceting (facet_grid() or facet_wrap()).\n\n\n\nSummarize and interpret the results in 1-2 sentences.\nAt the end of the data analysis, list out each of the functions you used from each of the packages (dplyr, tidyr, ggplot2, etc) to help the TA with respect to making sure you met all the requirements described above."
+  },
+  {
+    "objectID": "projects/2022-11-22-project-3/index.html#part-2b",
+    "href": "projects/2022-11-22-project-3/index.html#part-2b",
+    "title": "Project 3",
+    "section": "Part 2B",
+    "text": "Part 2B\nThe second API we will use is the Covid Act Now Data API.\nThe goal of this part is to create a data analysis (or a case study) using the US Census Bureau’s data.\nOther requirements for this part are the following:\n\nYou must describe what is the question you aim to answer with the data and data analysis.\nYou must use at least three different calls to the Covid Act Now Data API to extract out different datasets. For example, these could be across counties, etc.\n\n\nIn this step, you must test if a directory named data exists locally. If it does not, write an R function that creates it programmatically.\n\nSaves the data only once (not each time you knit/render the document).\nRead in the data locally each time you knit/render.\n\n\nYour analysis must include some form of data wrangling and data visualization.\n\n\nYou must use at least six different functions from dplyr, tidyr, lubridate, stringr, or forcats.\nYou must use at least two functions from purrr.\nYour analysis should include at least three plots with you using at least three different geom_*() functions from ggplot2 (or another package with geom_*() functions).\n\nPlots should have titles, subtitles, captions, and human-understandable axis labels.\nAt least one plot should using a type of faceting (facet_grid() or facet_wrap()).\n\n\n\nSummarize and interpret the results in 1-2 sentences.\nAt the end of the data analysis, list out each of the functions you used from each of the packages (dplyr, tidyr, ggplot2, etc) to help the TA with respect to making sure you met all the requirements described above.\nPush your code and rendered HTML to the private repository that you created for yourself."
   },
   {
     "objectID": "projects/2022-10-27-project-1/index.html",
