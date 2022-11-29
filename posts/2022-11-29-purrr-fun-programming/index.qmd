@@ -143,6 +143,8 @@ A keyboard shortcut to type a pipe operator in RStudio is `shift+cmd+m` for Mac 
 
 # `purrr`: the functional programming toolkit
 
+<iframe src='https://gfycat.com/ifr/SadYoungKawala' frameborder='0' scrolling='no' allowfullscreen width='640' height='415'></iframe>
+
 The R package `purrr`, as one important component of the [`tidyverse`](https://www.tidyverse.org/), provides a interface to manipulate vectors in the _functional style_.
 
 > `purrr` enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors.
