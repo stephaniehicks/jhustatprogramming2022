@@ -9,7 +9,15 @@ description: "A Make-line pipeline tool for creating reproducible workflows in R
 date: 2022-12-01
 draft: true
 categories: [module 3, week 6, project management, targets]
+execute:
+  eval: false
 ---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
 
 <!-- Add interesting quote -->
 
@@ -22,15 +30,34 @@ categories: [module 3, week 6, project management, targets]
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+1.  <https://books.ropensci.org/targets/>
+2.  <https://books.ropensci.org/targets/walkthrough.html>
+3.  <https://boyiguo1.github.io/talks/2020-07-16-Reproducible-Analysis-Workflow.pdf>
 :::
+
+### Prerequisites
+Before starting you must install the additional package:
+
+* `targets` - the R Workflows package
+* `usethis` - an automation package that simplifies project creation and setup
+* `renv` - a package manager in R
+
+You can do this by calling
+
+```{r}
+#| eval: false
+install.packages("usethis")
+install.packages("targets")
+install.packages("renv")
+```
+
+or use the “Install Packages…” option from the “Tools” menu in RStudio.
 
 ### Acknowledgements
 
 Material for this lecture was borrowed and adopted from
 
--   Add here.
+-   https://books.ropensci.org/targets/walkthrough.html
 
 # Learning objectives
 
@@ -39,10 +66,52 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
--   Add here.
+-  setup up `targets` analytic pipeline
+-  write and run a data analysis with `targets`
+-  replicate and retrieve analysis results from a `targets` workflow
 :::
 
-# Add lecture here
+# What is `targets`?
+
+
+# Why do we use `targets`?
+
+
+# How to use `targets`
+
+## Set up a `targets` workflow
+```{r}
+# Start a new R project
+usethis::create_project("targets_eg")
+# Config target workflow
+targets::use_targets()
+```
+
+### (Optional) Version control packages with `renv`
+```{r}
+# Config renv system
+renv::init()
+targets::tar_renv()
+```
+
+If other people opens up this project on a different computer, `renv` will automatically install all the necessary packages, i.e. the same version.
+
+::: callout-tip
+### Important `renv` functions
+You need to keep track of your R packages in this analysis, similar to you version control your files using `git`. You may need to call the following functions periodically, i.e. after you add/remove necessary packages.
+* `targets::tar_renv()` updates `_targets_packages.R` by gathering all packages in your analytic workflow 
+* `renv::status()` shows which packages are outdated or not recorded
+* `renv::snapshot()` updates your packages version number
+* `renv::restore()` restores all missing packages or packages whose version number doesn't match with the most updated snapshot.
+
+For more information, visit <https://rstudio.github.io/renv/articles/renv.html>
+:::
+
+## Understand the file system
+
+
+
+
 
 # Post-lecture materials
 
@@ -59,5 +128,7 @@ Here are some post-lecture questions to help you think about the material discus
 ### Additional Resources
 
 ::: callout-tip
--   Add here.
+-   `targets` website <https://docs.ropensci.org/targets/>
+-   The `targetopic`, a `targets` ecosystem <https://wlandau.github.io/targetopia/packages.html>
+- A tutorial & reproducible example on calculating residential segregation indices with decennial US census data <https://github.com/boyiguo1/Tutorial-Residential_Segregation_Score>
 :::
