@@ -29,11 +29,13 @@ categories: [module 3, week 6, packages, pkgdown]
 Before starting you must install the additional package:
 
 * `pkgdown` - the R package that helps you to build a package website with little efforts
+* `usethis` - an automation package that simplifies project creation and setup
 
 You can do this by calling
 
 ```{r}
 #| eval: false
+install.packages("usethis")
 install.packages("pkgdown")
 ```
 
@@ -86,7 +88,7 @@ There is a lot of customization that is possible. Nevertheless, there is not a p
 # Summary
 In this lecture, we
 
-* introduce the packge `pkgdown` that automates website
+* introduce the package `pkgdown` that automates website
 * demonstrate how to use `pkgdown` to create website for an R package
 
 
@@ -94,5 +96,6 @@ In this lecture, we
 
 ::: callout-tip
 -   Create hexagon sticker for your package <https://github.com/GuangchuangYu/hexSticker>
+-   Explore badge accessibility<https://usethis.r-lib.org/articles/badge-accessibility.html>
 :::
 
