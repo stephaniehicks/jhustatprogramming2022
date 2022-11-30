@@ -170,7 +170,7 @@ Other requirements for this part are the following:
 
 The second API we will use is the [Covid Act Now Data API](https://covidactnow.org/data-api). 
 
-The goal of this part is to create a data analysis (or a case study) using the US Census Bureau’s data. 
+The goal of this part is to create a data analysis (or a case study) using the Covid Act Now Data API. 
 
 Other requirements for this part are the following: 
 
