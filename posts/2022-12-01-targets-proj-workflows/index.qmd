@@ -7,7 +7,6 @@ author:
     affiliation_url: https://publichealth.jhu.edu
 description: "A Make-line pipeline tool for creating reproducible workflows in R"
 date: 2022-12-01
-draft: true
 categories: [module 3, week 6, project management, targets]
 execute:
   eval: false
@@ -72,12 +71,25 @@ Material for this lecture was borrowed and adopted from
 :::
 
 # What is `targets`?
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/l0He7QpY9OzTyEAjm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
 
+`targets` is not a grocery store. Instead, it is a R package that will you to manage your analysis. You can think of `targets` as a butler that help you to manage your analytics. These services include
+
+* to manage the order of your analysis workflow so you won't mess up the analytic steps
+* to save the output of each analytic procedures so you don't have to wait for the repetitive runs
+* to monitor the change in your code so you can only update the analysis a change happened
+* to reproduce the who analysis with a click so you don't have to run multiple scirpts
 
 # Why do we use `targets`?
+<iframe src='https://gfycat.com/ifr/NeedyRipeKingbird' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe>
 
+`targets` helps us to be more efficient at managing an analytic workflow and improving productivity without driving ourselves crazy. Let me simply put this way, managing file names for your code or saved objects can be very painful. But `targets` can help you handle that.  
+
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/jtFOBTQhSUmR5STTZx" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
 
 # How to use `targets`
+
+[The {targets} R package user manual](https://books.ropensci.org/targets/) is a great source to learn how to use `targets`. The intro level of `targets` tutorial is well documented in [*Chapter 2 Walkthrough*](https://books.ropensci.org/targets/walkthrough.html). Instead going through the chapter with you, I will focus on some tricks that it is not discussed in the user manual. 
 
 ## Set up a `targets` workflow
 ```{r}
@@ -107,23 +119,50 @@ You need to keep track of your R packages in this analysis, similar to you versi
 For more information, visit <https://rstudio.github.io/renv/articles/renv.html>
 :::
 
-## Understand the file system
+## Set up keyboard shortcuts
+`targets` programmed some `addins` to help user navigate through workflow management with graphic user interface. For example, if you click on the `Addins` button in the tool bar which locates on the top of the RStudio window, you can see many options that help you to work with `targets`
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-cap: 'A screenshot of addins for `targets`'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/targets/Addins.png")
+```
+
+With these addins, you don't necessarily remember all the functions to run `targets`, such as `targets::tar_make()`, `targets::tar_load()`, `targets::tar_visnetwork()`, etc.
+
+If you are comfortable with keyboard shortcuts, you can set up for these commoonly used functions. In order to do that, you need to go to `Tools` -> `Modify Keyboard Shortcuts`.
 
 
+```{r}
+#| eval: true
+#| echo: false
+#| fig-cap: 'A screenshot of how to modify keyboard shortcuts'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/targets/ModifyShortcuts.png")
+```
+
+With in the pop-up keyboard shortcuts menu, you can search `addin` or `targets` or a specific `target` addin function, e.g. `Load target at cursor` in the highlighted search box. You can customize the keyboard shortcut by clicking on the input box within the `Shortcut` column.  
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-cap: 'A screenshot of keyboard shortcuts menu'
+#| fig-align: 'center'
+knitr::include_graphics("../../images/targets/ShortcutsMenu.png")
+```
 
 
+# Summary
+`targets` is a workflow management powerhouse. It offers much more utility than we covered today. [The {targets} R package user manual](https://books.ropensci.org/targets/) does an excellent job on explaining how to set up parallel computing with the system, to work with markdown systems (I managed my dissertation writing in `targets`), and many more. 
 
-# Post-lecture materials
+Nevertheless, I need to warn you that learning `targets` seems intimidating at the beginning because of the setup process and new syntax. It may take multiple projects or iterations until you are comfortable using it. 
 
-### Final Questions
+<div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/gn0iBkQjUG092" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
 
-Here are some post-lecture questions to help you think about the material discussed.
+But it is very rewarding and can save you a lot of time in the long run!
 
-::: callout-note
-### Questions
-
-1.  Add here.
-:::
 
 ### Additional Resources
 
