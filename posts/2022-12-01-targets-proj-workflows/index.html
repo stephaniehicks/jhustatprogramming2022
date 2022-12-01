@@ -258,6 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#special-message-from-boyi" id="toc-special-message-from-boyi" class="nav-link" data-scroll-target="#special-message-from-boyi">Special Message from Boyi</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#what-is-targets" id="toc-what-is-targets" class="nav-link" data-scroll-target="#what-is-targets">What is <code>targets</code>?</a></li>
@@ -320,9 +321,7 @@ Read ahead
 </ul>
 <p>You can do this by calling</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"targets"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>( <span class="fu">c</span>(<span class="st">"usethis"</span>, <span class="st">"targets"</span>, <span class="st">"renv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or use the “Install Packages…” option from the “Tools” menu in RStudio.</p>
 </section>
@@ -332,6 +331,15 @@ Read ahead
 <ul>
 <li>https://books.ropensci.org/targets/walkthrough.html</li>
 </ul>
+</section>
+<section id="special-message-from-boyi" class="level3">
+<h3 class="anchored" data-anchor-id="special-message-from-boyi">Special Message from Boyi</h3>
+<p>To students attending online:</p>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+<iframe src="https://giphy.com/embed/l3q2JK6OLbteDy3zq" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div>
+<p>I apologize for the scraping sound I made during last lecture.</p>
 </section>
 </section>
 <section id="learning-objectives" class="level1">
@@ -348,7 +356,7 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>setup up <code>targets</code> analytic pipeline</li>
+<li>set up <code>targets</code> analytic pipeline</li>
 <li>write and run a data analysis with <code>targets</code></li>
 <li>replicate and retrieve analysis results from a <code>targets</code> workflow</li>
 </ul>
@@ -361,19 +369,19 @@ Learning objectives
 <iframe src="https://giphy.com/embed/l0He7QpY9OzTyEAjm" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
 </div>
-<p><code>targets</code> is not a grocery store. Instead, it is a R package that will you to manage your analysis. You can think of <code>targets</code> as a butler that help you to manage your analytics. These services include</p>
+<p><code>targets</code> is not the grocery store. Instead, it is a R package that helps you to manage your analysis. You can think of <code>targets</code> as a butler who helps you to manage your analytics. These services include</p>
 <ul>
-<li>to manage the order of your analysis workflow so you won’t mess up the analytic steps</li>
-<li>to save the output of each analytic procedures so you don’t have to wait for the repetitive runs</li>
-<li>to monitor the change in your code so you can only update the analysis a change happened</li>
-<li>to reproduce the who analysis with a click so you don’t have to run multiple scirpts</li>
+<li>to manage the ordering of your analysis so you won’t confuse about the steps when reproducing an analysis</li>
+<li>to save the output of each analytic procedures so you don’t have to wait for repetitive runs of static results</li>
+<li>to monitor the change in your code so you can update the only analytic tasks that changes are made</li>
+<li>to reproduce the whole analysis with a click so you don’t have to run multiple scripts</li>
 </ul>
 </section>
 <section id="why-do-we-use-targets" class="level1">
 <h1>Why do we use <code>targets</code>?</h1>
 <iframe src="https://gfycat.com/ifr/NeedyRipeKingbird" frameborder="0" scrolling="no" allowfullscreen="" width="640" height="404">
 </iframe>
-<p><code>targets</code> helps us to be more efficient at managing an analytic workflow and improving productivity without driving ourselves crazy. Let me simply put this way, managing file names for your code or saved objects can be very painful. But <code>targets</code> can help you handle that.</p>
+<p><code>targets</code> helps us be more efficient at managing analytic workflows, and hence improve productivity with bare minimum efforts. Let me simply put this way, managing file names for your code or saved objects can be very painful. But <code>targets</code> can help you handle that when use in combination with other version control system <code>git</code>.</p>
 <div style="width:100%;height:0;padding-bottom:100%;position:relative;">
 <iframe src="https://giphy.com/embed/jtFOBTQhSUmR5STTZx" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
@@ -381,7 +389,7 @@ Learning objectives
 </section>
 <section id="how-to-use-targets" class="level1">
 <h1>How to use <code>targets</code></h1>
-<p><a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a> is a great source to learn how to use <code>targets</code>. The intro level of <code>targets</code> tutorial is well documented in <a href="https://books.ropensci.org/targets/walkthrough.html"><em>Chapter 2 Walkthrough</em></a>. Instead going through the chapter with you, I will focus on some tricks that it is not discussed in the user manual.</p>
+<p><a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a> is a great source to learn how to use <code>targets</code>. The intro level of <code>targets</code> tutorial is well documented in <a href="https://books.ropensci.org/targets/walkthrough.html"><em>Chapter 2 Walkthrough</em></a>. Instead going through the chapter with you, I will focus on some tricks that is not discussed in the user manual.</p>
 <section id="set-up-a-targets-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-a-targets-workflow">Set up a <code>targets</code> workflow</h2>
 <div class="cell">
@@ -397,7 +405,7 @@ Learning objectives
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_renv</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If other people opens up this project on a different computer, <code>renv</code> will automatically install all the necessary packages, i.e.&nbsp;the same version.</p>
+<p>If other people opens up this project on a different computer, <code>renv</code> will automatically install all the necessary packages, especially the same versions of those packages.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -408,7 +416,13 @@ Important <code>renv</code> functions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You need to keep track of your R packages in this analysis, similar to you version control your files using <code>git</code>. You may need to call the following functions periodically, i.e.&nbsp;after you add/remove necessary packages. * <code>targets::tar_renv()</code> updates <code>_targets_packages.R</code> by gathering all packages in your analytic workflow * <code>renv::status()</code> shows which packages are outdated or not recorded * <code>renv::snapshot()</code> updates your packages version number * <code>renv::restore()</code> restores all missing packages or packages whose version number doesn’t match with the most updated snapshot.</p>
+<p>Idealistically, you need to keep track of your R packages in every analysis, similar to you version control your files using <code>git</code>. You may need to call the following functions periodically, i.e.&nbsp;after you add/remove necessary packages.</p>
+<ul>
+<li><code>targets::tar_renv()</code> updates <code>_targets_packages.R</code> by gathering all packages in your analytic workflow</li>
+<li><code>renv::status()</code> shows which packages are outdated or not recorded</li>
+<li><code>renv::snapshot()</code> updates your packages version number by taking a snapshot of your project library</li>
+<li><code>renv::restore()</code> restores all missing packages or packages whose version number doesn’t match with the most updated snapshot.</li>
+</ul>
 <p>For more information, visit <a href="https://rstudio.github.io/renv/articles/renv.html" class="uri">https://rstudio.github.io/renv/articles/renv.html</a></p>
 </div>
 </div>
@@ -416,7 +430,7 @@ Important <code>renv</code> functions
 </section>
 <section id="set-up-keyboard-shortcuts" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-keyboard-shortcuts">Set up keyboard shortcuts</h2>
-<p><code>targets</code> programmed some <code>addins</code> to help user navigate through workflow management with graphic user interface. For example, if you click on the <code>Addins</code> button in the tool bar which locates on the top of the RStudio window, you can see many options that help you to work with <code>targets</code></p>
+<p><code>targets</code> provide some <code>addins</code> to help users navigate through workflow management with a click-and-point system. For example, if you click on the <code>Addins</code> button in the tool bar (highlighted in the screen capture below) which locates on the top of the RStudio window, you can see many options that help you to work with <code>targets</code></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -427,8 +441,8 @@ Important <code>renv</code> functions
 </div>
 </div>
 </div>
-<p>With these addins, you don’t necessarily remember all the functions to run <code>targets</code>, such as <code>targets::tar_make()</code>, <code>targets::tar_load()</code>, <code>targets::tar_visnetwork()</code>, etc.</p>
-<p>If you are comfortable with keyboard shortcuts, you can set up for these commoonly used functions. In order to do that, you need to go to <code>Tools</code> -&gt; <code>Modify Keyboard Shortcuts</code>.</p>
+<p>With these addins, you don’t necessarily have to remember all the functions to run <code>targets</code>, such as <code>targets::tar_make()</code>, <code>targets::tar_load()</code>, <code>targets::tar_visnetwork()</code>, etc.</p>
+<p>If you prefer keyboard shortcuts, you can set up for these commonly used functions. In order to do that, you need to go to <code>Tools</code> -&gt; <code>Modify Keyboard Shortcuts</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -439,7 +453,7 @@ Important <code>renv</code> functions
 </div>
 </div>
 </div>
-<p>With in the pop-up keyboard shortcuts menu, you can search <code>addin</code> or <code>targets</code> or a specific <code>target</code> addin function, e.g.&nbsp;<code>Load target at cursor</code> in the highlighted search box. You can customize the keyboard shortcut by clicking on the input box within the <code>Shortcut</code> column.</p>
+<p>With in the pop-up keyboard shortcuts menu, you can search <code>addin</code> or <code>targets</code> or a specific <code>target</code> addin function, e.g.&nbsp;<code>Load target at cursor</code> in the search box. You can customize the keyboard shortcut by clicking on the input box within the <code>Shortcut</code> column.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -455,12 +469,12 @@ Important <code>renv</code> functions
 <section id="summary" class="level1">
 <h1>Summary</h1>
 <p><code>targets</code> is a workflow management powerhouse. It offers much more utility than we covered today. <a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a> does an excellent job on explaining how to set up parallel computing with the system, to work with markdown systems (I managed my dissertation writing in <code>targets</code>), and many more.</p>
-<p>Nevertheless, I need to warn you that learning <code>targets</code> seems intimidating at the beginning because of the setup process and new syntax. It may take multiple projects or iterations until you are comfortable using it.</p>
+<p>Nevertheless, I need to warn you that learning <code>targets</code> could be intimidating at the beginning because of the setup process and new syntax. It may take multiple iterations or projects until you are comfortable using it.</p>
 <div style="width:100%;height:0;padding-bottom:63%;position:relative;">
 <iframe src="https://giphy.com/embed/gn0iBkQjUG092" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
 </div>
-<p>But it is very rewarding and can save you a lot of time in the long run!</p>
+<p>But it is very rewarding and can save you a lot of time in the long run! It is a worthy investment of time.</p>
 <section id="additional-resources" class="level3">
 <h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
