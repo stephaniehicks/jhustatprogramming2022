@@ -35,13 +35,12 @@ You can do this by calling
 
 ```{r}
 #| eval: false
-install.packages("usethis")
-install.packages("pkgdown")
+install.packages(c("usethis", "pkgdown"))
 ```
 
 or use the “Install Packages…” option from the “Tools” menu in RStudio.
 
-You also need to have a `GitHub` account and set up your access from your local computer to `GitHub.com`. If you forget, please re-visite your [previous lecture](https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/).
+You also need to have a `GitHub` account and set up your access from your local computer to `GitHub.com`. If you forget, please re-visit your [previous lecture](https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/).
 
 ### Acknowledgements
 
@@ -57,32 +56,34 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
--   be able to build a website for your package
--   Deploy your website on GitHub
+-   build a website for your package
+-   deploy your website on GitHub
 :::
 
 # Why do we want a website for our packages?
 The primary reason to make a website for our packages is to make it more popular. Having a publicly available website is similar to create a home for your package where people know where to find you package. Reciprocally, you can tell others a more stable address, i.e. your website link, to find your package.
 
-Moreover, compare to the default reference manual, a website provides more interactability and accessibility. It is easier to navigate through different functions via clickable links or to follow through a vignette with a table of content in a point-and-click system. A website is also a more integrative resources where it keep records not only the reference manual and vignettes, but also change log and development history. All of these makes it easier for the users to understand and appreciate your package.
+Moreover, compare to the default reference manual, a website provides more *interactability* and *accessibility*. It is easier to navigate through different functions via clickable links or to follow through a vignette with a table of content in a point-and-click system. A website is also a more integrative resources where it keeps not only the reference manual and vignettes, but also change-log and development history. All of these makes it easier for the users to understand and appreciate your work.
 
-In addition, a website is a great place to market yourself and show your personality. Different from a `GitHub` repo which follows the same template, a website is the place where you have more freedom to show case your creativity. You can customize the websites and have more space to explain.
+In addition, a website is a great place to market yourself and show your personality. Different from a `GitHub` repo which follows the same template, a website is the place where you have more freedom to showcase your creativity. You can customize the websites and have more space to explain.
 
 # What is `pkgdown`?
-While creating a website can be a daunting task for people who don't have extensive web programming experience, `pkgdown` provides a shortcut. `pkgdown` can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code. It also helps to deploy the website to `GitHub` server. Amazingly, `pkgdown` allows an automatic update of the website following any changes made to the package that are uploaded to `GitHub`.
+While creating a website can be a daunting task for people who don't have extensive web programming experience, `pkgdown` provides a shortcut. `pkgdown` can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code (slight exaggeration). It also helps to deploy the website to `GitHub` server. Amazingly, `pkgdown` facilitates automatic updates of the website following any changes made to the package that are pushed to `GitHub`.
+
+<iframe src='https://gfycat.com/ifr/NeedyRipeKingbird' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe>
 
 # How to use `pkgdown`?
 
 ## Live demonstration
-While the `pkgdown` website provides a comprehensive [walkthrough](https://pkgdown.r-lib.org/articles/pkgdown.html) for those who set up their `GitHub` access using [personal access token](https://usethis.r-lib.org/articles/git-credentials.html), it is slightly tricky for those whose access is [set up with SSH](https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/#ssh-background-and-setup). During this lecture, we live demonstrate how to deploy the website, specifically when `GitHub` access is via SSH instead of HTTPS.
+While the `pkgdown` website provides a comprehensive [walkthrough](https://pkgdown.r-lib.org/articles/pkgdown.html) for those who set up their `GitHub` access using [personal access token](https://usethis.r-lib.org/articles/git-credentials.html), it is slightly tricky for those whose access is [set up with SSH](https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/#ssh-background-and-setup). During this lecture, we live demonstrate how to deploy the website, specifically for SSH `GitHub` access.
 
 ::: callout-tip
 ### Did you try `pkgdown::deploy_to_branch()`?
-If you run into problem when running `usethis::use_pkgdown_github_pages()` and get stuck, you should try to understand what the function does by reading its manual `?usethis::use_pkgdown_github_pages()`. Is it possible to create the necessary `gh_pages` using `pkgdown::deploy_to_branch()`? Don't forget to set up the GitHub Action by calling `usethis::use_github_action("pkgdown")`. Now you should be able to find access your website via <github_account_name.github.io/pkg_name>
+If you run into problem when running `usethis::use_pkgdown_github_pages()` and get stuck, you should try to understand what the function does by reading its manual `?usethis::use_pkgdown_github_pages()`. Is it possible to create the necessary `gh_pages` using `pkgdown::deploy_to_branch()`? Don't forget to set up the GitHub Action by calling `usethis::use_github_action("pkgdown")`. Now you should be able to find access your website via **github_account_name.github.io/pkg_name**
 :::
 
 ## Website customization
-There is a lot of customization that is possible. Nevertheless, there is not a point-and-click system for it. You need to manually edit `_pkgdown.yml` following certain syntax. For examples, please refer to <https://pkgdown.r-lib.org/articles/customise.html>.
+There are a lot of customization possible. Nevertheless, there is no point-and-click system for it. You need to manually edit `_pkgdown.yml` following certain syntax. Please refer to <https://pkgdown.r-lib.org/articles/customise.html>.
 
 
 # Summary
@@ -91,6 +92,7 @@ In this lecture, we
 * introduce the package `pkgdown` that automates website
 * demonstrate how to use `pkgdown` to create website for an R package
 
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/1g2JyW7p6mtZc6bOEY" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
 
 ### Additional Resources
 
