@@ -314,11 +314,10 @@ Read ahead
 </ul>
 <p>You can do this by calling</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pkgdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"usethis"</span>, <span class="st">"pkgdown"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or use the “Install Packages…” option from the “Tools” menu in RStudio.</p>
-<p>You also need to have a <code>GitHub</code> account and set up your access from your local computer to <code>GitHub.com</code>. If you forget, please re-visite your <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/">previous lecture</a>.</p>
+<p>You also need to have a <code>GitHub</code> account and set up your access from your local computer to <code>GitHub.com</code>. If you forget, please re-visit your <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/">previous lecture</a>.</p>
 </section>
 <section id="acknowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
@@ -343,8 +342,8 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>be able to build a website for your package</li>
-<li>Deploy your website on GitHub</li>
+<li>build a website for your package</li>
+<li>deploy your website on GitHub</li>
 </ul>
 </div>
 </div>
@@ -352,18 +351,20 @@ Learning objectives
 <section id="why-do-we-want-a-website-for-our-packages" class="level1">
 <h1>Why do we want a website for our packages?</h1>
 <p>The primary reason to make a website for our packages is to make it more popular. Having a publicly available website is similar to create a home for your package where people know where to find you package. Reciprocally, you can tell others a more stable address, i.e.&nbsp;your website link, to find your package.</p>
-<p>Moreover, compare to the default reference manual, a website provides more interactability and accessibility. It is easier to navigate through different functions via clickable links or to follow through a vignette with a table of content in a point-and-click system. A website is also a more integrative resources where it keep records not only the reference manual and vignettes, but also change log and development history. All of these makes it easier for the users to understand and appreciate your package.</p>
-<p>In addition, a website is a great place to market yourself and show your personality. Different from a <code>GitHub</code> repo which follows the same template, a website is the place where you have more freedom to show case your creativity. You can customize the websites and have more space to explain.</p>
+<p>Moreover, compare to the default reference manual, a website provides more <em>interactability</em> and <em>accessibility</em>. It is easier to navigate through different functions via clickable links or to follow through a vignette with a table of content in a point-and-click system. A website is also a more integrative resources where it keeps not only the reference manual and vignettes, but also change-log and development history. All of these makes it easier for the users to understand and appreciate your work.</p>
+<p>In addition, a website is a great place to market yourself and show your personality. Different from a <code>GitHub</code> repo which follows the same template, a website is the place where you have more freedom to showcase your creativity. You can customize the websites and have more space to explain.</p>
 </section>
 <section id="what-is-pkgdown" class="level1">
 <h1>What is <code>pkgdown</code>?</h1>
-<p>While creating a website can be a daunting task for people who don’t have extensive web programming experience, <code>pkgdown</code> provides a shortcut. <code>pkgdown</code> can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code. It also helps to deploy the website to <code>GitHub</code> server. Amazingly, <code>pkgdown</code> allows an automatic update of the website following any changes made to the package that are uploaded to <code>GitHub</code>.</p>
+<p>While creating a website can be a daunting task for people who don’t have extensive web programming experience, <code>pkgdown</code> provides a shortcut. <code>pkgdown</code> can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code (slight exaggeration). It also helps to deploy the website to <code>GitHub</code> server. Amazingly, <code>pkgdown</code> facilitates automatic updates of the website following any changes made to the package that are pushed to <code>GitHub</code>.</p>
+<iframe src="https://gfycat.com/ifr/NeedyRipeKingbird" frameborder="0" scrolling="no" allowfullscreen="" width="640" height="404">
+</iframe>
 </section>
 <section id="how-to-use-pkgdown" class="level1">
 <h1>How to use <code>pkgdown</code>?</h1>
 <section id="live-demonstration" class="level2">
 <h2 class="anchored" data-anchor-id="live-demonstration">Live demonstration</h2>
-<p>While the <code>pkgdown</code> website provides a comprehensive <a href="https://pkgdown.r-lib.org/articles/pkgdown.html">walkthrough</a> for those who set up their <code>GitHub</code> access using <a href="https://usethis.r-lib.org/articles/git-credentials.html">personal access token</a>, it is slightly tricky for those whose access is <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/#ssh-background-and-setup">set up with SSH</a>. During this lecture, we live demonstrate how to deploy the website, specifically when <code>GitHub</code> access is via SSH instead of HTTPS.</p>
+<p>While the <code>pkgdown</code> website provides a comprehensive <a href="https://pkgdown.r-lib.org/articles/pkgdown.html">walkthrough</a> for those who set up their <code>GitHub</code> access using <a href="https://usethis.r-lib.org/articles/git-credentials.html">personal access token</a>, it is slightly tricky for those whose access is <a href="https://www.stephaniehicks.com/jhustatprogramming2022/posts/2022-11-10-version-control-part-2/#ssh-background-and-setup">set up with SSH</a>. During this lecture, we live demonstrate how to deploy the website, specifically for SSH <code>GitHub</code> access.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,13 +375,13 @@ Did you try <code>pkgdown::deploy_to_branch()</code>?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you run into problem when running <code>usethis::use_pkgdown_github_pages()</code> and get stuck, you should try to understand what the function does by reading its manual <code>?usethis::use_pkgdown_github_pages()</code>. Is it possible to create the necessary <code>gh_pages</code> using <code>pkgdown::deploy_to_branch()</code>? Don’t forget to set up the GitHub Action by calling <code>usethis::use_github_action("pkgdown")</code>. Now you should be able to find access your website via &lt;github_account_name.github.io/pkg_name&gt;</p>
+<p>If you run into problem when running <code>usethis::use_pkgdown_github_pages()</code> and get stuck, you should try to understand what the function does by reading its manual <code>?usethis::use_pkgdown_github_pages()</code>. Is it possible to create the necessary <code>gh_pages</code> using <code>pkgdown::deploy_to_branch()</code>? Don’t forget to set up the GitHub Action by calling <code>usethis::use_github_action("pkgdown")</code>. Now you should be able to find access your website via <strong>github_account_name.github.io/pkg_name</strong></p>
 </div>
 </div>
 </section>
 <section id="website-customization" class="level2">
 <h2 class="anchored" data-anchor-id="website-customization">Website customization</h2>
-<p>There is a lot of customization that is possible. Nevertheless, there is not a point-and-click system for it. You need to manually edit <code>_pkgdown.yml</code> following certain syntax. For examples, please refer to <a href="https://pkgdown.r-lib.org/articles/customise.html" class="uri">https://pkgdown.r-lib.org/articles/customise.html</a>.</p>
+<p>There are a lot of customization possible. Nevertheless, there is no point-and-click system for it. You need to manually edit <code>_pkgdown.yml</code> following certain syntax. Please refer to <a href="https://pkgdown.r-lib.org/articles/customise.html" class="uri">https://pkgdown.r-lib.org/articles/customise.html</a>.</p>
 </section>
 </section>
 <section id="summary" class="level1">
@@ -390,6 +391,10 @@ Did you try <code>pkgdown::deploy_to_branch()</code>?
 <li>introduce the package <code>pkgdown</code> that automates website</li>
 <li>demonstrate how to use <code>pkgdown</code> to create website for an R package</li>
 </ul>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+<iframe src="https://giphy.com/embed/1g2JyW7p6mtZc6bOEY" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div>
 <section id="additional-resources" class="level3">
 <h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
