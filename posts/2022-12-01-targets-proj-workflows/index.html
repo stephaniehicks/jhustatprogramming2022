@@ -268,11 +268,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#optional-version-control-packages-with-renv" id="toc-optional-version-control-packages-with-renv" class="nav-link" data-scroll-target="#optional-version-control-packages-with-renv">(Optional) Version control packages with <code>renv</code></a></li>
   </ul></li>
-  <li><a href="#understand-the-file-system" id="toc-understand-the-file-system" class="nav-link" data-scroll-target="#understand-the-file-system">Understand the file system</a></li>
+  <li><a href="#set-up-keyboard-shortcuts" id="toc-set-up-keyboard-shortcuts" class="nav-link" data-scroll-target="#set-up-keyboard-shortcuts">Set up keyboard shortcuts</a></li>
   </ul></li>
-  <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul></li>
   </ul>
@@ -358,12 +357,31 @@ Learning objectives
 </section>
 <section id="what-is-targets" class="level1">
 <h1>What is <code>targets</code>?</h1>
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;">
+<iframe src="https://giphy.com/embed/l0He7QpY9OzTyEAjm" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div>
+<p><code>targets</code> is not a grocery store. Instead, it is a R package that will you to manage your analysis. You can think of <code>targets</code> as a butler that help you to manage your analytics. These services include</p>
+<ul>
+<li>to manage the order of your analysis workflow so you won’t mess up the analytic steps</li>
+<li>to save the output of each analytic procedures so you don’t have to wait for the repetitive runs</li>
+<li>to monitor the change in your code so you can only update the analysis a change happened</li>
+<li>to reproduce the who analysis with a click so you don’t have to run multiple scirpts</li>
+</ul>
 </section>
 <section id="why-do-we-use-targets" class="level1">
 <h1>Why do we use <code>targets</code>?</h1>
+<iframe src="https://gfycat.com/ifr/NeedyRipeKingbird" frameborder="0" scrolling="no" allowfullscreen="" width="640" height="404">
+</iframe>
+<p><code>targets</code> helps us to be more efficient at managing an analytic workflow and improving productivity without driving ourselves crazy. Let me simply put this way, managing file names for your code or saved objects can be very painful. But <code>targets</code> can help you handle that.</p>
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;">
+<iframe src="https://giphy.com/embed/jtFOBTQhSUmR5STTZx" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div>
 </section>
 <section id="how-to-use-targets" class="level1">
 <h1>How to use <code>targets</code></h1>
+<p><a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a> is a great source to learn how to use <code>targets</code>. The intro level of <code>targets</code> tutorial is well documented in <a href="https://books.ropensci.org/targets/walkthrough.html"><em>Chapter 2 Walkthrough</em></a>. Instead going through the chapter with you, I will focus on some tricks that it is not discussed in the user manual.</p>
 <section id="set-up-a-targets-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-a-targets-workflow">Set up a <code>targets</code> workflow</h2>
 <div class="cell">
@@ -396,31 +414,53 @@ Important <code>renv</code> functions
 </div>
 </section>
 </section>
-<section id="understand-the-file-system" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-file-system">Understand the file system</h2>
+<section id="set-up-keyboard-shortcuts" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-keyboard-shortcuts">Set up keyboard shortcuts</h2>
+<p><code>targets</code> programmed some <code>addins</code> to help user navigate through workflow management with graphic user interface. For example, if you click on the <code>Addins</code> button in the tool bar which locates on the top of the RStudio window, you can see many options that help you to work with <code>targets</code></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/targets/Addins.png" class="img-fluid figure-img" width="316"></p>
+<p></p><figcaption class="figure-caption">A screenshot of addins for <code>targets</code></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With these addins, you don’t necessarily remember all the functions to run <code>targets</code>, such as <code>targets::tar_make()</code>, <code>targets::tar_load()</code>, <code>targets::tar_visnetwork()</code>, etc.</p>
+<p>If you are comfortable with keyboard shortcuts, you can set up for these commoonly used functions. In order to do that, you need to go to <code>Tools</code> -&gt; <code>Modify Keyboard Shortcuts</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/targets/ModifyShortcuts.png" class="img-fluid figure-img" width="382"></p>
+<p></p><figcaption class="figure-caption">A screenshot of how to modify keyboard shortcuts</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With in the pop-up keyboard shortcuts menu, you can search <code>addin</code> or <code>targets</code> or a specific <code>target</code> addin function, e.g.&nbsp;<code>Load target at cursor</code> in the highlighted search box. You can customize the keyboard shortcut by clicking on the input box within the <code>Shortcut</code> column.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/targets/ShortcutsMenu.png" class="img-fluid figure-img" width="801"></p>
+<p></p><figcaption class="figure-caption">A screenshot of keyboard shortcuts menu</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p><code>targets</code> is a workflow management powerhouse. It offers much more utility than we covered today. <a href="https://books.ropensci.org/targets/">The {targets} R package user manual</a> does an excellent job on explaining how to set up parallel computing with the system, to work with markdown systems (I managed my dissertation writing in <code>targets</code>), and many more.</p>
+<p>Nevertheless, I need to warn you that learning <code>targets</code> seems intimidating at the beginning because of the setup process and new syntax. It may take multiple projects or iterations until you are comfortable using it.</p>
+<div style="width:100%;height:0;padding-bottom:63%;position:relative;">
+<iframe src="https://giphy.com/embed/gn0iBkQjUG092" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
 </div>
-<div class="callout-caption-container flex-fill">
-Questions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
-</div>
-</div>
-</section>
+<p>But it is very rewarding and can save you a lot of time in the long run!</p>
 <section id="additional-resources" class="level3">
 <h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
