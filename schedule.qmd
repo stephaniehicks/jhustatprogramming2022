@@ -48,16 +48,16 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | Dec 1  | Project management with `targets` \[[html](posts/2022-12-01-targets-proj-workflows/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-12-01-targets-proj-workflows/index.qmd)\] | |
 | | | Package website with `pkgdown`\[[html](posts/2022-12-01-pkgdown-pkg-website/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-12-01-pkgdown-pkg-website/index.qmd)\]  | |
 | | | | | 
-| Week 7 | Dec 6  | Interacting with APIs to databases | | 
+| Week 7 | Dec 6  | Retrieving data from APIs | | 
 | |  |  | |
 | | | |
 | | Dec 8 | Relational databases and SQL basics | | 
 | | | |
 | **Module 4** |  | **Interactive web apps and dashboards**  | | 
 | | | |
-|  Week 8 | Dec 13  |  Building dashboards with `flexdashboard` | `r emojifont::emoji('fallen_leaf')` Project 3 due  <br />  `r emojifont::emoji('palm_tree')` Project 4  | 
+|  Week 8 | Dec 13  |  Building dashboards with `flexdashboard` and `shinydashboard` | `r emojifont::emoji('fallen_leaf')` Project 3 due  <br />  `r emojifont::emoji('palm_tree')` Project 4  | 
 | | | |
-| | Dec 15  | Building dashboards with `shinydashboard`  |  | 
+| | Dec 15  | Scraping data from the web with `rvest` |  | 
 | | | |
 | **Module 5** |  | **Dealing with "big" data**  | | 
 | | | |
