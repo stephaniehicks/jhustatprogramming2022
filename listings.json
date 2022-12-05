@@ -2,6 +2,7 @@
   {
     "listing": "/lectures.html",
     "items": [
+      "/posts/2022-12-06-gettingdata-api/index.html",
       "/posts/2022-12-01-targets-proj-workflows/index.html",
       "/posts/2022-12-01-pkgdown-pkg-website/index.html",
       "/posts/2022-11-29-purrr-fun-programming/index.html",
