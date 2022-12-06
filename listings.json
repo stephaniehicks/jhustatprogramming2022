@@ -2,6 +2,7 @@
   {
     "listing": "/lectures.html",
     "items": [
+      "/posts/2022-12-13-flexdashboard/index.html",
       "/posts/2022-12-08-relational-databases/index.html",
       "/posts/2022-12-06-gettingdata-api/index.html",
       "/posts/2022-12-01-targets-proj-workflows/index.html",
