@@ -1,0 +1,202 @@
+---
+title: "Scraping data from the web with `rvest`"
+author: 
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://publichealth.jhu.edu
+description: "Introduction to scrape (or harvest) data from web pages"
+date: 2022-12-15
+draft: true
+categories: [module 4, week 8, html, rvest]
+---
+
+<!-- Add interesting quote -->
+
+# Pre-lecture materials
+
+### Read ahead
+
+::: callout-note
+## Read ahead
+
+**Before class, you can prepare by reading the following materials:**
+
+1.  Add here.
+2.  Add here.
+:::
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-   Add here.
+
+### Install new packages
+
+Before we begin, you will need to install
+these packages
+
+```{r}
+#| eval: false
+install.packages("rvest")
+```
+
+Now we load a few R packages
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(rvest)
+```
+
+
+# Learning objectives
+
+::: callout-note
+# Learning objectives
+
+**At the end of this lesson you will:**
+
+-   Add here.
+:::
+
+# Add lecture here
+
+
+## Reading in XML or HTML files using `rvest`
+
+Do we want to purchase a book on Amazon? 
+
+Next we are going to learn about what to do if
+your data is on a website (XML or HTML) formatted 
+to be read by humans instead of R.
+
+We will use the (really powerful)
+[rvest](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
+R package to do what is often called 
+"scraping data from the web". 
+
+Before we do that, we need to set up a 
+few things:
+
+* [SelectorGadget tool](http://selectorgadget.com/)
+* [rvest and SelectorGadget guide](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html)
+* [Awesome tutorial for CSS Selectors](http://flukeout.github.io/#)
+* [Introduction to stringr](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+* [Regular Expressions/stringr tutorial](https://stat545-ubc.github.io/block022_regular-expression.html)
+* [Regular Expression online tester](https://regex101.com/#python)- explains a regular expression as it is built, and confirms live whether and how it matches particular text.
+
+We're going to be scraping [this page](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful): it just contains the (first page of) reviews of the 
+ggplot2 book by Hadley Wickham. 
+
+```{r}
+url <- "http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful"
+```
+
+We use the `rvest` package to download this page.
+
+```{r}
+library(rvest)
+h <- read_html(url)
+```
+
+Now `h` is an `xml_document` that contains the contents of the page:
+
+```{r}
+h
+```
+
+How can you actually pull the interesting 
+information out? That's where CSS selectors come in.
+
+### CSS Selectors
+
+CSS selectors are a way to specify a subset of 
+nodes (that is, units of content) on a web page
+(e.g., just getting the titles of reviews). 
+CSS selectors are very powerful and not too 
+challenging to master- here's 
+[a great tutorial](http://flukeout.github.io/#) 
+But honestly you can get a lot done even with 
+very little understanding, by using a tool 
+called SelectorGadget.
+
+Install the [SelectorGadget](http://selectorgadget.com/) 
+on your web browser. (If you use Chrome you can
+use the Chrome extension, otherwise drag the 
+provided link into your bookmarks bar). 
+[Here's a guide for how to use it with rvest to "point-and-click" your way to a working selector](http://selectorgadget.com/).
+
+For example, if you just wanted the titles, 
+you'll end up with a selector that looks 
+something like `.a-text-bold span`. You can pipe
+your HTML object along with that selector 
+into the `html_nodes` function, to select 
+just those nodes:
+
+```{r}
+h %>%
+  html_nodes(".a-text-bold span")
+```
+
+But you need the text from each of these, not the full tags. Pipe to the `html_text` function to pull these out:
+
+```{r}
+review_titles <- h %>%
+  html_nodes(".a-text-bold span") %>%
+  html_text()
+
+review_titles
+```
+
+Now we've extracted something useful! Similarly, 
+let's grab the format (hardcover or paperback).
+Some experimentation with SelectorGadget 
+shows it's:
+
+```{r}
+h %>%
+  html_nodes(".a-size-mini.a-color-secondary") %>%
+  html_text()
+```
+
+Now, we may be annoyed that it always
+starts with `Format: `. Let's introduce 
+the `stringr` package.
+
+```{r}
+formats <- h %>%
+  html_nodes(".a-size-mini.a-color-secondary") %>%
+  html_text() %>%
+  stringr::str_replace("Format: ", "")
+
+formats
+```
+
+We could do similar exercise for extracting
+the number of stars and whether or not someone
+found a review useful. This would help us decide
+if we were interested in purchasing the book! 
+
+
+
+
+# Post-lecture materials
+
+### Final Questions
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+::: callout-note
+### Questions
+
+1.  Add here.
+:::
+
+### Additional Resources
+
+::: callout-tip
+-   Add here.
+:::
+

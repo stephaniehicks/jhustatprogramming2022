@@ -54,6 +54,7 @@ library(httr)
 ```
 
 
+
 # Learning objectives
 
 ::: callout-note
@@ -745,9 +746,8 @@ dim(ts_df)
 
 ## Other good R packages to know about 
 
-* [`googlesheets`](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) to interact with Google Sheets in R
-* [`googledrive`](https://googledrive.tidyverse.org](http://googledrive.tidyverse.org/) to interact with your Google Drive
-
+- [googlesheets4](https://cran.r-project.org/web/packages/googlesheets4/index.html) to interact with Google Sheets in R
+- [googledrive](https://googledrive.tidyverse.org/) to interact with files on your Google Drive
 
 ## Final Questions
 
