@@ -19,8 +19,8 @@ categories: [module 3, week 7, JSON, APIs, httr]
 
 **Before class, you can prepare by reading the following materials:**
 
-1.  Add here.
-2.  Add here.
+1. <https://jeroen.cran.dev/jsonlite>
+2. <https://httr.r-lib.org>
 :::
 
 
@@ -28,19 +28,12 @@ categories: [module 3, week 7, JSON, APIs, httr]
 
 Material for this lecture was borrowed and adopted from
 
+- <https://jhu-advdatasci.github.io/2019/lectures/04-gettingdata-api.html>
 - <https://aws.amazon.com/what-is/api>
 - <https://bookdown.org/paul/apis_for_social_scientists/github.com-api.html>
 - <https://statisticsglobe.com/api-in-r>
 
-
-# Learning objectives
-
-::: callout-note
-
-**At the end of this lesson you will:**
-
--   Add here.
-:::
+### Install new packages
 
 Before we begin, you will need to install
 these packages
@@ -48,7 +41,7 @@ these packages
 ```{r}
 #| eval: false
 install.packages("jsonlite")
-install.packages("rvest")
+install.packages("httr")
 ```
 
 Now we load a few R packages
@@ -57,16 +50,30 @@ Now we load a few R packages
 #| message: false
 library(tidyverse)
 library(jsonlite)
-library(rvest)
+library(httr)
 ```
+
+
+# Learning objectives
+
+::: callout-note
+
+**At the end of this lesson you will:**
+
+- Describe what the difference is between "raw" vs "clean" data
+- Learn about what are JSON files and how we can convert them into data frames in R 
+- Describe some best practices on sharing data with collaborators
+- Know what does API mean and state four types of API architectures
+- Practice with two APIs: the GitHub API and the COVID Act Now API
+
+:::
 
 # Motivation
 
-Today we are going to talk about getting data from APIs and
+Today, we are going to talk about getting data from APIs and
 examples of common data formats. 
 
-First let's have a bit of a philosophical 
-discussion about data. 
+First, let's have a bit of a philosophical discussion about data. 
 
 ## "Raw" vs "Clean" data
 
@@ -178,7 +185,9 @@ knitr::include_graphics("https://github.com/jtleek/advdatasci/raw/master/imgs/el
 
 It's a great paper that describes the information 
 you should pass to a statistician to facilitate 
-the most efficient and timely analysis. Specifically:
+the most efficient and timely analysis. 
+
+Specifically:
 
 1. The raw data (or the rawest form of the data to which you have access)
     * Should not have modified, removed or summarized any data; Ran no software on data
@@ -230,7 +239,7 @@ var stephanie = {
 }
 ```
 
-Some features about `JSON` object: 
+Some features about `JSON` objects: 
 
 * JSON objects are surrounded by curly braces `{}`
 * JSON objects are written in key/value pairs
@@ -240,11 +249,11 @@ Some features about `JSON` object:
 
 
 
-## Gettting data from an API
+## Overview of APIs
 
 [From AWS](https://aws.amazon.com/what-is/api/), API stands for **Application Programming Interface**. 
 
-- "Application" = any software with a distinct function
+- "Application" = any **software** with a distinct function
 - "Interface" = a **contract of service** between two applications. This contract defines how the two communicate with each other using requests and responses. 
 
 The **API documentation** contains information on how developers are to structure those requests and responses.
@@ -277,11 +286,11 @@ There are four different ways that APIs can work depending on when and why they 
 
 2. **RPC APIs**. These APIs are called **Remote Procedure Calls**. The client completes a function (or procedure) on the server, and the server sends the output back to the client.
 
-3. **Websocket APIs**. Websocket API is another modern web API development that uses JSON objects to pass data. A WebSocket API supports two-way communication between client apps and the server. The server can send callback messages to connected clients, making it more efficient than REST API.
+3. **Websocket APIs**. Websocket API is another **modern web** API development that uses JSON objects to pass data. A WebSocket API supports two-way communication between client apps and the server. The server can send callback messages to connected clients, making it more efficient than REST API.
 
 4. **REST APIs**. REST stands for **Representational State Transfer** (and are the most popular and flexible APIs). The client sends requests to the server as data. The server uses this client input to start internal functions and returns output data back to the client. REST defines a set of functions like GET, PUT, DELETE, etc. that clients can use to access server data. Clients and servers exchange data using HTTP.
 
-- The main feature of REST API is **statelessness** (i.e. servers do not save client data between requests). Client requests to the server are similar to URLs you type in your browser to visit a website. The response from the server is plain data, without the typical graphical rendering of a web page.
+The main feature of REST API is **statelessness** (i.e. servers do not save client data between requests). Client requests to the server are similar to URLs you type in your browser to visit a website. The response from the server is plain data, without the typical graphical rendering of a web page.
 
 
 ### How to use an API?
@@ -289,7 +298,7 @@ There are four different ways that APIs can work depending on when and why they 
 The basic steps to using an API are:
 
 1. **Obtaining an API key**. This is done by creating a verified account with the API provider.
-2. **Set up an HTTP API client**. This tool allows you to structure API requests easily using the API keys received. 
+2. **Set up an HTTP API client**. This tool allows you to structure API requests easily using the API keys received. Here, we will use the `GET()` function from the `httr` package. 
 3. If you don’t have an API client, you can try to structure the request yourself in your browser by referring to the API documentation.
 4. Once you are comfortable with the new API syntax, you can start using it in your code.
 
@@ -303,10 +312,7 @@ New web APIs can be found on API marketplaces and API directories, such as:
 - [APIForThat](https://apiforthat.posthaven.com/) and [APIList](https://apilist.fun) – Both these websites have lists of 500+ web APIs, along with in-depth information on how to use them.    
 
 
-
-# Getting data from APIs
-
-## GitHub API
+# GitHub API
 
 The [GitHub REST API](https://docs.github.com/en/rest) may be of interest when studying online communities, working methods, organizational structures, communication and discussions, etc. with a focus on (open-source) software development. 
 
@@ -329,7 +335,7 @@ This token can then be used to authenticate your API requests. Your quota is the
 
 :::
 
-### Access the API from R
+## Access the API from R
 
 There are packages for many programming languages that provide convenient access for communicating with the GitHub API, but there are no such packages (that I'm aware of) for accessing the API from R.  
 
@@ -350,12 +356,7 @@ jsonData <- as_tibble(fromJSON(github_url))
 glimpse(jsonData)
 ```
 
-The function `fromJSON()` has now converted 
-the JSON file into a data frame with the names: 
-
-```{r}
-names(jsonData)
-```
+The function `fromJSON()` has now converted the JSON file into a data frame. 
 
 However, from here, we see that there are only 30 rows (or 30 repositories). 
 If you look on my github page, you can see there are more than 30 repositories. 
@@ -413,7 +414,7 @@ We now get all 85 repositories! yay!
 :::
 
 
-### Using API keys
+## Using API keys
 
 Authenticating with the GitHub API via an API key allows you to send much more requests to the API. 
 
@@ -430,18 +431,17 @@ If you want guidance on where you should store them, I like this post:
 - <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/> 
 
 Personally, I keep mine in my `.Renviron` file which looks something like this on the inside: 
-```
 
+```
 GITHUB_API_KEY = <add my GitHub API key here> 
 COVID_ACT_NOW_API_KEY = <add my COVID Act Now API key here> 
 CENSUS_API_KEY = <add my tidycensus API key here> 
-
 ```
 
 If you don't have an `.Renviron` file in your home directory, you can make one: 
 
 ``` bash
-cd 
+cd ~
 touch .Renviron
 ```
 
@@ -458,7 +458,7 @@ We will use this in a little bit.
 
 
 
-### Using the HTTP verb `GET`
+## Access API with `httr` and `GET`
 
 There are a set of [basic HTTP verbs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/GettingStarted/APIRequests/HTTP-verbs.htm) that allow you access a set of **endpoints**. 
 
@@ -482,7 +482,6 @@ We will also make this an **authenticated HTTP response** to the GitHub API usin
 Let's start by using the GitHub API to learn information about myself (Stephanie Hicks)
 
 ```{r}
-library(httr)
 github_key <- Sys.getenv("GITHUB_API_KEY")
 response <- GET('https://api.github.com/user', 
                 authenticate(user = 'stephaniehicks', 
@@ -510,7 +509,7 @@ repo_details <- as_tibble(fromJSON(httr::content(response, as = 'text')))
 repo_details
 ```
 
-### EDA with data 
+## A bit of EDA fun
 
 Let's have a bit of fun and explore some questions:  
 
@@ -539,22 +538,24 @@ table(repo_details$open_issues_count)
 
 Whew! Not as many as I thought.
 
-:::{.callout}
-
+:::{.callout-tip}
 
 ### More about `GET`
 
 You can use the `query` argument to specify details about the response. 
 
+Let's look how many open issues there are in the `dplyr` package in the `tidyverse`
+
 ```{r}
-library(httr)
 req <- GET("https://api.github.com/repos/tidyverse/dplyr/issues", 
            query = list(state = "open", per_page = 100, page = 1))
 dplyr_details <- as_tibble(fromJSON(httr::content(req, as = 'text')))
 dplyr_details
 ```
 
-### Other examples with GitHub API
+:::
+
+## Other examples with GitHub API
 
 Finally, I will leave you with a few other examples of using GitHub API: 
 
@@ -563,24 +564,189 @@ Finally, I will leave you with a few other examples of using GitHub API:
 * [Getting my GitHub Activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
 
 
+# COVID Act Now API
+
+Next, we will demonstrate how to request data from the API at [COVID Act Now](https://covidactnow.org/data-api), which returns CSV or JSON files.  
+
+This API provides access to COVID data tracking US states, counties, and metros, including data and metrics for cases, vaccinations, tests, hospitalizations, and deaths. See [data definitions](https://apidocs.covidactnow.org/data-definitions/) for all included data.
+
+## Register for an API Key
+
+First, you need to register for an API key here
+
+- <https://apidocs.covidactnow.org/#register>
+
+You should also store the API key in your `.Renviron` like above for the GitHub API key. 
+
+## Building the URL for `GET`
+
+First, we will request time series COVID data for one county in the US (Baltimore City) defined by it FIPS code (24510). 
+
+The URL we want is the following
+
+```
+https://api.covidactnow.org/v2/county/24510.timeseries.json?apiKey=<your_API_key_here>
+```
+
+:::{.callout-tip}
+
+### Note
+
+You cannot use this API without an API key
+
+e.g. if we click here <https://api.covidactnow.org/v2/county/24510.timeseries.json> it says 
+
+```
+{"error": "API key required. Visit https://apidocs.covidactnow.org/#register to get an API key"}
+```
+
+:::
+
+Let's build up the URL. 
+
+- The first is the base URL: `https://api.covidactnow.org/v2/`. This part of the URL **will be the same for all our calls** to this API.
+- The county/portion of the URL indicates that we only want COVID data for a single county. By looking at the COVID Act Now API documentation, I can see that states is an alternative option for this part of the URL.
+- 24510 is the unique identifier for Baltimore City. If I want to get the same data but for a different county, I just have to change this number.
+- `.timeseries` provides the API with more information about the data I am requesting, and 
+- `.json` tells the API to format the data as a JSON (which we will convert to a data frame).
+- Everything after `apiKey=` is my authorization token, which tells the COVID Act Now servers that I am allowed to ask for this data. 
+
+Now that we have dissected the anatomy of an API, you can see how easy it is to build them!
+
+Basically anybody with an internet connection, an authorization token, and who knows the grammar of the API can access it. Most APIs are published with extensive documentation to help you understand the available options and parameters.
+
+
+## Calling an API with `GET`
+
+Let's join the URL together for one county (later I will show how to loop through multiple counties)
+
+```{r}
+## extract my API from `.Renviron`
+covid_key <- Sys.getenv("COVID_ACT_NOW_API_KEY")
+
+## build the URL
+base <- 'https://api.covidactnow.org/v2/county/'
+county <- '24510'
+info_key <- '.timeseries.json?apiKey='
+
+## put it all together
+API_URL <- paste0(base, county, info_key, covid_key)
+```
+
+Now we have the entire URL stored in a simple R object called `API_URL`.
+
+We can now use the URL to call the API, and we will store the returned data in an object called `raw_data`:
+
+```{r}
+raw_data <- GET(API_URL)
+raw_data
+```
+
+:::{.callout-tip}
+
+### Pro-tip
+
+We can see `status` element of the list. Traditionally, a status of “200” means that the API call was successful, and other codes are used to indicate errors. You can troubleshoot those error codes using the API documentation.
+
+:::
+
+Next, we can inspect the object and we see that it is a list.
+
+```{r}
+str(raw_data)
+```
+
+One of the elements is `content` and we can inspect that
+
+```{r}
+str(raw_data$content)
+```
+
+We see the actual data have been stored as raw vectors (or raw bytes), which need to be converted to character vectors. This is not in a useable format yet. 
+
+## Converting JSON to a `data.frame`
+
+There is a function in base R `rawTo_Char()` that converts raw bytes to characters
+
+```{r}
+#| eval: false
+covid_data <- fromJSON(rawToChar(raw_data$content), flatten = TRUE)
+```
+
+This converts the raw data into a list. 
+
+:::{.callout-note}
+
+We can also do this with `httr::content` (as above) and just define the encoding for the character set. 
+
+```{r}
+covid_data <- fromJSON(httr::content(raw_data, 
+                                     as = 'text', 
+                                     encoding =  "UTF-8"))
+str(covid_data)
+```
+
+:::
+
+Now that it is in a list format, you can see that it actually contains several data frames!
+
+You can use this data right away if you are already familiar with lists in R, or you can extract the data frames into separate objects, like this:
+
+```{r}
+ts_df <- covid_data$actualsTimeseries
+```
+
+The data frame that we have just created contains many different variables and a lot of information. Below, you can see the first six rows of a selection of some interesting variables in our data:
+
+```{r}
+head(ts_df[ , c("cases", "deaths", "newCases", "newDeaths", "date")], n=10)
+```
+
+## Looping multiple API calls 
+
+Next, let's create a loop to make several requests to the API 
+
+
+Now that we’ve seen how to make an API call for one county, let’s create a simple loop to make several calls at a time. We’ll use a for loop, which you can read more about here.
+
+First, we’ll create a vector with the ID code for each county we want to get data for:
+
+```{r}
+# Baltimore City County, Montgomery County, Baltimore County
+counties <- c('24510', '24031', '24005')
+```
+
+We will loop through each element and adjust the `API_URL` accordingly. 
+
+```{r}
+temp_list <- vector("list", length = 3)
+ts_df <- NULL
+
+for(i in 1:length(counties)) {
+ 
+  # Build the API URL with the new county code
+  API_URL <- paste0(base, counties[i], info_key, covid_key)
+ 
+  # Store the raw and processed API results in temporary objects
+  temp_raw <- GET(API_URL)
+  temp_list <- fromJSON(rawToChar(temp_raw$content), flatten = TRUE)
+ 
+  # Add the most recent results to your data frame
+  ts_df <- rbind(ts_df, temp_list$actualsTimeseries)
+}
+
+```
+
+```{r}
+dim(ts_df)
+```
+
 # Post-lecture materials
 
-## Summary
-
-* Best practices for sharing data
-* Best practices for downloading and reading in data
-  * Relative versus absolute paths
-  * Finding and creating files locally
-* Best practices for getting data 
-  * `jsonlite` for JSON (e.g. GitHub API)
-  * `rvest` to grab all the exact elements you want (e.g. book reviews)
-      * Check out selector gadget 
-    
 ## Other good R packages to know about 
 
 * [`googlesheets`](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) to interact with Google Sheets in R
 * [`googledrive`](https://googledrive.tidyverse.org](http://googledrive.tidyverse.org/) to interact with your Google Drive
-
 
 
 ## Final Questions
@@ -591,12 +757,14 @@ Here are some post-lecture questions to help you think about the material discus
 ### Questions
 
 1.  Using the GitHub API, access the repository information and ask how many open github issues you have?
+2. Pick another API that we have not discussed here and use `httr` to retreive data from it. 
 :::
 
 ## Additional Resources
 
 ::: callout-tip
--   Add here.
+- <https://jeroen.cran.dev/jsonlite>
+- <https://httr.r-lib.org>
 :::
 
 
