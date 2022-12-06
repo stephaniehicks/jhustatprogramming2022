@@ -1,11 +1,11 @@
 ---
-title: "Building dashboards with `flexdashboard`"
+title: "Building dashboards with `flexdashboard` and `shinydashboard`"
 author: 
-  - name: Stephanie Hicks
+  - name: Margaret Taub
     url: https://stephaniehicks.com
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
-description: "Introduction to building dashboards in R with `flexdashboard`"
+description: "Introduction to building dashboards in R with `flexdashboard` and `shinydashboard`"
 date: 2022-12-13
 draft: true
 categories: [module 4, week 8, data viz, flexdashboard]
@@ -43,6 +43,9 @@ Material for this lecture was borrowed and adopted from
 :::
 
 # Add lecture here
+
+hi
+
 
 # Post-lecture materials
 
