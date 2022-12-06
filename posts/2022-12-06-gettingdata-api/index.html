@@ -258,6 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#install-new-packages" id="toc-install-new-packages" class="nav-link" data-scroll-target="#install-new-packages">Install new packages</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a>
@@ -270,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#getting-data" id="toc-getting-data" class="nav-link" data-scroll-target="#getting-data">Getting data</a>
   <ul class="collapse">
   <li><a href="#json-files" id="toc-json-files" class="nav-link" data-scroll-target="#json-files">JSON files</a></li>
-  <li><a href="#gettting-data-from-an-api" id="toc-gettting-data-from-an-api" class="nav-link" data-scroll-target="#gettting-data-from-an-api">Gettting data from an API</a>
+  <li><a href="#overview-of-apis" id="toc-overview-of-apis" class="nav-link" data-scroll-target="#overview-of-apis">Overview of APIs</a>
   <ul class="collapse">
   <li><a href="#how-do-apis-work" id="toc-how-do-apis-work" class="nav-link" data-scroll-target="#how-do-apis-work">How do APIs work?</a></li>
   <li><a href="#four-types-of-api-architectures" id="toc-four-types-of-api-architectures" class="nav-link" data-scroll-target="#four-types-of-api-architectures">Four types of API architectures</a></li>
@@ -278,21 +279,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#where-can-i-find-new-apis" id="toc-where-can-i-find-new-apis" class="nav-link" data-scroll-target="#where-can-i-find-new-apis">Where can I find new APIs?</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#getting-data-from-apis" id="toc-getting-data-from-apis" class="nav-link" data-scroll-target="#getting-data-from-apis">Getting data from APIs</a>
-  <ul class="collapse">
   <li><a href="#github-api" id="toc-github-api" class="nav-link" data-scroll-target="#github-api">GitHub API</a>
   <ul class="collapse">
   <li><a href="#access-the-api-from-r" id="toc-access-the-api-from-r" class="nav-link" data-scroll-target="#access-the-api-from-r">Access the API from R</a></li>
   <li><a href="#using-api-keys" id="toc-using-api-keys" class="nav-link" data-scroll-target="#using-api-keys">Using API keys</a></li>
-  <li><a href="#using-the-http-verb-get" id="toc-using-the-http-verb-get" class="nav-link" data-scroll-target="#using-the-http-verb-get">Using the HTTP verb <code>GET</code></a></li>
-  <li><a href="#eda-with-data" id="toc-eda-with-data" class="nav-link" data-scroll-target="#eda-with-data">EDA with data</a></li>
-  <li><a href="#more-about-get" id="toc-more-about-get" class="nav-link" data-scroll-target="#more-about-get">More about <code>GET</code></a></li>
+  <li><a href="#access-api-with-httr-and-get" id="toc-access-api-with-httr-and-get" class="nav-link" data-scroll-target="#access-api-with-httr-and-get">Access API with <code>httr</code> and <code>GET</code></a></li>
+  <li><a href="#a-bit-of-eda-fun" id="toc-a-bit-of-eda-fun" class="nav-link" data-scroll-target="#a-bit-of-eda-fun">A bit of EDA fun</a></li>
   <li><a href="#other-examples-with-github-api" id="toc-other-examples-with-github-api" class="nav-link" data-scroll-target="#other-examples-with-github-api">Other examples with GitHub API</a></li>
   </ul></li>
+  <li><a href="#covid-act-now-api" id="toc-covid-act-now-api" class="nav-link" data-scroll-target="#covid-act-now-api">COVID Act Now API</a>
+  <ul class="collapse">
+  <li><a href="#register-for-an-api-key" id="toc-register-for-an-api-key" class="nav-link" data-scroll-target="#register-for-an-api-key">Register for an API Key</a></li>
+  <li><a href="#building-the-url-for-get" id="toc-building-the-url-for-get" class="nav-link" data-scroll-target="#building-the-url-for-get">Building the URL for <code>GET</code></a></li>
+  <li><a href="#calling-an-api-with-get" id="toc-calling-an-api-with-get" class="nav-link" data-scroll-target="#calling-an-api-with-get">Calling an API with <code>GET</code></a></li>
+  <li><a href="#converting-json-to-a-data.frame" id="toc-converting-json-to-a-data.frame" class="nav-link" data-scroll-target="#converting-json-to-a-data.frame">Converting JSON to a <code>data.frame</code></a></li>
+  <li><a href="#looping-multiple-api-calls" id="toc-looping-multiple-api-calls" class="nav-link" data-scroll-target="#looping-multiple-api-calls">Looping multiple API calls</a></li>
   </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#other-good-r-packages-to-know-about" id="toc-other-good-r-packages-to-know-about" class="nav-link" data-scroll-target="#other-good-r-packages-to-know-about">Other good R packages to know about</a></li>
   <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
@@ -325,8 +329,8 @@ Read ahead
 <div class="callout-body-container callout-body">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
+<li><a href="https://jeroen.cran.dev/jsonlite" class="uri">https://jeroen.cran.dev/jsonlite</a></li>
+<li><a href="https://httr.r-lib.org" class="uri">https://httr.r-lib.org</a></li>
 </ol>
 </div>
 </div>
@@ -335,10 +339,25 @@ Read ahead
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
+<li><a href="https://jhu-advdatasci.github.io/2019/lectures/04-gettingdata-api.html" class="uri">https://jhu-advdatasci.github.io/2019/lectures/04-gettingdata-api.html</a></li>
 <li><a href="https://aws.amazon.com/what-is/api" class="uri">https://aws.amazon.com/what-is/api</a></li>
 <li><a href="https://bookdown.org/paul/apis_for_social_scientists/github.com-api.html" class="uri">https://bookdown.org/paul/apis_for_social_scientists/github.com-api.html</a></li>
 <li><a href="https://statisticsglobe.com/api-in-r" class="uri">https://statisticsglobe.com/api-in-r</a></li>
 </ul>
+</section>
+<section id="install-new-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-new-packages">Install new packages</h3>
+<p>Before we begin, you will need to install these packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"httr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we load a few R packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="learning-objectives" class="level1">
@@ -355,26 +374,19 @@ Note
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>Describe what the difference is between “raw” vs “clean” data</li>
+<li>Learn about what are JSON files and how we can convert them into data frames in R</li>
+<li>Describe some best practices on sharing data with collaborators</li>
+<li>Know what does API mean and state four types of API architectures</li>
+<li>Practice with two APIs: the GitHub API and the COVID Act Now API</li>
 </ul>
 </div>
-</div>
-<p>Before we begin, you will need to install these packages</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rvest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we load a few R packages</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<p>Today we are going to talk about getting data from APIs and examples of common data formats.</p>
-<p>First let’s have a bit of a philosophical discussion about data.</p>
+<p>Today, we are going to talk about getting data from APIs and examples of common data formats.</p>
+<p>First, let’s have a bit of a philosophical discussion about data.</p>
 <section id="raw-vs-clean-data" class="level2">
 <h2 class="anchored" data-anchor-id="raw-vs-clean-data">“Raw” vs “Clean” data</h2>
 <p>As data analysts, this is what we wished data looked like whenever we start a project</p>
@@ -448,7 +460,8 @@ Note
 <p><img src="https://github.com/jtleek/advdatasci/raw/master/imgs/ellis-datashare.png" class="img-fluid"></p>
 </div>
 </div>
-<p>It’s a great paper that describes the information you should pass to a statistician to facilitate the most efficient and timely analysis. Specifically:</p>
+<p>It’s a great paper that describes the information you should pass to a statistician to facilitate the most efficient and timely analysis.</p>
+<p>Specifically:</p>
 <ol type="1">
 <li>The raw data (or the rawest form of the data to which you have access)
 <ul>
@@ -498,7 +511,7 @@ Note
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    "car3" : "Honda CR-V"</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Some features about <code>JSON</code> object:</p>
+<p>Some features about <code>JSON</code> objects:</p>
 <ul>
 <li>JSON objects are surrounded by curly braces <code>{}</code></li>
 <li>JSON objects are written in key/value pairs</li>
@@ -507,11 +520,11 @@ Note
 <li>Each key/value pair is separated by a comma</li>
 </ul>
 </section>
-<section id="gettting-data-from-an-api" class="level2">
-<h2 class="anchored" data-anchor-id="gettting-data-from-an-api">Gettting data from an API</h2>
+<section id="overview-of-apis" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-apis">Overview of APIs</h2>
 <p><a href="https://aws.amazon.com/what-is/api/">From AWS</a>, API stands for <strong>Application Programming Interface</strong>.</p>
 <ul>
-<li>“Application” = any software with a distinct function</li>
+<li>“Application” = any <strong>software</strong> with a distinct function</li>
 <li>“Interface” = a <strong>contract of service</strong> between two applications. This contract defines how the two communicate with each other using requests and responses.</li>
 </ul>
 <p>The <strong>API documentation</strong> contains information on how developers are to structure those requests and responses.</p>
@@ -544,19 +557,17 @@ Purpose of APIs
 <ol type="1">
 <li><p><strong>SOAP APIs</strong>. These APIs use <strong>Simple Object Access Protocol</strong>. Client and server exchange messages using XML. This is a less flexible API that was more popular in the past.</p></li>
 <li><p><strong>RPC APIs</strong>. These APIs are called <strong>Remote Procedure Calls</strong>. The client completes a function (or procedure) on the server, and the server sends the output back to the client.</p></li>
-<li><p><strong>Websocket APIs</strong>. Websocket API is another modern web API development that uses JSON objects to pass data. A WebSocket API supports two-way communication between client apps and the server. The server can send callback messages to connected clients, making it more efficient than REST API.</p></li>
+<li><p><strong>Websocket APIs</strong>. Websocket API is another <strong>modern web</strong> API development that uses JSON objects to pass data. A WebSocket API supports two-way communication between client apps and the server. The server can send callback messages to connected clients, making it more efficient than REST API.</p></li>
 <li><p><strong>REST APIs</strong>. REST stands for <strong>Representational State Transfer</strong> (and are the most popular and flexible APIs). The client sends requests to the server as data. The server uses this client input to start internal functions and returns output data back to the client. REST defines a set of functions like GET, PUT, DELETE, etc. that clients can use to access server data. Clients and servers exchange data using HTTP.</p></li>
 </ol>
-<ul>
-<li>The main feature of REST API is <strong>statelessness</strong> (i.e.&nbsp;servers do not save client data between requests). Client requests to the server are similar to URLs you type in your browser to visit a website. The response from the server is plain data, without the typical graphical rendering of a web page.</li>
-</ul>
+<p>The main feature of REST API is <strong>statelessness</strong> (i.e.&nbsp;servers do not save client data between requests). Client requests to the server are similar to URLs you type in your browser to visit a website. The response from the server is plain data, without the typical graphical rendering of a web page.</p>
 </section>
 <section id="how-to-use-an-api" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-use-an-api">How to use an API?</h3>
 <p>The basic steps to using an API are:</p>
 <ol type="1">
 <li><strong>Obtaining an API key</strong>. This is done by creating a verified account with the API provider.</li>
-<li><strong>Set up an HTTP API client</strong>. This tool allows you to structure API requests easily using the API keys received.</li>
+<li><strong>Set up an HTTP API client</strong>. This tool allows you to structure API requests easily using the API keys received. Here, we will use the <code>GET()</code> function from the <code>httr</code> package.</li>
 <li>If you don’t have an API client, you can try to structure the request yourself in your browser by referring to the API documentation.</li>
 <li>Once you are comfortable with the new API syntax, you can start using it in your code.</li>
 </ol>
@@ -572,10 +583,8 @@ Purpose of APIs
 </section>
 </section>
 </section>
-<section id="getting-data-from-apis" class="level1">
-<h1>Getting data from APIs</h1>
-<section id="github-api" class="level2">
-<h2 class="anchored" data-anchor-id="github-api">GitHub API</h2>
+<section id="github-api" class="level1">
+<h1>GitHub API</h1>
 <p>The <a href="https://docs.github.com/en/rest">GitHub REST API</a> may be of interest when studying online communities, working methods, organizational structures, communication and discussions, etc. with a focus on (open-source) software development.</p>
 <p>Many projects that are hosted on GitHub are open-source projects with a transparent development process and communications. For private projects, which can also be hosted on GitHub, there’s understandably only a few aggregate data available.</p>
 <p>Let’s say we want to use the <a href="https://docs.github.com/en/rest">GitHub REST API</a> to find out how many of my GitHub repositories have open issues?</p>
@@ -594,8 +603,8 @@ Pro-tip
 <p>This token can then be used to authenticate your API requests. Your quota is then 5000 requests per hour.</p>
 </div>
 </div>
-<section id="access-the-api-from-r" class="level3">
-<h3 class="anchored" data-anchor-id="access-the-api-from-r">Access the API from R</h3>
+<section id="access-the-api-from-r" class="level2">
+<h2 class="anchored" data-anchor-id="access-the-api-from-r">Access the API from R</h2>
 <p>There are packages for many programming languages that provide convenient access for communicating with the GitHub API, but there are no such packages (that I’m aware of) for accessing the API from R.</p>
 <p>This means we can only access the API directly, e.g.&nbsp;by using the <a href="https://cran.r-project.org/web/packages/jsonlite/index.html"><code>jsonlite</code></a> package to fetch the data and convert it to an R <code>list</code> or <code>data.frame</code>.</p>
 <p>Specifically, we will use the <code>jsonlite::fromJSON()</code> function to convert from a JSON object to a data frame.</p>
@@ -691,52 +700,7 @@ $ watchers                    &lt;int&gt; 4, 0, 1, 0, 0, 1, 8, 0, 1, 0, 14, 3, 0
 $ default_branch              &lt;chr&gt; "master", "master", "master", "master", "m…</code></pre>
 </div>
 </div>
-<p>The function <code>fromJSON()</code> has now converted the JSON file into a data frame with the names:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jsonData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "id"                          "node_id"                    
- [3] "name"                        "full_name"                  
- [5] "private"                     "owner"                      
- [7] "html_url"                    "description"                
- [9] "fork"                        "url"                        
-[11] "forks_url"                   "keys_url"                   
-[13] "collaborators_url"           "teams_url"                  
-[15] "hooks_url"                   "issue_events_url"           
-[17] "events_url"                  "assignees_url"              
-[19] "branches_url"                "tags_url"                   
-[21] "blobs_url"                   "git_tags_url"               
-[23] "git_refs_url"                "trees_url"                  
-[25] "statuses_url"                "languages_url"              
-[27] "stargazers_url"              "contributors_url"           
-[29] "subscribers_url"             "subscription_url"           
-[31] "commits_url"                 "git_commits_url"            
-[33] "comments_url"                "issue_comment_url"          
-[35] "contents_url"                "compare_url"                
-[37] "merges_url"                  "archive_url"                
-[39] "downloads_url"               "issues_url"                 
-[41] "pulls_url"                   "milestones_url"             
-[43] "notifications_url"           "labels_url"                 
-[45] "releases_url"                "deployments_url"            
-[47] "created_at"                  "updated_at"                 
-[49] "pushed_at"                   "git_url"                    
-[51] "ssh_url"                     "clone_url"                  
-[53] "svn_url"                     "homepage"                   
-[55] "size"                        "stargazers_count"           
-[57] "watchers_count"              "language"                   
-[59] "has_issues"                  "has_projects"               
-[61] "has_downloads"               "has_wiki"                   
-[63] "has_pages"                   "has_discussions"            
-[65] "forks_count"                 "mirror_url"                 
-[67] "archived"                    "disabled"                   
-[69] "open_issues_count"           "license"                    
-[71] "allow_forking"               "is_template"                
-[73] "web_commit_signoff_required" "topics"                     
-[75] "visibility"                  "forks"                      
-[77] "open_issues"                 "watchers"                   
-[79] "default_branch"             </code></pre>
-</div>
-</div>
+<p>The function <code>fromJSON()</code> has now converted the JSON file into a data frame.</p>
 <p>However, from here, we see that there are only 30 rows (or 30 repositories). If you look on my github page, you can see there are more than 30 repositories.</p>
 <ul>
 <li><a href="https://github.com/stephaniehicks?tab=repositories" class="uri">https://github.com/stephaniehicks?tab=repositories</a></li>
@@ -780,10 +744,10 @@ Example
 </ul>
 <p>And see there are more than 30 repos. Let’s read it into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>github_url <span class="ot">=</span> <span class="st">"https://api.github.com/users/stephaniehicks/repos?page=1&amp;per_page=1000"</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>jsonDataAll <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(github_url))</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(jsonDataAll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>github_url <span class="ot">=</span> <span class="st">"https://api.github.com/users/stephaniehicks/repos?page=1&amp;per_page=1000"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>jsonDataAll <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(github_url))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(jsonDataAll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 85 79</code></pre>
 </div>
@@ -792,8 +756,8 @@ Example
 </div>
 </div>
 </section>
-<section id="using-api-keys" class="level3">
-<h3 class="anchored" data-anchor-id="using-api-keys">Using API keys</h3>
+<section id="using-api-keys" class="level2">
+<h2 class="anchored" data-anchor-id="using-api-keys">Using API keys</h2>
 <p>Authenticating with the GitHub API via an API key allows you to send much more requests to the API.</p>
 <p>API access keys for the GitHub API are called <strong>personal access tokens</strong> (PAT) and the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">documentation explains how to generate a PAT</a> once you have logged into your GitHub account.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -812,24 +776,22 @@ Where to store API keys
 <li><a href="https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/" class="uri">https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/</a></li>
 </ul>
 <p>Personally, I keep mine in my <code>.Renviron</code> file which looks something like this on the inside:</p>
-<pre><code>
-GITHUB_API_KEY = &lt;add my GitHub API key here&gt; 
+<pre><code>GITHUB_API_KEY = &lt;add my GitHub API key here&gt; 
 COVID_ACT_NOW_API_KEY = &lt;add my COVID Act Now API key here&gt; 
-CENSUS_API_KEY = &lt;add my tidycensus API key here&gt; 
-</code></pre>
+CENSUS_API_KEY = &lt;add my tidycensus API key here&gt; </code></pre>
 <p>If you don’t have an <code>.Renviron</code> file in your home directory, you can make one:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .Renviron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .Renviron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Assuming you have created and stored an API key in the <code>.Renviron</code> file in your home directory, you can fetch it with the <code>Sys.getenv()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>github_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"GITHUB_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>github_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"GITHUB_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will use this in a little bit.</p>
 </section>
-<section id="using-the-http-verb-get" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-http-verb-get">Using the HTTP verb <code>GET</code></h3>
+<section id="access-api-with-httr-and-get" class="level2">
+<h2 class="anchored" data-anchor-id="access-api-with-httr-and-get">Access API with <code>httr</code> and <code>GET</code></h2>
 <p>There are a set of <a href="https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/GettingStarted/APIRequests/HTTP-verbs.htm">basic HTTP verbs</a> that allow you access a set of <strong>endpoints</strong>.</p>
 <p>The basic request patterns are:</p>
 <ul>
@@ -853,15 +815,14 @@ Example
 <div class="callout-body-container callout-body">
 <p>Let’s start by using the GitHub API to learn information about myself (Stephanie Hicks)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>github_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"GITHUB_API_KEY"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">'https://api.github.com/user'</span>, </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">authenticate</span>(<span class="at">user =</span> <span class="st">'stephaniehicks'</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">password =</span> github_key))</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>github_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"GITHUB_API_KEY"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">'https://api.github.com/user'</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">authenticate</span>(<span class="at">user =</span> <span class="st">'stephaniehicks'</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">password =</span> github_key))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response [https://api.github.com/user]
-  Date: 2022-12-05 20:47
+  Date: 2022-12-06 05:15
   Status: 200
   Content-Type: application/json; charset=utf-8
   Size: 1.48 kB
@@ -883,8 +844,8 @@ Example
 </div>
 <p>Next we extract / retrieve the contents from the raw JSON output using the <code>content()</code> function from the <code>httr</code> package. If you use the argument <code>as = 'text'</code>, it extracts the contents as a character vector.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>account_details <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">'text'</span>))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>account_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>account_details <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">'text'</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>account_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$login
 [1] "stephaniehicks"
@@ -985,10 +946,10 @@ $updated_at
 </div>
 <p>Next, let’s perform the same request we did above about my 85 repositories, but instead of reading in the JSON file from the web, we use an authenticated <code>GET()</code> response:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">'https://api.github.com/users/stephaniehicks/repos?page=1&amp;per_page=1000'</span>,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">authenticate</span>(<span class="st">'stephaniehicks'</span>, github_key))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>repo_details <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">'text'</span>)))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>repo_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">'https://api.github.com/users/stephaniehicks/repos?page=1&amp;per_page=1000'</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">authenticate</span>(<span class="st">'stephaniehicks'</span>, github_key))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>repo_details <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">'text'</span>)))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>repo_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 85 × 80
           id node_id   name  full_…¹ private owner…² html_…³ descr…⁴ fork  url  
@@ -1013,21 +974,21 @@ $updated_at
 </div>
 </div>
 </section>
-<section id="eda-with-data" class="level3">
-<h3 class="anchored" data-anchor-id="eda-with-data">EDA with data</h3>
+<section id="a-bit-of-eda-fun" class="level2">
+<h2 class="anchored" data-anchor-id="a-bit-of-eda-fun">A bit of EDA fun</h2>
 <p>Let’s have a bit of fun and explore some questions:</p>
 <ul>
 <li>How many are private repos?</li>
 <li>How many have forks? How many forks?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>private)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>private)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE 
    85 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>forks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>forks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  0  1  2  3  4  5  6  8 11 
@@ -1036,7 +997,7 @@ FALSE
 </div>
 <p>What’s the most popular language?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
             HTML       JavaScript Jupyter Notebook         Makefile 
@@ -1049,8 +1010,8 @@ FALSE
 </div>
 <p>To find out how many repos that I have with open issues, we can just create a table:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how many repos have open issues? </span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>open_issues_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how many repos have open issues? </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(repo_details<span class="sc">$</span>open_issues_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  0  1  2  3 
@@ -1058,17 +1019,23 @@ FALSE
 </div>
 </div>
 <p>Whew! Not as many as I thought.</p>
-<p>:::{.callout}</p>
-</section>
-<section id="more-about-get" class="level3">
-<h3 class="anchored" data-anchor-id="more-about-get">More about <code>GET</code></h3>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+More about <code>GET</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>You can use the <code>query</code> argument to specify details about the response.</p>
+<p>Let’s look how many open issues there are in the <code>dplyr</code> package in the <code>tidyverse</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>req <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://api.github.com/repos/tidyverse/dplyr/issues"</span>, </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">query =</span> <span class="fu">list</span>(<span class="at">state =</span> <span class="st">"open"</span>, <span class="at">per_page =</span> <span class="dv">100</span>, <span class="at">page =</span> <span class="dv">1</span>))</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>dplyr_details <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(req, <span class="at">as =</span> <span class="st">'text'</span>)))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>dplyr_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>req <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://api.github.com/repos/tidyverse/dplyr/issues"</span>, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">query =</span> <span class="fu">list</span>(<span class="at">state =</span> <span class="st">"open"</span>, <span class="at">per_page =</span> <span class="dv">100</span>, <span class="at">page =</span> <span class="dv">1</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>dplyr_details <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(req, <span class="at">as =</span> <span class="st">'text'</span>)))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>dplyr_details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 30
    url       repos…¹ label…² comme…³ event…⁴ html_…⁵     id node_id number title
@@ -1092,9 +1059,11 @@ FALSE
 #   pull_request &lt;df[,5]&gt;, and abbreviated variable names ¹​repository_url, …</code></pre>
 </div>
 </div>
+</div>
+</div>
 </section>
-<section id="other-examples-with-github-api" class="level3">
-<h3 class="anchored" data-anchor-id="other-examples-with-github-api">Other examples with GitHub API</h3>
+<section id="other-examples-with-github-api" class="level2">
+<h2 class="anchored" data-anchor-id="other-examples-with-github-api">Other examples with GitHub API</h2>
 <p>Finally, I will leave you with a few other examples of using GitHub API:</p>
 <ul>
 <li><a href="https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc">How long does it take to close a GitHub Issue in the <code>dplyr</code> package?</a></li>
@@ -1103,28 +1072,513 @@ FALSE
 </ul>
 </section>
 </section>
+<section id="covid-act-now-api" class="level1">
+<h1>COVID Act Now API</h1>
+<p>Next, we will demonstrate how to request data from the API at <a href="https://covidactnow.org/data-api">COVID Act Now</a>, which returns CSV or JSON files.</p>
+<p>This API provides access to COVID data tracking US states, counties, and metros, including data and metrics for cases, vaccinations, tests, hospitalizations, and deaths. See <a href="https://apidocs.covidactnow.org/data-definitions/">data definitions</a> for all included data.</p>
+<section id="register-for-an-api-key" class="level2">
+<h2 class="anchored" data-anchor-id="register-for-an-api-key">Register for an API Key</h2>
+<p>First, you need to register for an API key here</p>
+<ul>
+<li><a href="https://apidocs.covidactnow.org/#register" class="uri">https://apidocs.covidactnow.org/#register</a></li>
+</ul>
+<p>You should also store the API key in your <code>.Renviron</code> like above for the GitHub API key.</p>
+</section>
+<section id="building-the-url-for-get" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-url-for-get">Building the URL for <code>GET</code></h2>
+<p>First, we will request time series COVID data for one county in the US (Baltimore City) defined by it FIPS code (24510).</p>
+<p>The URL we want is the following</p>
+<pre><code>https://api.covidactnow.org/v2/county/24510.timeseries.json?apiKey=&lt;your_API_key_here&gt;</code></pre>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You cannot use this API without an API key</p>
+<p>e.g.&nbsp;if we click here <a href="https://api.covidactnow.org/v2/county/24510.timeseries.json" class="uri">https://api.covidactnow.org/v2/county/24510.timeseries.json</a> it says</p>
+<pre><code>{"error": "API key required. Visit https://apidocs.covidactnow.org/#register to get an API key"}</code></pre>
+</div>
+</div>
+<p>Let’s build up the URL.</p>
+<ul>
+<li>The first is the base URL: <code>https://api.covidactnow.org/v2/</code>. This part of the URL <strong>will be the same for all our calls</strong> to this API.</li>
+<li>The county/portion of the URL indicates that we only want COVID data for a single county. By looking at the COVID Act Now API documentation, I can see that states is an alternative option for this part of the URL.</li>
+<li>24510 is the unique identifier for Baltimore City. If I want to get the same data but for a different county, I just have to change this number.</li>
+<li><code>.timeseries</code> provides the API with more information about the data I am requesting, and</li>
+<li><code>.json</code> tells the API to format the data as a JSON (which we will convert to a data frame).</li>
+<li>Everything after <code>apiKey=</code> is my authorization token, which tells the COVID Act Now servers that I am allowed to ask for this data.</li>
+</ul>
+<p>Now that we have dissected the anatomy of an API, you can see how easy it is to build them!</p>
+<p>Basically anybody with an internet connection, an authorization token, and who knows the grammar of the API can access it. Most APIs are published with extensive documentation to help you understand the available options and parameters.</p>
+</section>
+<section id="calling-an-api-with-get" class="level2">
+<h2 class="anchored" data-anchor-id="calling-an-api-with-get">Calling an API with <code>GET</code></h2>
+<p>Let’s join the URL together for one county (later I will show how to loop through multiple counties)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## extract my API from `.Renviron`</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>covid_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"COVID_ACT_NOW_API_KEY"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="do">## build the URL</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="st">'https://api.covidactnow.org/v2/county/'</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>county <span class="ot">&lt;-</span> <span class="st">'24510'</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>info_key <span class="ot">&lt;-</span> <span class="st">'.timeseries.json?apiKey='</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="do">## put it all together</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>API_URL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(base, county, info_key, covid_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have the entire URL stored in a simple R object called <code>API_URL</code>.</p>
+<p>We can now use the URL to call the API, and we will store the returned data in an object called <code>raw_data</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">GET</span>(API_URL)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>raw_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response [https://api.covidactnow.org/v2/county/24510.timeseries.json?apiKey=b228d58133a04e3186e5ce081f73bbf5]
+  Date: 2022-12-05 21:16
+  Status: 200
+  Content-Type: application/json
+  Size: 1.34 MB</code></pre>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can see <code>status</code> element of the list. Traditionally, a status of “200” means that the API call was successful, and other codes are used to indicate errors. You can troubleshoot those error codes using the API documentation.</p>
+</div>
+</div>
+<p>Next, we can inspect the object and we see that it is a list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raw_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 10
+ $ url        : chr "https://api.covidactnow.org/v2/county/24510.timeseries.json?apiKey=b228d58133a04e3186e5ce081f73bbf5"
+ $ status_code: int 200
+ $ headers    :List of 17
+  ..$ content-type                : chr "application/json"
+  ..$ x-amz-id-2                  : chr "GtvQdeXdyc2kqzMZ4TuVNsJ8x3Q/QWmtbHSIRCnQQhW6KHwLTawRBT0J38y0cWxQRN9Go0aTKQE="
+  ..$ x-amz-request-id            : chr "QABCZBJQF50HTWK9"
+  ..$ date                        : chr "Mon, 05 Dec 2022 21:16:12 GMT"
+  ..$ access-control-allow-origin : chr "*"
+  ..$ access-control-allow-methods: chr "GET"
+  ..$ last-modified               : chr "Mon, 05 Dec 2022 15:05:14 GMT"
+  ..$ etag                        : chr "W/\"a40f3800676eebc4be828355f82baafd\""
+  ..$ x-amz-version-id            : chr "78wNuqJs.8K4emBjh6ohw0nR6jBa3j47"
+  ..$ server                      : chr "AmazonS3"
+  ..$ content-encoding            : chr "gzip"
+  ..$ vary                        : chr "Accept-Encoding"
+  ..$ x-cache                     : chr "Hit from cloudfront"
+  ..$ via                         : chr "1.1 8a0d00c8697029a8a8411a2a06403ade.cloudfront.net (CloudFront)"
+  ..$ x-amz-cf-pop                : chr "PHL50-C1"
+  ..$ x-amz-cf-id                 : chr "J_whNFHZQt01GJZ5pOsy8lZVjNDuFxp9d5eeGaB-nHNq9cbWr1T7QA=="
+  ..$ age                         : chr "28735"
+  ..- attr(*, "class")= chr [1:2] "insensitive" "list"
+ $ all_headers:List of 1
+  ..$ :List of 3
+  .. ..$ status : int 200
+  .. ..$ version: chr "HTTP/2"
+  .. ..$ headers:List of 17
+  .. .. ..$ content-type                : chr "application/json"
+  .. .. ..$ x-amz-id-2                  : chr "GtvQdeXdyc2kqzMZ4TuVNsJ8x3Q/QWmtbHSIRCnQQhW6KHwLTawRBT0J38y0cWxQRN9Go0aTKQE="
+  .. .. ..$ x-amz-request-id            : chr "QABCZBJQF50HTWK9"
+  .. .. ..$ date                        : chr "Mon, 05 Dec 2022 21:16:12 GMT"
+  .. .. ..$ access-control-allow-origin : chr "*"
+  .. .. ..$ access-control-allow-methods: chr "GET"
+  .. .. ..$ last-modified               : chr "Mon, 05 Dec 2022 15:05:14 GMT"
+  .. .. ..$ etag                        : chr "W/\"a40f3800676eebc4be828355f82baafd\""
+  .. .. ..$ x-amz-version-id            : chr "78wNuqJs.8K4emBjh6ohw0nR6jBa3j47"
+  .. .. ..$ server                      : chr "AmazonS3"
+  .. .. ..$ content-encoding            : chr "gzip"
+  .. .. ..$ vary                        : chr "Accept-Encoding"
+  .. .. ..$ x-cache                     : chr "Hit from cloudfront"
+  .. .. ..$ via                         : chr "1.1 8a0d00c8697029a8a8411a2a06403ade.cloudfront.net (CloudFront)"
+  .. .. ..$ x-amz-cf-pop                : chr "PHL50-C1"
+  .. .. ..$ x-amz-cf-id                 : chr "J_whNFHZQt01GJZ5pOsy8lZVjNDuFxp9d5eeGaB-nHNq9cbWr1T7QA=="
+  .. .. ..$ age                         : chr "28735"
+  .. .. ..- attr(*, "class")= chr [1:2] "insensitive" "list"
+ $ cookies    :'data.frame':    0 obs. of  7 variables:
+  ..$ domain    : logi(0) 
+  ..$ flag      : logi(0) 
+  ..$ path      : logi(0) 
+  ..$ secure    : logi(0) 
+  ..$ expiration: 'POSIXct' num(0) 
+  ..$ name      : logi(0) 
+  ..$ value     : logi(0) 
+ $ content    : raw [1:1336598] 7b 22 66 69 ...
+ $ date       : POSIXct[1:1], format: "2022-12-05 21:16:12"
+ $ times      : Named num [1:6] 0 0.00202 0.01137 0.03379 0.13608 ...
+  ..- attr(*, "names")= chr [1:6] "redirect" "namelookup" "connect" "pretransfer" ...
+ $ request    :List of 7
+  ..$ method    : chr "GET"
+  ..$ url       : chr "https://api.covidactnow.org/v2/county/24510.timeseries.json?apiKey=b228d58133a04e3186e5ce081f73bbf5"
+  ..$ headers   : Named chr "application/json, text/xml, application/xml, */*"
+  .. ..- attr(*, "names")= chr "Accept"
+  ..$ fields    : NULL
+  ..$ options   :List of 2
+  .. ..$ useragent: chr "libcurl/7.84.0 r-curl/4.3.3 httr/1.4.4"
+  .. ..$ httpget  : logi TRUE
+  ..$ auth_token: NULL
+  ..$ output    : list()
+  .. ..- attr(*, "class")= chr [1:2] "write_memory" "write_function"
+  ..- attr(*, "class")= chr "request"
+ $ handle     :Class 'curl_handle' &lt;externalptr&gt; 
+ - attr(*, "class")= chr "response"</code></pre>
+</div>
+</div>
+<p>One of the elements is <code>content</code> and we can inspect that</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raw_data<span class="sc">$</span>content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> raw [1:1336598] 7b 22 66 69 ...</code></pre>
+</div>
+</div>
+<p>We see the actual data have been stored as raw vectors (or raw bytes), which need to be converted to character vectors. This is not in a useable format yet.</p>
+</section>
+<section id="converting-json-to-a-data.frame" class="level2">
+<h2 class="anchored" data-anchor-id="converting-json-to-a-data.frame">Converting JSON to a <code>data.frame</code></h2>
+<p>There is a function in base R <code>rawTo_Char()</code> that converts raw bytes to characters</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>covid_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(raw_data<span class="sc">$</span>content), <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This converts the raw data into a list.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can also do this with <code>httr::content</code> (as above) and just define the encoding for the character set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>covid_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(httr<span class="sc">::</span><span class="fu">content</span>(raw_data, </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">as =</span> <span class="st">'text'</span>, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">encoding =</span>  <span class="st">"UTF-8"</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(covid_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 25
+ $ fips                          : chr "24510"
+ $ country                       : chr "US"
+ $ state                         : chr "MD"
+ $ county                        : chr "Baltimore city"
+ $ hsa                           : chr "016"
+ $ hsaName                       : chr "Baltimore, MD - Baltimore City, MD"
+ $ level                         : chr "county"
+ $ lat                           : NULL
+ $ locationId                    : chr "iso1:us#iso2:us-md#fips:24510"
+ $ long                          : NULL
+ $ population                    : int 593490
+ $ hsaPopulation                 : int 2586756
+ $ metrics                       :List of 13
+  ..$ testPositivityRatio            : num 0.054
+  ..$ testPositivityRatioDetails     :List of 1
+  .. ..$ source: chr "other"
+  ..$ caseDensity                    : num 19.5
+  ..$ weeklyNewCasesPer100k          : num 136
+  ..$ contactTracerCapacityRatio     : NULL
+  ..$ infectionRate                  : num 1.09
+  ..$ infectionRateCI90              : num 0.18
+  ..$ icuCapacityRatio               : num 0.84
+  ..$ bedsWithCovidPatientsRatio     : num 0.041
+  ..$ weeklyCovidAdmissionsPer100k   : num 8
+  ..$ vaccinationsInitiatedRatio     : num 0.769
+  ..$ vaccinationsCompletedRatio     : num 0.674
+  ..$ vaccinationsAdditionalDoseRatio: num 0.364
+ $ riskLevels                    :List of 6
+  ..$ overall                   : int 2
+  ..$ testPositivityRatio       : int 1
+  ..$ caseDensity               : int 2
+  ..$ contactTracerCapacityRatio: int 4
+  ..$ infectionRate             : int 1
+  ..$ icuCapacityRatio          : int 2
+ $ cdcTransmissionLevel          : int 3
+ $ communityLevels               :List of 2
+  ..$ cdcCommunityLevel: int 0
+  ..$ canCommunityLevel: int 0
+ $ actuals                       :List of 18
+  ..$ cases                            : int 141524
+  ..$ deaths                           : int 1897
+  ..$ positiveTests                    : NULL
+  ..$ negativeTests                    : NULL
+  ..$ contactTracers                   : NULL
+  ..$ hospitalBeds                     :List of 4
+  .. ..$ capacity             : int 1203
+  .. ..$ currentUsageTotal    : int 1032
+  .. ..$ currentUsageCovid    : int 30
+  .. ..$ weeklyCovidAdmissions: int 11
+  ..$ hsaHospitalBeds                  :List of 4
+  .. ..$ capacity             : int 2630
+  .. ..$ currentUsageTotal    : int 2285
+  .. ..$ currentUsageCovid    : int 89
+  .. ..$ weeklyCovidAdmissions: int 46
+  ..$ icuBeds                          :List of 3
+  .. ..$ capacity         : int 181
+  .. ..$ currentUsageTotal: int 151
+  .. ..$ currentUsageCovid: int 4
+  ..$ hsaIcuBeds                       :List of 3
+  .. ..$ capacity         : int 316
+  .. ..$ currentUsageTotal: int 265
+  .. ..$ currentUsageCovid: int 6
+  ..$ newCases                         : int 0
+  ..$ newDeaths                        : int 0
+  ..$ vaccinesDistributed              : NULL
+  ..$ vaccinationsInitiated            : int 456528
+  ..$ vaccinationsCompleted            : int 399804
+  ..$ vaccinationsAdditionalDose       : int 216056
+  ..$ vaccinesAdministered             : NULL
+  ..$ vaccinesAdministeredDemographics : NULL
+  ..$ vaccinationsInitiatedDemographics: NULL
+ $ annotations                   :List of 28
+  ..$ cases                          :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ deaths                         :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ positiveTests                  : NULL
+  ..$ negativeTests                  : NULL
+  ..$ contactTracers                 : NULL
+  ..$ hospitalBeds                   :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u"
+  .. .. ..$ name: chr "Department of Health and Human Services"
+  .. ..$ anomalies: list()
+  ..$ hsaHospitalBeds                : NULL
+  ..$ icuBeds                        :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u"
+  .. .. ..$ name: chr "Department of Health and Human Services"
+  .. ..$ anomalies: list()
+  ..$ hsaIcuBeds                     : NULL
+  ..$ newCases                       :List of 2
+  .. ..$ sources  : list()
+  .. ..$ anomalies:'data.frame':    2 obs. of  3 variables:
+  .. .. ..$ date                : chr [1:2] "2020-10-01" "2021-12-30"
+  .. .. ..$ type                : chr [1:2] "zscore_outlier" "zscore_outlier"
+  .. .. ..$ original_observation: num [1:2] 164 1664
+  ..$ newDeaths                      : NULL
+  ..$ vaccinesDistributed            : NULL
+  ..$ vaccinationsInitiated          :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh"
+  .. .. ..$ name: chr "Centers for Disease Control and Prevention"
+  .. ..$ anomalies: list()
+  ..$ vaccinationsCompleted          :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh"
+  .. .. ..$ name: chr "Centers for Disease Control and Prevention"
+  .. ..$ anomalies: list()
+  ..$ vaccinationsAdditionalDose     :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh"
+  .. .. ..$ name: chr "Centers for Disease Control and Prevention"
+  .. ..$ anomalies: list()
+  ..$ vaccinesAdministered           : NULL
+  ..$ testPositivityRatio            :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://data.cdc.gov/Public-Health-Surveillance/Weekly-COVID-19-County-Level-of-Community-Transmis/dt66-w6m6/"
+  .. .. ..$ name: chr "Centers for Disease Control and Prevention"
+  .. ..$ anomalies: list()
+  ..$ caseDensity                    :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ weeklyNewCasesPer100k          :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ contactTracerCapacityRatio     : NULL
+  ..$ infectionRate                  :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ infectionRateCI90              :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "NYTimes"
+  .. .. ..$ url : chr "https://github.com/nytimes/covid-19-data"
+  .. .. ..$ name: chr "The New York Times"
+  .. ..$ anomalies: list()
+  ..$ icuCapacityRatio               :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u"
+  .. .. ..$ name: chr "Department of Health and Human Services"
+  .. ..$ anomalies: list()
+  ..$ bedsWithCovidPatientsRatio     :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u"
+  .. .. ..$ name: chr "Department of Health and Human Services"
+  .. ..$ anomalies: list()
+  ..$ weeklyCovidAdmissionsPer100k   :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "other"
+  .. .. ..$ url : chr "https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u"
+  .. .. ..$ name: chr "Department of Health and Human Services"
+  .. ..$ anomalies: list()
+  ..$ vaccinationsInitiatedRatio     : NULL
+  ..$ vaccinationsCompletedRatio     :List of 2
+  .. ..$ sources  :'data.frame':    1 obs. of  3 variables:
+  .. .. ..$ type: chr "CANScrapersStateProviders"
+  .. .. ..$ url : chr "https://coronavirus.maryland.gov/#Vaccine"
+  .. .. ..$ name: chr "Maryland Department of Health"
+  .. ..$ anomalies: list()
+  ..$ vaccinationsAdditionalDoseRatio: NULL
+ $ lastUpdatedDate               : chr "2022-12-05"
+ $ url                           : chr "https://covidactnow.org/us/maryland-md/county/baltimore_city"
+ $ metricsTimeseries             :'data.frame': 999 obs. of  13 variables:
+  ..$ testPositivityRatio            : num [1:999] 0 0 0.018 0.024 0.018 0.026 0.05 0.047 0.048 0.048 ...
+  ..$ caseDensity                    : num [1:999] 0 0 0 0 0 0 0 0.1 0.2 0.2 ...
+  ..$ weeklyNewCasesPer100k          : num [1:999] 0 0 0 0 0 0 0.3 1 1.3 1.7 ...
+  ..$ contactTracerCapacityRatio     : logi [1:999] NA NA NA NA NA NA ...
+  ..$ infectionRate                  : num [1:999] NA NA NA NA NA NA 1.4 1.42 1.44 1.45 ...
+  ..$ infectionRateCI90              : num [1:999] NA NA NA NA NA NA 0.96 0.7 0.6 0.56 ...
+  ..$ icuCapacityRatio               : num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ bedsWithCovidPatientsRatio     : num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ weeklyCovidAdmissionsPer100k   : num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ date                           : chr [1:999] "2020-03-11" "2020-03-12" "2020-03-13" "2020-03-14" ...
+  ..$ vaccinationsInitiatedRatio     : num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ vaccinationsCompletedRatio     : num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ vaccinationsAdditionalDoseRatio: num [1:999] NA NA NA NA NA NA NA NA NA NA ...
+ $ actualsTimeseries             :'data.frame': 999 obs. of  19 variables:
+  ..$ cases                            : int [1:999] NA NA NA NA 1 1 3 7 7 11 ...
+  ..$ deaths                           : int [1:999] NA NA NA NA 0 0 0 0 0 0 ...
+  ..$ positiveTests                    : logi [1:999] NA NA NA NA NA NA ...
+  ..$ negativeTests                    : logi [1:999] NA NA NA NA NA NA ...
+  ..$ contactTracers                   : logi [1:999] NA NA NA NA NA NA ...
+  ..$ hospitalBeds                     :'data.frame':   999 obs. of  4 variables:
+  .. ..$ capacity             : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageTotal    : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageCovid    : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ weeklyCovidAdmissions: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ hsaHospitalBeds                  :'data.frame':   999 obs. of  4 variables:
+  .. ..$ capacity             : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageTotal    : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageCovid    : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ weeklyCovidAdmissions: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ icuBeds                          :'data.frame':   999 obs. of  3 variables:
+  .. ..$ capacity         : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageTotal: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageCovid: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ hsaIcuBeds                       :'data.frame':   999 obs. of  3 variables:
+  .. ..$ capacity         : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageTotal: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  .. ..$ currentUsageCovid: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ newCases                         : int [1:999] NA NA NA NA NA 0 2 4 0 4 ...
+  ..$ newDeaths                        : int [1:999] NA NA NA NA NA 0 0 0 0 0 ...
+  ..$ vaccinesAdministeredDemographics : logi [1:999] NA NA NA NA NA NA ...
+  ..$ vaccinationsInitiatedDemographics: logi [1:999] NA NA NA NA NA NA ...
+  ..$ date                             : chr [1:999] "2020-03-11" "2020-03-12" "2020-03-13" "2020-03-14" ...
+  ..$ vaccinesDistributed              : logi [1:999] NA NA NA NA NA NA ...
+  ..$ vaccinationsInitiated            : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ vaccinationsCompleted            : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ vaccinationsAdditionalDose       : int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ vaccinesAdministered             : logi [1:999] NA NA NA NA NA NA ...
+ $ riskLevelsTimeseries          :'data.frame': 999 obs. of  3 variables:
+  ..$ overall    : int [1:999] 0 0 0 0 0 0 0 0 0 0 ...
+  ..$ caseDensity: int [1:999] 0 0 0 0 0 0 0 0 0 0 ...
+  ..$ date       : chr [1:999] "2020-03-11" "2020-03-12" "2020-03-13" "2020-03-14" ...
+ $ cdcTransmissionLevelTimeseries:'data.frame': 999 obs. of  2 variables:
+  ..$ date                : chr [1:999] "2020-03-11" "2020-03-12" "2020-03-13" "2020-03-14" ...
+  ..$ cdcTransmissionLevel: int [1:999] 0 0 0 0 0 0 1 0 0 0 ...
+ $ communityLevelsTimeseries     :'data.frame': 999 obs. of  3 variables:
+  ..$ cdcCommunityLevel: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ canCommunityLevel: int [1:999] NA NA NA NA NA NA NA NA NA NA ...
+  ..$ date             : chr [1:999] "2020-03-11" "2020-03-12" "2020-03-13" "2020-03-14" ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Now that it is in a list format, you can see that it actually contains several data frames!</p>
+<p>You can use this data right away if you are already familiar with lists in R, or you can extract the data frames into separate objects, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ts_df <span class="ot">&lt;-</span> covid_data<span class="sc">$</span>actualsTimeseries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data frame that we have just created contains many different variables and a lot of information. Below, you can see the first six rows of a selection of some interesting variables in our data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_df[ , <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"deaths"</span>, <span class="st">"newCases"</span>, <span class="st">"newDeaths"</span>, <span class="st">"date"</span>)], <span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   cases deaths newCases newDeaths       date
+1     NA     NA       NA        NA 2020-03-11
+2     NA     NA       NA        NA 2020-03-12
+3     NA     NA       NA        NA 2020-03-13
+4     NA     NA       NA        NA 2020-03-14
+5      1      0       NA        NA 2020-03-15
+6      1      0        0         0 2020-03-16
+7      3      0        2         0 2020-03-17
+8      7      0        4         0 2020-03-18
+9      7      0        0         0 2020-03-19
+10    11      0        4         0 2020-03-20</code></pre>
+</div>
+</div>
+</section>
+<section id="looping-multiple-api-calls" class="level2">
+<h2 class="anchored" data-anchor-id="looping-multiple-api-calls">Looping multiple API calls</h2>
+<p>Next, let’s create a loop to make several requests to the API</p>
+<p>Now that we’ve seen how to make an API call for one county, let’s create a simple loop to make several calls at a time. We’ll use a for loop, which you can read more about here.</p>
+<p>First, we’ll create a vector with the ID code for each county we want to get data for:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Baltimore City County, Montgomery County, Baltimore County</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'24510'</span>, <span class="st">'24031'</span>, <span class="st">'24005'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will loop through each element and adjust the <code>API_URL</code> accordingly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>temp_list <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>, <span class="at">length =</span> <span class="dv">3</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>ts_df <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(counties)) {</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build the API URL with the new county code</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  API_URL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(base, counties[i], info_key, covid_key)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store the raw and processed API results in temporary objects</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  temp_raw <span class="ot">&lt;-</span> <span class="fu">GET</span>(API_URL)</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  temp_list <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(temp_raw<span class="sc">$</span>content), <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add the most recent results to your data frame</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  ts_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(ts_df, temp_list<span class="sc">$</span>actualsTimeseries)</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ts_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3004   29</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<ul>
-<li>Best practices for sharing data</li>
-<li>Best practices for downloading and reading in data
-<ul>
-<li>Relative versus absolute paths</li>
-<li>Finding and creating files locally</li>
-</ul></li>
-<li>Best practices for getting data
-<ul>
-<li><code>jsonlite</code> for JSON (e.g.&nbsp;GitHub API)</li>
-<li><code>rvest</code> to grab all the exact elements you want (e.g.&nbsp;book reviews)
-<ul>
-<li>Check out selector gadget</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
 <section id="other-good-r-packages-to-know-about" class="level2">
 <h2 class="anchored" data-anchor-id="other-good-r-packages-to-know-about">Other good R packages to know about</h2>
 <ul>
@@ -1147,6 +1601,7 @@ Questions
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>Using the GitHub API, access the repository information and ask how many open github issues you have?</li>
+<li>Pick another API that we have not discussed here and use <code>httr</code> to retreive data from it.</li>
 </ol>
 </div>
 </div>
@@ -1164,7 +1619,8 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li><a href="https://jeroen.cran.dev/jsonlite" class="uri">https://jeroen.cran.dev/jsonlite</a></li>
+<li><a href="https://httr.r-lib.org" class="uri">https://httr.r-lib.org</a></li>
 </ul>
 </div>
 </div>
