@@ -12,6 +12,7 @@ categories: [module 3, week 7, JSON, APIs, httr]
 
 # Pre-lecture materials
 
+
 ### Read ahead
 
 ::: callout-note
