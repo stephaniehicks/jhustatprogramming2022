@@ -462,6 +462,90 @@
     "text": "R packages\nYou will need to install these R packages:\n\ninstall.packages(\"DBI\")\ninstall.packages(\"RSQLite\")\ninstall.packages(\"dbplyr\")\n\nWe will load them here before kicking off the lecture.\n\nlibrary(tidyverse)\nlibrary(DBI)\nlibrary(RSQLite)\nlibrary(dbplyr)"
   },
   {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#languages",
+    "href": "posts/2022-12-08-relational-databases/index.html#languages",
+    "title": "Relational databases and SQL basics",
+    "section": "Languages",
+    "text": "Languages\nWe write queries in a language called Structured Query Language (SQL), which provides hundreds of different ways to analyze and recombine data.\nMany database managers understand SQL but each stores data in a different way, so a database created with one cannot be used directly by another.\nHowever, every database manager can import and export data in a variety of formats like .csv, .sql, so it is possible to move information from one to another.\nNext, we will some example SQL queries that are common tasks for data scientists."
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#example-data",
+    "href": "posts/2022-12-08-relational-databases/index.html#example-data",
+    "title": "Relational databases and SQL basics",
+    "section": "Example data",
+    "text": "Example data\nBefore we get into using SQLite to select the data, let’s take a look at the tables of the database we will use in our examples:\n\n\nPerson: People who took readings, id being the unique identifier for that person.\n\n\n\nid\npersonal\nfamily\n\n\n\n\ndyer\nWilliam\nDyer\n\n\npb\nFrank\nPabodie\n\n\nlake\nAnderson\nLake\n\n\nroe\nValentina\nRoerich\n\n\ndanforth\nFrank\nDanforth\n\n\n\nSite: Locations of the sites where readings were taken.\n\n\n\nname\nlat\nlong\n\n\n\n\nDR-1\n-49.85\n-128.57\n\n\nDR-3\n-47.15\n-126.72\n\n\nMSK-4\n-48.87\n-123.4\n\n\n\nVisited: Specific identification id of the precise locations where readings were taken at the sites and dates.\n\n\n\nid\nsite\ndated\n\n\n\n\n619\nDR-1\n1927-02-08\n\n\n622\nDR-1\n1927-02-10\n\n\n734\nDR-3\n1930-01-07\n\n\n735\nDR-3\n1930-01-12\n\n\n751\nDR-3\n1930-02-26\n\n\n752\nDR-3\n-null-\n\n\n837\nMSK-4\n1932-01-14\n\n\n844\nDR-1\n1932-03-22\n\n\n\n\n\nSurvey: The measurements taken at each precise location on these sites. They are identified as taken. The field quant is short for quantity and indicates what is being measured. The values are rad, sal, and temp referring to ‘radiation’, ‘salinity’ and ‘temperature’, respectively.\n\n\n\ntaken\nperson\nquant\nreading\n\n\n\n\n619\ndyer\nrad\n9.82\n\n\n619\ndyer\nsal\n0.13\n\n\n622\ndyer\nrad\n7.8\n\n\n622\ndyer\nsal\n0.09\n\n\n734\npb\nrad\n8.41\n\n\n734\nlake\nsal\n0.05\n\n\n734\npb\ntemp\n-21.5\n\n\n735\npb\nrad\n7.22\n\n\n735\n-null-\nsal\n0.06\n\n\n735\n-null-\ntemp\n-26.0\n\n\n751\npb\nrad\n4.35\n\n\n751\npb\ntemp\n-18.5\n\n\n751\nlake\nsal\n0.1\n\n\n752\nlake\nrad\n2.19\n\n\n752\nlake\nsal\n0.09\n\n\n752\nlake\ntemp\n-16.0\n\n\n752\nroe\nsal\n41.6\n\n\n837\nlake\nrad\n1.46\n\n\n837\nlake\nsal\n0.21\n\n\n837\nroe\nsal\n22.5\n\n\n844\nroe\nrad\n11.25"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#sql-.tables-and-.schema",
+    "href": "posts/2022-12-08-relational-databases/index.html#sql-.tables-and-.schema",
+    "title": "Relational databases and SQL basics",
+    "section": "SQL .tables and .schema",
+    "text": "SQL .tables and .schema\nIn an interactive sqlite3 session,\n\nType .tables to list the tables in the database\nType .schema to see the SQL statements used to create the tables in the database. The statements will have a list of the columns and the data types each column stores.\n\n\n\n\n\n\n\nMore about .schema\n\n\n\nThe output from .schema is formatted as <columnName dataType>.\n\n\nOutput\n\nCREATE TABLE Person (id text, personal text, family text);\nCREATE TABLE Site (name text, lat real, long real);\nCREATE TABLE Survey (taken integer, person text, quant text, reading real);\nCREATE TABLE Visited (id integer, site text, dated text);\n\nThus we can see from the first line that the table Person has three columns:\n\nid with type text\npersonal with type text\nfamily with type text\n\n\n\nThe available data types vary based on the database manager - you can search online for what data types are supported."
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#more-about-select",
+    "href": "posts/2022-12-08-relational-databases/index.html#more-about-select",
+    "title": "Relational databases and SQL basics",
+    "section": "More about SELECT",
+    "text": "More about SELECT\nRow and columns in a database table are not actually stored in any particular order.\nThey will always be displayed in some order, but we can control that in various ways.\n\n\n\n\n\n\nExample\n\n\n\nWe could swap the columns in the output by writing our query as:\n\n\nSQL\n\nSELECT personal, family FROM Person;\n\n\n\nOutput\n\n|personal |family  |\n|---------|--------|\n|William  |Dyer    |\n|Frank    |Pabodie |\n|Anderson |Lake    |\n|Valentina|Roerich |\n|Frank    |Danforth|\n\nor even repeat columns:\n\n\nSQL\n\nSELECT id, id, id FROM Person;\n\n\n\nOutput\n\n|id      |id      |id      |\n|--------|--------|--------|\n|dyer    |dyer    |dyer    |\n|pb      |pb      |pb      |\n|lake    |lake    |lake    |\n|roe     |roe     |roe     |\n|danforth|danforth|danforth|\n\n\n\n\nThe * operator\nAs a shortcut, we can select all of the columns in a table using *:\n\n\nSQL\n\nSELECT * FROM Person;\n\n\n\nOutput\n\n|id      |personal |family  |\n|--------|---------|--------|\n|dyer    |William  |Dyer    |\n|pb      |Frank    |Pabodie |\n|lake    |Anderson |Lake    |\n|roe     |Valentina|Roerich |\n|danforth|Frank    |Danforth|"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#sorting-and-removing-duplicates",
+    "href": "posts/2022-12-08-relational-databases/index.html#sorting-and-removing-duplicates",
+    "title": "Relational databases and SQL basics",
+    "section": "Sorting and removing duplicates",
+    "text": "Sorting and removing duplicates"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#filtering",
+    "href": "posts/2022-12-08-relational-databases/index.html#filtering",
+    "title": "Relational databases and SQL basics",
+    "section": "Filtering",
+    "text": "Filtering"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#calculating-new-values",
+    "href": "posts/2022-12-08-relational-databases/index.html#calculating-new-values",
+    "title": "Relational databases and SQL basics",
+    "section": "Calculating new values",
+    "text": "Calculating new values"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#missing-data",
+    "href": "posts/2022-12-08-relational-databases/index.html#missing-data",
+    "title": "Relational databases and SQL basics",
+    "section": "Missing data",
+    "text": "Missing data"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#aggregation",
+    "href": "posts/2022-12-08-relational-databases/index.html#aggregation",
+    "title": "Relational databases and SQL basics",
+    "section": "Aggregation",
+    "text": "Aggregation"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#combining-data",
+    "href": "posts/2022-12-08-relational-databases/index.html#combining-data",
+    "title": "Relational databases and SQL basics",
+    "section": "Combining Data",
+    "text": "Combining Data"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#data-hygiene",
+    "href": "posts/2022-12-08-relational-databases/index.html#data-hygiene",
+    "title": "Relational databases and SQL basics",
+    "section": "Data Hygiene",
+    "text": "Data Hygiene"
+  },
+  {
+    "objectID": "posts/2022-12-08-relational-databases/index.html#creating-and-modifying-data",
+    "href": "posts/2022-12-08-relational-databases/index.html#creating-and-modifying-data",
+    "title": "Relational databases and SQL basics",
+    "section": "Creating and Modifying Data",
+    "text": "Creating and Modifying Data"
+  },
+  {
     "objectID": "posts/2022-12-08-relational-databases/index.html#reading-sql-data",
     "href": "posts/2022-12-08-relational-databases/index.html#reading-sql-data",
     "title": "Relational databases and SQL basics",

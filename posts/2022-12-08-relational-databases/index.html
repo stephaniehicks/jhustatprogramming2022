@@ -266,8 +266,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#command-line-tool-sqlite3" id="toc-command-line-tool-sqlite3" class="nav-link" data-scroll-target="#command-line-tool-sqlite3">Command-line tool <code>sqlite3</code></a></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
   </ul></li>
-  <li><a href="#relational-databases" id="toc-relational-databases" class="nav-link" data-scroll-target="#relational-databases">Relational databases</a></li>
+  <li><a href="#relational-databases" id="toc-relational-databases" class="nav-link" data-scroll-target="#relational-databases">Relational databases</a>
+  <ul class="collapse">
+  <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
+  </ul></li>
   <li><a href="#sql-basics" id="toc-sql-basics" class="nav-link" data-scroll-target="#sql-basics">SQL basics</a>
+  <ul class="collapse">
+  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data">Example data</a></li>
+  <li><a href="#sql-.tables-and-.schema" id="toc-sql-.tables-and-.schema" class="nav-link" data-scroll-target="#sql-.tables-and-.schema">SQL <code>.tables</code> and <code>.schema</code></a></li>
+  </ul></li>
+  <li><a href="#sql-command-select" id="toc-sql-command-select" class="nav-link" data-scroll-target="#sql-command-select">SQL command <code>SELECT</code></a>
+  <ul class="collapse">
+  <li><a href="#more-about-select" id="toc-more-about-select" class="nav-link" data-scroll-target="#more-about-select">More about <code>SELECT</code></a>
+  <ul class="collapse">
+  <li><a href="#the-operator" id="toc-the-operator" class="nav-link" data-scroll-target="#the-operator">The <code>*</code> operator</a></li>
+  </ul></li>
+  <li><a href="#sorting-and-removing-duplicates" id="toc-sorting-and-removing-duplicates" class="nav-link" data-scroll-target="#sorting-and-removing-duplicates">Sorting and removing duplicates</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering">Filtering</a></li>
+  <li><a href="#calculating-new-values" id="toc-calculating-new-values" class="nav-link" data-scroll-target="#calculating-new-values">Calculating new values</a></li>
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
+  <li><a href="#combining-data" id="toc-combining-data" class="nav-link" data-scroll-target="#combining-data">Combining Data</a></li>
+  <li><a href="#data-hygiene" id="toc-data-hygiene" class="nav-link" data-scroll-target="#data-hygiene">Data Hygiene</a></li>
+  <li><a href="#creating-and-modifying-data" id="toc-creating-and-modifying-data" class="nav-link" data-scroll-target="#creating-and-modifying-data">Creating and Modifying Data</a></li>
+  </ul></li>
+  <li><a href="#sql-in-r" id="toc-sql-in-r" class="nav-link" data-scroll-target="#sql-in-r">SQL in R</a>
   <ul class="collapse">
   <li><a href="#reading-sql-data" id="toc-reading-sql-data" class="nav-link" data-scroll-target="#reading-sql-data">Reading SQL data</a></li>
   <li><a href="#connect-to-the-sql-database" id="toc-connect-to-the-sql-database" class="nav-link" data-scroll-target="#connect-to-the-sql-database">Connect to the SQL database</a></li>
@@ -335,10 +358,13 @@ Learning objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>At the end of this lesson you will:</strong></p>
+<p><strong>At the end of this lesson you will be able to:</strong></p>
 <ul>
-<li>Understand what are relational databases with SQL as an example</li>
-<li>Learn about the <code>DBI</code>, <code>RSQLite</code>, <code>dbplyr</code> packages for interacting with SQL databses</li>
+<li>Explain the difference between a table, a record, and a field in relational databases</li>
+<li>Explain the difference between a database and a database manager</li>
+<li>Write a query to select all values for specific fields from a single table</li>
+<li></li>
+<li>Learn about the <code>DBI</code>, <code>RSQLite</code>, <code>dbplyr</code> packages for making SQL queries in R</li>
 </ul>
 </div>
 </div>
@@ -382,13 +408,585 @@ Learning objectives
 <p>Data live anywhere and everywhere. Data might be stored simply in a <code>.csv</code> or <code>.txt</code> file.</p>
 <p>Data might be stored in an Excel or Google Spreadsheet. Data might be stored in large databases that require users to write special functions to interact with to extract the data they are interested in.</p>
 <p>A <strong>relational database</strong> is a digital database based on the <a href="https://en.wikipedia.org/wiki/Relational_model">relational model of data</a>, as proposed by E. F. Codd in 1970.</p>
+<p>Broadly relational databases are a way to store and manipulate information.</p>
+<ul>
+<li>Databases are arranged as <strong>tables</strong> with a unique <strong>relation variable</strong> name</li>
+<li>Each table has columns (also known as <strong>fields</strong> or <strong>attributes</strong>) that describe the data</li>
+<li>Rows (also known as <strong>records</strong>) contain the data</li>
+</ul>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Relational_model_concepts.png" class="img-fluid"></p>
 <p>[<strong>Source</strong>: <a href="https://en.wikipedia.org/wiki/Relational_model">Wikipedia</a>]</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Database managers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we are using a spreadsheet, we put formulas into cells to calculate new values based on old ones.</p>
+<p>When we are using a database, we send commands (usually called <strong>queries</strong>) to a <strong>database manager</strong> (a program that manipulates the database for us).</p>
+<p>The database manager does whatever lookups and calculations the query specifies, returning the results in a tabular form that we can then use as a starting point for further queries.</p>
+<p>Examples of database manager include:</p>
+<ul>
+<li>Oracle</li>
+<li>IBM DB2</li>
+<li>PostgreSQL</li>
+<li>MySQL</li>
+<li>Microsoft Access</li>
+<li>SQLite (which is what we will use here)</li>
+</ul>
 <p>A system used to maintain relational databases is a <strong>relational database management system</strong> (RDBMS).</p>
-<p>Many relational database systems have an option of using the <strong>Structured Query Language</strong> (SQL) (or SQLite – very similar to SQL) for querying and maintaining the database.</p>
+</div>
+</div>
+<section id="languages" class="level2">
+<h2 class="anchored" data-anchor-id="languages">Languages</h2>
+<p>We write queries in a language called <strong>Structured Query Language</strong> (SQL), which provides hundreds of different ways to analyze and recombine data.</p>
+<p>Many database managers understand SQL but each stores data in a different way, so a database created with one cannot be used directly by another.</p>
+<p>However, every database manager can import and export data in a variety of formats like <code>.csv</code>, <code>.sql</code>, so it <strong>is</strong> possible to move information from one to another.</p>
+<p>Next, we will some example SQL queries that are common tasks for data scientists.</p>
+</section>
 </section>
 <section id="sql-basics" class="level1">
 <h1>SQL basics</h1>
+<p>In this next few sections, we will use the SQLite database manager and interact with it <strong>interactively</strong> on the command-line with the command <code>sqlite3</code>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Getting Into and Out Of SQLite
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to <strong>use the SQLite commands interactively</strong>, we need to enter into the SQLite console. So, open up a terminal, and run</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bash</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite3</span> survey.db</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The SQLite command is <code>sqlite3</code> and you are telling SQLite to open up the <code>survey.db</code>. You need to specify the <code>.db</code> file, otherwise SQLite will open up a temporary, empty database.</p>
+<ul>
+<li>All SQLite-specific commands are prefixed with a <code>.</code> to distinguish them from SQL commands.</li>
+<li>To get out of SQLite, type out <code>.exit</code> or <code>.quit</code>. For some terminals, <code>Ctrl-D</code> can also work.<br>
+</li>
+<li>If you forget any SQLite <code>.</code> (dot) command, type <code>.help</code>.</li>
+</ul>
+</div>
+</div>
+<section id="example-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-data">Example data</h2>
+<p>Before we get into using SQLite to select the data, let’s take a look at the tables of the database we will use in our examples:</p>
+<div class="row">
+<div class="col-md-6" data-markdown="1">
+<p><strong>Person</strong>: People who took readings, <code>id</code> being the unique identifier for that person.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr class="even">
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr class="odd">
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr class="even">
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr class="odd">
+<td>danforth</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Site</strong>: Locations of the <code>sites</code> where readings were taken.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>name</th>
+<th>lat</th>
+<th>long</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+</tr>
+<tr class="even">
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+</tr>
+<tr class="odd">
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Visited</strong>: Specific identification <code>id</code> of the precise locations where readings were taken at the sites and dates.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr class="even">
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr class="odd">
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr class="even">
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-6" data-markdown="1">
+<p><strong>Survey</strong>: The measurements taken at each precise location on these sites. They are identified as <code>taken</code>. The field <code>quant</code> is short for quantity and indicates what is being measured. The values are <code>rad</code>, <code>sal</code>, and <code>temp</code> referring to ‘radiation’, ‘salinity’ and ‘temperature’, respectively.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>619</td>
+<td>dyer</td>
+<td>rad</td>
+<td>9.82</td>
+</tr>
+<tr class="even">
+<td>619</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.13</td>
+</tr>
+<tr class="odd">
+<td>622</td>
+<td>dyer</td>
+<td>rad</td>
+<td>7.8</td>
+</tr>
+<tr class="even">
+<td>622</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>pb</td>
+<td>rad</td>
+<td>8.41</td>
+</tr>
+<tr class="even">
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>pb</td>
+<td>temp</td>
+<td>-21.5</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>pb</td>
+<td>rad</td>
+<td>7.22</td>
+</tr>
+<tr class="odd">
+<td>735</td>
+<td>-null-</td>
+<td>sal</td>
+<td>0.06</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>-null-</td>
+<td>temp</td>
+<td>-26.0</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>pb</td>
+<td>rad</td>
+<td>4.35</td>
+</tr>
+<tr class="even">
+<td>751</td>
+<td>pb</td>
+<td>temp</td>
+<td>-18.5</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+<td>2.19</td>
+</tr>
+<tr class="odd">
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+<td>-16.0</td>
+</tr>
+<tr class="odd">
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr class="even">
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr class="odd">
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr class="even">
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr class="odd">
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sql-.tables-and-.schema" class="level2">
+<h2 class="anchored" data-anchor-id="sql-.tables-and-.schema">SQL <code>.tables</code> and <code>.schema</code></h2>
+<p>In an interactive <code>sqlite3</code> session,</p>
+<ul>
+<li>Type <code>.tables</code> to list the tables in the database</li>
+<li>Type <code>.schema</code> to see the SQL statements used to create the tables in the database. The statements will have a list of the columns and the data types each column stores.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+More about <code>.schema</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The output from <code>.schema</code> is formatted as &lt;<strong>columnName</strong> <em>dataType</em>&gt;.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person (<span class="kw">id</span> text, personal text, family text);</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Site (name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey (taken <span class="dt">integer</span>, person text, quant text, reading <span class="dt">real</span>);</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited (<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Thus we can see from the first line that the table <strong>Person</strong> has three columns:</p>
+<ul>
+<li><strong>id</strong> with type <em>text</em></li>
+<li><strong>personal</strong> with type <em>text</em></li>
+<li><strong>family</strong> with type <em>text</em></li>
+</ul>
+</div>
+</div>
+<p>The available data types vary based on the database manager - you can search online for what data types are supported.</p>
+</section>
+</section>
+<section id="sql-command-select" class="level1">
+<h1>SQL command <code>SELECT</code></h1>
+<p>For now, let’s write an SQL query that displays scientists’ names.</p>
+<p>We do this using the SQL command <code>SELECT</code>, giving it the names of the columns we want and the table we want them from.</p>
+<p>Our query looks like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>SQL</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And the output looks like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>|family  |personal |</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>|<span class="co">--------|---------|</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>|Dyer    |William  |</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>|Pabodie |Frank    |</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>|Lake    |Anderson |</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>|Roerich |Valentina|</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>|Danforth|Frank    |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>semicolon at the end of the query</strong> tells the database manager that the query is complete and ready to run.</p>
+</div>
+</div>
+<p>We have written our commands in upper case and the names for the table and columns in lower case, but we don’t have to because SQL is <strong>case insensitive</strong>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>SQL</strong></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Output:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>|family  |personal |</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>|<span class="co">--------|---------|</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>|Dyer    |William  |</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>|Pabodie |Frank    |</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>|Lake    |Anderson |</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>|Roerich |Valentina|</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>|Danforth|Frank    |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use SQL’s case insensitivity to distinguish between different parts of an SQL statement.</p>
+<p>Here, we use the convention of using</p>
+<ul>
+<li>UPPER CASE for SQL keywords (such as <code>SELECT</code> and <code>FROM</code>)</li>
+<li>Title Case for table names</li>
+<li>lower case for field names</li>
+</ul>
+<p>Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+More about the <code>;</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While we are on the topic of SQL’s syntax, one aspect of SQL’s syntax that can frustrate novices and experts alike is forgetting to finish a command with <code>;</code> (semicolon).</p>
+<p>When you press enter for a command without adding the <code>;</code> to the end, it can look something like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is SQL’s prompt, where it is waiting for additional commands or for a <code>;</code> to let SQL know to finish.</p>
+<p>This is easy to fix! Just type <code>;</code> and press enter!</p>
+</div>
+</div>
+<section id="more-about-select" class="level2">
+<h2 class="anchored" data-anchor-id="more-about-select">More about <code>SELECT</code></h2>
+<p>Row and columns in a database table are not actually stored in any particular order.</p>
+<p>They will <strong>always be displayed</strong> in some order, but we can control that in various ways.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We could swap the columns in the output by writing our query as:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>SQL</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>|personal |family  |</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>|<span class="co">---------|--------|</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>|William  |Dyer    |</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>|Frank    |Pabodie |</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>|Anderson |Lake    |</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>|Valentina|Roerich |</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>|Frank    |Danforth|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or even repeat columns:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>SQL</strong></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>|<span class="kw">id</span>      |<span class="kw">id</span>      |<span class="kw">id</span>      |</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>|<span class="co">--------|--------|--------|</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>|dyer    |dyer    |dyer    |</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>|pb      |pb      |pb      |</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>|lake    |lake    |lake    |</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>|roe     |roe     |roe     |</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>|danforth|danforth|danforth|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<section id="the-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-operator">The <code>*</code> operator</h3>
+<p>As a shortcut, we can select all of the columns in a table using <code>*</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>SQL</strong></pre>
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>|<span class="kw">id</span>      |personal |family  |</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>|<span class="co">--------|---------|--------|</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>|dyer    |William  |Dyer    |</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>|pb      |Frank    |Pabodie |</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>|lake    |Anderson |Lake    |</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>|roe     |Valentina|Roerich |</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>|danforth|Frank    |Danforth|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="sorting-and-removing-duplicates" class="level2">
+<h2 class="anchored" data-anchor-id="sorting-and-removing-duplicates">Sorting and removing duplicates</h2>
+</section>
+<section id="filtering" class="level2">
+<h2 class="anchored" data-anchor-id="filtering">Filtering</h2>
+</section>
+<section id="calculating-new-values" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-new-values">Calculating new values</h2>
+</section>
+<section id="missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data">Missing data</h2>
+</section>
+<section id="aggregation" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation">Aggregation</h2>
+</section>
+<section id="combining-data" class="level2">
+<h2 class="anchored" data-anchor-id="combining-data">Combining Data</h2>
+</section>
+<section id="data-hygiene" class="level2">
+<h2 class="anchored" data-anchor-id="data-hygiene">Data Hygiene</h2>
+</section>
+<section id="creating-and-modifying-data" class="level2">
+<h2 class="anchored" data-anchor-id="creating-and-modifying-data">Creating and Modifying Data</h2>
+</section>
+</section>
+<section id="sql-in-r" class="level1">
+<h1>SQL in R</h1>
 <section id="reading-sql-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-sql-data">Reading SQL data</h2>
 <p>There are several ways to <a href="https://db.rstudio.com/getting-started/database-queries/">query databases in R</a>.</p>
@@ -405,19 +1003,19 @@ Learning objectives
 </blockquote>
 <p>Here we download the data to our <code>/data</code> folder:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at /Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))){</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  file_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://github.com/lerocha/chinook-database/raw/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(file_url,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">destfile=</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))){</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  file_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://github.com/lerocha/chinook-database/raw/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(file_url,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">destfile=</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can list the files and see the <code>.sqlite</code> database:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Chinook.sqlite"            "SRR1039508_subset_1.fastq"
 [3] "SRR1039509_subset_1.fastq" "SRR1039512_subset_1.fastq"
@@ -430,19 +1028,19 @@ Learning objectives
 <p>The main workhorse packages that we will use are the <code>DBI</code> and <code>dplyr</code> packages.</p>
 <p>Let’s look at the <code>DBI::dbConnect()</code> help file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?DBI<span class="sc">::</span>dbConnect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>?DBI<span class="sc">::</span>dbConnect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>So we need a driver and one example is <code>RSQLite::SQLite()</code>. Let’s look at the help file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>?RSQLite<span class="sc">::</span>SQLite</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>?RSQLite<span class="sc">::</span>SQLite</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ok, so with <code>RSQLite::SQLite()</code> and <code>DBI::dbConnect()</code> we can connect to a <code>SQLite</code> database.</p>
 <p>Let’s try that with our <code>Chinook.sqlite</code> file that we downloaded.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(<span class="at">drv =</span> RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">dbname =</span> <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>conn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(<span class="at">drv =</span> RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">dbname =</span> <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Chinook.sqlite"</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>conn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;SQLiteConnection&gt;
   Path: /Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/Chinook.sqlite
@@ -451,7 +1049,7 @@ Learning objectives
 </div>
 <p>So we have opened up a connection with the SQLite database. Next, we can see what tables are available in the database using the <code>dbListTables()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbListTables</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbListTables</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Album"         "Artist"        "Customer"      "Employee"     
  [5] "Genre"         "Invoice"       "InvoiceLine"   "MediaType"    
@@ -468,8 +1066,8 @@ Learning objectives
 </blockquote>
 <p>Let’s take a closer look at the <code>conn</code> database that we just connected to:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">src_dbi</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">src_dbi</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>src:  sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/Chinook.sqlite]
 tbls: Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine,
@@ -483,8 +1081,8 @@ tbls: Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine,
 <h2 class="anchored" data-anchor-id="querying-with-dplyr-syntax">Querying with <code>dplyr</code> syntax</h2>
 <p>First, let’s look at the first ten rows in the <code>Album</code> table using the <code>tbl()</code> function from <code>dplyr</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [10 x 3]
 # Database: sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/Chinook.sqlite]
@@ -504,17 +1102,17 @@ tbls: Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine,
 </div>
 <p>The output looks just like a <code>data.frame</code> that we are familiar with. But it’s important to know that it’s not really a dataframe. For example, what about if we use the <code>dim()</code> function?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA  3</code></pre>
 </div>
 </div>
 <p>Interesting! We see that the number of rows returned is <code>NA</code>. This is because these functions are different than operating on datasets in memory (e.g.&nbsp;loading data into memory using <code>read_csv()</code>). Instead, <code>dplyr</code> communicates differently with a SQLite database.</p>
 <p>Let’s consider our example. If we were to use straight SQL, the following SQL query returns the first 10 rows from the <code>Album</code> table:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> `Album`</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> `Album`</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the background, <code>dplyr</code> does the following:</p>
 <ul>
 <li>translates your R code into SQL</li>
@@ -523,8 +1121,8 @@ tbls: Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine,
 </ul>
 <p>To better understand the <code>dplyr</code> code, we can use the <code>show_query()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Album <span class="ot">&lt;-</span> <span class="fu">tbl</span>(conn, <span class="st">"Album"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_query</span>(<span class="fu">head</span>(Album, <span class="at">n =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Album <span class="ot">&lt;-</span> <span class="fu">tbl</span>(conn, <span class="st">"Album"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_query</span>(<span class="fu">head</span>(Album, <span class="at">n =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;SQL&gt;
 SELECT *
@@ -543,10 +1141,10 @@ LIMIT 10</code></pre>
 <p>and many join functions.</p>
 <p>Ok let’s try some of the functions out. First, let’s count how many albums each artist has made.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ArtistId) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">count</span>(ArtistId)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ArtistId) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">count</span>(ArtistId)) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [10 x 2]
 # Database: sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/Chinook.sqlite]
@@ -570,22 +1168,22 @@ LIMIT 10</code></pre>
 <h1>data viz</h1>
 <p>Next, let’s plot it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ArtistId) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">count</span>(ArtistId)) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ArtistId, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ArtistId) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">count</span>(ArtistId)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ArtistId, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Let’s also extract the first letter from each album and plot the frequency of each letter.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">first_letter =</span> <span class="fu">str_sub</span>(Title, <span class="at">end =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(first_letter)) <span class="sc">+</span> </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"Album"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">first_letter =</span> <span class="fu">str_sub</span>(Title, <span class="at">end =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(first_letter)) <span class="sc">+</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -606,8 +1204,17 @@ Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Using the <code>survey.db</code> database:</p>
 <ol type="1">
-<li>Add here.</li>
+<li>Use <code>.schema</code> to identify column that contains integers</li>
+<li>Write a query that selects only the <code>name</code> column from the <code>Site</code> table.</li>
+<li>Many people format queries in the following two ways. What style do you find easiest to read, and why?</li>
+</ol>
+<pre><code>SELECT personal, family FROM person;</code></pre>
+<p>or</p>
+<pre><code>select Personal, Family from PERSON;</code></pre>
+<ol start="4" type="1">
+<li></li>
 </ol>
 </div>
 </div>
