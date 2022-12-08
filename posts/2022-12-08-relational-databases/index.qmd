@@ -7,7 +7,7 @@ author:
     affiliation_url: https://publichealth.jhu.edu
 description: "Introduction to relational databases and SQL in R"
 date: 2022-12-08
-categories: [module 3, week 7, databases, SQL, large data, tidyverse]
+categories: [module 3, week 7, databases, SQL, large data, tidyverse, DBI, RSQLite, dplyr, dbplyr]
 ---
 
 <!-- Add interesting quote -->
@@ -32,6 +32,7 @@ categories: [module 3, week 7, databases, SQL, large data, tidyverse]
 Material for this lecture was borrowed and adopted from
 
 - <https://www.stephaniehicks.com/jhuads2021/posts/2021-12-06-sql-basics>
+- <https://swcarpentry.github.io/sql-novice-survey>
 
 
 # Learning objectives
@@ -44,7 +45,9 @@ Material for this lecture was borrowed and adopted from
 - Explain the difference between a table, a record, and a field in relational databases
 - Explain the difference between a database and a database manager
 - Write a query to select all values for specific fields from a single table
-- 
+- Write queries that display results in a particular order
+- Write queries that eliminate duplicate values from data
+- Write queries that select records that satisfy user-specified conditions
 - Learn about the `DBI`, `RSQLite`, `dbplyr` packages for making SQL queries in R
 
 :::
@@ -441,31 +444,391 @@ SELECT * FROM Person;
 
 ## Sorting and removing duplicates
 
-## Filtering 
+In this section, we will explore the following questions of the Antarctic data
 
-## Calculating new values
+- What are the unique types of measurements taken in `Survey`?
+- Which scientists took measurements on the expedition?
 
-## Missing data 
+To answer the first question, we will extract the values in column `quant` 
+(short for quantity) from `Survey`, which contains 
+values `rad`, `sal`, and `temp` referring to ‘radiation’, ‘salinity’ 
+and ‘temperature’, respectively. 
 
-## Aggregation
+However, we only want the unique value labels. 
 
-## Combining Data
+The following will extract the `quant` column from the `Survey` table, 
+but not return unique / distinct labels.
 
-## Data Hygiene
+```{.sql filename="SQL"}
+SELECT quant FROM Survey;
+```
 
-## Creating and Modifying Data	
+But, adding the `DISTINCT` keyword to our query eliminates the redundant output to
+make the result more readable: 
+
+```{.sql filename="SQL"}
+SELECT DISTINCT quant FROM Survey;
+```
+
+
+```{.sql filename="Output"}
+|quant|
+|-----|
+|rad  |
+|sal  |
+|temp |
+```
+
+You can also use the `DISTINCT` keyword on multiple columns.
+
+If we select more than one column, distinct **sets** of values are returned
+(in this case **pairs**, because we are selecting two columns) and 
+**duplicates are removed**:
+
+
+```{.sql filename="SQL"}
+SELECT DISTINCT taken, quant FROM Survey;
+```
+
+```{.sql filename="Output"}
+|taken|quant|
+|-----|-----|
+|619  |rad  |
+|619  |sal  |
+|622  |rad  |
+|622  |sal  |
+|734  |rad  |
+|734  |sal  |
+|734  |temp |
+|735  |rad  |
+|735  |sal  |
+|735  |temp |
+|751  |rad  |
+|751  |temp |
+|751  |sal  |
+|752  |rad  |
+|752  |sal  |
+|752  |temp |
+|837  |rad  |
+|837  |sal  |
+|844  |rad  |
+```
+
+Next, we will look at the `Person` table and sort the scientists names. 
+
+Database records are not necessarily sorted in any particular order. 
+
+If you want to have the table returned sorted in a particular way, you add the `ORDER BY` clause to our query:
+
+```{.sql filename="SQL"}
+SELECT * FROM Person ORDER BY id;
+```
+
+
+```{.sql filename="Output"}
+|id     |personal |family  |
+|-------|---------|--------|
+|danfort|Frank    |Danforth|
+|dyer   |William  |Dyer    |
+|lake   |Anderson |Lake    |
+|pb     |Frank    |Pabodie |
+|roe    |Valentina|Roerich |
+```
+
+The default is to sort in an ascending order, but we can sort in a descending order using `DESC` (for "descending"):
+
+```{.sql filename="SQL"}
+SELECT * FROM person ORDER BY id DESC;
+```
+
+
+```{.sql filename="Output"}
+|id     |personal |family  |
+|-------|---------|--------|
+|roe    |Valentina|Roerich |
+|pb     |Frank    |Pabodie |
+|lake   |Anderson |Lake    |
+|dyer   |William  |Dyer    |
+|danfort|Frank    |Danforth|
+```
+
+(And if we want to make it clear that we're sorting in ascending order,
+we can use `ASC` instead of `DESC`.)
+
+:::{.callout-tip}
+
+### Example
+
+Let's look at which scientist (`person`) measured what quantities (`quant`) during 
+each visit (`taken`) with the `Survey` table. 
+
+We also want to sort by two columns at once
+
+- Sort results first in ascending order by `taken`
+- And then in descending order by `person` within each group of equal `taken` values:
+
+```{.sql filename="SQL"}
+SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
+```
+
+
+```{.sql filename="Output"}
+|taken|person|quant|
+|-----|------|-----|
+|619  |dyer  |rad  |
+|619  |dyer  |sal  |
+|622  |dyer  |rad  |
+|622  |dyer  |sal  |
+|734  |pb    |rad  |
+|734  |pb    |temp |
+|734  |lake  |sal  |
+|735  |pb    |rad  |
+|735  |-null-|sal  |
+|735  |-null-|temp |
+|751  |pb    |rad  |
+|751  |pb    |temp |
+|751  |lake  |sal  |
+|752  |roe   |sal  |
+|752  |lake  |rad  |
+|752  |lake  |sal  |
+|752  |lake  |temp |
+|837  |roe   |sal  |
+|837  |lake  |rad  |
+|837  |lake  |sal  |
+|844  |roe   |rad  |
+```
+
+This query gives us a good idea of which scientist was involved in which visit,
+and what measurements they performed during the visit.
+
+:::
+
+
+Looking at the table, it seems like some scientists specialized in
+certain kinds of measurements.  
+
+We can examine which scientists performed which measurements by selecting 
+the appropriate columns and removing duplicates.
+
+```{.sql filename="SQL"}
+SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
+```
+
+```{.sql filename="Output"}
+|quant|person|
+|-----|------|
+|rad  |dyer  |
+|rad  |pb    |
+|rad  |lake  |
+|rad  |roe   |
+|sal  |dyer  |
+|sal  |lake  |
+|sal  |-null-|
+|sal  |roe   |
+|temp |pb    |
+|temp |-null-|
+|temp |lake  |
+```
+
+
+## Other important tasks
+
+There are many other tasks you can do with SQL, but for purposes of the lecture, I will leave you to work through this carpentries tutorial if you want to know more: 
+
+- <https://swcarpentry.github.io/sql-novice-survey>
+
+### Filtering 
+
+How can you select subsets of data? You use `WHERE`. 
+
+Here is an example of filtering for all rows that contain "dyer" in the `Person` column. 
+
+```{.sql filename="SQL"}
+SELECT * FROM Survey WHERE person = "dyer";
+```
+
+```{.sql filename="Output"}
+619|dyer|rad|9.82
+619|dyer|sal|0.13
+622|dyer|rad|7.8
+622|dyer|sal|0.09
+```
+
+For more information about filtering, read through this tutorial: 
+
+- <https://swcarpentry.github.io/sql-novice-survey/03-filter>
+
+### And more
+
+The carpentries tutorial has so much  more including how to: 
+
+- Calculating new values (<https://swcarpentry.github.io/sql-novice-survey/04-calc>)
+- How to deal with missing data (<https://swcarpentry.github.io/sql-novice-survey/05-null>)
+- How to aggregate data to calculate summaries (<https://swcarpentry.github.io/sql-novice-survey/06-agg>)
+- How to write queries that joins together two tables (<https://swcarpentry.github.io/sql-novice-survey/07-join>)
+- How to create tables or modify exisiting data in tables (<https://swcarpentry.github.io/sql-novice-survey/09-create>)
 
 
 # SQL in R
 
-## Reading SQL data
+Thus far, everything we have done with SQL has been through an interactive session with `sqlite3`. 
 
-There are several ways to 
-[query databases in R](https://db.rstudio.com/getting-started/database-queries/). 
+You can also access a database with R (and other programming languages too!). Library and functions may differ, but concepts are the same. 
 
-First, we will download a `.sqlite` database. This is a portable version of a `SQL` database. 
+## Connect to the SQL database
 
-For our purposes, we will use the 
+The main workhorse packages that we will use are the `DBI` and `RSQLite` packages. 
+
+- [`DBI`](https://dbi.r-dbi.org/) is an R package that connects R to database management systems (DBMS). `DBI` separates the connectivity to the DBMS into a “front-end” and a “back-end”. The package defines an interface that is implemented by DBI backends such as RPostgres, RMariaDB, RSQLite, odbc, bigrquery, and more! 
+- [`RSQLite`](https://rsqlite.r-dbi.org/) is an R package that embeds the SQLite database engine in R, providing a DBI-compliant interface. `SQLite` is a public-domain, single-user, very light-weight database engine that implements a decent subset of the SQL 92 standard, including the core table creation, updating, insertion, and selection operations, plus transaction management.
+
+## Example workflow 
+
+:::{.callout-note}
+
+### Example
+
+Here's a short R program that sorts the scientists names in a descending order from
+from an SQLite database stored in a file called `survey.db`:
+
+```{r}
+library(RSQLite)
+connection <- dbConnect(drv = RSQLite::SQLite(), 
+                        dbname = here::here("posts", "2022-12-08-relational-databases", "data", "survey.db"))
+results <- dbGetQuery(connection, "SELECT * FROM Person ORDER BY id DESC;")
+print(results)
+dbDisconnect(connection)
+```
+
+:::
+
+Let's break this down. 
+
+The program starts by **importing the `RSQLite` library**.
+
+If we were connecting to MySQL, DB2, or some other database,
+we would import a different library, but all of them provide the same functions,
+so that the rest of our program does not have to change
+(at least, not much) if we switch from one database to another.
+
+Line 2 **establishes a connection to the database**.
+
+Since we're using SQLite, all we need to specify is the name of the database file.
+Other systems may require us to provide a username and password as well.
+
+On line 3, we **retrieve the results from an SQL query**.
+
+It's our job to make sure that SQL is properly formatted;
+if it isn't, or if something goes wrong when it is being executed,
+the database will report an error.
+
+This result is a `data.frame` with one row for each entry and one column for each column in the database.
+
+Finally, the last line **closes our connection**, since the database can only 
+keep a limited number of these open at one time.
+
+Since establishing a connection takes time, though, we should not open a 
+connection, do one operation, then close the connection, only to reopen 
+it a few microseconds later to do another operation.
+
+Instead, it's normal to create one connection that stays open for the lifetime of the program.
+
+Queries in real applications will often depend on values provided by users.
+
+For example,
+this function takes a user's ID as a parameter and returns only the rows with their ID:
+
+```{r}
+library(RSQLite)
+connection <- dbConnect(drv = SQLite(), 
+                        dbname = here::here("posts", "2022-12-08-relational-databases", "data", "survey.db"))
+
+getName <- function(personID) {
+  query <- paste0("SELECT * FROM Survey WHERE person ='", 
+                  personID, "';")
+  return(dbGetQuery(connection, query))
+}
+
+getName("dyer")
+dbDisconnect(connection)
+```
+
+We use string concatenation on the first line of this function
+to construct a query containing the user ID we have been given.
+
+## Database helper functions in R
+
+R's database interface packages (like `RSQLite`) all share 
+a common set of helper functions useful for exploring databases and 
+reading/writing entire tables at once.
+
+To view all tables in a database, we can use `dbListTables()`:
+
+```{r}
+connection <- dbConnect(SQLite(), 
+                        here::here("posts", "2022-12-08-relational-databases", "data", "survey.db"))
+dbListTables(connection)
+```
+
+
+
+To view all column names of a table, use `dbListFields()`:
+
+```{r}
+dbListFields(connection, "Survey")
+```
+
+
+To read an entire table as a dataframe, use `dbReadTable()`:
+
+```{r}
+dbReadTable(connection, "Person")
+```
+
+
+Finally, to write an entire table to a database, you can use `dbWriteTable()`. 
+
+:::{.callout-note}
+
+We will always want to use the `row.names = FALSE` argument or R 
+will write the row names as a separate column. 
+
+:::
+
+```{r}
+dbWriteTable(connection, "iris", iris, row.names = FALSE)
+head(dbReadTable(connection, "iris"))
+```
+
+In this example we will write R's built-in `iris` dataset as a table in `survey.db`.
+
+Which you can see here: 
+
+```{r}
+dbListTables(connection)
+```
+
+We can remove `iris` as a table with `dbRemoveTable()` and check it's been removed with `dbListTables()`.
+
+```{r}
+dbRemoveTable(connection, "iris")
+dbListTables(connection)
+```
+
+And as always, remember to close the database connection when done!
+
+```{r}
+dbDisconnect(connection)
+```
+
+
+# SQL queries with `dplyr`
+
+In this next section, we will switch datasets for variety sake. 
+
+## Example: album covers 
+
+We will use the 
 
 - [chinook sqlite database](https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite)
 
@@ -478,53 +841,20 @@ From the [Readme.md](https://github.com/lerocha/chinook-database) file:
 > 
 > Media related data was created using real data from an iTunes Library. ... Customer and employee information was manually created using fictitious names, addresses that can be located on Google maps, and other well formatted data (phone, fax, email, etc.). Sales information is auto generated using random data for a four year period.
 
-Here we download the data to our `/data` folder: 
+The data are saved in our `/data` folder: 
 
 ```{r}
 library(here)
-if(!file.exists(here("data", "Chinook.sqlite"))){
-  file_url <- paste0("https://github.com/lerocha/chinook-database/raw/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite")
-  download.file(file_url,
-                destfile=here("data", "Chinook.sqlite"))
-}
-```
-
-We can list the files and see the `.sqlite` database: 
-
-```{r}
 list.files(here("data"))
 ```
 
-## Connect to the SQL database
+## Connect to the SQLite database
 
-The main workhorse packages that we will use are the `DBI` and `dplyr` packages. 
-
-Let's look at the `DBI::dbConnect()` help file
+Let's connect to the `Chinook.sqlite` file
 
 ```{r}
-#| eval: false
-?DBI::dbConnect
-```
-
-So we need a driver and one example is `RSQLite::SQLite()`. 
-Let's look at the help file
-
-```{r}
-#| eval: false
-?RSQLite::SQLite
-```
-
-Ok, so with `RSQLite::SQLite()` and `DBI::dbConnect()` 
-we can connect to a `SQLite` database. 
-
-Let's try that 
-with our `Chinook.sqlite` file that we downloaded.
-
-```{r}
-library(DBI)
-conn <- DBI::dbConnect(drv = RSQLite::SQLite(), 
-                       dbname = here("data", "Chinook.sqlite"))
-conn
+connection <- dbConnect(SQLite(), 
+                        here("data", "Chinook.sqlite"))
 ```
 
 So we have opened up a connection with the SQLite database. 
@@ -532,12 +862,12 @@ Next, we can see what tables are available in the database
 using the `dbListTables()` function: 
 
 ```{r}
-dbListTables(conn)
+dbListTables(connection)
 ```
 
-From RStudio's website, there are several ways to interact with 
-SQL Databases. One of the simplest ways that we will use here is 
-to leverage the `dplyr` framework. 
+I have shown you how to write SQL queries with `dbGetQuery()`. 
+
+An alternative approach to interact with SQL databases is to leverage the `dplyr` framework. 
 
 > "The `dplyr` package now has a generalized SQL backend for talking to databases, and the new `dbplyr` package translates R code into database-specific variants. As of this writing, SQL variants are supported for the following databases: Oracle, Microsoft SQL Server, PostgreSQL, Amazon Redshift, Apache Hive, and Apache Impala. More will follow over time.
 
@@ -549,7 +879,7 @@ Let's take a closer look at the `conn` database that we just connected to:
 
 ```{r}
 library(dbplyr)
-src_dbi(conn)
+src_dbi(connection)
 ```
 
 You can think of the multiple tables similar to having 
@@ -557,40 +887,53 @@ multiple worksheets in a spreadsheet.
 
 Let's try interacting with one. 
 
-## Querying with `dplyr` syntax
+## Using `dplyr`
 
 First, let's look at the first ten rows in the 
 `Album` table using the `tbl()` function from `dplyr`: 
 
 ```{r}
-tbl(conn, "Album") %>%
+tbl(connection, "Album") %>%
   head(n=10)
 ```
 
 The output looks just like a `data.frame` that we are familiar 
 with. But it's important to know that it's not really 
-a dataframe. For example, what about if we use 
+a data frame. For example, what about if we use 
 the `dim()` function? 
 
 ```{r}
-tbl(conn, "Album") %>%
+tbl(connection, "Album") %>%
   dim()
 ```
 
 Interesting! We see that the number of rows returned is `NA`. 
 This is because these functions are different than operating 
 on datasets in memory (e.g. loading data into memory using 
-`read_csv()`). Instead, `dplyr` communicates differently 
+`read_csv()`).
+
+Instead, `dplyr` communicates differently 
 with a SQLite database. 
 
 Let's consider our example. If we were to use straight SQL, 
 the following SQL query returns the first 10 rows 
 from the `Album` table:
 
-``` sql
-SELECT *
-FROM `Album`
-LIMIT 10
+```{.sql filename="SQL"}
+SELECT * FROM Album LIMIT 10;
+```
+
+```{.sql filename="Output"}
+1|For Those About To Rock We Salute You|1
+2|Balls to the Wall|2
+3|Restless and Wild|2
+4|Let There Be Rock|1
+5|Big Ones|3
+6|Jagged Little Pill|4
+7|Facelift|5
+8|Warner 25 Anos|6
+9|Plays Metallica By Four Cellos|7
+10|Audioslave|8
 ```
 
 In the background, `dplyr` does the following: 
@@ -603,7 +946,7 @@ To better understand the `dplyr` code, we can use the
 `show_query()` function: 
 
 ```{r}
-Album <- tbl(conn, "Album")
+Album <- tbl(connection, "Album")
 show_query(head(Album, n = 10))
 ```
 
@@ -612,9 +955,10 @@ SQL query our self, we can just use the `dplyr` and R
 syntax that we are used to. 
 
 However, the downside is that `dplyr` never gets to see the 
-full `Album` table. It only sends our query to the database, 
-waits for a response and returns the query. However, in this 
-way we can interact with large datasets! 
+full `Album` table. It **only sends our query to the database**, 
+waits for a response and returns the query. 
+
+However, in this way we can interact with large datasets! 
 
 Many of the usual `dplyr` functions are available too: 
 
@@ -629,18 +973,18 @@ First, let's count how many albums each
 artist has made. 
 
 ```{r}
-tbl(conn, "Album") %>%
+tbl(connection, "Album") %>%
   group_by(ArtistId) %>% 
   summarize(n = count(ArtistId)) %>% 
   head(n=10)
 ```
 
-# data viz 
+## data viz 
 
 Next, let's plot it. 
 
 ```{r}
-tbl(conn, "Album") %>%
+tbl(connection, "Album") %>%
   group_by(ArtistId) %>% 
   summarize(n = count(ArtistId)) %>% 
   arrange(desc(n)) %>% 
@@ -652,13 +996,13 @@ Let's also extract the first letter from each
 album and plot the frequency of each letter. 
 
 ```{r}
-tbl(conn, "Album") %>%
+tbl(connection, "Album") %>%
   mutate(first_letter = str_sub(Title, end = 1)) %>% 
   ggplot(aes(first_letter)) + 
   geom_bar()
 ```
 
-
+If you decide to make an album, you should try picking a less frequently used letter like E, J, K, Q, U, W, or Z! 
 
 # Post-lecture materials
 
@@ -685,9 +1029,8 @@ or
 select Personal, Family from PERSON;
 ```
 
-4. 
-
-
+4. Write a query that selects distinct dates from the `Visited` table.
+5. Write a query that displays the full names of the scientists in the `Person` table, ordered by family name.
 
 :::
 
@@ -698,6 +1041,8 @@ select Personal, Family from PERSON;
 - <https://dbi.r-dbi.org>
 - <https://solutions.posit.co/connections/db/databases/sqlite/>
 - <https://dbplyr.tidyverse.org>
+- <https://swcarpentry.github.io/sql-novice-survey>
 
 :::
+
 
