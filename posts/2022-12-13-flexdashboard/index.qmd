@@ -63,6 +63,8 @@ The detailed example covered in the second part of class was developed as part o
 
 # Introduction
 
+If we were not familiar with data dashboards before the pandemic, many of us learned just how useful they are for displaying data in a way that is visual, concise and easy to update. Dashboards like JHU's COVID-19 [trackers](https://coronavirus.jhu.edu/data) were an amazing resource for anyone interested in understanding more about the progression of the pandemic, from cases to vaccine rates to emerging variants. One of the creators, Lauren Gardner, recently won a [prestigious award](https://coronavirus.jhu.edu/from-our-experts/covid-19-data-dashboard-creator-lauren-gardner-wins-lasker-award) for her work, acknowledging the importance of good data communication to public health.
+
 Data dashboards allow you to communicate large amounts of information visually and quickly with the added benefit of allowing the user to interact with the data directly in the dashboard. **Flex dashboard** is a method of creating dashboards using R Markdown.  
 
 Here's an example of what a dashboard might look like:
