@@ -6,18 +6,96 @@ author:
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://publichealth.jhu.edu
 description: "TBA"
-date: 2022-12-06
+date: 2022-12-13
 draft: true
 categories: [project 4, projects]
 ---
 
 # Background
 
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+```
+
 
 **Due date: December 23 at 11:59pm**
 
-The goal of this assignment is to... 
+The goal of this assignment is to practice building interactive web applications / dashboards, along with the data analytic tools you have learned in this course. 
 
 ### To submit your project
 
-# Part 1
+Create a public github repository for yourself. The link to create the repository will be in CoursePlus. 
+
+### The set up
+
+Imagine you are a data scientist at a company or nonprofit and you have been tasked analyze a data set and to build an interactive dashboard to share with stake holders in the company. 
+
+The set up is meant to be broad. You can think about any question / data you might be interested in exploring within this hypothetical scenario. 
+
+# Part 1: Download the datasets
+
+## Part 1A
+
+Pick a dataset from one of the following to use for your analysis: 
+
+- [TidyTuesday](https://www.tidytuesday.com) or
+- An API (e.g. using `httr`)
+
+This should be a dataset **that you have not worked with before** (i.e. not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable). 
+
+## Part 1B
+
+Using `rvest`, scrape a dataset (e.g. from a table in an HTML). 
+
+Specifically, you will need to combine the dataset from Parts 1A and 1B in some way for your data analysis below. This must be more than some superficial combination and both parts should be important for the analysis and dashboard. 
+
+## Part 1C
+
+Save the data locally to be able to loaded into R:
+
+  - In this step, you must test if a directory named `data` exists locally. If it does not, write an R function that creates it programmatically.  
+  - Saves the data only once (not each time you knit/render the document). 
+  - Read in the data locally each time you knit/render. 
+  
+
+
+# Part 2: Build a data analytic report
+
+Build a data analytic report with the following sections:
+
+- **Motivation and Overview**: Provide an overview of the data analysis goals and the motivation for it.
+- **Related Work**: Anything that inspired you, such as a paper, a web site, or something we discussed in class.
+- **Data Analytic Questions**: What question(s) are you trying to answer with the data and data analysis? What new questions did you consider in the course of your analysis?
+- **Audience**: Who is the target audience for your analysis? Should they be expected to have a specific background or knowledge? 
+- **Data**: What are the original data sources? Include a link to a data dictionary for the data or create one inside the analysis. 
+- **Exploratory Data Analysis**: What visualizations did you use to look at your data in different ways? What are the different statistical methods you considered? Justify the decisions you made, and show any major changes to your ideas. How did you reach these conclusions? You should use this section to motivate the statistical analyses that you decided to use in the next section.
+  - You must use at least **ten different functions** from `dplyr`, `tidyr`, `lubridate`, `stringr`, `forcats`, or `purrr`. 
+  - Your analysis should include at least three plots with you using at least three different `geom_*()` functions from `ggplot2` (or another package with `geom_*()` functions). 
+    - Plots should have titles, subtitles, captions, and human-understandable axis labels. 
+    - At least one plot should using a type of faceting (`facet_grid()` or `facet_wrap()`). 
+- **Modeling or prediction**: Fit a statistical model (either for inference or prediction) with your data. What statistical or computational method did you apply and why? What others did you consider?
+- **Narrative and Summary**: What did you learn about the data? How did you answer the questions? How can you justify your answers? What are the key take aways for the audience? What are the limitations of the analyses?
+
+At the end of the data analysis, list out each of the functions you used from each of the packages (`dplyr`, `tidyr`, `ggplot2`, etc) to help the TA with respect to making sure you met all the requirements described above. 
+
+
+# Part 3: Build an interactive dashboard 
+
+Build an interactive dashboard (with a bunch of specific things e.g. 3 tabs, at least 3 interactive plots on different tabs, etc) from the data analysis
+
+- TBA
+- TBA
+- TBA
+
+# Part 4: Make a two minute video 
+
+Make a two minute screencast with narration showing highlights of your data analysis and a demo of your interactive dashboard. Upload to YouTube or Vimeo and embed it into the dashboard in some way. 
+
+Use principles of good storytelling and presentations to get your key points across. 
+
+- Focus the majority of your screencast on your main contributions rather than on technical details. 
+- What do you feel is the best part of your project? 
+- What insights did you gain? 
+- What is the single most important thing you would like your audience to take away? Make sure it is upfront and center rather than at the end.
