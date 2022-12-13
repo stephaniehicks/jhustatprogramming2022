@@ -1,6 +1,9 @@
 project:
   type: website
-
+  render:
+    - "*.qmd"
+    - "!posts/2022-12-13-flexdashboard/*.Rmd"
+    
 website:
   title: "Statistical Programming Paradigms and Workflows (BSPH 140.840)"
   description: "test test"
