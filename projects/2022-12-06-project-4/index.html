@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stephanie Hicks">
-<meta name="dcterms.date" content="2022-12-06">
+<meta name="dcterms.date" content="2022-12-13">
 <meta name="description" content="TBA">
 
 <title>Statistical Programming Paradigms and Workflows (BSPH 140.840) - Project 4</title>
@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -148,8 +211,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
   <ul class="collapse">
   <li><a href="#to-submit-your-project" id="toc-to-submit-your-project" class="nav-link" data-scroll-target="#to-submit-your-project">To submit your project</a></li>
+  <li><a href="#the-set-up" id="toc-the-set-up" class="nav-link" data-scroll-target="#the-set-up">The set up</a></li>
   </ul></li>
-  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
+  <li><a href="#part-1-download-the-datasets" id="toc-part-1-download-the-datasets" class="nav-link" data-scroll-target="#part-1-download-the-datasets">Part 1: Download the datasets</a>
+  <ul class="collapse">
+  <li><a href="#part-1a" id="toc-part-1a" class="nav-link" data-scroll-target="#part-1a">Part 1A</a></li>
+  <li><a href="#part-1b" id="toc-part-1b" class="nav-link" data-scroll-target="#part-1b">Part 1B</a></li>
+  <li><a href="#part-1c" id="toc-part-1c" class="nav-link" data-scroll-target="#part-1c">Part 1C</a></li>
+  </ul></li>
+  <li><a href="#part-2-build-a-data-analytic-report" id="toc-part-2-build-a-data-analytic-report" class="nav-link" data-scroll-target="#part-2-build-a-data-analytic-report">Part 2: Build a data analytic report</a></li>
+  <li><a href="#part-3-build-an-interactive-dashboard" id="toc-part-3-build-an-interactive-dashboard" class="nav-link" data-scroll-target="#part-3-build-an-interactive-dashboard">Part 3: Build an interactive dashboard</a></li>
+  <li><a href="#part-4-make-a-two-minute-video" id="toc-part-4-make-a-two-minute-video" class="nav-link" data-scroll-target="#part-4-make-a-two-minute-video">Part 4: Make a two minute video</a></li>
   </ul>
 </nav>
     </div>
@@ -191,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 6, 2022</p>
+      <p class="date">December 13, 2022</p>
     </div>
   </div>
   
@@ -203,14 +275,90 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="background" class="level1">
 <h1>Background</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong>Due date: December 23 at 11:59pm</strong></p>
-<p>The goal of this assignment is to…</p>
+<p>The goal of this assignment is to practice building interactive web applications / dashboards, along with the data analytic tools you have learned in this course.</p>
 <section id="to-submit-your-project" class="level3">
 <h3 class="anchored" data-anchor-id="to-submit-your-project">To submit your project</h3>
+<p>Create a public github repository for yourself. The link to create the repository will be in CoursePlus.</p>
+</section>
+<section id="the-set-up" class="level3">
+<h3 class="anchored" data-anchor-id="the-set-up">The set up</h3>
+<p>Imagine you are a data scientist at a company or nonprofit and you have been tasked analyze a data set and to build an interactive dashboard to share with stake holders in the company.</p>
+<p>The set up is meant to be broad. You can think about any question / data you might be interested in exploring within this hypothetical scenario.</p>
 </section>
 </section>
-<section id="part-1" class="level1">
-<h1>Part 1</h1>
+<section id="part-1-download-the-datasets" class="level1">
+<h1>Part 1: Download the datasets</h1>
+<section id="part-1a" class="level2">
+<h2 class="anchored" data-anchor-id="part-1a">Part 1A</h2>
+<p>Pick a dataset from one of the following to use for your analysis:</p>
+<ul>
+<li><a href="https://www.tidytuesday.com">TidyTuesday</a> or</li>
+<li>An API (e.g.&nbsp;using <code>httr</code>)</li>
+</ul>
+<p>This should be a dataset <strong>that you have not worked with before</strong> (i.e.&nbsp;not in a previous project or assignment from this class or from 776, but other classes or personal projects are acceptable).</p>
+</section>
+<section id="part-1b" class="level2">
+<h2 class="anchored" data-anchor-id="part-1b">Part 1B</h2>
+<p>Using <code>rvest</code>, scrape a dataset (e.g.&nbsp;from a table in an HTML).</p>
+<p>Specifically, you will need to combine the dataset from Parts 1A and 1B in some way for your data analysis below. This must be more than some superficial combination and both parts should be important for the analysis and dashboard.</p>
+</section>
+<section id="part-1c" class="level2">
+<h2 class="anchored" data-anchor-id="part-1c">Part 1C</h2>
+<p>Save the data locally to be able to loaded into R:</p>
+<ul>
+<li>In this step, you must test if a directory named <code>data</code> exists locally. If it does not, write an R function that creates it programmatically.<br>
+</li>
+<li>Saves the data only once (not each time you knit/render the document).</li>
+<li>Read in the data locally each time you knit/render.</li>
+</ul>
+</section>
+</section>
+<section id="part-2-build-a-data-analytic-report" class="level1">
+<h1>Part 2: Build a data analytic report</h1>
+<p>Build a data analytic report with the following sections:</p>
+<ul>
+<li><strong>Motivation and Overview</strong>: Provide an overview of the data analysis goals and the motivation for it.</li>
+<li><strong>Related Work</strong>: Anything that inspired you, such as a paper, a web site, or something we discussed in class.</li>
+<li><strong>Data Analytic Questions</strong>: What question(s) are you trying to answer with the data and data analysis? What new questions did you consider in the course of your analysis?</li>
+<li><strong>Audience</strong>: Who is the target audience for your analysis? Should they be expected to have a specific background or knowledge?</li>
+<li><strong>Data</strong>: What are the original data sources? Include a link to a data dictionary for the data or create one inside the analysis.</li>
+<li><strong>Exploratory Data Analysis</strong>: What visualizations did you use to look at your data in different ways? What are the different statistical methods you considered? Justify the decisions you made, and show any major changes to your ideas. How did you reach these conclusions? You should use this section to motivate the statistical analyses that you decided to use in the next section.
+<ul>
+<li>You must use at least <strong>ten different functions</strong> from <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>stringr</code>, <code>forcats</code>, or <code>purrr</code>.</li>
+<li>Your analysis should include at least three plots with you using at least three different <code>geom_*()</code> functions from <code>ggplot2</code> (or another package with <code>geom_*()</code> functions).
+<ul>
+<li>Plots should have titles, subtitles, captions, and human-understandable axis labels.</li>
+<li>At least one plot should using a type of faceting (<code>facet_grid()</code> or <code>facet_wrap()</code>).</li>
+</ul></li>
+</ul></li>
+<li><strong>Modeling or prediction</strong>: Fit a statistical model (either for inference or prediction) with your data. What statistical or computational method did you apply and why? What others did you consider?</li>
+<li><strong>Narrative and Summary</strong>: What did you learn about the data? How did you answer the questions? How can you justify your answers? What are the key take aways for the audience? What are the limitations of the analyses?</li>
+</ul>
+<p>At the end of the data analysis, list out each of the functions you used from each of the packages (<code>dplyr</code>, <code>tidyr</code>, <code>ggplot2</code>, etc) to help the TA with respect to making sure you met all the requirements described above.</p>
+</section>
+<section id="part-3-build-an-interactive-dashboard" class="level1">
+<h1>Part 3: Build an interactive dashboard</h1>
+<p>Build an interactive dashboard (with a bunch of specific things e.g.&nbsp;3 tabs, at least 3 interactive plots on different tabs, etc) from the data analysis</p>
+<ul>
+<li>TBA</li>
+<li>TBA</li>
+<li>TBA</li>
+</ul>
+</section>
+<section id="part-4-make-a-two-minute-video" class="level1">
+<h1>Part 4: Make a two minute video</h1>
+<p>Make a two minute screencast with narration showing highlights of your data analysis and a demo of your interactive dashboard. Upload to YouTube or Vimeo and embed it into the dashboard in some way.</p>
+<p>Use principles of good storytelling and presentations to get your key points across.</p>
+<ul>
+<li>Focus the majority of your screencast on your main contributions rather than on technical details.</li>
+<li>What do you feel is the best part of your project?</li>
+<li>What insights did you gain?</li>
+<li>What is the single most important thing you would like your audience to take away? Make sure it is upfront and center rather than at the end.</li>
+</ul>
 
 
 </section>
