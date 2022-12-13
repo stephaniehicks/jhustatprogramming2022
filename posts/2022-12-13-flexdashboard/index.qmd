@@ -171,6 +171,7 @@ You can find lots and lots and lots of examples of more complicated flex dashboa
 I particularly like [this example](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-ggplotly-geoms/htmlwidgets-ggplotly-geoms.html) which uses `plotly` to make interactive displays (something I have always wanted to learn, and which could be useful to enhance your upcoming Project), and [this one](https://jjallaire.shinyapps.io/shiny-ggplot2-brushing/) which illustrates brushing, another way of interacting with the displayed graphics.
 
 
+
 # Other Resources
 
 
