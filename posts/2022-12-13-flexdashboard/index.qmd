@@ -42,6 +42,7 @@ install.packages(c("flexdashboard", "DT", "shiny"))
 
 or use the "Install Packages..." option from the "Tools" menu in RStudio.
 
+
 ### Acknowledgements
 
 Some of the material from today's class is adapted from "R for Data Science" by Grolemund and Wickham, sections [29.6](https://r4ds.had.co.nz/r-markdown-formats.html#dashboards) and [29.7.2](https://r4ds.had.co.nz/r-markdown-formats.html#shiny). It is based on lecture notes initially developed by Leah Jager.

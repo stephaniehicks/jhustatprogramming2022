@@ -87,7 +87,7 @@ Build an interactive dashboard (with a bunch of specific things e.g. 3 tabs, at 
 
 - TBA
 - TBA
-- TBA
+- One of the tabs should be your data analysis with all of your code shown and code evaluted. 
 
 # Part 4: Make a two minute video 
 
@@ -99,3 +99,11 @@ Use principles of good storytelling and presentations to get your key points acr
 - What do you feel is the best part of your project? 
 - What insights did you gain? 
 - What is the single most important thing you would like your audience to take away? Make sure it is upfront and center rather than at the end.
+
+## Deploy dashboard and push code to Github 
+
+- Using the public github repository, push your code to GitHub. Include a `README.md` file in the repository. 
+- Deploy the website. This could be on shinyapps.io or another mechansim. 
+- Share a link to your github repo with your code and your deployed interactive dashboard on CoursePlus. 
+
+
