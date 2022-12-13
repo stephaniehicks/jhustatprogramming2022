@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -196,10 +259,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pre-lecture-materials" id="toc-pre-lecture-materials" class="nav-link active" data-scroll-target="#pre-lecture-materials">Pre-lecture materials</a>
   <ul class="collapse">
   <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#add-lecture-here" id="toc-add-lecture-here" class="nav-link" data-scroll-target="#add-lecture-here">Add lecture here</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#layouts" id="toc-layouts" class="nav-link" data-scroll-target="#layouts">Layouts</a></li>
+  <li><a href="#shiny" id="toc-shiny" class="nav-link" data-scroll-target="#shiny">Shiny</a></li>
+  <li><a href="#shiny-examples" id="toc-shiny-examples" class="nav-link" data-scroll-target="#shiny-examples">Shiny examples</a></li>
+  <li><a href="#a-deeper-dive-into-a-more-complex-dashboard" id="toc-a-deeper-dive-into-a-more-complex-dashboard" class="nav-link" data-scroll-target="#a-deeper-dive-into-a-more-complex-dashboard">A deeper dive into a more complex dashboard</a></li>
+  <li><a href="#many-other-examples" id="toc-many-other-examples" class="nav-link" data-scroll-target="#many-other-examples">Many other examples!</a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources">Other Resources</a></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
   <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
@@ -234,18 +305,30 @@ Read ahead
 <div class="callout-body-container callout-body">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
+<li>Information about creating dashboards: <a href="https://rmarkdown.rstudio.com/flexdashboard/" class="uri">https://rmarkdown.rstudio.com/flexdashboard/</a></li>
+<li>Example case study with associated dashboard from the Open Case Studies project: <a href="https://www.opencasestudies.org/ocs-bp-school-shootings-dashboard/" class="uri">https://www.opencasestudies.org/ocs-bp-school-shootings-dashboard/</a></li>
 </ol>
 </div>
 </div>
 </section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>Before starting you <strong>must</strong> install three additional packages:</p>
+<ul>
+<li><code>flexdashboard</code> - this provides tools for easily building dashboards</li>
+<li><code>DT</code> - this provides built-in data display functionality</li>
+<li><code>shiny</code> - this provides functionality to create interactive dashboard elements</li>
+</ul>
+<p>You can do this by calling</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"flexdashboard"</span>, <span class="st">"DT"</span>, <span class="st">"shiny"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or use the “Install Packages…” option from the “Tools” menu in RStudio.</p>
+</section>
 <section id="acknowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
-<p>Material for this lecture was borrowed and adopted from</p>
-<ul>
-<li>Add here.</li>
-</ul>
+<p>Some of the material from today’s class is adapted from “R for Data Science” by Grolemund and Wickham, sections <a href="https://r4ds.had.co.nz/r-markdown-formats.html#dashboards">29.6</a> and <a href="https://r4ds.had.co.nz/r-markdown-formats.html#shiny">29.7.2</a>. It is based on lecture notes initially developed by Leah Jager.</p>
+<p>The detailed example covered in the second part of class was developed as part of the Open Case Studies project which you can learn more about <a href="https://americanhealth.jhu.edu/open-case-studies">here</a>.</p>
 </section>
 </section>
 <section id="learning-objectives" class="level1">
@@ -262,14 +345,110 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>Know how to create a basic dashboard to display data analysis elements using <code>flexdashboard</code></li>
+<li>Add interactive elements to your dashboard using tools from the <code>shiny</code> package</li>
+<li>Have resources to assist you in developing your own more complex dashboard to clearly present data and interactive elements</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="add-lecture-here" class="level1">
-<h1>Add lecture here</h1>
-<p>TBA</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Data dashboards allow you to communicate large amounts of information visually and quickly with the added benefit of allowing the user to interact with the data directly in the dashboard. <strong>Flex dashboard</strong> is a method of creating dashboards using R Markdown.</p>
+<p>Here’s an example of what a dashboard might look like:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example_dashboard.png" class="img-fluid figure-img" width="646"></p>
+<p></p><figcaption class="figure-caption">A screenshot of a dashboard created with flexdashboard</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<p>To create a new dashboard, use the menus at the top of RStudio cloud to select <strong>File</strong> –&gt; <strong>New File</strong> –&gt; <strong>R Markdown…</strong> Choose <strong>From Template</strong> in the box on the left and then select <strong>Flex Dashboard</strong> from the box on the right. NOTE: This option will only appear once you have installed the <code>flexdashboard</code> package. Then click <strong>OK</strong>. This will open up a dashboard template.</p>
+<p>You can knit this file just as you would a regular R Markdown document. Let’s do that and take a look at what you get! Note you will have to save this file first before knitting. Save it in your project directory as <code>trial_dashboard.Rmd</code> when prompted.</p>
+</section>
+<section id="layouts" class="level1">
+<h1>Layouts</h1>
+<p>Notice the layout of the blank document is given by the hash (#) signs. In general:</p>
+<ul>
+<li>Each level 1 header (#) begins a <em>new page</em> in the dashboard.</li>
+<li>Each level 2 header (##) begins a <em>new column</em>.</li>
+<li>Each level 3 header (###) begins a <em>new row</em>.</li>
+</ul>
+<p>When you knit the blank document, you’ll see blank output with a title (<strong>Untitled</strong>) and then three rows of charts (<strong>Chart A</strong>, <strong>Chart B</strong>, and <strong>Chart C</strong>. Notice that in the code there are three sections with these titles, each designated with three hashes (###)). Right now these charts are all blank, since these sections just have empty code chunks!</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example_dashboard_code.png" class="img-fluid figure-img" width="386"></p>
+<p></p><figcaption class="figure-caption">Code to create the dashboard shown above</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here you can see there are two columns (designated by ##) and various rows within each column (designated with ###). You can also find this code in the file <code>Diamond_dashboard_example.Rmd</code> in the directory with materials for this lecture. This code relies on the <code>DT</code> package that provides a nice way to display data on an HTML website.</p>
+<p>Now open the file <code>Diamond_dashboard_example.Rmd</code> and knit it! Be sure to open the resulting dashboard in a browser window to really see it; you won’t be able to view it very well in the small viewer pane within RStudio.</p>
+<p>Feel free to play with the code in this diamond dashboard to see how things change when you knit it. For example, can you change the titles of each of the graphs in the column on the left? How could you change the first graph on the left to be a histogram of prices instead of carats? Or could you add a fourth graph to the dashboard that shows price? Note that to get access to the <code>diamonds</code> dataset that the dashboard uses, you will have to have loaded the <code>ggplot2</code> package, which is part of the <code>tidyverse</code>. You can see that the dashboard uses this package by looking at the first set-up code chunk in the dashboard .Rmd file.</p>
+</section>
+<section id="shiny" class="level1">
+<h1>Shiny</h1>
+<p>Adding the <code>shiny</code> package when creating your flex dashboard allows you to let your users change underlying parameters and see the results immediately on the dashboard without needing to re-knit the document. Basically, using Shiny with flex dashboard turns a static R Markdown report into an Interactive Document. It’s important to note that interactive documents need to be deployed to a Shiny Server to be shared broadly. (See instructions for creating a free account at <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a> and instructions on how to publish to the web at the end of this document.)</p>
+<p>To use <code>shiny</code> functionality in your data dashboard, you add the option <code>runtime: shiny</code> to the YAML header of your flex dashboard .Rmd file. Once you’ve done this, you can use the “input” functions to add interactive components to the document. You can have input that is text, numeric, selecting from a menu, or checking a box, as shown below. (Don’t run this code, it’s just there to show you what the syntax looks like!)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">textInput</span>(<span class="st">"name"</span>, <span class="st">"What is your name?"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="st">"age"</span>, <span class="st">"How old are you?"</span>, <span class="cn">NA</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">150</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">selectInput</span>(<span class="st">"variable"</span>, <span class="st">"Variable:"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">c</span>(<span class="st">"Cylinders (cyl)"</span> <span class="ot">=</span> <span class="st">"cyl"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Transmission (am)"</span> <span class="ot">=</span> <span class="st">"am"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Gears (gear)"</span> <span class="ot">=</span> <span class="st">"gear"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">checkboxInput</span>(<span class="st">"outliers"</span>, <span class="st">"Show outliers"</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The input values are stored in the object given by the first argument of these input functions. So the text input is stored in an object called <code>name</code> and the numeric input is stored in an object called <code>age</code>. You can then refer to the values with <code>input$name</code> and <code>input$age</code>, and the code that uses them will be automatically re-run whenever they change.</p>
+<p>The second argument gives the text that is displayed to the user to prompt their input. So the input area for name will show “What is your name?” and so on. Later arguments for each type give additional information about that input, such as minimum and maximum allowed values for numeric input and menu options for the select input. We will see this in the examples we will look at below.</p>
+<p>To add Shiny components to a flex dashboard you must do the following:</p>
+<ul>
+<li>Add <code>runtime: shiny</code> to the YAML header at the top of the document.</li>
+<li>Add the <code>{.sidebar}</code> attribute to the first column of the dashboard to make it a host for Shiny input controls (note this step isn’t strictly required, but many Shiny based dashboards will want to do this).</li>
+<li>Add Shiny inputs and outputs as appropriate using the input functions.</li>
+<li>When including plots, be sure to wrap them in a call to <code>renderPlot</code>. This is important not only for dynamically responding to changes but also to ensure that they are automatically re-sized when their container changes.</li>
+</ul>
+</section>
+<section id="shiny-examples" class="level1">
+<h1>Shiny examples</h1>
+<p>There are a couple examples of simple flex dashboards that use Shiny in the following files that are included with this project. Open each one of these files and run it by clicking the “Run document” button that is where the “Knit” button usually is. Shiny apps must be run rather than knitted, but the idea is the same! Be sure to open the output in a browser tab.</p>
+<ul>
+<li><code>GeyserFlexDashboard.Rmd</code></li>
+<li><code>MPGFlexDashboard.Rmd</code></li>
+</ul>
+<p>Play with the user input options in the left hand sidebar to see how the user can interact with the data through the dashboard. Then look at both the code and the output to see how the code relates to what is shown in the dashboard. Play around with the options in the code chunks to be sure you understand what they do!</p>
+<p>One thing to point out in the <code>MPGFlexDashboard.Rmd</code> file is the following chunk of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>formulaText <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"mpg ~"</span>, input<span class="sc">$</span>variable)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This chunk of code allows the title of the graph to change depending on the input given by the user. It uses the <code>reactive()</code> function to specify that the text is not static but will change depending on what is selected by the user. You can see here the object <code>formulaText</code> will contain text consisting of pasting together “mpg ~” and the variable value selected from the user in the drop-down menu. Then this <code>formulaText</code> object is used as the title in the plot! And even more importantly, it is used in the call to the <code>boxplot</code> function, to determine which variable to display in the plot.</p>
+</section>
+<section id="a-deeper-dive-into-a-more-complex-dashboard" class="level1">
+<h1>A deeper dive into a more complex dashboard</h1>
+<p>Now that we have covered the basics of <code>flexdashboard</code> and <code>shiny</code>, we will walk through a more complex example of a data dashboard. This example will serve as good illustration/motivation for your upcoming project where you will be asked to perform a data analysis, and then create an interactive data dashboard based on that analysis.</p>
+<p>The case study we will be looking at is part of the <a href="https://americanhealth.jhu.edu/open-case-studies">Open Case Studies</a> project and focuses on issues related to gun control in the United States.</p>
+<p>The Case Study itself, which goes through all the data analysis steps in detail can be found <a href="https://www.opencasestudies.org/ocs-bp-school-shootings-dashboard/">here</a>. This file also contains another presentation of the basic elements of building a dashboard with <code>flexdashboard</code> and <code>shiny</code>. The dashboard itself can be found <a href="https://rsconnect.biostat.jhsph.edu/ocs-bp-school-shootings-dashboard/">here</a>.</p>
+<p>The GitHub repository for this case study can be found <a href="https://github.com/opencasestudies/ocs-bp-school-shootings-dashboard">here</a> with the <code>.Rmd</code> file containing all the code to create the dashboard <a href="https://github.com/opencasestudies/ocs-bp-school-shootings-dashboard/blob/master/ocs-school-shootings-flexdashboard.Rmd">here</a>.</p>
+<p>We will now walk through these resources.</p>
+</section>
+<section id="many-other-examples" class="level1">
+<h1>Many other examples!</h1>
+<p>You can find lots and lots and lots of examples of more complicated flex dashboards (most of which use Shiny) <a href="https://pkgs.rstudio.com/flexdashboard/articles/examples.html">here</a>. For each of these examples, you can click on the “&lt;/&gt; Source Code” button in the upper right to see the R code that was used to create the dashboard. If you pasted this code into a blank R Markdown document, you would be able to recreate the dashboard.</p>
+<p>I particularly like <a href="https://beta.rstudioconnect.com/jjallaire/htmlwidgets-ggplotly-geoms/htmlwidgets-ggplotly-geoms.html">this example</a> which uses <code>plotly</code> to make interactive displays (something I have always wanted to learn, and which could be useful to enhance your upcoming Project), and <a href="https://jjallaire.shinyapps.io/shiny-ggplot2-brushing/">this one</a> which illustrates brushing, another way of interacting with the displayed graphics.</p>
+</section>
+<section id="other-resources" class="level1">
+<h1>Other Resources</h1>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
@@ -287,7 +466,9 @@ Questions
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Add here.</li>
+<li>Starting with the <code>GeyserFlexDashboard.Rmd</code> file, modify the file to also create a data display related to the <code>waiting</code> variable. This display could be on another tab, or you could create an entire new page. You could allow the user to specify if they want a histogram or a boxplot with a dropdown selector.</li>
+<li>Alternatively, keep the layout simple with a single pane for the plot, but allow the user to select whether they want to display a histogram of the <code>waiting</code> variable or the <code>eruptions</code> variable. Make sure to update the main plot label to indicate the selected variable.</li>
+<li>Similar modifications can be made to the <code>MPGFlexDashboard.Rmd</code> example. Create an interface that allows the user to select two different variables from the <code>mpg</code> data set and then create an appropriate data display to illustrate the relationship between these two variables, updating any plot labels to reflect the selected variables.</li>
 </ol>
 </div>
 </div>
@@ -304,8 +485,31 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Below are instructions for getting a free <code>Shinyapps.io</code> account and then publishing your flex dashboard to the web:</p>
+<ol type="1">
+<li>Sign up for a free account on <a href="http://www.shinyapps.io/">http://www.shinyapps.io/</a></li>
+<li>Within RStudio or RStudio Cloud, install the rsconnect package: <code>install.packages("rsconnect")</code></li>
+<li>Within RStudio Cloud, select “Tools” then “Global Options…” and then select “Publishing” from the left-hard menu. (Within the non-cloud RStudio, under the “Preferences” menu, click on “Publishing”.) Click the “Connect” button next to the publishing accounts box and then “Shinypps.io” to link your shinyapps.io account to your RStudio. Click on “Shinyapps.io” from the pop-up menu, and then follow the instructions to link your account. This involves copying and pasting a token from your account into the box in R Studio.</li>
+<li>Now you are ready to publish! Click the “Run Document” button to create your app; then click “Publish” in the upper right hand corner of your app (the publish icon is a blue circle with blue curves around it). Choose “Publish just this document” from the pop-up menu. Make sure the selected destination account is your shinyapps.io account. You can change the name of the app if you want. Then click publish!</li>
+<li>If you want to delete the app (unpublish it), you need to do this from within your shinyapps.io account. Go to <a href="http://www.shinyapps.io/">http://www.shinyapps.io/</a> and log in to your account. Click on applications to manage your applications. You must first archive your app before you can delete it.</li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are a list of resources on Shiny (more involved than Flex Dashboard):</p>
 <ul>
-<li>Add here.</li>
+<li>Main page: <a href="http://shiny.rstudio.com" class="uri">http://shiny.rstudio.com</a></li>
+<li>Awesome tutorial: <a href="http://shiny.rstudio.com/tutorial/" class="uri">http://shiny.rstudio.com/tutorial/</a></li>
+<li>An example app that Ruthe (former Biostats ScM student) made in a class: <a href="https://gunben.shinyapps.io/Pneumonia426/" class="uri">https://gunben.shinyapps.io/Pneumonia426/</a></li>
 </ul>
 </div>
 </div>
