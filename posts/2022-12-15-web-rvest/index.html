@@ -407,7 +407,7 @@ Note
 </section>
 <section id="reading-html-with-rvest" class="level2">
 <h2 class="anchored" data-anchor-id="reading-html-with-rvest">Reading HTML with <code>rvest</code></h2>
-<p>You will usually start the scraping process with <code>read_html()</code>. This returns a <code>xml_document</code>[^2] object which you’ll then manipulate using rvest functions:</p>
+<p>You will usually start the scraping process with <code>read_html()</code>. This returns a <code>xml_document</code> object which you will then manipulate using rvest functions:</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -418,7 +418,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This class comes from the <a href="https://xml2.r-lib.org"><code>xml2</code></a> package, which is a low-level package that <code>rvest</code> builds on top of.</p>
+<p>This <code>xml_document</code> class comes from the <a href="https://xml2.r-lib.org"><code>xml2</code></a> package, which is a low-level package that <code>rvest</code> builds on top of.</p>
 </div>
 </div>
 <div class="cell">
@@ -459,8 +459,8 @@ Note
 <section id="css-selectors" class="level2">
 <h2 class="anchored" data-anchor-id="css-selectors">CSS selectors</h2>
 <p>CSS is short for <strong>cascading style sheets</strong>, and is a tool for defining the visual styling of HTML documents.</p>
-<p>CSS includes a miniature language for selecting elements on a page called <strong>CSS selectors</strong>.</p>
-<p>CSS selectors define patterns for locating HTML elements, and are useful for scraping because they provide a concise way of describing which elements you want to extract.</p>
+<p>CSS includes a miniature language for <strong>selecting elements on a page</strong> called <strong>CSS selectors</strong>.</p>
+<p>CSS selectors <strong>define patterns for locating HTML elements</strong>, and are useful for scraping because they provide a concise way of describing which elements you want to extract.</p>
 <p>CSS selectors can be quite complex, but fortunately you only need the simplest for <code>rvest</code>, because you can also write R code for more complicated situations.</p>
 <p>The four most important selectors are:</p>
 <ul>
@@ -478,12 +478,17 @@ Note
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">  &lt;p class='important'&gt;This is an important paragraph&lt;/p&gt;</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In <code>rvest</code> you can extract a single element with <code>html_element()</code> or all matching elements with <code>html_elements()</code>. Both functions take a document<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and a css selector:</p>
+<p>In <code>rvest</code> you can extract</p>
+<ul>
+<li>a single element with <code>html_element()</code> or</li>
+<li>all matching elements with <code>html_elements()</code></li>
+</ul>
+<p>Both functions take a document (or another element) and a css selector:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">"h1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">"h1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{html_node}
-&lt;h1&gt;</code></pre>
+<pre><code>{xml_nodeset (1)}
+[1] &lt;h1&gt;This is a heading&lt;/h1&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -502,8 +507,6 @@ Note
 [1] &lt;p id="first"&gt;This is a paragraph&lt;/p&gt;</code></pre>
 </div>
 </div>
-<p>Selectors can also be combined in various ways using <strong>combinators</strong>.</p>
-<p>For example,The most important combinator is ” “, the <strong>descendant</strong> combination, because <code>p a</code> selects all <code>&lt;a&gt;</code> elements that are a child of a <code>&lt;p&gt;</code> element.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -943,13 +946,7 @@ While the Congress of the Republic endlessly debates this alarming chain of even
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Or another element, more on that shortly.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
