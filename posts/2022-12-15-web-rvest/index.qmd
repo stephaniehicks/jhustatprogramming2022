@@ -136,13 +136,13 @@ These are often useful when scraping data off a page.
 ## Reading HTML with `rvest`
 
 You will usually start the scraping process with `read_html()`.
-This returns a `xml_document`[^2] object which you'll then manipulate using rvest functions:
+This returns a `xml_document` object which you will then manipulate using rvest functions:
 
 :::{.callout-tip}
 
 ### Note 
 
-This class comes from the [`xml2`](https://xml2.r-lib.org) package, which is a low-level package that `rvest` builds on top of.
+This `xml_document` class comes from the [`xml2`](https://xml2.r-lib.org) package, which is a low-level package that `rvest` builds on top of.
 
 :::
 
@@ -177,9 +177,9 @@ Here I will focus on CSS selectors because they are simpler, but still sufficien
 
 CSS is short for **cascading style sheets**, and is a tool for defining the visual styling of HTML documents.
 
-CSS includes a miniature language for selecting elements on a page called **CSS selectors**.
+CSS includes a miniature language for **selecting elements on a page** called **CSS selectors**.
 
-CSS selectors define patterns for locating HTML elements, and are useful for scraping because they provide a concise way of describing which elements you want to extract.
+CSS selectors **define patterns for locating HTML elements**, and are useful for scraping because they provide a concise way of describing which elements you want to extract.
 
 CSS selectors can be quite complex, but fortunately you only need the simplest for `rvest`, because you can also write R code for more complicated situations.
 
@@ -203,21 +203,20 @@ html <- minimal_html("
 ")
 ```
 
-In `rvest` you can extract a single element with `html_element()` or all matching elements with `html_elements()`.
-Both functions take a document[^3] and a css selector:
+In `rvest` you can extract
 
-[^3]: Or another element, more on that shortly.
+- a single element with `html_element()` or 
+- all matching elements with `html_elements()`
+
+Both functions take a document (or another element) and a css selector:
 
 ```{r}
-html %>% html_element("h1")
+html %>% html_elements("h1")
 html %>% html_elements("p")
 html %>% html_elements(".important")
 html %>% html_elements("#first")
 ```
 
-Selectors can also be combined in various ways using **combinators**.
-
-For example,The most important combinator is " ", the **descendant** combination, because `p a` selects all `<a>` elements that are a child of a `<p>` element.
 
 :::{.callout-tip}
 
