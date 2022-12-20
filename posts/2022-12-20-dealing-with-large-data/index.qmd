@@ -7,11 +7,8 @@ author:
     affiliation_url: https://publichealth.jhu.edu
 description: "Introduction to basic strategies for dealing with large data in R"
 date: 2022-12-20
-draft: true
 categories: [module 5, week 9, large data, programming, R]
 ---
-
-<!-- Add interesting quote -->
 
 # Pre-lecture materials
 
