@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stephanie Hicks">
 <meta name="dcterms.date" content="2022-12-20">
-<meta name="description" content="Strategies to profiling memory consumed in R">
+<meta name="description" content="Introduction to understand how much time is spent on different parts of your R code (i.e.&nbsp;profiling)">
 
 <title>Statistical Programming Paradigms and Workflows (BSPH 140.840) - Profiling R code</title>
 <style>
@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -143,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
       <h1 class="title">Profiling R code</h1>
                   <div>
         <div class="description">
-          Strategies to profiling memory consumed in R
+          Introduction to understand how much time is spent on different parts of your R code (i.e.&nbsp;profiling)
         </div>
       </div>
                           <div class="quarto-categories">
@@ -196,7 +259,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#add-lecture-here" id="toc-add-lecture-here" class="nav-link" data-scroll-target="#add-lecture-here">Add lecture here</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
+  <li><a href="#using-system.time" id="toc-using-system.time" class="nav-link" data-scroll-target="#using-system.time">Using <code>system.time()</code></a></li>
+  <li><a href="#timing-longer-expressions" id="toc-timing-longer-expressions" class="nav-link" data-scroll-target="#timing-longer-expressions">Timing longer expressions</a></li>
+  </ul></li>
+  <li><a href="#profiling-in-r" id="toc-profiling-in-r" class="nav-link" data-scroll-target="#profiling-in-r">Profiling in R</a>
+  <ul class="collapse">
+  <li><a href="#using-rprof" id="toc-using-rprof" class="nav-link" data-scroll-target="#using-rprof">Using <code>Rprof()</code></a></li>
+  <li><a href="#using-summaryrprof" id="toc-using-summaryrprof" class="nav-link" data-scroll-target="#using-summaryrprof">Using <code>summaryRprof()</code></a></li>
+  <li><a href="#visualizating-output" id="toc-visualizating-output" class="nav-link" data-scroll-target="#visualizating-output">Visualizating output</a></li>
+  </ul></li>
   <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
   <ul class="collapse">
   <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
@@ -214,7 +288,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<!-- Add interesting quote -->
+<blockquote class="blockquote">
+<p>Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered.</p>
+<p>— Donald Knuth.</p>
+</blockquote>
 <section id="pre-lecture-materials" class="level1">
 <h1>Pre-lecture materials</h1>
 <section id="read-ahead" class="level3">
@@ -231,8 +308,7 @@ Read ahead
 <div class="callout-body-container callout-body">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
+<li><a href="https://adv-r.hadley.nz/perf-measure" class="uri">https://adv-r.hadley.nz/perf-measure</a></li>
 </ol>
 </div>
 </div>
@@ -241,7 +317,8 @@ Read ahead
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li>Add here.</li>
+<li><a href="https://adv-r.hadley.nz/perf-measure" class="uri">https://adv-r.hadley.nz/perf-measure</a></li>
+<li><a href="https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code" class="uri">https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code</a></li>
 </ul>
 </section>
 </section>
@@ -259,13 +336,382 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>Know how to profile R code with the <code>Rprof()</code> function</li>
+<li>Know how to summarize profiled R code using <code>summaryRprof()</code></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="add-lecture-here" class="level1">
-<h1>Add lecture here</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Before you can make your code faster, you first need to <strong>figure out what’s making it slow</strong>.</p>
+<p>This sounds easy, but it’s not. Even experienced programmers have a hard time identifying bottlenecks in their code. Of course, when it comes to optimizing code, one important question is</p>
+<blockquote class="blockquote">
+<p>What should I optimize?</p>
+</blockquote>
+<p>Well, clearly should optimize the parts of your code that are running slowly, but how do we know what parts those are?</p>
+<p>This is what the <strong>profiler</strong> is for. Profiling is a <strong>systematic way to examine how much time is spent in different parts of a program</strong>.</p>
+<p>Sometimes profiling becomes necessary as a project grows and layers of code are placed on top of each other. Often you might write some code that runs fine once. But then later, you might put that same code in a big loop that runs 1,000 times. Now, the original code that took 1 second to run is taking 1,000 seconds to run! Getting that little piece of original code to run faster will help the entire loop.</p>
+<p>It is tempting to think you just <strong>know</strong> where the bottlenecks in your code are.</p>
+<p>I mean, after all, you wrote it! But trust me, I can’t tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that <strong>profiling is better than guessing</strong>.</p>
+<p>Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where the code spends most of its time.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Basic principles of optimizing your code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Design first, then optimize</p></li>
+<li><p>Premature optimization (spending a lot of time on something that you may not actually need) is the root of all evil</p></li>
+<li><p>Instead of relying on your intuition, you should <strong>profile your code</strong>: measure the run-time of each line of code using realistic inputs. If you are going to be scientist, you need to apply the same principles here!</p></li>
+<li><p>Once you have identified bottlenecks, you will need to carefully experiment with alternatives to find faster code that is still equivalent.</p></li>
+</ul>
+</div>
+</div>
+<section id="install-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
+<p>Here, we will use mostly base R, but also <a href="https://rstudio.github.io/profvis/">profvis</a> for profiling. If it is not installed, you will need to install it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"profvis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we load the package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(profvis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-system.time" class="level2">
+<h2 class="anchored" data-anchor-id="using-system.time">Using <code>system.time()</code></h2>
+<p>They <code>system.time()</code> function takes an arbitrary R expression as input (can be wrapped in curly braces) and <strong>returns the amount of time taken to evaluate the expression</strong>.</p>
+<p>The <code>system.time()</code> function <strong>computes the time (in seconds)</strong> needed to execute an expression and if there is an error, gives the time until the error occurred. The function returns an object of class <code>proc_time</code> which contains two useful bits of information:</p>
+<ul>
+<li><strong>user time</strong>: time charged to the CPU(s) for this expression</li>
+<li><strong>elapsed time</strong>: “wall clock” time, the amount of time that passes for <strong>you</strong> as you are sitting there at your computer</li>
+</ul>
+<p>Usually, the user time and elapsed time are relatively close, for straight computing tasks. But there are a few situations where the two can diverge, sometimes dramatically.</p>
+<p>The elapsed time may be <strong>greater than</strong> the user time if the CPU spends a lot of time waiting around. This commonly happens if your R expression involves some input or output, which depends on the activity of the file system and the disk (or the Internet, if using a network connection).</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here’s an example of where the elapsed time is greater than the user time.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The elapsed time is greater than the user time here</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">system.time</span>(<span class="fu">readLines</span>(<span class="st">"https://publichealth.jhu.edu"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>   user  system elapsed </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.012</span>   <span class="fl">0.003</span>   <span class="fl">0.179</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Most of the time in this expression is spent waiting for the connection to the web server and waiting for the data to travel back to my computer. This does not involve the CPU and so the CPU simply waits around for things to get done. Hence, the user time is small.</p>
+</div>
+</div>
+<p>The elapsed time may be <strong>smaller than</strong> the user time if your machine has multiple cores/processors (and is capable of using them).</p>
+<ul>
+<li>For example, multi-threaded BLAS libraries (vecLib/Accelerate, ATLAS, ACML, MKL) can greatly speed up linear algebra calculations and are commonly installed on even desktop systems these days.</li>
+<li>Also, parallel processing done via something like the <code>parallel</code> package can make the elapsed time smaller than the user time. When you have multiple processors/cores/machines working in parallel, the amount of time that the collection of CPUs spends working on a problem is the same as with a single CPU, but because they are operating in parallel, there is a savings in elapsed time.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this example, the elapsed time is smaller than the user time.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The elapsed time is greater than the user time here</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> hilbert <span class="ot">&lt;-</span> <span class="cf">function</span>(n) { </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         i <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="dv">1</span> <span class="sc">/</span> <span class="fu">outer</span>(i <span class="sc">-</span> <span class="dv">1</span>, i, <span class="st">"+"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">hilbert</span>(<span class="dv">1000</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">system.time</span>(<span class="fu">svd</span>(x))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   user  system elapsed </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">11.856</span>   <span class="fl">1.072</span>   <span class="fl">2.238</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case I ran a singular value decomposition on the matrix in <code>x</code>, which is a common linear algebra procedure. Because my computer is able to split the work across multiple processors, the elapsed time is about fourth the user time.</p>
+</div>
+</div>
+</section>
+<section id="timing-longer-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="timing-longer-expressions">Timing longer expressions</h2>
+<p>You can time longer expressions by wrapping them in curly braces within the call to <code>system.time()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        r <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                r[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  0.031   0.001   0.031 </code></pre>
+</div>
+</div>
+<p>If your expression is getting pretty long (more than 2 or 3 lines), it might be better to either break it into smaller pieces <strong>or to use the profiler</strong>.</p>
+<p>The <strong>problem</strong> is that if the expression is too long, you will not be able to identify which part of the code is causing the bottleneck.</p>
+</section>
+</section>
+<section id="profiling-in-r" class="level1">
+<h1>Profiling in R</h1>
+<p>Using <code>system.time()</code> allows you to <strong>test certain functions</strong> or code blocks <strong>to see if they are taking excessive amounts of time</strong>.</p>
+<p>However, this approach <strong>assumes that you already know where the problem is</strong> and can call <code>system.time()</code> on it that piece of code.</p>
+<p>What if you don’t know where to start? This is where the profiler comes in handy.</p>
+<p>Across programming languages, the <strong>primary tool used to understand code performance</strong> is the <strong>profiler</strong>.</p>
+<p>There are a number of different types of profilers, but R uses a fairly simple type called a <strong>sampling or statistical profiler</strong>.</p>
+<ul>
+<li>A <strong>sampling profiler</strong> stops the execution of code every few milliseconds and records the call stack (i.e.&nbsp;which function is currently executing, and the function that called the function, and so on).</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s use the <code>profvis::pause()</code> function (pauses an R process for some amount of time) and consider <code>f()</code>, below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we profiled the execution of <code>f()</code>, stopping the execution of code every 0.1 s, we would see a profile like this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>"pause" "f" </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>"pause" "g" "f"</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>"pause" "h" "g" "f"</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>"pause" "h" "f"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Each line represents one “tick” of the profiler (0.1 s in this case).</p>
+<p><strong>Function calls</strong> are recorded from right to left:</p>
+<ul>
+<li>The first line shows <code>f()</code> calling <code>pause()</code>. It shows that the code spends 0.1 s running <code>f()</code>.</li>
+<li>Then 0.2 s running <code>g()</code></li>
+<li>Then 0.1 s running <code>h()</code>.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The difference between <code>profvis::pause()</code> and <code>Sys.sleep()</code> is that <code>pause</code> will show up in the profiler data (i.e.&nbsp;<code>Sys.sleep()</code> does not appear in profiling outputs because as far as R can tell, it doesn’t use up any computing time.)</p>
+</div>
+</div>
+<section id="using-rprof" class="level2">
+<h2 class="anchored" data-anchor-id="using-rprof">Using <code>Rprof()</code></h2>
+<p>In base R, the profiler is the <code>utils::Rprof()</code> function.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important things to know about profiling in base R
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>Rprof()</code> runs the profiler for performance of analysis of R code</p></li>
+<li><p><code>summaryRprof()</code> summarizes the output of <code>Rprof()</code> and gives percent of time spent in each function (with two types of normalization)</p></li>
+<li><p>Good to break your code into functions so that the profiler can give useful information about where time is being spent</p></li>
+<li><p>C or Fortran code is not profiled</p></li>
+</ul>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To use <code>Rprof()</code>, R must be compiled with profiler support (but this is usually the case).</p>
+</div>
+</div>
+<p>In conjunction with <code>Rprof()</code>, it is most typical to use the <code>summaryRprof()</code> function, which summarizes the output from <code>Rprof()</code> (otherwise it is not really readable). We will talk more about <code>summaryRprof()</code> in a bit.</p>
+<p><code>Rprof()</code> keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds.</p>
+<p>This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But if your code runs that fast, you probably do not need the profiler.</p>
+<p>The profiler is started by calling the <code>Rprof()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rprof</span>()    <span class="do">## Turn on the profiler</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You do not need any other arguments. By default, it will write its output to a file called <code>Rprof.out</code>. You can specify the name of the output file if you do not want to use this default.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pro-tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once you call the <code>Rprof()</code> function, <strong>everything that you do from then on will be measured by the profiler</strong>.</p>
+<p>Therefore, you usually only want to run a single R function or expression once you turn on the profiler and then immediately turn it off.</p>
+<p>The reason is that if you mix too many function calls together when running the profiler, all of the results will be mixed together and you will not be able to sort out where the bottlenecks are. In reality, I usually only run a single function with the profiler on.</p>
+</div>
+</div>
+<p>The profiler can be turned off by passing <code>NULL</code> to <code>Rprof()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="cn">NULL</span>)    <span class="do">## Turn off the profiler</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s recall our example with <code>f()</code>, <code>g()</code>, <code>h()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pause</span>(<span class="fl">0.1</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let profile <code>f()</code> with <code>Rprof()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Rprof</span>(tmp, <span class="at">interval =</span> <span class="fl">0.1</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="cn">NULL</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(<span class="fu">readLines</span>(tmp))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample.interval=100000</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; "pause" "g" "f" </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; "pause" "h" "g" "f" </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; "pause" "h" "f" </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>The raw output from the profiler looks something like this. Here I’m calling the <code>lm()</code> function on some data with the profiler running.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## lm(y ~ x)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sample.interval<span class="ot">=</span><span class="dv">10000</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">"list"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">"list"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="st">"list"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">"list"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span> <span class="st">"model.frame.default"</span> <span class="st">"model.frame"</span> <span class="st">"eval"</span> <span class="st">"eval"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="st">"lm.fit"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="st">"lm.fit"</span> <span class="st">"lm"</span> </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="st">"lm.fit"</span> <span class="st">"lm"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>At each line of the output, the profiler writes out the function call stack.</p>
+<p>For example, on the very first line of the output you can see that the code is 8 levels deep in the call stack. This is where you need the <code>summaryRprof()</code> function to help you interpret this data.</p>
+</section>
+<section id="using-summaryrprof" class="level2">
+<h2 class="anchored" data-anchor-id="using-summaryrprof">Using <code>summaryRprof()</code></h2>
+<p>The <code>summaryRprof()</code> function tabulates the R profiler output and calculates how much time is spent in which function. There are two methods for normalizing the data.</p>
+<ul>
+<li><p><code>"by.total"</code> divides the time spend in each function by the total run time</p></li>
+<li><p><code>"by.self"</code> does the same as “by.total” but first subtracts out time spent in functions above the current function in the call stack. I personally find this output to be much more useful.</p></li>
+</ul>
+<p>Here is what <code>summaryRprof()</code> reports in the “by.total” output.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>by.total</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                        total.time total.pct self.time self.pct</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">"lm"</span>                          <span class="fl">7.41</span>    <span class="fl">100.00</span>      <span class="fl">0.30</span>     <span class="fl">4.05</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">"lm.fit"</span>                      <span class="fl">3.50</span>     <span class="fl">47.23</span>      <span class="fl">2.99</span>    <span class="fl">40.35</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">"model.frame.default"</span>         <span class="fl">2.24</span>     <span class="fl">30.23</span>      <span class="fl">0.12</span>     <span class="fl">1.62</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">"eval"</span>                        <span class="fl">2.24</span>     <span class="fl">30.23</span>      <span class="fl">0.00</span>     <span class="fl">0.00</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">"model.frame"</span>                 <span class="fl">2.24</span>     <span class="fl">30.23</span>      <span class="fl">0.00</span>     <span class="fl">0.00</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span>                     <span class="fl">1.54</span>     <span class="fl">20.78</span>      <span class="fl">0.24</span>     <span class="fl">3.24</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit.data.frame"</span>          <span class="fl">1.30</span>     <span class="fl">17.54</span>      <span class="fl">0.49</span>     <span class="fl">6.61</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">"lapply"</span>                      <span class="fl">1.04</span>     <span class="fl">14.04</span>      <span class="fl">0.00</span>     <span class="fl">0.00</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">"[.data.frame"</span>                <span class="fl">1.03</span>     <span class="fl">13.90</span>      <span class="fl">0.79</span>    <span class="fl">10.66</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">"["</span>                           <span class="fl">1.03</span>     <span class="fl">13.90</span>      <span class="fl">0.00</span>     <span class="fl">0.00</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">"as.list.data.frame"</span>          <span class="fl">0.82</span>     <span class="fl">11.07</span>      <span class="fl">0.82</span>    <span class="fl">11.07</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">"as.list"</span>                     <span class="fl">0.82</span>     <span class="fl">11.07</span>      <span class="fl">0.00</span>     <span class="fl">0.00</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Because <code>lm()</code> is the function that I called from the command line, of course 100% of the time is spent somewhere in that function.</p>
+<p>However, what this does not show is that if <code>lm()</code> immediately calls another function (like <code>lm.fit()</code>, which does most of the heavy lifting), then in reality, <strong>most of the time is spent in that function</strong>, rather than in the top-level <code>lm()</code> function.</p>
+<p>The “by.self” output corrects for this discrepancy.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>by.self</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                        self.time self.pct total.time total.pct</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">"lm.fit"</span>                     <span class="fl">2.99</span>    <span class="fl">40.35</span>       <span class="fl">3.50</span>     <span class="fl">47.23</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">"as.list.data.frame"</span>         <span class="fl">0.82</span>    <span class="fl">11.07</span>       <span class="fl">0.82</span>     <span class="fl">11.07</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">"[.data.frame"</span>               <span class="fl">0.79</span>    <span class="fl">10.66</span>       <span class="fl">1.03</span>     <span class="fl">13.90</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">"structure"</span>                  <span class="fl">0.73</span>     <span class="fl">9.85</span>       <span class="fl">0.73</span>      <span class="fl">9.85</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit.data.frame"</span>         <span class="fl">0.49</span>     <span class="fl">6.61</span>       <span class="fl">1.30</span>     <span class="fl">17.54</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">"list"</span>                       <span class="fl">0.46</span>     <span class="fl">6.21</span>       <span class="fl">0.46</span>      <span class="fl">6.21</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="st">"lm"</span>                         <span class="fl">0.30</span>     <span class="fl">4.05</span>       <span class="fl">7.41</span>    <span class="fl">100.00</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="st">"model.matrix.default"</span>       <span class="fl">0.27</span>     <span class="fl">3.64</span>       <span class="fl">0.79</span>     <span class="fl">10.66</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="st">"na.omit"</span>                    <span class="fl">0.24</span>     <span class="fl">3.24</span>       <span class="fl">1.54</span>     <span class="fl">20.78</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="st">"as.character"</span>               <span class="fl">0.18</span>     <span class="fl">2.43</span>       <span class="fl">0.18</span>      <span class="fl">2.43</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="st">"model.frame.default"</span>        <span class="fl">0.12</span>     <span class="fl">1.62</span>       <span class="fl">2.24</span>     <span class="fl">30.23</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="st">"anyDuplicated.default"</span>      <span class="fl">0.02</span>     <span class="fl">0.27</span>       <span class="fl">0.02</span>      <span class="fl">0.27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you can see that only about 4% of the runtime is spent in the actual <code>lm()</code> function, whereas over 40% of the time is spent in <code>lm.fit()</code>. In this case, this is no surprise since the <code>lm.fit()</code> function is the function that actually fits the linear model.</p>
+<p>You can see that a reasonable amount of time is spent in functions not necessarily associated with linear modeling (i.e.&nbsp;<code>as.list.data.frame</code>, <code>[.data.frame</code>). This is because the <code>lm()</code> function does a bit of pre-processing and checking before it actually fits the model. This is common with modeling functions—the preprocessing and checking is useful to see if there are any errors. But those two functions take up over 1.5 seconds of runtime. What if you want to fit this model 10,000 times? You’re going to be spending a lot of time in preprocessing and checking.</p>
+<p>The final bit of output that <code>summaryRprof()</code> provides is the sampling interval and the total runtime.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>sample.interval</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.02</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>sampling.time</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">7.41</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualizating-output" class="level2">
+<h2 class="anchored" data-anchor-id="visualizating-output">Visualizating output</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Visualization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are interested in visualizing the output, you can check out the <code>profvis</code> package:</p>
+<ul>
+<li><a href="https://adv-r.hadley.nz/perf-measure#visualising-profiles" class="uri">https://adv-r.hadley.nz/perf-measure#visualising-profiles</a></li>
+</ul>
+</div>
+</div>
+</section>
 </section>
 <section id="post-lecture-materials" class="level1">
 <h1>Post-lecture materials</h1>
@@ -283,7 +729,7 @@ Questions
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Add here.</li>
+<li>Why is it a bad idea to use <code>system.time()</code> and <code>Rprof()</code> together?</li>
 </ol>
 </div>
 </div>
@@ -301,7 +747,8 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Add here.</li>
+<li><a href="https://adv-r.hadley.nz/perf-measure" class="uri">https://adv-r.hadley.nz/perf-measure</a></li>
+<li><a href="https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code" class="uri">https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code</a></li>
 </ul>
 </div>
 </div>
