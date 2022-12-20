@@ -2,6 +2,7 @@
   {
     "listing": "/lectures.html",
     "items": [
+      "/posts/2022-12-20-dealing-with-large-data/index.html",
       "/posts/2022-12-20-profiling-r-code/index.html",
       "/posts/2022-12-15-web-rvest/index.html",
       "/posts/2022-12-13-flexdashboard/index.html",

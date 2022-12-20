@@ -300,7 +300,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<!-- Add interesting quote -->
 <section id="pre-lecture-materials" class="level1">
 <h1>Pre-lecture materials</h1>
 <section id="acknowledgements" class="level3">
@@ -668,13 +667,13 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-12-19 21:36:57 EST"</code></pre>
+<pre><code>[1] "2022-12-20 13:12:00 EST"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(is_delayed <span class="sc">~</span> carrier <span class="sc">+</span> <span class="fu">as.factor</span>(month),</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> df_train)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-12-19 21:36:57 EST"</code></pre>
+<pre><code>[1] "2022-12-20 13:12:01 EST"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -687,43 +686,43 @@ glm(formula = is_delayed ~ carrier + as.factor(month), family = "binomial",
 
 Deviance Residuals: 
      Min        1Q    Median        3Q       Max  
--1.79269  -1.15542  -0.04267   1.14716   1.67082  
+-1.72211  -1.15578   0.02179   1.13832   1.65385  
 
 Coefficients:
                    Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)         0.01961    0.05558   0.353  0.72421    
-carrierAA          -0.26855    0.05544  -4.844 1.27e-06 ***
-carrierAS          -0.32107    0.23548  -1.363  0.17274    
-carrierB6           0.16575    0.05085   3.260  0.00111 ** 
-carrierDL          -0.23324    0.05197  -4.488 7.18e-06 ***
-carrierEV           0.35495    0.05121   6.932 4.15e-12 ***
-carrierF9           0.59946    0.22762   2.634  0.00845 ** 
-carrierFL           0.92949    0.11329   8.205 2.31e-16 ***
-carrierMQ           0.26200    0.05753   4.554 5.26e-06 ***
-carrierUA          -0.04251    0.05040  -0.843  0.39898    
-carrierUS          -0.07923    0.06119  -1.295  0.19537    
-carrierVX          -0.16343    0.09266  -1.764  0.07776 .  
-carrierWN           0.28121    0.06864   4.097 4.19e-05 ***
-carrierYV          -0.01023    0.24384  -0.042  0.96653    
-as.factor(month)2   0.02926    0.05178   0.565  0.57199    
-as.factor(month)3  -0.11474    0.04987  -2.301  0.02140 *  
-as.factor(month)4   0.11632    0.04911   2.368  0.01787 *  
-as.factor(month)5  -0.23733    0.04973  -4.773 1.82e-06 ***
-as.factor(month)6   0.13217    0.04973   2.658  0.00787 ** 
-as.factor(month)7   0.20496    0.04909   4.175 2.98e-05 ***
-as.factor(month)8  -0.11376    0.04912  -2.316  0.02055 *  
-as.factor(month)9  -0.80984    0.05294 -15.297  &lt; 2e-16 ***
-as.factor(month)10 -0.32064    0.04946  -6.482 9.03e-11 ***
-as.factor(month)11 -0.29724    0.04992  -5.954 2.61e-09 ***
-as.factor(month)12  0.43399    0.05017   8.650  &lt; 2e-16 ***
+(Intercept)        -0.03943    0.05590  -0.705 0.480531    
+carrierAA          -0.19044    0.05568  -3.421 0.000625 ***
+carrierAS          -0.57033    0.23897  -2.387 0.017005 *  
+carrierB6           0.21380    0.05088   4.202 2.65e-05 ***
+carrierDL          -0.19863    0.05190  -3.828 0.000129 ***
+carrierEV           0.45207    0.05135   8.803  &lt; 2e-16 ***
+carrierF9           0.84999    0.22875   3.716 0.000203 ***
+carrierFL           0.80119    0.11808   6.785 1.16e-11 ***
+carrierMQ           0.33279    0.05739   5.798 6.70e-09 ***
+carrierUA          -0.01874    0.05067  -0.370 0.711517    
+carrierUS          -0.06820    0.06107  -1.117 0.264083    
+carrierVX          -0.27751    0.09538  -2.909 0.003620 ** 
+carrierWN           0.22704    0.06862   3.309 0.000938 ***
+carrierYV          -0.08512    0.24135  -0.353 0.724313    
+as.factor(month)2   0.03954    0.05227   0.756 0.449411    
+as.factor(month)3  -0.11045    0.04968  -2.223 0.026194 *  
+as.factor(month)4   0.15084    0.04990   3.023 0.002505 ** 
+as.factor(month)5  -0.20930    0.04986  -4.198 2.69e-05 ***
+as.factor(month)6   0.20768    0.04985   4.166 3.10e-05 ***
+as.factor(month)7   0.22179    0.04937   4.493 7.04e-06 ***
+as.factor(month)8  -0.12508    0.04937  -2.534 0.011285 *  
+as.factor(month)9  -0.75668    0.05240 -14.440  &lt; 2e-16 ***
+as.factor(month)10 -0.31364    0.04981  -6.296 3.04e-10 ***
+as.factor(month)11 -0.23873    0.05041  -4.736 2.18e-06 ***
+as.factor(month)12  0.41482    0.05027   8.252  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 55452  on 39999  degrees of freedom
-Residual deviance: 54081  on 39975  degrees of freedom
-AIC: 54131
+Residual deviance: 54066  on 39975  degrees of freedom
+AIC: 54116
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
@@ -734,7 +733,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>auc <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(pROC<span class="sc">::</span><span class="fu">auc</span>(df_test<span class="sc">$</span>is_delayed, df_test<span class="sc">$</span>pred))</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>auc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Area under the curve: 0.6031</code></pre>
+<pre><code>Area under the curve: 0.6083</code></pre>
 </div>
 </div>
 <p>As you can see, this is not a great model, but that’s not the point here!</p>
@@ -926,10 +925,10 @@ Area under the curve: 0.6041</code></pre>
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>timing1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  1.280   0.026   1.308 </code></pre>
+  1.276   0.017   1.294 </code></pre>
 </div>
 </div>
-<p>Now that wasn’t too bad, just 1.308 seconds on my laptop.</p>
+<p>Now that wasn’t too bad, just 1.294 seconds on my laptop.</p>
 <p>But let’s see how much of a speedup we can get from chunk and pull. The conceptual change here is significant - I’m doing as much work as possible in the SQLite server now instead of locally.</p>
 <p>But using <code>dplyr</code> means that the code change is minimal. The only difference in the code is that the <code>collect()</code> call got moved down by a few lines (to below <code>ungroup()</code>).</p>
 <div class="cell">
@@ -952,10 +951,10 @@ Area under the curve: 0.6041</code></pre>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>timing2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.510   0.052   0.564 </code></pre>
+  0.507   0.044   0.551 </code></pre>
 </div>
 </div>
-<p>It might have taken you the same time to read this code as the last chunk, but this took only 0.564 seconds to run, almost an order of magnitude faster! That’s pretty good for just moving one line of code.</p>
+<p>It might have taken you the same time to read this code as the last chunk, but this took only 0.551 seconds to run, almost an order of magnitude faster! That’s pretty good for just moving one line of code.</p>
 <p>Now that we have done a speed comparison, we can create the nice plot we all came for.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="sc">%&gt;%</span></span>
