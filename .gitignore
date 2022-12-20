@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+posts/2022-12-20-profiling-r-code/*.out
 
 /.quarto/
 /_site/

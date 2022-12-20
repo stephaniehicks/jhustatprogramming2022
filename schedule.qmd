@@ -61,11 +61,12 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | |
 | **Module 5** |  | **Dealing with "big" data**  | | 
 | | | |
-| Week 9       | Dec 20  | Profiling R code  |  | 
+| Week 9       | Dec 20  | Profiling R code  \[[html](posts/2022-12-20-profiling-r-code/index.qmd)\] \[[Qmd](https://github.com/stephaniehicks/jhustatprogramming2022/blob/main/posts/2022-12-20-profiling-r-code/index.qmd)\] |  | 
 | | | Strategies for dealing with large data | | 
 | | | |
 | | Dec 22 | `r emojifont::emoji('snowflake')` Class is canceled | | 
 | | | |
 | | Dec 23  | | `r emojifont::emoji('fallen_leaf')` Project 4 due  |
 :::
+
 
