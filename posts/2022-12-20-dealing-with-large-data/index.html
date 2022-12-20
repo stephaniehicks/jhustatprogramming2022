@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -150,6 +213,8 @@ ul.task-list li input[type="checkbox"] {
                 <div class="quarto-category">module 5</div>
                 <div class="quarto-category">week 9</div>
                 <div class="quarto-category">large data</div>
+                <div class="quarto-category">programming</div>
+                <div class="quarto-category">R</div>
               </div>
                   </div>
   </div>
@@ -191,16 +256,38 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#pre-lecture-materials" id="toc-pre-lecture-materials" class="nav-link active" data-scroll-target="#pre-lecture-materials">Pre-lecture materials</a>
   <ul class="collapse">
-  <li><a href="#read-ahead" id="toc-read-ahead" class="nav-link" data-scroll-target="#read-ahead">Read ahead</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#add-lecture-here" id="toc-add-lecture-here" class="nav-link" data-scroll-target="#add-lecture-here">Add lecture here</a></li>
-  <li><a href="#post-lecture-materials" id="toc-post-lecture-materials" class="nav-link" data-scroll-target="#post-lecture-materials">Post-lecture materials</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#final-questions" id="toc-final-questions" class="nav-link" data-scroll-target="#final-questions">Final Questions</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#loading-data-into-memory" id="toc-loading-data-into-memory" class="nav-link" data-scroll-target="#loading-data-into-memory">Loading data into memory</a></li>
+  <li><a href="#memory-for-calculations" id="toc-memory-for-calculations" class="nav-link" data-scroll-target="#memory-for-calculations">Memory for calculations</a></li>
+  <li><a href="#transfer-speeds-can-be-slow" id="toc-transfer-speeds-can-be-slow" class="nav-link" data-scroll-target="#transfer-speeds-can-be-slow">Transfer speeds can be slow</a></li>
   </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#sqlite-databases" id="toc-sqlite-databases" class="nav-link" data-scroll-target="#sqlite-databases">SQLite databases</a></li>
+  </ul></li>
+  <li><a href="#sample-and-model" id="toc-sample-and-model" class="nav-link" data-scroll-target="#sample-and-model">Sample and Model</a>
+  <ul class="collapse">
+  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
+  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#chunk-and-pull" id="toc-chunk-and-pull" class="nav-link" data-scroll-target="#chunk-and-pull">Chunk and Pull</a>
+  <ul class="collapse">
+  <li><a href="#advantages-1" id="toc-advantages-1" class="nav-link" data-scroll-target="#advantages-1">Advantages</a></li>
+  <li><a href="#disadvantages-1" id="toc-disadvantages-1" class="nav-link" data-scroll-target="#disadvantages-1">Disadvantages</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#push-compute-to-data" id="toc-push-compute-to-data" class="nav-link" data-scroll-target="#push-compute-to-data">Push Compute to Data</a>
+  <ul class="collapse">
+  <li><a href="#advantages-2" id="toc-advantages-2" class="nav-link" data-scroll-target="#advantages-2">Advantages</a></li>
+  <li><a href="#disadvantages-2" id="toc-disadvantages-2" class="nav-link" data-scroll-target="#disadvantages-2">Disadvantages</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
 </nav>
@@ -216,31 +303,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- Add interesting quote -->
 <section id="pre-lecture-materials" class="level1">
 <h1>Pre-lecture materials</h1>
-<section id="read-ahead" class="level3">
-<h3 class="anchored" data-anchor-id="read-ahead">Read ahead</h3>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Read ahead
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
-<ol type="1">
-<li>Add here.</li>
-<li>Add here.</li>
-</ol>
-</div>
-</div>
-</section>
 <section id="acknowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li>Add here.</li>
+<li><a href="https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/">A great blog post from 2019 by Alex Gold from RStudio</a>.</li>
+<li><a href="https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-dealing-with-large-data" class="uri">https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-dealing-with-large-data</a></li>
 </ul>
 </section>
 </section>
@@ -258,55 +326,666 @@ Learning objectives
 <div class="callout-body-container callout-body">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Add here.</li>
+<li>Recognize different file formats to work with large data not locally</li>
+<li>Implement three ways to work with large data:
+<ol type="1">
+<li>“sample and model”</li>
+<li>“chunk and pull”</li>
+<li>“push compute to data”</li>
+</ol></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="add-lecture-here" class="level1">
-<h1>Add lecture here</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>First, we load a few R packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For most data analyses in R, data you encounter can <strong>easily be read into memory</strong> in R (either locally or on a cluster of sorts) and analyzed in a standard way.</p>
+<p>However, if you do encounter data that is too big to be read into memory, you might start to <strong>search for strategies</strong> on how to deal with this data.</p>
+<p>For most of people, it <strong>might be obvious why</strong> you would want to use R with big data, but it <strong>not obvious how</strong>.</p>
+<p>Now, you might say advances in hardware make this less and less of a problem as most laptops come with &gt;8-32Gb of memory and it is easy to get instances on cloud providers with terabytes of RAM.</p>
+<p>That’s definitely true. But there might be some problems that you will run into.</p>
+<section id="loading-data-into-memory" class="level2">
+<h2 class="anchored" data-anchor-id="loading-data-into-memory">Loading data into memory</h2>
+<p>Let’s say <strong>you are able load part of the data into the RAM</strong> on your machine (in-memory).</p>
+<p>If you had something like a zipped <code>.csv</code> file, you could always try loading just the first few lines into memory (see <code>n_max = 8</code> below) to see what is inside the files, but <strong>eventually you will likely need a different strategy</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="fu">readr_example</span>(<span class="st">"mtcars.csv.bz2"</span>), </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">skip =</span> <span class="dv">0</span>, <span class="at">n_max =</span> <span class="dv">8</span>, <span class="at">progress =</span> <span class="fu">show_progress</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 11
+    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2</code></pre>
+</div>
+</div>
 </section>
-<section id="post-lecture-materials" class="level1">
-<h1>Post-lecture materials</h1>
-<section id="final-questions" class="level3">
-<h3 class="anchored" data-anchor-id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<section id="memory-for-calculations" class="level2">
+<h2 class="anchored" data-anchor-id="memory-for-calculations">Memory for calculations</h2>
+<p>You have to keep in mind that you will need to do something with the data too (typically need 2-3 times the RAM of the size of your data).</p>
+<p>This may or may not be a problem for your hardware that you are working with.</p>
+</section>
+<section id="transfer-speeds-can-be-slow" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-speeds-can-be-slow">Transfer speeds can be slow</h2>
+<p>If you are working with data on a server that needs to be transferred somewhere to do the processing or computation once the data has been transferred.</p>
+<p>For example, the time it takes to make a call over the internet from San Francisco to New York City takes over 4 times longer than reading from a standard hard drive and over <a href="https://blog.codinghorror.com/the-infinite-space-between-words/">200 times longer than reading from a solid state hard drive</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://blog.codinghorror.com/content/images/2014/May/internet-latency-usa.png" class="img-fluid" style="width:90.0%"></p>
+</div>
+</div>
+<p>[<a href="https://blog.codinghorror.com/content/images/2014/May/internet-latency-usa.png">image source</a>]</p>
+<p>This is an especially <strong>big problem early in developing a model</strong> or performing a data analysis, when data might have to be pulled repeatedly.</p>
+<p>Today we are going to discuss some strategies (and R packages) for working with big data in R. We will also go through some examples of how to execute these strategies in R.</p>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>We will use the <a href="https://github.com/hadley/nycflights13"><code>nycflights13</code></a> data that we learned about previously.</p>
+<p>What’s in the data package?</p>
+<blockquote class="blockquote">
+<p>“This package contains information about all flights that departed from NYC (e.g.&nbsp;EWR, JFK and LGA) to destinations in the United States, Puerto Rico, and the American Virgin Islands) in 2013: 336,776 flights in total. To help understand what causes delays, it also includes a number of other useful datasets.”</p>
+</blockquote>
+<p>This package provides the following data tables.</p>
+<ul>
+<li><code>flights</code>: all flights that departed from NYC in 2013</li>
+<li><code>weather</code>: hourly meterological data for each airport</li>
+<li><code>planes</code>: construction information about each plane</li>
+<li><code>airports</code>: airport names and locations</li>
+<li><code>airlines</code>: translation between two letter carrier codes and names</li>
+</ul>
+<p>However, this time we will cache the data from the <code>nycflights13</code> package in a form we are already familiar with (SQLite databases). But there are many other data formats that you might encounter including:</p>
+<ul>
+<li><code>.sqlite</code> (SQL database). Talk more about this in a bit.</li>
+<li><code>.csv</code> (comma separated values). Good for storing rectangular data. However, can really slow to read and write, making them (often) unusable for large datasets.</li>
+<li><code>.json</code> (JavaScript object notation). Key-value pairs in a partially structured format</li>
+<li><code>.parquet</code> (Apache Parquet). Developed by Cloudera and Twitter to serve as a column-based storage format, optimized for work with multi-column datasets. Can be used for <a href="http://spark.apache.org">Spark data</a> or other tools in the Hadoop ecosystem. When you store data in parquet format, you actually get a whole directory worth of files. The data is split across multiple <code>.parquet</code> files, allowing it to be easily stored on multiple machines, and there are some metadata files too, describing the contents of each column. Can use <a href="https://spark.rstudio.com"><code>sparklyr</code></a> to import <code>.parquet</code> files</li>
+<li><code>.avro</code> (Apache Avro). Released by the Hadoop working group in 2009. It is a row-based format that is highly splittable. It is also described as a data serialization system similar to Java Serialization. The schema is stored in JSON format, while the data is stored in binary format, minimizing file size and maximizing efficiency. Can use <a href="https://cran.r-project.org/web/packages/sparkavro/index.html"><code>sparkavro</code></a> to import <code>.avro</code> files.</li>
+<li><code>.zarr</code> (Zarr). <a href="https://zarr.readthedocs.io/en/stable/">Zarr files</a> are a modern library and data format for storing chunked, compressed N-dimensional data in Python, but can work with these files using reticulate. Still very much in development though.</li>
+<li><code>.h5</code> (Hierarchical Data Format or HDF5). Mature (20 years old) library and data format which is also designed to handle chunked compressed N-dimensional data. Can use <a href="https://www.bioconductor.org/packages/rhdf5"><code>rhdf5</code></a> and <a href="https://www.bioconductor.org/packages/HDF5Array"><code>HDF5Array</code></a> to read and write <code>.h5</code> files.</li>
+</ul>
+<section id="sqlite-databases" class="level2">
+<h2 class="anchored" data-anchor-id="sqlite-databases">SQLite databases</h2>
+<p>OK so as mentioned above, let’s use the SQLite format to demonstrate the strategies for dealing with large data. However, they can easily transfer other data formats.</p>
+<p><strong>Reminder</strong>: There are several ways to <a href="https://db.rstudio.com/getting-started/database-queries/">query</a> <code>SQL</code> or <code>SQLite</code> databases in R.</p>
+<p>Ok, we will set up the SQLite database using the <code>nycflights13_sqlite()</code> function in the <code>dbplyr</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nycflights13"</span>, <span class="st">"nycflights13.sqlite"</span>))){</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nycflights13"</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  dbplyr<span class="sc">::</span><span class="fu">nycflights13_sqlite</span>(<span class="at">path=</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nycflights13"</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can check to see what file has been created</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nycflights13"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "nycflights13.sqlite"</code></pre>
+</div>
+</div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Questions
+Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Add here.</li>
-</ol>
+<p>How can we use the <code>DBI::dbConnect()</code> function with <code>RSQLite::SQLite()</code> backend to connect to the <code>SQLite</code> database?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># try it yourself </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Click here for the answer.
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"nycflights13"</span>, <span class="st">"nycflights13.sqlite"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>conn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;SQLiteConnection&gt;
+  Path: /Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/nycflights13/nycflights13.sqlite
+  Extensions: TRUE</code></pre>
 </div>
 </div>
+</details>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Next, let’s use the <code>dplyr::tbl()</code> function returns something that feels like a data frame with the <code>flights</code> dataset. Finally, show the first 10 rows of the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># try it yourself </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Click here for the answer.
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(conn, <span class="st">"flights"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [10 x 19]
+# Database: sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/nycflights13/nycflights13.sqlite]
+    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+ 1  2013     1     1      517        515       2     830     819      11 UA     
+ 2  2013     1     1      533        529       4     850     830      20 UA     
+ 3  2013     1     1      542        540       2     923     850      33 AA     
+ 4  2013     1     1      544        545      -1    1004    1022     -18 B6     
+ 5  2013     1     1      554        600      -6     812     837     -25 DL     
+ 6  2013     1     1      554        558      -4     740     728      12 UA     
+ 7  2013     1     1      555        600      -5     913     854      19 B6     
+ 8  2013     1     1      557        600      -3     709     723     -14 EV     
+ 9  2013     1     1      557        600      -3     838     846      -8 B6     
+10  2013     1     1      558        600      -2     753     745       8 AA     
+# … with 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,
+#   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+#   time_hour &lt;dbl&gt;, and abbreviated variable names ¹​sched_dep_time,
+#   ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay</code></pre>
+</div>
+</div>
+</details>
+</div>
+</div>
+<p>Before we jump into the next section, let’s save this data frame as <code>flights_df</code> and count the number of rows using <code>dplyr::tally()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>flights_df <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">tbl</span>(conn, <span class="st">"flights"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>flights_df <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [1 x 1]
+# Database: sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/nycflights13/nycflights13.sqlite]
+       n
+   &lt;int&gt;
+1 336776</code></pre>
+</div>
+</div>
+<p>Even though it only has a few hundred thousand rows, it is still useful to demonstrate some strategies for dealing with big data in R.</p>
 </section>
-<section id="additional-resources" class="level3">
-<h3 class="anchored" data-anchor-id="additional-resources">Additional Resources</h3>
+</section>
+<section id="sample-and-model" class="level1">
+<h1>Sample and Model</h1>
+<p>The first strategy is to downsample your data to a size that can be downloaded (or if already downloaded, just loaded into memory) and perform your analysis on the downsampled data. This also allows models and methods to be run in a reasonable amount of time.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/sample_model.png" class="img-fluid"></p>
+</div>
+</div>
+<p>[<a href="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/sample_model.png">image source</a>]</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>If maintaining class balance is necessary (or one class needs to be over/under-sampled), it is reasonably simple to stratify the data set during sampling.</p>
+</div>
+</div>
+<section id="advantages" class="level2">
+<h2 class="anchored" data-anchor-id="advantages">Advantages</h2>
 <ul>
-<li>Add here.</li>
+<li><strong>Speed</strong>. Relative to working on your entire data set, working on just a sample can drastically decrease run times and increase iteration speed.</li>
+<li><strong>Prototyping</strong>. Even if you will eventually have to run your model on the entire data set, this can be a good way to refine hyperparameters and do feature engineering for your model.</li>
+<li><strong>Packages</strong>. Since you are working on a regular, in-memory data set, you can use all your favorite R packages.</li>
 </ul>
-</div>
-</div>
-
-
 </section>
+<section id="disadvantages" class="level2">
+<h2 class="anchored" data-anchor-id="disadvantages">Disadvantages</h2>
+<ul>
+<li><strong>Sampling</strong>. Downsampling is not terribly difficult, but does need to be done with care to ensure that the sample is valid and that you have pulled enough points from the original data set.</li>
+<li><strong>Scaling</strong>. If you are using sample and model to prototype something that will later be run on the full data set, you will need to have a strategy (such as pushing compute to the data) for scaling your prototype version back to the full data set.</li>
+<li><strong>Totals</strong>. <a href="https://en.wikipedia.org/wiki/Business_intelligence">Business Intelligence</a> (BI) – or <em>strategies and technologies used by enterprises for the data analysis of business information</em> (e.g.&nbsp;data mining, reporting, predictive analytics, etc) – tasks frequently answer questions about totals, like the count of all sales in a month. One of the other strategies is usually a better fit in this case.</li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Let’s say we want to model whether flights will be delayed or not. We will start with some minor cleaning of the data.</p>
+<p>First, we will create a <code>is_delayed</code> column in the database:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>flights_df <span class="ot">&lt;-</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  flights_df <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">is_delayed =</span> arr_delay <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">hour =</span> sched_dep_time <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="co"># Get just hour (currently formatted so 6 pm = 1800)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove small carriers that make modeling difficult</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_delayed) <span class="sc">&amp;</span> <span class="sc">!</span>carrier <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"OO"</span>, <span class="st">"HA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here are the total number of flights that were delayed or not:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>flights_df <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(is_delayed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [2 x 2]
+# Database: sqlite 3.39.4 [/Users/stephaniehicks/Documents/github/teaching/jhustatprogramming2022/data/nycflights13/nycflights13.sqlite]
+  is_delayed      n
+       &lt;int&gt;  &lt;int&gt;
+1          0 194078
+2          1 132897</code></pre>
+</div>
+</div>
+<p>These classes are reasonably well balanced, but we going to use logistic regression, so I will load a perfectly balanced sample of 40,000 data points.</p>
+<p>For most databases, random sampling methods do not work smoothly with R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>flights_df <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `dplyr::sample_n()`:
+! `tbl` must be a data frame, not a
+  `tbl_SQLiteConnection/tbl_dbi/tbl_sql/tbl_lazy/tbl` object.</code></pre>
+</div>
+</div>
+<p>So it is not suggested to use <code>dplyr::sample_n()</code> or <code>dplyr::sample_frac()</code>. So we will have to be a little more manual.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a modeling data set </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df_mod <span class="ot">&lt;-</span> flights_df <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Within each class</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_delayed) <span class="sc">%&gt;%</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assign random rank</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">random</span>() <span class="sc">%&gt;%</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>dplyr::collect()</code> forces a computation of a database query and retrieves data into a local tibble</p>
+<p>So, here, we take the first 20K for each class for training set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_train <span class="ot">&lt;-</span> df_mod <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_delayed) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(x <span class="sc">&lt;=</span> <span class="dv">20000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Then, we take next 5K for test set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="ot">&lt;-</span> df_mod <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_delayed) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">20000</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">25000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="co"># again, this data is now loaded locally</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check I sampled right</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_train, is_delayed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+# Groups:   is_delayed [2]
+  is_delayed     n
+       &lt;int&gt; &lt;int&gt;
+1          0 20000
+2          1 20000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_test, is_delayed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+# Groups:   is_delayed [2]
+  is_delayed     n
+       &lt;int&gt; &lt;int&gt;
+1          0  5000
+2          1  5000</code></pre>
+</div>
+</div>
+<p>Now let’s build a model – let’s see if we can predict whether there will be a delay or not by the combination of the carrier, and the month of the flight.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-12-19 21:36:57 EST"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(is_delayed <span class="sc">~</span> carrier <span class="sc">+</span> <span class="fu">as.factor</span>(month),</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> df_train)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-12-19 21:36:57 EST"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = is_delayed ~ carrier + as.factor(month), family = "binomial", 
+    data = df_train)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-1.79269  -1.15542  -0.04267   1.14716   1.67082  
+
+Coefficients:
+                   Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         0.01961    0.05558   0.353  0.72421    
+carrierAA          -0.26855    0.05544  -4.844 1.27e-06 ***
+carrierAS          -0.32107    0.23548  -1.363  0.17274    
+carrierB6           0.16575    0.05085   3.260  0.00111 ** 
+carrierDL          -0.23324    0.05197  -4.488 7.18e-06 ***
+carrierEV           0.35495    0.05121   6.932 4.15e-12 ***
+carrierF9           0.59946    0.22762   2.634  0.00845 ** 
+carrierFL           0.92949    0.11329   8.205 2.31e-16 ***
+carrierMQ           0.26200    0.05753   4.554 5.26e-06 ***
+carrierUA          -0.04251    0.05040  -0.843  0.39898    
+carrierUS          -0.07923    0.06119  -1.295  0.19537    
+carrierVX          -0.16343    0.09266  -1.764  0.07776 .  
+carrierWN           0.28121    0.06864   4.097 4.19e-05 ***
+carrierYV          -0.01023    0.24384  -0.042  0.96653    
+as.factor(month)2   0.02926    0.05178   0.565  0.57199    
+as.factor(month)3  -0.11474    0.04987  -2.301  0.02140 *  
+as.factor(month)4   0.11632    0.04911   2.368  0.01787 *  
+as.factor(month)5  -0.23733    0.04973  -4.773 1.82e-06 ***
+as.factor(month)6   0.13217    0.04973   2.658  0.00787 ** 
+as.factor(month)7   0.20496    0.04909   4.175 2.98e-05 ***
+as.factor(month)8  -0.11376    0.04912  -2.316  0.02055 *  
+as.factor(month)9  -0.80984    0.05294 -15.297  &lt; 2e-16 ***
+as.factor(month)10 -0.32064    0.04946  -6.482 9.03e-11 ***
+as.factor(month)11 -0.29724    0.04992  -5.954 2.61e-09 ***
+as.factor(month)12  0.43399    0.05017   8.650  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 55452  on 39999  degrees of freedom
+Residual deviance: 54081  on 39975  degrees of freedom
+AIC: 54131
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Out-of-Sample AUROC</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod, <span class="at">newdata =</span> df_test)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>auc <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(pROC<span class="sc">::</span><span class="fu">auc</span>(df_test<span class="sc">$</span>is_delayed, df_test<span class="sc">$</span>pred))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>auc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.6031</code></pre>
+</div>
+</div>
+<p>As you can see, this is not a great model, but that’s not the point here!</p>
+<p>Instead, we showed how to build a model on a small subset of a big data set. Including sampling time, this took my laptop a second to run, making it easy to iterate quickly as I want to improve the model. After I’m happy with this model, I could pull down a larger sample or even the entire data set if it is feasible, or do something with the model from the sample.</p>
+</section>
+</section>
+<section id="chunk-and-pull" class="level1">
+<h1>Chunk and Pull</h1>
+<p>A second strategy to <strong>chunk the data into separable units</strong> and each <strong>chunk is pulled separately and operated on serially</strong>, in parallel, or after recombining.</p>
+<p>This strategy is <strong>conceptually similar</strong> to the <a href="https://en.wikipedia.org/wiki/MapReduce">MapReduce algorithm</a> – or <em>MapReduce is a framework using which we can write applications to process huge amounts of data, in parallel, on large clusters in a reliable manner</em> – <a href="https://www.tutorialspoint.com/hadoop/hadoop_mapreduce.htm">more here on MapReduce</a>.</p>
+<p>Depending on the task at hand, the chunks might be time periods, geographic units, or logical like separate businesses, departments, products, or customer segments.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/chunk_pull.png" class="img-fluid"></p>
+</div>
+</div>
+<p>[<a href="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/chunk_pull.png">image source</a>]</p>
+<section id="advantages-1" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-1">Advantages</h2>
+<ul>
+<li><strong>Full data set</strong>. The entire data set gets used.</li>
+<li><strong>Parallelization</strong>. If the chunks are run separately, the problem is easy to treat as <a href="https://en.wikipedia.org/wiki/Embarrassingly_parallel">embarassingly parallel</a> and make use of parallelization to speed runtimes.</li>
+</ul>
+</section>
+<section id="disadvantages-1" class="level2">
+<h2 class="anchored" data-anchor-id="disadvantages-1">Disadvantages</h2>
+<ul>
+<li><strong>Need Chunks</strong>. Your data needs to have separable chunks for chunk and pull to be appropriate.</li>
+<li><strong>Pull All Data</strong>. Eventually have to pull in all data, which may still be very time and memory intensive.</li>
+<li><strong>Stale Data</strong>. The data may require periodic refreshes from the database to stay up-to-date since you’re saving a version on your local machine.</li>
+</ul>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>In this case, I want to build another model of on-time arrival, but I want to do it per-carrier. This is exactly the kind of use case that is <strong>ideal for chunk and pull</strong>.</p>
+<p>I am going to separately pull the data in by carrier and run the model on each carrier’s data.</p>
+<p>I am going to start by just getting the complete list of the carriers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all unique carriers</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>carriers <span class="ot">&lt;-</span> flights_df <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(carrier) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(carrier)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>carriers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "9E" "AA" "AS" "B6" "DL" "EV" "F9" "FL" "MQ" "UA" "US" "VX" "WN" "YV"</code></pre>
+</div>
+</div>
+<p>Now, I will write a function that</p>
+<ul>
+<li>takes the name of a carrier as input</li>
+<li>pulls the data for that carrier into R</li>
+<li>splits the data into training and test</li>
+<li>trains the model</li>
+<li>outputs the out-of-sample AUROC (a common measure of model quality)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>carrier_model <span class="ot">&lt;-</span> <span class="cf">function</span>(carrier_name) {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pull a chunk of data</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  df_mod <span class="ot">&lt;-</span> flights_df <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(carrier <span class="sc">==</span> carrier_name) <span class="sc">%&gt;%</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect</span>()</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split into training and test</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  split <span class="ot">&lt;-</span> df_mod <span class="sc">%&gt;%</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    rsample<span class="sc">::</span><span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="fl">0.9</span>, <span class="at">strata =</span> <span class="st">"is_delayed"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">suppressMessages</span>()</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get training data</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  df_train <span class="ot">&lt;-</span> split <span class="sc">%&gt;%</span> </span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>                rsample<span class="sc">::</span><span class="fu">training</span>()</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Train model</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>  mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(is_delayed <span class="sc">~</span> <span class="fu">as.factor</span>(month),</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> df_train)</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get out-of-sample AUROC</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>  df_test <span class="ot">&lt;-</span> split <span class="sc">%&gt;%</span> </span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>                rsample<span class="sc">::</span><span class="fu">testing</span>()</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  df_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod, <span class="at">newdata =</span> df_test)</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>(auc <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">auc</span>(df_test<span class="sc">$</span>is_delayed <span class="sc">~</span> df_test<span class="sc">$</span>pred))</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>  auc</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, I am going to actually run the carrier model function across each of the carriers. This code runs pretty quickly, and so I do not think the overhead of parallelization would be worth it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>mods <span class="ot">&lt;-</span> <span class="fu">lapply</span>(carriers, carrier_model) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>()</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mods) <span class="ot">&lt;-</span> carriers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at the results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mods</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`9E`
+Area under the curve: 0.5711
+
+$AA
+Area under the curve: 0.5731
+
+$AS
+Area under the curve: 0.5597
+
+$B6
+Area under the curve: 0.6208
+
+$DL
+Area under the curve: 0.5817
+
+$EV
+Area under the curve: 0.588
+
+$F9
+Area under the curve: 0.5134
+
+$FL
+Area under the curve: 0.5508
+
+$MQ
+Area under the curve: 0.572
+
+$UA
+Area under the curve: 0.6046
+
+$US
+Area under the curve: 0.5811
+
+$VX
+Area under the curve: 0.67
+
+$WN
+Area under the curve: 0.5607
+
+$YV
+Area under the curve: 0.6041</code></pre>
+</div>
+</div>
+<p>So these models (again) are a little better than random chance. The point was that we utilized the chunk and pull strategy to pull the data separately by logical units and building a model on each chunk.</p>
+</section>
+</section>
+<section id="push-compute-to-data" class="level1">
+<h1>Push Compute to Data</h1>
+<p>A third strategy is push some of the computing to where the data are stored before moving a subset of the data out of wherever it is stored and into R.</p>
+<p>Imagine the data is compressed on a database somwhere. It is often possible to obtain significant speedups simply by doing summarization or filtering in the database before pulling the data into R.</p>
+<p>Sometimes, more complex operations are also possible, including computing histogram and raster maps with <a href="https://db.rstudio.com/dbplot/"><code>dbplot</code></a>, building a model with <a href="https://cran.r-project.org/web/packages/modeldb/index.html"><code>modeldb</code></a>, and generating predictions from machine learning models with <a href="https://db.rstudio.com/tidypredict/"><code>tidypredict</code></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/push_data.png" class="img-fluid"></p>
+</div>
+</div>
+<p>[<a href="https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/chunk_pull.png">image source</a>]</p>
+<section id="advantages-2" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-2">Advantages</h2>
+<ul>
+<li><strong>Use the Database</strong>. Takes advantage of what databases are often best at: quickly summarizing and filtering data based on a query.</li>
+<li><strong>More Info, Less Transfer</strong>. By compressing before pulling data back to R, the entire data set gets used, but transfer times are far less than moving the entire data set.</li>
+</ul>
+</section>
+<section id="disadvantages-2" class="level2">
+<h2 class="anchored" data-anchor-id="disadvantages-2">Disadvantages</h2>
+<ul>
+<li><strong>Database Operations</strong>. Depending on what database you are using, some operations might not be supported.</li>
+<li><strong>Database Speed</strong>. In some contexts, the limiting factor for data analysis is the speed of the database itself, and so pushing more work onto the database is the last thing analysts want to do.</li>
+</ul>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p>In this case, I am doing a pretty simple BI task - plotting the proportion of flights that are late by the hour of departure and the airline.</p>
+<p>Just by way of comparison, let’s run this first the naive way -– pulling all the data to my system and then doing my data manipulation to plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  df_plot <span class="ot">&lt;-</span> flights_df <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(carrier, sched_dep_time) <span class="sc">%&gt;%</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get proportion per carrier-time</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">delay_pct =</span> <span class="fu">mean</span>(is_delayed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change string times into actual times</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sched_dep_time =</span> </span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>                    stringr<span class="sc">::</span><span class="fu">str_pad</span>(sched_dep_time, <span class="dv">4</span>, <span class="st">"left"</span>, <span class="st">"0"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">strptime</span>(<span class="st">"%H%M"</span>) <span class="sc">%&gt;%</span>  <span class="co"># converts character class into POSIXlt class</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">as.POSIXct</span>()) <span class="co"># converts POSIXlt class to POSIXct class</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> timing1</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>timing1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  1.280   0.026   1.308 </code></pre>
+</div>
+</div>
+<p>Now that wasn’t too bad, just 1.308 seconds on my laptop.</p>
+<p>But let’s see how much of a speedup we can get from chunk and pull. The conceptual change here is significant - I’m doing as much work as possible in the SQLite server now instead of locally.</p>
+<p>But using <code>dplyr</code> means that the code change is minimal. The only difference in the code is that the <code>collect()</code> call got moved down by a few lines (to below <code>ungroup()</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  df_plot <span class="ot">&lt;-</span> flights_df <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(carrier, sched_dep_time) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get proportion per carrier-time</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">delay_pct =</span> <span class="fu">mean</span>(is_delayed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change string times into actual times</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sched_dep_time =</span> </span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>                    stringr<span class="sc">::</span><span class="fu">str_pad</span>(sched_dep_time, <span class="dv">4</span>, <span class="st">"left"</span>, <span class="st">"0"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">strptime</span>(<span class="st">"%H%M"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">as.POSIXct</span>())) <span class="ot">-&gt;</span> timing2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by "carrier". You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>timing2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  0.510   0.052   0.564 </code></pre>
+</div>
+</div>
+<p>It might have taken you the same time to read this code as the last chunk, but this took only 0.564 seconds to run, almost an order of magnitude faster! That’s pretty good for just moving one line of code.</p>
+<p>Now that we have done a speed comparison, we can create the nice plot we all came for.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">carrier =</span> <span class="fu">paste0</span>(<span class="st">"Carrier: "</span>, carrier)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sched_dep_time, <span class="at">y =</span> delay_pct)) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="st">"carrier"</span>) <span class="sc">+</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Proportion of Flights Delayed"</span>) <span class="sc">+</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Time of Day"</span>) <span class="sc">+</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_datetime</span>(<span class="at">date_breaks =</span> <span class="st">"4 hours"</span>, </span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">date_labels =</span> <span class="st">"%H"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:90.0%"></p>
+</div>
+</div>
+<p>It looks to me like flights later in the day might be a little more likely to experience delays.</p>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>There are lots of ways you can work with large data in R. A few that we learned about today include</p>
+<ul>
+<li>Sample and model</li>
+<li>Chunk and pull</li>
+<li>Push compute to data</li>
+</ul>
+<p>Hopefully this will help the next time you encounter a large dataset in R.</p>
+
+
 </section>
 
 </main> <!-- /main -->
